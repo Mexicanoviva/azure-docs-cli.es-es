@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: f5a88012b21e814262436a864b13f053d836cf07
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
+ms.openlocfilehash: 0f8e494ffdd73c666b8361488db0966af01d6876
+ms.sourcegitcommit: 66d997a5afcf32143a4d4817ec1608cbdf58a59f
 ms.translationtype: HT
 ms.contentlocale: es-ES
+ms.lasthandoff: 05/11/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introducción a la CLI de Azure 2.0
 
@@ -45,7 +46,7 @@ Ahora que tiene la CLI de Azure 2.0 está instalada, el siguiente paso será con
 
 1. Ejecute el siguiente comando desde la línea de comando.
 
-   ```azurecli
+   ```azurecli-interactive
    az login
    ```
    
@@ -65,7 +66,7 @@ En primer lugar, cree un grupo de recursos.  En Azure, los grupos de recursos pr
 
 Vamos a crear un grupo de recursos denominado "MyResourceGroup" en la región *oesteeeuu2* de Azure.  Para ello, escriba el siguiente comando:
 
-```azurecli
+```azurecli-interactive
 az group create -n MyResourceGroup -l westus2 
 ```
 
@@ -90,13 +91,13 @@ Ahora que tenemos nuestro grupo de recursos, vamos a crear una máquina virtual 
 
 Puede crear una máquina virtual Linux con la popular imagen de UbuntuTLS, con dos discos de almacenamiento conectados de 10 GB y 20 GB, con el siguiente comando:
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20
 ```
 
 Al ejecutar el comando anterior, la CLI de Azure 2.0 busca un par de claves SSH almacenadas en el directorio ~/.ssh.  Si aún no tiene un par de claves SSH almacenadas ahí, puede pedir a la CLI de Azure que lo cree automáticamente pasando el parámetro --parámetro --generate-ssh-keys:
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --generate-ssh-keys
 ```
 
@@ -117,7 +118,7 @@ El comando `az vm create` devuelve la salida una vez que la máquina virtual se 
 
 Una vez creada la máquina virtual, puede iniciar sesión en la nueva máquina virtual Linux mediante **SSH** con la dirección IP pública de la máquina virtual que ha creado:
 
-```azurecli
+```azurecli-interactive
 ssh xx.xxx.xxx.xxx
 ```
 
@@ -161,7 +162,7 @@ Azure requiere que se evite usar nombres de usuario o contraseñas que se adivin
 > [!NOTE]
 > Al ejecutar este comando, se le pedirá que escriba el nombre de usuario y la contraseña.
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyWinVM -g MyResourceGroup --image Win2016Datacenter
 ```
 
@@ -183,7 +184,7 @@ El comando `az vm create` devuelve los resultados una vez que la máquina virtua
 A continuación, inicie sesión en la máquina virtual con Windows Server recién creada mediante el Escritorio remoto y la dirección IP pública de la máquina virtual (que se devuelve en los resultados de `az vm create`).  
 Si se encuentra en un sistema basado en Windows, puede hacerlo desde la línea de comandos mediante el comando `mstsc`:
 
-```azurecli
+```azurecli-interactive
 mstsc /v:xx.xxx.xx.xxx
 ```
 
@@ -195,13 +196,13 @@ Ya se ha visto cómo se crean un grupo de recursos, una máquina virtual Linux y
 
 Todos los recursos nuevos se crean mediante un patrón de nomenclatura de `az <resource type name> create` consistente.  Por ejemplo, para crear un equilibrador de carga de red de Azure que luego se pueda asociar con las máquinas virtuales recién creadas, se puede utilizar el siguiente comando create:
 
-```azurecli
+```azurecli-interactive
 az network lb create -n MyLoadBalancer -g MyResourceGroup
 ```
 
 También se puede crear una red virtual privada nueva (que se suele denominar "Red virtual" en Azure) para nuestra infraestructura con el siguiente comando create:
 
-```azurecli
+```azurecli-interactive
 az network vnet create -n MyVirtualNetwork -g MyResourceGroup --address-prefix 10.0.0.0/16
 ```
 
@@ -209,13 +210,13 @@ Lo que hace que tanto Azure como la CLI de Azure sean muy eficaces, es que se pu
 
 Por ejemplo, la CLI de Azure se puede utilizar para crear una instancia de Azure App Service.  Azure App Service es un servicio de plataforma administrado que proporciona una manera excelente de hospedar aplicaciones web sin tener que preocuparse de la infraestructura.  Después de crear la instancia de Azure App Service, se pueden crear dos nuevas instancias de Azure Web Apps en App Service mediante los siguientes comandos create:
 
-```azurecli
+```azurecli-interactive
 # Create an Azure AppService that we can host any number of web apps within
 az appservice plan create -n MyAppServicePlan -g MyResourceGroup
 
 # Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az appservice web create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
-az appservice web create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
 ```
 
 Una vez que conozca los conceptos básicos del patrón de `az <resource type name> create`, resulta fácil crear cualquier cosa. A continuación hay varios tipos de recurso de Azure y los correspondientes comandos create de la CLI de Azure para crearlos:
@@ -231,7 +232,7 @@ Managed Disk                az disk create
 Storage account             az storage account create
 Virtual Machine Scale Set   az vmss create
 Azure Container Service     az acs create
-Web App                     az appservice web create
+Web App                     az webapp create
 SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
@@ -248,7 +249,7 @@ Si no tiene que esperar a la creación de un recurso antes de continuar, puede u
 
 Por ejemplo, el siguiente uso de `az vm create` inicia una implementación de máquina virtual y, después, volver mucho más rápidamente (y antes de que la máquina virtual se haya iniciado totalmente):
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
 ```
 
@@ -262,7 +263,7 @@ Al igual que con el comando create, los recursos se pueden enumerar mediante la 
 
 Por ejemplo, `az vm list` muestra la lista de todas las máquinas virtuales que tiene.   
 
-```azurecli
+```azurecli-interactive
 az vm list 
 ```
 Los valores que se devuelven están, de forma predeterminada, en JSON (solo que muestra el resultado parcial por motivos de brevedad).
@@ -297,7 +298,7 @@ Los valores que se devuelven están, de forma predeterminada, en JSON (solo que 
 
 Opcionalmente, puede modificar el formato de salida mediante la opción `--output`.  Ejecute el comando `az vm list` para ver las máquinas virtuales Linux y con Windows Server creadas con anterioridad, junto con las propiedades más comunes de una máquina virtual, mediante la opción de formato de *table* fácil de leer:
 
-```azurecli
+```azurecli-interactive
 az vm list --output table
 ```
 
@@ -310,7 +311,7 @@ MyWinVM    MyResourceGroup  westus2
 
 La opción de salida *tsv* se puede utilizar para obtener un formato de texto separado por tabulaciones sin encabezados.  Este formato resulta útil cuando se desea canalizar la salida a otra herramienta de texto como grep. 
 
-```azurecli
+```azurecli-interactive
 az vm list --output tsv
 ```
 
@@ -326,8 +327,9 @@ A menudo desea poder consultar solo los recursos que cumplan una condición conc
 
 El comando `list` tiene compatibilidad integrada, lo que facilita el filtro de los recursos por nombre de grupo de recursos.  Por ejemplo, puede usar un parámetro `--ResourceGroup` o `-g` con un comando `list` para recuperar solo los recursos de un grupo de recursos concreto:
 
+
 ```azurecli
-az vm list -g MyResouceGroup --output table
+az vm list -g MyResourceGroup --output table
 ```
 
 ```Output
@@ -341,7 +343,7 @@ Para que el soporte técnico de las consultas sea aún más eficaz, puede usar e
 
 Por ejemplo, ejecute el siguiente comando para consultar si algún recurso de máquina virtual de todos los grupos de recursos contiene las letras "My":
 
-```azurecli
+```azurecli-interactive
 az vm list --output table --query "[?contains(resourceGroup,'MY')]" 
 ```
 
@@ -354,7 +356,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 
 Luego, también puede refinar más el resultado mediante el uso de la funcionalidad de moldeado de las consultas JMESPath para generar valores diferentes.  Por ejemplo, el siguiente comando recupera el tipo de disco del sistema operativo que usa la máquina virtual para determinar si el sistema operativo es Linux o Windows:
 
-```azurecli
+```azurecli-interactive
 az vm list --output table --query "[?contains(resourceGroup,'MY')].{ VMName:name,OSType:storageProfile.osDisk.osType }" 
 ```
 
@@ -371,7 +373,7 @@ La compatibilidad con JMESPath de la CLI de Azure es eficaz.  Para más informac
 
 Puede usar el comando `delete` de la CLI de Azure para eliminar los recursos que no necesite. El comando `delete` se puede usar con cualquier recurso, exactamente igual que sucede con el comando `create`.
 
-```azurecli
+```azurecli-interactive
 az vm delete -n MyLinuxVM -g MyResourceGroup
 ```
 
@@ -386,7 +388,7 @@ EndTime                           Name                                  StartTim
 
 También se puede usar el comando `delete` para eliminar varios recursos a la vez. Por ejemplo, el siguiente comando elimina todos los recursos del grupo de recursos "MyResourceGroup" que hemos usado para todos los ejemplos de este tutorial de introducción.
 
-```azurecli
+```azurecli-interactive
 az group delete -n MyResourceGroup
 ```
 
@@ -406,19 +408,19 @@ Para más información acerca de las distintas formas de usar la CLI de Azure, c
 
 La CLI de Azure tiene documentación de ayuda integrada, que coincide con la documentación web que se puede ejecutar desde la línea de comandos:
 
-```azurecli
+```azurecli-interactive
 az [command-group [command]] -h
 ```
 
 Por ejemplo, para ver los comandos y subgrupos disponibles para las máquinas virtuales, use:
 
-```azurecli
+```azurecli-interactive
 az vm -h
 ```
 
 Para obtener ayuda acerca del comando para crear máquinas virtuales, use:
 
-```azurecli
+```azurecli-interactive
 az vm create -h
 ```
 
@@ -430,6 +432,6 @@ Para ayudarle a pasar de la CLI de Azure 1.0 a la 2.0, hemos iniciado esta [asig
 
 ## <a name="send-us-your-feedback"></a>Envíenos sus comentarios
 
-```azurecli
+```azurecli-interactive
 az feedback
 ```
