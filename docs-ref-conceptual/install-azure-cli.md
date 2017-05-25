@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: b7c0b7c50794333b28c034de9b41f1e506053e25
-ms.sourcegitcommit: 663d4188ccc4be425d3d551fe32613fafd05a764
+ms.openlocfilehash: 7065ed5270ef9bfc70beea81d0bc442a7b4df38c
+ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
 ms.translationtype: HT
 ms.contentlocale: es-ES
+ms.lasthandoff: 05/16/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
@@ -51,32 +52,32 @@ Para más información sobre la versión más reciente, consulte las [notas de l
 
 ## <a name="windows"></a>Windows
 
-La CLI de Azure 2.0 admite la sintaxis de los comandos de Bash, lo que hace que Bash en Ubuntu en Windows sea una manera excelente de utilizar la CLI.
-Si no utiliza Bash, puede instalar y utilizar la CLI en la línea de comandos de Windows.
+Puede instalar la CLI con el archivo MSI y utilizarla en la línea de comandos de Windows, o puede instalar la CLI con get-apt en Bash en Ubuntu en Windows.
 
-### <a name="bash-on-ubuntu-on-windows"></a>Bash en Ubuntu en Windows
+### <a name="msi-for-the-windows-command-line"></a>MSI para la línea de comandos de Windows 
+
+Para instalar la CLI en Windows y usarla en la línea de comandos de Windows, descargue y ejecute el archivo [msi](https://aka.ms/InstallAzureCliWindows).
+
+> [!NOTE]
+> Si la instalación se realiza con el archivo msi, `az component` no es compatible.
+> Para actualizar a la última CLI, ejecute [msi](https://aka.ms/InstallAzureCliWindows) de nuevo.
+> 
+> Para desinstalar la CLI, ejecute [msi](https://aka.ms/InstallAzureCliWindows) de nuevo y elija la opción de desinstalación.
+
+### <a name="apt-get-for-bash-on-ubuntu-on-windows"></a>apt-get para Bash en Ubuntu en Windows
 
 1. Si no dispone de Bash en Windows, [instálelo](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 2. Abra el shell de Bash.
 
-3. Si no dispone de Python, instálelo.
-
-   ```bash
-   sudo apt-get install python3
-   ```
-
-   > [!NOTE]
-   > Para ver si Python está instalado, ejecute `python --version`.
-
-4. Modifique la lista de orígenes.
+3. Modifique la lista de orígenes.
 
    ```bash
    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
    ```
 
-5. Ejecute los siguientes comandos sudo:
+4. Ejecute los siguientes comandos sudo:
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
@@ -89,38 +90,6 @@ Si no utiliza Bash, puede instalar y utilizar la CLI en la línea de comandos de
 > Para actualizar la CLI, vuelva a ejecutar `sudo apt-get update && sudo apt-get install azure-cli`.
 > 
 > Para desinstalarla, ejecute `sudo apt-get remove azure-cli`.
-
-### <a name="windows-command-line"></a>Línea de comandos de Windows 
-
-1. Visite el sitio de Python y [descargue Python](https://www.python.org/downloads/) para Windows.
-   Al instalar Python, asegúrese de instalar el componente de Pip.
-   Cando finalice la instalación, agregue Python a la variable de entorno PATH (el instalador se lo solicitará).
-
-2. Compruebe la instalación de Python desde un símbolo del sistema.
-
-   ```bash
-   python --version
-   ```
-
-3. Instalación de la CLI de Azure 2.0 mediante `pip`.
-
-   ```bash
-   pip install --user azure-cli
-   ```
-
-4. Agregue la carpeta que contiene el archivo az.bat a la ruta de acceso.
-   La CLI `az.bat` se puede instalar en `%USERPROFILE%\AppData\Roaming\Python\Scripts` o `%USERPROFILE%\AppData\Roaming\Python\PythonXY\Scripts`, donde `XY` es la versión de Python (por ejemplo, `%USERPROFILE%\AppData\Roaming\Python\Python27\Scripts`).
-   Agregue la carpeta que contiene `az.bat` a la ruta de acceso.
-   
-4. Ejecute la CLI de Azure 2.0 desde el símbolo del sistema con el comando `az`.
-
-> [!NOTE]
-> Si la CLI de Azure 2.0 ya estaba instalada y desea ver si tiene la versión más reciente, use `az --version` para ver qué versión tiene.
-> Compárela con la versión más reciente disponible en [https://pypi.python.org/pypi/azure-cli](https://pypi.python.org/pypi/azure-cli).
-> 
-> Para realizar la actualización a la CLI más reciente, ejecute `az component update`.
-> 
-> Para desinstalar la CLI, ejecute `pip uninstall azure-cli`.
 
 ## <a name="linux"></a>Linux
 
@@ -222,7 +191,6 @@ En los sistemas con Debian y Ubuntu, la CLI de Azure 2.0 se puede instalar a tra
    ```
 
 ## <a name="troubleshooting"></a>Solución de problemas
--------------------------------
 
 ### <a name="errors-with-curl-redirection"></a>Errores en el redireccionamiento de curl
 
@@ -241,70 +209,6 @@ bash: line 1: syntax error near unexpected token `<'
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-
-### <a name="errors-on-install-with-cffi-or-cryptography"></a>Errores en la instalación con `cffi` o criptografía
-
-Si aparecen errores al realizar la instalación en OS X, actualice `pip`.
-
-```bash
-pip install --upgrade --force-reinstall pip
-```
-
-Si se producen errores al realizar la instalación en **Debian** o **Ubuntu**, como en estos ejemplos, instale `libssl-dev` y `libffi-dev`.
-
-```bash
-sudo apt-get update
-sudo apt-get install -y libssl-dev libffi-dev
-```
-
-Instale también Python Dev como versión de Python.
-
-Python 2:
-
-```bash
-sudo apt-get install -y python-dev
-```
-
-Python 3:
-
-```bash
-sudo apt-get install -y python3-dev
-```
-
-Ubuntu 15 puede requerir `build-essential` también:
-
-```bash
-sudo apt-get install -y build-essential
-```
-
-### <a name="example-errors"></a>Ejemplos de errores
-
-```
-Downloading cffi-1.5.2.tar.gz (388kB)
-    100% |################################| 389kB 3.9MB/s
-    Complete output from command python setup.py egg_info:
-
-        No working compiler found, or bogus compiler options
-        passed to the compiler from Python's distutils module.
-        See the error messages above.
-        (If they are about -mno-fused-madd and you are on OS/X 10.8,
-        see http://stackoverflow.com/questions/22313407/ .)
-
-    ----------------------------------------
-Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-77i2fido/cffi/
-```
-
-```
-#include <openssl/e_os2.h>
-                            ^
-compilation terminated.
-error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
-
-Failed building wheel for cryptography
-```
-
-Vea la pregunta relativa a Stack Overflow - [No se pudo instalar el paquete de criptografía de Python con PIP y setup.py](http://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py)
-
 ## <a name="uninstall"></a>Desinstalación
 
 Si usó el script de https://aka.ms/InstallAzureCli para instalar la CLI, siga estos pasos para desinstalarla.
@@ -321,7 +225,7 @@ Si usó el script de https://aka.ms/InstallAzureCli para instalar la CLI, siga e
 > [!Note]
 > La ubicación de instalación predeterminada es `/Users/<username>`.
 
-Si ha usado pip, apt-get o Docker para instalar la CLI, utilice la misma herramienta para desinstalarla.
+Si ha usado apt-get, Docker o el msi para instalar la CLI, utilice la misma herramienta para desinstalarla.
 
 ## <a name="reporting-issues-and-feedback"></a>Notificación de problemas y comentarios
 
