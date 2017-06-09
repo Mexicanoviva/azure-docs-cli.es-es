@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 98fb955e-6dbf-47e2-80ac-170d6d95cb70
-ms.openlocfilehash: a28b24dd186fc567f36e52f8a0f5a7c2b0af060c
-ms.sourcegitcommit: c2d380f4ad8e7606850530db690855bcccfd6e86
+ms.openlocfilehash: 383fb6ebd90ac79f60869187b402d53d4f1791fd
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: es-ES
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>Administración de varias suscripciones de Azure
 
@@ -23,9 +24,11 @@ Si es nuevo en Azure, probablemente solo tenga una única suscripción.
 Pero si ya lleva usando Azure durante un tiempo, puede haber creado varias suscripciones de Azure.
 Si es así, puede configurar la CLI de Azure 2.0 para ejecutar comandos en una suscripción determinada.
 
+[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+
 1. Obtenga una lista de todas las suscripciones de su cuenta.
 
-   ```azurecli
+   ```azurecli-interactive
    az account list --output table
    ```
 
@@ -39,7 +42,7 @@ Si es así, puede configurar la CLI de Azure 2.0 para ejecutar comandos en una s
 
 1. Establezca el valor predeterminado.
  
-   ```azurecli
+   ```azurecli-interactive
    az account set --subscription "My Demos"
    ```
 

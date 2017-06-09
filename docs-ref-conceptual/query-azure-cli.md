@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: dcba9c5526ed56c3f20735a99e1fdcb913fc4392
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
+ms.openlocfilehash: 23c743210ccc506935f6e78489ca0df2b99d46a1
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: es-ES
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="using-jmespath-queries-with-azure-cli-20"></a>Uso de consultas JMESPath con la CLI de Azure 2.0
 
@@ -27,7 +28,7 @@ El parámetro `Query` es compatible con todos los tipos de recurso (Container Se
 
 El sencillo comando `list` con el formato de salida `table` devuelve un conjunto protegido con las propiedades más comunes y sencillas de cada tipo de recurso en un formato tabular fácil de leer.
 
-```azurecli
+```azurecli-interactive
 az vm list --out table
 ```
 
@@ -43,7 +44,7 @@ KBDemo020    RGDEMO001        westus
 
 Puede usar el parámetro `--query` para que muestre únicamente el nombre del grupo de recursos y el de la máquina virtual para todas las máquinas virtuales de su suscripción.
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query [*].[name,resourceGroup] --out table
 ```
@@ -65,7 +66,7 @@ KBDemo020   RGDEMO001
 En el ejemplo anterior, observe que los encabezados de columna son "Columna1" y "Columna2".  Puede también agregar etiquetas o nombres descriptivos a las propiedades que seleccione.  En el ejemplo siguiente, se agregaron las etiquetas "VMName" y "RGName" a las propiedades seleccionadas "name" y "resourceGroup".
 
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[].{RGName:resourceGroup, VMName:name}" --out table
 ```
@@ -88,7 +89,7 @@ RGDEMO001  KBDemo020
 
 Si la propiedad que desea seleccionar está muy anidada en la salida JSON, debe proporcionar la ruta de acceso completa a la propiedad anidada. En el ejemplo siguiente se muestra cómo seleccionar el nombre de la máquina virtual y el tipo de sistema operativo mediante el comando de lista vm.
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[].{VMName:name,OSType:storageProfile.osDisk.osType}" --out table
 ```
@@ -112,7 +113,7 @@ KBDemo020    Linux
 Puede usar la función `contains` de JMESPath para refinar los resultados devueltos en la consulta.
 En el ejemplo siguiente, el comando selecciona solo las máquinas virtuales con el texto "RGD" en su nombre.  
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[?contains(resourceGroup,'RGD')].{ resource: resourceGroup, name: name }" --out table
 ```
@@ -126,7 +127,7 @@ RGDEMO001   KBDemo020
 
 En el ejemplo siguiente, los resultados devolverán las máquinas virtuales que tengan el vmSize 'Standard_DS1'.
 
-```azurecli
+```azurecli-interactive
 az vm list \
   --query "[?contains(hardwareProfile.vmSize, 'Standard_DS1')]" --out table
 ```
@@ -147,7 +148,7 @@ DEMORG1          demovm222  e0f59516-1d69-4d54-b8a2-f6c4a5d031de  westus      Su
 
 El formato de salida `tsv` es un texto separado por tabulaciones sin encabezados. Se puede canalizar a comandos como `grep` y `cut` para analizar aún más los valores específicos de la salida `list`. En el ejemplo siguiente, el comando `grep` selecciona solo las máquinas virtuales con el texto "RGD" en su nombre.  El comando `cut` selecciona solo el valor del octavo campo (separado por tabulaciones) para mostrarlo en la salida.
 
-```azurecli
+```azurecli-interactive
 az vm list --out tsv | grep RGD | cut -f8
 ```
 

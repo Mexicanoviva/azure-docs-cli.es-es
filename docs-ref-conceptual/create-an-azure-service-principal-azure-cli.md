@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: 10a168ae0c33207905d58b7b57ac9ad76d8d9bf4
-ms.sourcegitcommit: 73a73c8a17d95b116d33eee3287d938addc5c0ac
+ms.openlocfilehash: 0ee794d5a732c6e8d2d52fca5810a874827930ae
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: es-ES
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -51,7 +52,9 @@ Estos valores identifican la aplicación al crear a una entidad de servicio.
 
 Con `az ad app list` puede obtener información de la identidad.
 
-```azurecli
+[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
+
+```azurecli-interactive
 az ad app list --display-name MyDemoWebApp
 ```
 
@@ -77,7 +80,7 @@ La opción `--display-name` filtra la lista de aplicaciones devuelta para mostra
 
 Use [az ad sp crear-de-rbac](/cli/azure/ad/sp#create-for-rbac) para crear la entidad de servicio. 
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
 ``` 
 
@@ -96,7 +99,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
 ### <a name="get-information-about-the-service-principal"></a>Obtención de información acerca de la entidad de servicio
 
-```azurecli
+```azurecli-interactive
 az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 ```
 
@@ -117,7 +120,7 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 Ya puede iniciar sesión como nuevo servidor principal de servicio en la aplicación mediante *appId* y *password* desde `az ad sp show`.  Especifique el valor *tenant* de los resultados de `az ad sp create-for-rbac`.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
 ``` 
 
@@ -158,14 +161,14 @@ El rol predeterminado de una entidad de servicio es **colaborador**. Dado su gra
 
 En este ejemplo, agregue el rol de **lector** al ejemplo anterior y elimine el de **colaborador**:
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d --role Reader
 az role assignment delete --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d --role Contributor
 ```
 
 Para comprobar los cambios, enumere los roles asignados actualmente:
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 ```
 
@@ -196,7 +199,7 @@ A nivel de seguridad se recomienda revisar los permisos y actualizar las contras
 
 Use `az ad sp reset-credentials` para restablecer la contraseña actual de la entidad de servicio.
 
-```azurecli
+```azurecli-interactive
 az ad sp reset-credentials --name 20bce7de-3cd7-49f4-ab64-bb5b443838c3 --password {new-password}
 ```
 
