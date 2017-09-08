@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 
 ms.openlocfilehash: de6a366b84efa5475fd6146ff29c32e32dfe4672
-ms.sourcegitcommit: 1791991b82e6ce8ad4a050cab1695e0c93734e08
+ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="interactive-azure-cli-20"></a>CLI de Azure 2.0 interactiva
 
 Puede usar la CLI de Azure 2.0 en modo interactivo mediante la ejecución del comando `az interactive`.
-De esta forma, se le remite a un shell interactivo donde los comandos se completan automáticamente y donde puede acceder a las descripciones de los comandos y a sus parámetros y ejemplos de comandos.
+De esta forma, se le remite a un shell interactivo donde los comandos se completan automáticamente y donde puede acceder a las descripciones de los comandos y a sus parámetros, así como a ejemplos de comandos.
 
 ![modo interactivo](./media/interactive-azure-cli/webapp-create.png)
 
@@ -98,7 +98,7 @@ az>> ? [*].provisioningState
 ]
 ```
 
-Para más información sobre cómo consultar los resultados de los comandos, vea [Resultados de comandos de consulta con Azure 2.0](query-azure-cli.md).
+Para más información sobre cómo consultar los resultados de los comandos, vea [Consulta de resultados de comandos con Azure 2.0](query-azure-cli.md).
 
 ## <a name="bash-commands"></a>Comandos de Bash
 
