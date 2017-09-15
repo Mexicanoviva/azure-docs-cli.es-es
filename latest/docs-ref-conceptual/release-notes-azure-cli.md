@@ -12,13 +12,87 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: ad30efeb7efafcc5816160ee130665d37adb62c6
+ms.sourcegitcommit: e866977985ba0286fa05f41729dd7e7d9ce86f8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="september-11-2017"></a>11 de septiembre de 2017
+
+Versión 2.0.17
+
+### <a name="core"></a>Núcleo
+
+* Se habilitó el módulo de comandos para establecer su propio identificador de correlación en telemetría.
+* Se corrigió el problema de volcado de memoria JSON cuando la telemetría se establece en modo de diagnóstico.
+
+### <a name="acs"></a>ACS
+
+* Se agregó el comando `acs list-locations`.
+* Se hizo que `ssh-key-file` vaya con el valor predeterminado esperado.
+
+### <a name="appservice"></a>Appservice
+
+* Se agregó la posibilidad de crear una aplicación web en un grupo de recursos que no sea el plan de servicio activo.
+
+### <a name="cdn"></a>CDN
+
+* Se corrigió el error 'CustomDomain is not iterable' (No se puede iterar en CustomDomain) para `cdn custom-domain create`.
+
+### <a name="extension"></a>Extensión
+
+* Versión inicial.
+
+### <a name="keyvault"></a>Keyvault
+
+* Se corrigió el problema por el que los permisos distinguían entre mayúsculas y minúsculas para `keyvault set-policy`.
+
+### <a name="network"></a>Red
+
+* Se cambió el nombre de `vnet list-private-access-services` a `vnet list-endpoint-services`.
+* Se cambió el nombre del argumento `--private-access-services` a `--service-endpoints` para `vnet subnet create/update`.
+* Se agregó compatibilidad para varios intervalos de direcciones IP y puertos a `nsg rule create/update`.
+* Se agregó compatibilidad para SKU a `lb create`.
+* Se agregó compatibilidad para SKU a `public-ip create`.
+
+### <a name="resource"></a>Recurso
+
+* Se permite pasar las definiciones de parámetro de directiva de recursos en `policy definition create` y `policy definition update`.
+* Se permite pasar valores de parámetro para `policy assignment create`.
+* Se permite pasar código JSON o archivo para todos los parámetros.
+* Versión de API incrementada
+
+### <a name="sql"></a>SQL
+
+* Se agregaron los comandos `sql server vnet-rule`.
+
+### <a name="vm"></a>máquina virtual
+
+* Corregido: No asignar acceso a menos que se proporcione `--scope`.
+* Corregido: Usar para las extensiones la misma nomenclatura que el portal.
+* Se quitó `subscription` de la salida `[vm|vmss] create`.
+* Corregido: La SKU de almacenamiento `[vm|vmss] create` no se aplica en los discos de datos con una imagen.
+* Corregido: `vm format-secret --secrets` no aceptaba identificadores separados en distintas líneas.
+
+## <a name="august-31-2017"></a>31 de agosto de 2017
+
+Versión 2.0.16
+
+### <a name="keyvault"></a>Keyvault
+
+* Se corrigió el error que se producía al intentar resolver automáticamente la codificación del secreto con `secret download`.
+
+### <a name="sf"></a>Sf
+
+* Se dejan de usar todos los comandos en favor de la CLI de Service Fabric (sfctl).
+
+### <a name="storage"></a>Storage
+
+* Se corrigió un problema por el que no se podían crear cuentas de almacenamiento en regiones que no admitieran la característica NetworkACLs.
+* Determinación del tipo de contenido y la codificación del contenido durante la carga de blobs y archivos si no se especifican ni el tipo de contenido ni la codificación del contenido.
 
 ## <a name="august-28-2017"></a>28 de agosto de 2017
 
