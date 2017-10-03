@@ -14,14 +14,14 @@
           href: create-an-azure-service-principal-azure-cli.md
     - name: Modo interactivo
       href: interactive-azure-cli.md
-    - name: Implementación
+    - name: Plantillas de implementación
       items:
-        - name: Con plantillas
+        - name: Uso de plantillas de implementación
           href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Exportar plantillas
+        - name: Exportación de plantillas de implementación
           href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Con plantillas privadas
-          href: /azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Implementación con plantillas privadas
+          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Formatos de salida
       href: format-output-azure-cli.md
     - name: Consultar
