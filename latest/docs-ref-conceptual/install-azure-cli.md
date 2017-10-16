@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
-ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
+ms.openlocfilehash: 1b47bd5603f5214dd11d772caaebe8cf380df5c0
+ms.sourcegitcommit: 5e862fd0a93cf668fa76a74ae1c7505d3c8c45f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
@@ -104,7 +104,10 @@ Para instalar la CLI en Windows y usarla en la línea de comandos de Windows, de
 
 ## <a name="install-on-debianubuntu-with-apt-get"></a>Instalación en Debian/Ubuntu con apt-get
 
-En los sistemas con Debian y Ubuntu, la CLI de Azure 2.0 se puede instalar a través de `apt-get`.
+Para distribuciones que usan el administrador de paquetes `apt`, puede instalar la CLI de Azure 2.0 a través de `apt-get`.
+
+> [!NOTE]
+> La distribución debe ser compatible con Python 2.7.x o Python 3.x para poder usar la CLI.
 
 1. Modifique la lista de orígenes:
  
@@ -134,7 +137,10 @@ En los sistemas con Debian y Ubuntu, la CLI de Azure 2.0 se puede instalar a tra
 
 ## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>Instalación en RHEL, Fedora y CentOS con yum
 
-Para las distribuciones basadas en RedHat que contengan el administrador de paquetes de `yum`, puede instalar la CLI de Azure 2.0 mediante `yum`.
+Para distribuciones que usan el administrador de paquetes `yum`, puede instalar la CLI de Azure 2.0 a través de `yum`.
+
+> [!NOTE]
+> La distribución debe ser compatible con Python 2.7.x o Python 3.x para poder usar la CLI.
 
 1. Importe la clave del repositorio de Microsoft:
 
@@ -158,6 +164,11 @@ Para las distribuciones basadas en RedHat que contengan el administrador de paqu
 4. Ejecute la CLI desde el símbolo del sistema con el comando `az`.
 
 ## <a name="install-on-opensuse-and-sle-with-zypper"></a>Instalación en openSUSE y SLE con zypper
+
+Para distribuciones que usan el administrador de paquetes `zypper`, puede instalar la CLI de Azure 2.0 a través de `zypper`.
+
+> [!NOTE]
+> La distribución debe ser compatible con Python 2.7.x o Python 3.x para poder usar la CLI.
 
 1. Importe la clave del repositorio de Microsoft:
 
@@ -201,9 +212,9 @@ La CLI se instala en la imagen como el comando `az` en `/usr/local/bin`.
 > docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
-## <a name="a-namelinuxinstall-on-linux-without-apt-get"></a><a name="Linux"/>Instalación en Linux sin apt-get
+## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><a name="Linux"/>Instalación en Linux sin un administrador de paquetes
 
-Se recomienda instalar la CLI con un administrador de paquetes si es posible. En el caso de las distribuciones que no tienen un administrador de paquetes, puede instalarla manualmente.
+Se recomienda instalar la CLI con un administrador de paquetes si es posible. Si no desea agregar repositorios de Microsoft, o si está trabajando con una distribución para la que no se ha proporcionado ningún paquete, puede instalar manualmente la CLI.
 
 1. Instale los requisitos previos en función de la distribución de Linux.
 
@@ -219,7 +230,7 @@ Se recomienda instalar la CLI con un administrador de paquetes si es posible. En
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-Si la distribución no está indicada anteriormente, debe instalar [Python](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) y [OpenSSL](https://www.openssl.org/source/).
+Si la distribución no está indicada anteriormente, debe instalar [Python 2.7 o posterior](https://www.python.org/downloads/), [libffi](https://sourceware.org/libffi/) y [OpenSSL](https://www.openssl.org/source/).
 
 2. Instalación de la CLI con `curl`.
 
@@ -420,6 +431,12 @@ Si usó el script de https://aka.ms/InstallAzureCli para instalar la CLI, siga e
    ```
 
 2. Elimine la línea `<install location>/lib/azure-cli/az.completion` de `<install location>/.bash_profile`.
+
+3. Si el shell utiliza una caché de comandos, vuelva a cargarlo.
+
+   ```bash
+   hash -r
+   ```
 
 > [!Note]
 > La ubicación de instalación predeterminada es `/Users/<username>`.

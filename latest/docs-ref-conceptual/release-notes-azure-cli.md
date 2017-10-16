@@ -12,13 +12,71 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
-ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
+ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
+ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="october-9-2017"></a>9 de octubre de 2017
+
+Versión 2.0.19
+
+### <a name="core"></a>Núcleo
+
+* Se ha agregado el control de las direcciones URL de la autoridad de ADFS con una barra oblicua final para Azure Stack
+
+### <a name="appservice"></a>Appservice
+
+* Se ha agregado una actualización genérica con el nuevo comando `webapp update`
+
+### <a name="batch"></a>Batch
+
+* Se ha actualizado a la versión SDK de Batch 4.0.0
+* Se ha actualizado la opción `--image` de VirtualMachineConfiguration para que sea compatible con las referencias de las imágenes de ARM y con publish:offer:sku:version
+* Se ha agregado compatibilidad con el nuevo modelo de extensión de la CLI para los comandos de extensiones de Batch
+* Se ha eliminado la compatibilidad con Batch del modelo de componente
+
+### <a name="batchai"></a>Batchai
+
+* Versión inicial del módulo de inteligencia artificial de Batch
+
+### <a name="keyvault"></a>Keyvault
+
+* Se ha corregido el problema de autenticación de Key Vault cuando se usa ADFS en Azure Stack. [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+
+### <a name="network"></a>Red
+
+* Se ha cambiado el argumento `--server` de `application-gateway address-pool create` para que sea opcional, lo cual permite los grupos de direcciones vacíos
+* Se ha actualizado `traffic-manager` para que sea compatible con las características más recientes
+
+### <a name="resource"></a>Recurso
+
+* Se ha agregado a `group` compatibilidad con las opciones `--resource-group/-g` para el nombre de grupo de recurso
+* Se han agregado comandos para que `account lock` funcione con los bloqueos en el nivel de suscripción
+* Se han agregado comandos para que `group lock` funcione con los bloqueos en el nivel de grupo
+* Se han agregado comandos para que `resource lock` funcione con los bloqueos en el nivel de recurso
+
+### <a name="sql"></a>Sql
+
+* Se ha agregado compatibilidad con el Cifrado de datos transparente (TDE) de SQL y TDE con Bring Your Own Key
+* Se ha agregado el comando `db list-deleted` y el parámetro `db restore --deleted-time` que permiten la posibilidad de buscar y restaurar bases de datos eliminadas
+* Se han agregado las opciones `db op list` y `db op cancel` que permiten la posibilidad de enumerar y cancelar operaciones en curso en la base de datos
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado compatibilidad con instantáneas de recursos compartidos de archivos
+
+### <a name="vm"></a>Vm
+
+* Se ha corregido un error en `vm show` por el que al usar `-d` se producía un bloqueo en las direcciones IP privadas que faltan
+* [VERSIÓN PRELIMINAR] Se ha agregado compatibilidad con la actualización gradual a `vmss create`
+* Se ha agregado compatibilidad para actualizar la configuración de cifrado con `vm encryption enable`
+* Se ha agregado el parámetro `--os-disk-size-gb` a `vm create`
+* Se ha agregado el parámetro `--license-type` para que Windows pueda ejecutar `vmss create`
+
 
 ## <a name="september-22-2017"></a>22 de septiembre de 2017
 
