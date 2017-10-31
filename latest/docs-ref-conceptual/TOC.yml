@@ -3,7 +3,7 @@
   items:
     - name: Instalación
       href: install-azure-cli.md
-    - name: Primeros pasos
+    - name: Introducción
       href: get-started-with-azure-cli.md
     - name: Cloud Shell
       href: /azure/cloud-shell/overview
@@ -12,6 +12,12 @@
       items:
         - name: Creación de una entidad de servicio
           href: create-an-azure-service-principal-azure-cli.md
+        - name: Uso de identidades de servicio administradas
+          items:
+            - name: Configuración de MSI para una máquina virtual de Azure
+              href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+            - name: Inicio de sesión en una máquina virtual de Azure mediante MSI
+              href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Modo interactivo
       href: interactive-azure-cli.md
     - name: Plantillas de implementación
