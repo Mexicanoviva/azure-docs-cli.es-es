@@ -34,6 +34,8 @@
       href: query-azure-cli.md
     - name: Suscripciones
       href: manage-azure-subscriptions-azure-cli.md
+    - name: Extensiones
+      href: azure-cli-extensions.md
     - name: Notas de la versión
       href: release-notes-azure-cli.md
 - name: Scripts de ejemplo
