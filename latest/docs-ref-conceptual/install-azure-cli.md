@@ -5,18 +5,18 @@ keywords: CLI de Azure, instalar la CLI de Azure, CLI de Azure para Python, refe
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 08/17/2017
+ms.date: 11/01/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 4703a192e23b04d0ad42daf60e415d798610cce0
-ms.sourcegitcommit: 932cc86172ab55c00346f62504787c096ed7b2bd
+ms.openlocfilehash: 2b56382355cad5313a604ed1f493a2bcbebf3e27
+ms.sourcegitcommit: e9b4c6dd9093980b69ca47f93f44ac54d0e5b68a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
@@ -102,12 +102,12 @@ Para instalar la CLI en Windows y usarla en la línea de comandos de Windows, de
 
 5.  Ejecute la CLI desde el símbolo del sistema con el comando `az`.
 
-## <a name="install-on-debianubuntu-with-apt-get"></a>Instalación en Debian/Ubuntu con apt-get
+## <a name="install-with-apt-package-manager"></a>Instalación con el administrador de paquetes apt 
 
-Para distribuciones que usan el administrador de paquetes `apt`, puede instalar la CLI de Azure 2.0 a través de `apt-get`.
+Para distribuciones que usan el administrador de paquetes `apt` como Ubuntu o Debian, puede instalar la CLI de Azure 2.0 a través de `apt-get`.
 
 > [!NOTE]
-> La distribución debe ser compatible con Python 2.7.x o Python 3.x para poder usar la CLI.
+> Debe tener Python 2.7.x o Python 3.x para poder usar la CLI. Si la distribución no tiene uno de los dos paquetes, [instale Python](https://www.python.org/downloads/).
 
 1. Modifique la lista de orígenes:
  
@@ -135,12 +135,12 @@ Para distribuciones que usan el administrador de paquetes `apt`, puede instalar 
 
 3.  Ejecute la CLI desde el símbolo del sistema con el comando `az`.
 
-## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>Instalación en RHEL, Fedora y CentOS con yum
+## <a name="install-with-yum-package-manager"></a>Instalación con el administrador de paquetes yum
 
-Para distribuciones que usan el administrador de paquetes `yum`, puede instalar la CLI de Azure 2.0 a través de `yum`.
+Para las distribuciones que utilizan el administrador de paquetes `yum` como Red Hat Enterprise Linux (RHEL), Fedora o CentOS, puede instalar la CLI de Azure 2.0 a través de `yum`.
 
 > [!NOTE]
-> La distribución debe ser compatible con Python 2.7.x o Python 3.x para poder usar la CLI.
+> Debe tener Python 2.7.x o Python 3.x para poder usar la CLI. Si la distribución no tiene uno de los dos paquetes, [instale Python](https://www.python.org/downloads/).
 
 1. Importe la clave del repositorio de Microsoft:
 
@@ -163,12 +163,12 @@ Para distribuciones que usan el administrador de paquetes `yum`, puede instalar 
 
 4. Ejecute la CLI desde el símbolo del sistema con el comando `az`.
 
-## <a name="install-on-opensuse-and-sle-with-zypper"></a>Instalación en openSUSE y SLE con zypper
+## <a name="install-with-zypper-package-manager"></a>Instalación con el administrador de paquetes zypper
 
-Para distribuciones que usan el administrador de paquetes `zypper`, puede instalar la CLI de Azure 2.0 a través de `zypper`.
+Para distribuciones que usan el administrador de paquetes `zypper` como OpenSUSE o SLE, puede instalar la CLI de Azure 2.0 a través de `zypper`.
 
 > [!NOTE]
-> La distribución debe ser compatible con Python 2.7.x o Python 3.x para poder usar la CLI.
+> Debe tener Python 2.7.x o Python 3.x para poder usar la CLI. Si la distribución no tiene uno de los dos paquetes, [instale Python](https://www.python.org/downloads/).
 
 1. Importe la clave del repositorio de Microsoft:
 
@@ -266,7 +266,7 @@ Debe borrar la caché de hash de comandos del shell. Ejecute
 hash -r
 ```
 
-y compruebe si el problema se resuelve.
+y compruebe si el problema se resuelve. El comando también podría no estar en su variable `$PATH`. Asegúrese de que `<install path>/bin` aparece en la variable `$PATH` y reinicie el shell si es necesario.
 
 ## <a name="uninstall-cli-1x-versions"></a>Desinstalación de las versiones 1.x de la CLI
 
@@ -316,7 +316,7 @@ Para actualizar la CLI de Azure, use el mismo método que usó para su instalaci
 
 Ejecute de nuevo el [instalador de la CLI de Azure (MSI)](https://aka.ms/InstallAzureCliWindows).
 
-### <a name="update-with-apt-get"></a>Actualización con apt-get
+### <a name="update-with-apt"></a>Actualización con apt
 
 Para actualizar el paquete de la CLI, use `apt-get upgrade`.
 
@@ -330,6 +330,24 @@ Para actualizar el paquete de la CLI, use `apt-get upgrade`.
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
+
+### <a name="update-with-yum"></a>Actualización con yum
+
+Actualice la CLI de Azure con el comando `yum update`.
+
+```bash
+yum check-update
+sudo yum update azure-cli
+```
+
+### <a name="update-with-zypper"></a>Actualización con zypper
+
+Puede actualizar el paquete con el comando `zypper update`.
+
+```bash
+sudo zypper refresh
+sudo zypper update azure-cli
+```
 
 ### <a name="update-with-docker"></a>Actualización con Docker
 
@@ -381,12 +399,54 @@ Desinstale el paquete `azure-cli`.
 
 Ejecute [MSI](https://aka.ms/InstallAzureCliWindows) de nuevo y elija la opción de desinstalación.
 
-### <a name="uninstall-with-apt-get"></a>Desinstalación con apt-get
+### <a name="uninstall-with-apt"></a>Desinstalación con apt
 
 Desinstalación mediante `apt-get remove`:
 
   ```bash
   sudo apt-get remove -y azure-cli
+  ```
+
+### <a name="uninstall-with-yum"></a>Desinstalación con yum
+
+1. Elimine el paquete de su equipo.
+
+   ```bash
+   sudo yum remove azure-cli
+   ```
+
+2. Si no piensa volver a instalar la CLI, elimine la información del repositorio.
+
+   ```bash
+   sudo rm /etc/yum.repos.d/azure-cli.repo
+   ```
+
+3. Si ha eliminado la información del repositorio, elimine también la clave de la firma GPG de Microsoft.
+
+  ```bash
+  MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
+  rpm -e --allmatches gpg-pubkey-$MSFT_KEY
+  ```
+
+### <a name="uninstall-with-zypper"></a>Desinstalación con zypper
+
+1. Elimine el paquete de su equipo.
+
+    ```bash
+    sudo zypper remove -y azure-cli
+    ```
+
+2. Si no piensa volver a instalar la CLI, elimine la información del repositorio.
+
+  ```bash
+  sudo rm /etc/zypp/repos.d/azure-cli.repo
+  ```
+
+3. Si ha eliminado la información del repositorio, elimine también la clave de la firma GPG de Microsoft.
+
+  ```bash
+  MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
+  rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
 
 ### <a name="uninstall-with-docker"></a>Desinstalación con Docker
