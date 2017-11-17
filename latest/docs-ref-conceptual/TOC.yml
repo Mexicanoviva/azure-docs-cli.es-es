@@ -1,0 +1,58 @@
+- name: CLI de Azure 2.0
+  href: overview.md
+  items:
+    - name: Instalación
+      href: install-azure-cli.md
+    - name: Introducción
+      href: get-started-with-azure-cli.md
+    - name: Cloud Shell
+      href: /azure/cloud-shell/overview
+    - name: Registro
+      href: authenticate-azure-cli.md
+      items:
+        - name: Creación de una entidad de servicio
+          href: create-an-azure-service-principal-azure-cli.md
+        - name: Uso de identidades de servicio administradas
+          items:
+            - name: Configuración de MSI para una máquina virtual de Azure
+              href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+            - name: Inicio de sesión en una máquina virtual de Azure mediante MSI
+              href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Modo interactivo
+      href: interactive-azure-cli.md
+    - name: Plantillas de implementación
+      items:
+        - name: Uso de plantillas de implementación
+          href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Exportación de plantillas de implementación
+          href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Implementación con plantillas privadas
+          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Formatos de salida
+      href: format-output-azure-cli.md
+    - name: Consultar
+      href: query-azure-cli.md
+    - name: Suscripciones
+      href: manage-azure-subscriptions-azure-cli.md
+    - name: Extensiones
+      href: azure-cli-extensions.md
+    - name: Notas de la versión
+      href: release-notes-azure-cli.md
+- name: Scripts de ejemplo
+  items:
+    - name: Máquinas virtuales con Linux
+      href: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Máquinas virtuales Windows
+      href: /azure/virtual-machines/windows/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Web Apps
+      href: /azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Functions
+      href: /azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: SQL Database
+      href: /azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: PostgreSQL
+      href: /azure/postgresql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: MySQL
+      href: /azure/mysql/sample-scripts-azure-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Cosmos DB
+      href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
