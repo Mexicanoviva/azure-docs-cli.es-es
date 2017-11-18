@@ -5,18 +5,18 @@ keywords: CLI de Azure 2.0, Azure Active Directory, Azure Active directory, AD, 
 author: rloutlaw
 ms.author: routlaw
 manager: douge
-ms.date: 02/27/2017
+ms.date: 10/12/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: f37df762a9a605ea649b215f38f2e9866614f4ac
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
+ms.sourcegitcommit: e8fe15e4f7725302939d726c75ba0fb3cad430be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -29,9 +29,9 @@ En este tema le ayudará a crear a una entidad de seguridad con la CLI de Azure 
 
 ## <a name="what-is-a-service-principal"></a>¿Qué es una "entidad de servicio"?
 
-Una entidad de servicio de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización creadas por el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (inicio de sesión y una contraseña o certificado) con un rol específico y permisos estrechamente controlados para acceder a los recursos. A diferencia de una identidad de usuario general, solo necesita poder realizar acciones específicas. Mejora la seguridad si solo se le concede el nivel de permiso mínimo necesario para realizan sus tareas de administración. 
+Una entidad de servicio de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización creadas por el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (inicio de sesión y una contraseña o certificado) con un rol específico y permisos estrechamente controlados para acceder a los recursos. A diferencia de una identidad de usuario general, solo necesita poder realizar acciones específicas. Mejora la seguridad si solo se le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración. 
 
-En la actualidad, la CLI de Azure 2.0 solo admite la creación de credenciales de autenticación basados en contraseña. En este tema, se explica cómo crear una entidad de servicio con una contraseña concreta y cómo asignarle roles concretos.
+La CLI de Azure 2.0 admite la creación de credenciales de autenticación basadas en contraseña y de credenciales de certificado. En este tema, trataremos ambos tipos de credenciales.
 
 ## <a name="verify-your-own-permission-level"></a>Comprobación del nivel de permiso
 
@@ -76,9 +76,9 @@ az ad app list --display-name MyDemoWebApp
 
 La opción `--display-name` filtra la lista de aplicaciones devuelta para mostrar las que tengan `displayName`, a partir de MyDemoWebApp.
 
-### <a name="create-the-service-principal"></a>Creación de la entidad de servicio
+### <a name="create-a-service-principal-with-a-password"></a>Creación de una entidad de servicio con contraseña
 
-Use [az ad sp crear-de-rbac](/cli/azure/ad/sp#create-for-rbac) para crear la entidad de servicio. 
+Utilice [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) y el parámetro `--password` para crear la entidad de servicio con una contraseña. Cuando no se proporciona un rol o un ámbito, el valor predeterminado es el rol de **Colaborador** de la suscripción actual. Si crea una entidad de servicio sin utilizar el parámetro `--password` o el parámetro `--cert`, se utiliza la autenticación de contraseña y se genera una contraseña automáticamente.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
@@ -96,6 +96,29 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
  > [!WARNING] 
  > No cree una contraseña que no sea segura.  Siga la guía de las [restricciones y reglas de contraseña de Azure AD](/azure/active-directory/active-directory-passwords-policy).
+
+### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>Creación de una entidad de servicio con un certificado autofirmado
+
+Utilice [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) y el parámetro `--create-cert` para crear un certificado autofirmado.
+
+```azurecli-interactive
+az ad sp create-for-rbac --name {appId} --create-cert
+```
+
+```json
+{
+  "appId": "c495db57-82e0-4e2e-9369-069dff176858",
+  "displayName": "azure-cli-2017-10-12-22-15-38",
+  "fileWithCertAndPrivateKey": "<path>/<file-name>.pem",
+  "name": "http://MyDemoWebApp",
+  "password": null,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+```
+
+Copie el valor de la respuesta `fileWithCertAndPrivateKey`. Este es el archivo de certificado que se usará para la autenticación.
+
+Para más opciones cuando se usan certificados, consulte [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac).
 
 ### <a name="get-information-about-the-service-principal"></a>Obtención de información acerca de la entidad de servicio
 
@@ -118,10 +141,10 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 ### <a name="sign-in-using-the-service-principal"></a>Inicio de sesión mediante la entidad de servicio
 
-Ya puede iniciar sesión como nuevo servidor principal de servicio en la aplicación mediante *appId* y *password* desde `az ad sp show`.  Especifique el valor *tenant* de los resultados de `az ad sp create-for-rbac`.
+Ahora puede iniciar sesión como la nueva entidad de servicio para la aplicación mediante el *appId* obtenido de `az ad sp show` y la *contraseña* o la ruta de acceso al certificado creado.  Especifique el valor *tenant* de los resultados de `az ad sp create-for-rbac`.
 
 ```azurecli-interactive
-az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
+az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
 ``` 
 
 Si ha iniciado sesión correctamente, verá este resultado:

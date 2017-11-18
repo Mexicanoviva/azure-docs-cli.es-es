@@ -3,7 +3,7 @@
   items:
     - name: Instalación
       href: install-azure-cli.md
-    - name: Primeros pasos
+    - name: Introducción
       href: get-started-with-azure-cli.md
     - name: Cloud Shell
       href: /azure/cloud-shell/overview
@@ -12,22 +12,30 @@
       items:
         - name: Creación de una entidad de servicio
           href: create-an-azure-service-principal-azure-cli.md
+        - name: Uso de identidades de servicio administradas
+          items:
+            - name: Configuración de MSI para una máquina virtual de Azure
+              href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+            - name: Inicio de sesión en una máquina virtual de Azure mediante MSI
+              href: /azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Modo interactivo
       href: interactive-azure-cli.md
-    - name: Implementación
+    - name: Plantillas de implementación
       items:
-        - name: Con plantillas
+        - name: Uso de plantillas de implementación
           href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Exportar plantillas
+        - name: Exportación de plantillas de implementación
           href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: Con plantillas privadas
-          href: /azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Implementación con plantillas privadas
+          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Formatos de salida
       href: format-output-azure-cli.md
     - name: Consultar
       href: query-azure-cli.md
     - name: Suscripciones
       href: manage-azure-subscriptions-azure-cli.md
+    - name: Extensiones
+      href: azure-cli-extensions.md
     - name: Notas de la versión
       href: release-notes-azure-cli.md
 - name: Scripts de ejemplo

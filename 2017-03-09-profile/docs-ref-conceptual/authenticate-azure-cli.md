@@ -12,15 +12,17 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 4ab4f0de38614eff00f55bad96ea886bb007f3c0
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 3ba1dd840102c738ccd9eb62a0b9db612cec48d1
+ms.sourcegitcommit: 5cfbea569fef193044da712708bc6957d3fb557c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
-Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador o en la línea de comandos. El enfoque recomendado consiste en usar entidades de servicio que proporcionan una manera de crear cuentas no interactivas que puede usar para manipular recursos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros.
+Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador o en la línea de comandos. El enfoque recomendado consiste en usar entidades de servicio que proporcionan una manera de crear cuentas no interactivas que puede usar para manipular recursos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros. 
+
+Ninguna información de credenciales privada se almacena localmente. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de inicio de sesión local es válido hasta que transcurren 14 días sin ser usado. En ese momento, debe volver a autenticarse.
 
 Los comandos que se ejecutan con la CLI se ejecutan de manera predeterminada en su suscripción.  Si tiene más de una suscripción, puede que desee [confirmar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md) y cambiarla según resulte adecuado.
 

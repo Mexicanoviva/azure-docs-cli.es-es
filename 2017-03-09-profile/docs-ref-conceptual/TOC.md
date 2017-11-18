@@ -4,11 +4,14 @@
 ## [Cloud Shell](/azure/cloud-shell/overview)
 ## [Inicio de sesión](authenticate-azure-cli.md)
 ### [Creación de una entidad de servicio](create-an-azure-service-principal-azure-cli.md)
+### Uso de identidades de servicio administradas
+#### [Configuración de MSI para una máquina virtual de Azure](/azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+#### [Inicio de sesión en una máquina virtual de Azure mediante MSI](/azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [Modo interactivo](interactive-azure-cli.md)
-## Implementación
-### [Con plantillas](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-### [Exportación de plantillas](/azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-### [Con plantillas privadas](/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+## Plantillas de implementación
+### [Uso de plantillas de implementación](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+### [Exportación de plantillas de implementación](/azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+### [Implementación de plantillas privadas](/azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [Formatos de salida](format-output-azure-cli.md)
 ## [Consultar](query-azure-cli.md)
 ## [Suscripciones](manage-azure-subscriptions-azure-cli.md)
