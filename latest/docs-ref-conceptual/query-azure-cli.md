@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: e0eee9eb9e0a9f136ff076d064ce802f76bc8e3d
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 8ab4a5e38f06199c5f044b8526c581828ba61927
+ms.sourcegitcommit: 0149f195a0d9f0ea9b7ff5c6e00ad4242223a1a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="using-jmespath-queries-with-azure-cli-20"></a>Uso de consultas JMESPath con la CLI de Azure 2.0
 
@@ -46,7 +46,7 @@ Puede usar el parámetro `--query` para que muestre únicamente el nombre del gr
 
 ```azurecli-interactive
 az vm list \
-  --query [*].[name,resourceGroup] --out table
+  --query [*].[name, resourceGroup] --out table
 ```
 
 ```
@@ -91,7 +91,7 @@ Si la propiedad que desea seleccionar está muy anidada en la salida JSON, debe 
 
 ```azurecli-interactive
 az vm list \
-  --query "[].{VMName:name,OSType:storageProfile.osDisk.osType}" --out table
+  --query "[].{VMName:name, OSType:storageProfile.osDisk.osType}" --out table
 ```
 
 ```
@@ -115,7 +115,7 @@ En el ejemplo siguiente, el comando selecciona solo las máquinas virtuales con 
 
 ```azurecli-interactive
 az vm list \
-  --query "[?contains(resourceGroup,'RGD')].{ resource: resourceGroup, name: name }" --out table
+  --query "[?contains(resourceGroup, 'RGD')].{ resource: resourceGroup, name: name }" --out table
 ```
 
 ```
