@@ -3,52 +3,56 @@ title: "Administración de suscripciones de Azure con la CLI de Azure 2.0"
 description: "Administración de suscripciones de Azure con la CLI de Azure 2.0 en Linux, Mac o Windows."
 keywords: "CLI de Azure 2.0, Linux, Mac, Windows, OS X, suscripción"
 author: kamaljit
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+ms.author: sttramer
+manager: routlaw
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 98fb955e-6dbf-47e2-80ac-170d6d95cb70
-ms.openlocfilehash: 383fb6ebd90ac79f60869187b402d53d4f1791fd
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: b4544d75aa279b5477f8497257d39182472fae71
+ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>Administración de varias suscripciones de Azure
 
-Si es nuevo en Azure, probablemente solo tenga una única suscripción.
-Pero si ya lleva usando Azure durante un tiempo, puede haber creado varias suscripciones de Azure.
-Si es así, puede configurar la CLI de Azure 2.0 para ejecutar comandos en una suscripción determinada.
+La mayoría de los usuarios de Azure solo tendrán una suscripción. Sin embargo, si forma parte de varias organizaciones o su organización ha dividido el acceso a determinados recursos mediante agrupaciones, habrá varias suscripciones dentro de Azure. Las distintas suscripciones se pueden administrar fácilmente con la CLI y, para realizar las operaciones, solo tiene que seleccionar una suscripción.
+
+## <a name="tenants-users-and-subscriptions"></a>Inquilinos, usuarios y suscripciones
+
+Quizás no tenga muy clara la diferencia entre los inquilinos, los usuarios y las suscripciones de Azure. Por lo general, un _inquilino_ es la entidad de Azure Active Directory que abarca toda la organización. Este inquilino tiene al menos una _suscripción_ y un _usuario_. Un usuario es un individuo que está asociado a un único inquilino, la organización a la que pertenece. Los usuarios son las cuentas que inician sesión en Azure para aprovisionar y usar los recursos. Un usuario puede tener acceso a varias _suscripciones_, que son los acuerdos con Microsoft para usar los servicios en la nube, incluido Azure. Cada recurso está asociado a una suscripción.
+
+Para más información sobre las diferencias entre inquilinos, usuarios y suscripciones, vea el [diccionario de terminología de la nube de Azure](/azure/azure-glossary-cloud-terminology).
+Para más información sobre cómo agregar una nueva suscripción a su inquilino de Azure Active Directory, consulte [Adición de una suscripción de Azure a Azure Active Directory](/en-us/azure/active-directory/active-directory-how-subscriptions-associated-directory).
+
+## <a name="working-with-multiple-subscriptions"></a>Trabajo con varias suscripciones
+
+Para acceder a los recursos dentro de una suscripción, debe cambiar la suscripción activa. Todo el trabajo con las suscripciones se realiza mediante el comando `az account`, que hace referencia al acuerdo de servicio que representa una suscripción, y no la cuenta individual.
 
 [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
 
-1. Obtenga una lista de todas las suscripciones de su cuenta.
+Para empezar a trabajar con las suscripciones disponibles, obtenga una lista de las suscripciones disponibles en su cuenta:
 
-   ```azurecli-interactive
-   az account list --output table
-   ```
+```azurecli-interactive
+az account list --output table
+```
 
-   ```Output
-   Name                                         CloudName    SubscriptionId                        State     IsDefault
-   -------------------------------------------  -----------  ------------------------------------  --------  -----------
-   My Production Subscription                   AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
-   My DevTest Subscription                      AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled   True
-   My Demos                                     AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
-   ```
+```Output
+Name                                         CloudName    SubscriptionId                        State     IsDefault
+-------------------------------------------  -----------  ------------------------------------  --------  -----------
+My Production Subscription                   AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
+My DevTest Subscription                      AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled   True
+My Demos                                     AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
+```
 
-1. Establezca el valor predeterminado.
- 
-   ```azurecli-interactive
-   az account set --subscription "My Demos"
-   ```
+Para cambiar la suscripción activa, puede utilizar `az account set`:
 
-   > [!NOTE]
-   > El parámetro `--subscription` toma el nombre o el identificador de la suscripción.
+```azurecli-interactive
+az account set --subscription "My Demos"
+```
 
-Puede comprobar el cambio ejecutando el comando `az account list --output table` de nuevo.
-
-Cuando esté establecida la suscripción predeterminada, todos los comandos de la CLI de Azure subsiguientes se ejecutarán en esta suscripción.
+Para seleccionar la suscripción, puede usar el nombre o el identificador de la suscripción.

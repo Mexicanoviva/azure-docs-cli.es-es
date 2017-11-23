@@ -1,22 +1,22 @@
 ---
 title: "Inicio de sesión con la CLI de Azure 2.0"
 description: "Inicie sesión con la CLI de Azure 2.0 en Linux, Mac o Windows."
-keywords: CLI de Azure 2.0, Linux, Mac, Windows, OS X, Ubuntu, Debian, CentOS, RHEL, SUSE, CoreOS, Docker, Windows, Python, PIP
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+keywords: "CLI de Azure 2.0, inicio de sesión, CLI de Azure, autenticación, autorizar, iniciar sesión"
+author: sptramer
+ms.author: stttramer
+manager: routlaw
+ms.date: 11/13/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 3ba1dd840102c738ccd9eb62a0b9db612cec48d1
-ms.sourcegitcommit: 5cfbea569fef193044da712708bc6957d3fb557c
+ms.openlocfilehash: dd05868f7378673836f47e743ed4088f2efd3dca
+ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
@@ -24,7 +24,7 @@ Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La man
 
 Ninguna información de credenciales privada se almacena localmente. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de inicio de sesión local es válido hasta que transcurren 14 días sin ser usado. En ese momento, debe volver a autenticarse.
 
-Los comandos que se ejecutan con la CLI se ejecutan de manera predeterminada en su suscripción.  Si tiene más de una suscripción, puede que desee [confirmar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md) y cambiarla según resulte adecuado.
+Después de iniciar sesión, los comandos de la CLI se ejecutan con su suscripción predeterminada. Si tiene más de una suscripción, quizás desee [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
 
 ## <a name="interactive-log-in"></a>Inicio de sesión interactivo
 
@@ -46,35 +46,18 @@ az login -u <username> -p <password>
 ## <a name="logging-in-with-a-service-principal"></a>Inicio de sesión con una entidad de servicio
 
 Las entidades de servicio son parecidas a las cuentas de usuario a las que puede aplicar reglas con Azure Active Directory.
-La autenticación con una entidad de servicio es la mejor manera de proteger el uso de los recursos de Azure de sus scripts o aplicaciones que manipulan recursos.
-Defina los roles que desea que los usuarios tengan mediante el conjunto de comandos `az role`.
-Puede obtener más información y ejemplos de roles de entidad de servicio en nuestros [artículos de referencia de roles az](https://docs.microsoft.com/cli/azure/role.md).
+La autenticación con una entidad de servicio es la mejor manera de proteger el uso de los recursos de Azure de sus scripts o aplicaciones que manipulan recursos. Si aún no tiene una entidad de servicio disponible y le gustaría crear una, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
 
-1. Si aún no tiene una entidad de servicio, [cree una](create-an-azure-service-principal-azure-cli.md).
+Para iniciar sesión con una entidad de servicio, proporcione el nombre de usuario, la contraseña o el archivo de certificado PEM y el inquilino asociado a la entidad de servicio:
 
-1. Inicie sesión con la entidad de servicio.
+```azurecli-interactive
+az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
+```
 
-   ```azurecli-interactive
-   az login --service-principal -u "http://my-app" -p <password> --tenant <tenant>
-   ```
+El valor del inquilino es el inquilino de Azure Active Directory asociado a la entidad de servicio. Puede ser un dominio .onmicrosoft.com o el identificador de objeto de Azure del inquilino.
+Para obtener el identificador de objeto de inquilino del inicio de sesión actual, use este comando:
 
-   Para obtener el inquilino, inicie sesión de forma interactiva y, a continuación, obtenga el valor de TenantId de su suscripción.
+```azurecli
+az account show --query 'tenanatId' -o tsv
+```
 
-   ```azurecli
-   az account show
-   ```
-
-   ```json
-   {
-       "environmentName": "AzureCloud",
-       "id": "********-****-****-****-************",
-       "isDefault": true,
-       "name": "Pay-As-You-Go",
-       "state": "Enabled",
-       "tenantId": "********-****-****-****-************",
-       "user": {
-       "name": "********",
-       "type": "user"
-       }
-   }
-   ```

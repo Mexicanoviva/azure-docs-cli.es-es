@@ -12,13 +12,119 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
-ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
+ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
+ms.sourcegitcommit: bb649ebd7e7fce8fb5008ac1e2e2c33481a45df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="november-14-2017"></a>14 de noviembre de 2017
+
+Versión 2.0.21
+
+### <a name="acr"></a>ACR
+
+* Se agregó compatibilidad para crear webhooks en regiones de replicación
+
+
+### <a name="acs"></a>ACS
+
+* Se cambió el texto de "agente" a "nodo" en AKS
+* Opción `--orchestrator-release` en desuso para `acs create`
+* Se cambió el tamaño de máquina virtual predeterminado para AKS a `Standard_D1_v2`
+* Se corrigió `az aks browse` en Windows
+* Se corrigió `az aks get-credentials` en Windows
+
+### <a name="appservice"></a>Appservice
+
+* Se agregó el origen de implementación `config-zip` para aplicaciones móviles y aplicaciones de función
+* Se agregó la opción `--docker-container-logging` a `az webapp log config`
+* Se quitó la opción `storage` del parámetro `--web-server-logging` de `az webapp log config`
+* Se mejoraron los mensajes de error de `deployment user set`
+* Se agregó compatibilidad para crear aplicaciones de función Linux
+* `list-locations` fija
+
+### <a name="batch"></a>Batch
+
+* Se corrigió el error en el comando de creación de grupos cuando se usaba un identificador de recurso con la marca `--image`
+
+### <a name="batchai"></a>Batchai
+
+* Se agregó la opción corta `-s` para `--vm-size` al proporcionar el tamaño de la máquina virtual en el comando `file-server create`
+* Se agregó el nombre de la cuenta de almacenamiento y los argumentos de la clave a los parámetros de `cluster create`
+* Se corrigió la documentación de `job list-files` y `job stream-file`
+* Se agregó la opción corta `-r` para `--cluster-name` al proporcionar el nombre de clúster en el comando `job create`
+
+### <a name="cloud"></a>Nube
+
+* Se cambió `cloud [register|update]` para impedir el registro de nubes que no tienen los puntos de conexión necesarios
+
+### <a name="container"></a>Contenedor
+
+* Se agregó compatibilidad para abrir varios puertos
+* Se agregó la directiva de reinicio de grupo de contenedores
+* Se agregó compatibilidad para montar un recurso compartido de Azure File como un volumen
+* Se actualizaron los documentos auxiliares
+
+### <a name="data-lake-analytics"></a>Data Lake Analytics
+
+* Se cambió `[job|account] list` para devolver información más concisa
+
+### <a name="data-lake-store"></a>Data Lake Store
+
+* Se cambió `account list` para devolver información más concisa
+
+### <a name="extension"></a>Extensión
+
+* Se agregó `extension list-available` para permitir que se muestre extensiones oficiales de Microsoft
+* Se agregó `--name` a `extension [add|update]` para permitir la instalación de extensiones por nombre
+
+### <a name="iot"></a>IoT
+
+* Se agregó compatibilidad para entidades de certificación (CA) y cadenas de certificados
+
+### <a name="monitor"></a>Supervisión
+
+* Se agregaron los comandos `activity-log alert`.
+
+### <a name="network"></a>Red
+
+* Se agregó compatibilidad para los registros DNS CAA
+* Se corrigió un problema por el que los puntos de conexión no se podían actualizar con `traffic-manager profile update`
+* Se corrigió un problema por el que `vnet update --dns-servers` no funcionaba según cómo se creara la red virtual
+* Se corrigió un problema por el que `dns zone import` no importaba correctamente los nombres DNS relativos
+
+### <a name="reservations"></a>Reservations
+
+* Versión preliminar inicial
+
+### <a name="resource"></a>Recurso
+
+* Se agregó compatibilidad para los identificadores de recursos al parámetro `--resource` y bloqueos en el nivel de recurso
+
+### <a name="sql"></a>SQL
+
+* Se ha agregado el parámetro `--ignore-missing-vnet-service-endpoint` a `sql server vnet-rule [create|update]`
+
+### <a name="storage"></a>Storage
+
+* Se cambió `storage account create` para usar la SKU `Standard_RAGRS` como valor predeterminado
+* Se corrigieron los errores cuando se trabajaba con nombres de archivo/blob que incluían caracteres no ascii
+* Se corrigió un error que impedía el uso de `--source-uri` con `storage [blob|file] copy start-batch`
+* Se agregaron comandos para eliminar varios objetos mediante el uso de caracteres comodín con `storage [blob|file] delete-batch`
+* Se corrigió un problema al habilitar las métricas con `storage metrics update`
+* Se corrigió un problema con los archivos de más de 200 GB cuando se usa `storage blob upload-batch`
+* Se corrigió un problema por el que `storage account [create|update]` ignoraba `--bypass` y `--default-action`
+
+### <a name="vm"></a>máquina virtual
+
+* Se corrigió un error de `vmss create` que impedía usar el nivel de tamaños `Basic`
+* Se agregaron argumentos `--plan` a `[vm|vmss] create` para las imágenes personalizadas con información de facturación
+* Se agregaron los comandos `vm secret `[add|remove|list]'
+* Se cambió el nombre de `vm format-secret` a `vm secret format`.
+* Se agregó el argumento `--encrypt format` a `vm encryption enable`
 
 ## <a name="october-24-2017"></a>24 de octubre de 2017
 
@@ -848,7 +954,7 @@ vm (2.0.6)
 * Agregar los comandos az sql server list-usages y az sql db list-usages
 * SQL: capacidad de conectarse directamente al proveedor de recursos ([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
 * Ubicación predeterminada del grupo de recursos para `storage account create`
 * Agregar compatibilidad para la copia de blob incremental
@@ -956,7 +1062,7 @@ La disponibilidad general se aplica a estos módulos de comandos:
 - Container Service (acs)
 - Compute (incluidos Resource Manager, VM, conjuntos de escalado de máquinas virtuales, Managed Disks)
 - Redes
-- Almacenamiento
+- Storage
 
 Estos módulos de comandos se pueden usar en producción y son compatibles con los Acuerdos de Nivel de Servicio de Microsoft.
 Puede abrir problemas directamente en el soporte técnico de Microsoft o en nuestras [listas de problemas de GitHub](https://github.com/azure/azure-cli/issues/).
