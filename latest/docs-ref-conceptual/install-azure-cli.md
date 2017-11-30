@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 2b56382355cad5313a604ed1f493a2bcbebf3e27
-ms.sourcegitcommit: e9b4c6dd9093980b69ca47f93f44ac54d0e5b68a
+ms.openlocfilehash: 22c92aae5b836599d2f29b9f03fbf88c0ca6c2b8
+ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
@@ -499,7 +499,7 @@ Si usó el script de https://aka.ms/InstallAzureCli para instalar la CLI, siga e
    ```
 
 > [!Note]
-> La ubicación de instalación predeterminada es `/Users/<username>`.
+> La ubicación de instalación predeterminada es `/Users/<username>` para macOS y `/home/<username>` para Linux.
 
 ## <a name="report-cli-issues-and-feedback"></a>Notificación de problemas y comentarios sobre la CLI
 
