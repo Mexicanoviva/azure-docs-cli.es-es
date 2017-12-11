@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: ea0c785e56427190973887426188db76e6888062
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 7d9c503c4e66f07795d5fec99c206fe7d3afb6a7
+ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
@@ -38,5 +38,5 @@ Para Linux, hay otros métodos de instalación diferentes según el administrado
 * [Instalación manual en Linux](install-azure-cli-linux.md)
 
 > [!NOTE]
-> Si necesita la versión anterior de la CLI de Azure, vea aquí cómo [instalar la CLI de Azure 1.0](/azure/cli-install-nodejs).
+> Si está usando el modelo de Azure Service Management (ASM), [instale la CLI de Azure 1.0](/azure/cli-install-nodejs).
 
