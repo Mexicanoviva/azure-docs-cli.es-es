@@ -12,20 +12,19 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: de695454c6f3109679b9eb9f6c0d77348d354518
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: f0d5effcd8315094b30050a35119e41eddf89961
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20-with-yum"></a>Instalación de la CLI de Azure 2.0 con yum
 
 Si está ejecutando una distribución que viene con `yum`, como RHEL, Fedora o CentOS, hay un paquete disponible para la CLI de Azure que se puede instalar en el sistema.
 
-> [!NOTE]
-> Debe tener Python 2.7.x o Python 3.x para poder usar la CLI. Si la distribución no tiene uno de los dos paquetes, [instale Python](https://www.python.org/downloads/).
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-## <a name="install"></a>Instalación 
+## <a name="install"></a>Instalación
 
 1. Importe la clave del repositorio de Microsoft:
 

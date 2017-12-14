@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: cb470d179daf7cb4ecf535903adb12071602034e
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 0eb07d2919f6e640e1d594db9e18f9ada4d9f59f
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Administración de varias nubes con la CLI de Azure 2.0
 
@@ -86,7 +86,7 @@ az cloud set --name AzureChinaCloud
 
 ## <a name="register-a-cloud"></a>Registro de una nube
 
-Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [cloud register](/cli/azure/cloud#register). Este comando requiere un nombre y un conjunto de funcionalidades con puntos de conexión asociados. Para más información sobre cómo registrar una nube para su uso con Azure Stack, consulte [Instalación y configuración de la CLI para su uso con Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack).  
+Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [cloud register](/cli/azure/cloud#register). Este comando requiere un nombre y un conjunto de funcionalidades con puntos de conexión asociados. Para más información sobre cómo registrar una nube para su uso con Azure Stack, consulte [Instalación y configuración de la CLI para su uso con Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack).
 
 No es necesario registrar su propia nube para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft las administra y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register).
 

@@ -12,15 +12,15 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: dd05868f7378673836f47e743ed4088f2efd3dca
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 0a8ec3541783ae19961f2acf1192c0ee061a465f
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
-Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador o en la línea de comandos. El enfoque recomendado consiste en usar entidades de servicio que proporcionan una manera de crear cuentas no interactivas que puede usar para manipular recursos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros. 
+Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador o en la línea de comandos. El enfoque recomendado consiste en usar entidades de servicio que proporcionan una manera de crear cuentas no interactivas que puede usar para manipular recursos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros.
 
 Ninguna información de credenciales privada se almacena localmente. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de inicio de sesión local es válido hasta que transcurren 14 días sin ser usado. En ese momento, debe volver a autenticarse.
 
@@ -58,6 +58,6 @@ El valor del inquilino es el inquilino de Azure Active Directory asociado a la e
 Para obtener el identificador de objeto de inquilino del inicio de sesión actual, use este comando:
 
 ```azurecli
-az account show --query 'tenanatId' -o tsv
+az account show --query 'tenantId' -o tsv
 ```
 

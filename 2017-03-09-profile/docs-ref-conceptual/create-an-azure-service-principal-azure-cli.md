@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
-ms.sourcegitcommit: 0149f195a0d9f0ea9b7ff5c6e00ad4242223a1a8
+ms.openlocfilehash: 9c2b693c356be78893d0893221d99a23beb5f38b
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -29,13 +29,13 @@ En este tema le ayudará a crear a una entidad de seguridad con la CLI de Azure 
 
 ## <a name="what-is-a-service-principal"></a>¿Qué es una "entidad de servicio"?
 
-Una entidad de servicio de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización creadas por el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (inicio de sesión y una contraseña o certificado) con un rol específico y permisos estrechamente controlados para acceder a los recursos. A diferencia de una identidad de usuario general, solo necesita poder realizar acciones específicas. Mejora la seguridad si solo se le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración. 
+Una entidad de servicio de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización creadas por el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (inicio de sesión y una contraseña o certificado) con un rol específico y permisos estrechamente controlados para acceder a los recursos. A diferencia de una identidad de usuario general, solo necesita poder realizar acciones específicas. Mejora la seguridad si solo se le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración.
 
 La CLI de Azure 2.0 admite la creación de credenciales de autenticación basadas en contraseña y de credenciales de certificado. En este tema, trataremos ambos tipos de credenciales.
 
 ## <a name="verify-your-own-permission-level"></a>Comprobación del nivel de permiso
 
-En primer lugar, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Active Directory y asignar un rol a la entidad de servicio. 
+En primer lugar, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Active Directory y asignar un rol a la entidad de servicio.
 
 El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte [Comprobación de los permisos necesarios en el portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
 
@@ -81,8 +81,8 @@ La opción `--display-name` filtra la lista de aplicaciones devuelta para mostra
 Utilice [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) y el parámetro `--password` para crear la entidad de servicio con una contraseña. Cuando no se proporciona un rol o un ámbito, el valor predeterminado es el rol de **Colaborador** de la suscripción actual. Si crea una entidad de servicio sin utilizar el parámetro `--password` o el parámetro `--cert`, se utiliza la autenticación de contraseña y se genera una contraseña automáticamente.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name {appId} --password "{strong password}" 
-``` 
+az ad sp create-for-rbac --name {appId} --password "{strong password}"
+```
 
 ```json
 {
@@ -94,7 +94,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 }
 ```
 
- > [!WARNING] 
+ > [!WARNING]
  > No cree una contraseña que no sea segura.  Siga la guía de las [restricciones y reglas de contraseña de Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
 ### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>Creación de una entidad de servicio con un certificado autofirmado
@@ -145,7 +145,7 @@ Ahora puede iniciar sesión como la nueva entidad de servicio para la aplicació
 
 ```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
-``` 
+```
 
 Si ha iniciado sesión correctamente, verá este resultado:
 
@@ -165,9 +165,9 @@ Si ha iniciado sesión correctamente, verá este resultado:
 ]
 ```
 
-Use los valores `id`, `password`, y `tenant` valores como credenciales para ejecutar la aplicación. 
+Use los valores `id`, `password`, y `tenant` valores como credenciales para ejecutar la aplicación.
 
-## <a name="managing-roles"></a>Administración de roles 
+## <a name="managing-roles"></a>Administración de roles
 
 > [!NOTE]
 > El control de acceso basado en roles (RBAC) de Azure es un modelo para definir y administrar roles tanto para usuario como para las entidades de servicio.
@@ -210,10 +210,10 @@ az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error.
 > El mensaje indica que la cuenta no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}".
-   
+
 ## <a name="change-the-credentials-of-a-security-principal"></a>Cambio de las credenciales de una entidad de seguridad
 
 A nivel de seguridad se recomienda revisar los permisos y actualizar las contraseñas periódicamente. Si lo desea, también puede administrar y modificar las credenciales de seguridad cuando la aplicación cambie.

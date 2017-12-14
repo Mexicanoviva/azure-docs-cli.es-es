@@ -12,15 +12,15 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 74bdb727-481d-45f7-a44e-15d18dc55483
-ms.openlocfilehash: d1440cc1e99ccddb18d23306cc0fcdb4b8babf14
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 3e99c2533031dc063a50996f26712d4df92f65c9
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Formatos de salida de los comandos de la CLI de Azure 2.0
 
-La CLI de Azure 2.0 usa json como su opción de salida predeterminada, pero ofrece varias formas de dar formato a la salida de cualquier comando.  Use el parámetro `--output` (o `--out` o `-o`) para dar formato a la salida del comando con uno de los tipos de salida que se indican en la tabla siguiente. 
+La CLI de Azure 2.0 usa json como su opción de salida predeterminada, pero ofrece varias formas de dar formato a la salida de cualquier comando.  Use el parámetro `--output` (o `--out` o `-o`) para dar formato a la salida del comando con uno de los tipos de salida que se indican en la tabla siguiente.
 
 --output | Descripción
 ---------|-------------------------------
@@ -65,10 +65,10 @@ Los resultados están en este formulario (solo se muestran resultados parciales 
     },
           ...
           ...
-          ...   
+          ...
 ]
 ```
- 
+
 ## <a name="using-the-table-option"></a>Uso de la opción de tabla
 
 La opción de tabla proporciona una forma sencilla de leer un conjunto de salidas, pero tenga en cuenta que los objetos anidados no se incluyen en la salida con el sencillo comando `--output table`, a diferencia del anterior ejemplo .json.  El uso del mismo ejemplo con formato de salida 'table' proporciona una lista protegida de los valores de propiedad más comunes.
@@ -132,7 +132,7 @@ KBDemo020
 
 ## <a name="setting-the-default-output-format"></a>Establecimiento del formato de salida predeterminado
 
-Puede usar el comando `az configure` para configurar el entorno o establecer preferencias como la configuración predeterminada de los formatos de salida. Para un uso común, el valor predeterminado del formato de salida más fácil es el formato "table". Seleccione **3** cuando se le soliciten las opciones de formato de salida. 
+Puede usar el comando `az configure` para configurar el entorno o establecer preferencias como la configuración predeterminada de los formatos de salida. Para un uso común, el valor predeterminado del formato de salida más fácil es el formato "table". Seleccione **3** cuando se le soliciten las opciones de formato de salida.
 
 ```
 What default output format would you like?
@@ -140,5 +140,5 @@ What default output format would you like?
  [2] jsonc - Colored JSON formatted output that most closely matches API responses
  [3] table - Human-readable output format
  [4] tsv - Tab and Newline delimited, great for GREP, AWK, etc.
-Please enter a choice [3]: 
+Please enter a choice [3]:
 ```
