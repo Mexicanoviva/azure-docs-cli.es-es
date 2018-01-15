@@ -12,10 +12,10 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.openlocfilehash: a76e58c4430a184d133cca0ef0623f325aeb2f27
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Uso de extensiones con la CLI de Azure 2.0
 
@@ -69,7 +69,7 @@ rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 
 Se recomienda realizar la desinstalación con `az extension remove`.
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 A continuación encontrará respuestas a otras preguntas comunes acerca de las extensiones de la CLI.
 
@@ -87,8 +87,8 @@ Una extensión debe indicar si se encuentra en versión preliminar en su propia 
 
 ### <a name="can-extensions-depend-upon-each-other"></a>¿Las extensiones pueden depender entre sí?
 
-No. Las extensiones deben ser paquetes individuales que no confían entre sí. Esto es porque la CLI no ofrece ninguna garantía sobre cuándo se cargan las extensiones, por lo que no se puede garantizar que las dependencias se cumplan. La instalación de una extensión instala solo esa extensión y debe continuar funcionando aunque elimine otras extensiones.
+Nº Las extensiones deben ser paquetes individuales que no confían entre sí. Esto es porque la CLI no ofrece ninguna garantía sobre cuándo se cargan las extensiones, por lo que no se puede garantizar que las dependencias se cumplan. La instalación de una extensión instala solo esa extensión y debe continuar funcionando aunque elimine otras extensiones.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>¿Las extensiones se actualizan junto con la CLI?
 
-No. Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualización de extensiones](#updating-extensions).
+Nº Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualización de extensiones](#updating-extensions).
