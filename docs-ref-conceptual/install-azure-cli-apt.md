@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 75c531a13a4b730158cd2e874cb6c5d581a27598
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: 65e8e78275b0f40a2298934fe8bc9368bbf796a7
+ms.sourcegitcommit: 59f0b667f2202bae8914e6fc8dc5c9dc79fef91c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
@@ -51,6 +51,24 @@ Si está ejecutando una distribución que incluye `apt`, como Ubuntu o Debian, h
    ```
 
 Puede ejecutar la CLI de Azure con el comando `az`.
+
+## <a name="troubleshooting"></a>solución de problemas
+
+### <a name="apt-key-fails-with-no-dirmngr"></a>Se produce un error en el comando apt-key con "No dirmngr"
+
+Cuando se ejecuta el comando `apt-key`, verá una salida similar al siguiente error.
+
+```output
+gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or directory
+gpg: connecting dirmngr at '/tmp/apt-key-gpghome.kt5zo27tp1/S.dirmngr' failed: No such file or directory
+gpg: keyserver receive failed: No dirmngr
+```
+
+Esto es debido a que falta un componente que necesita `apt-key`. Puede resolver este problema mediante la instalación del paquete `dirmngr`.
+
+```bash
+sudo apt-get install dirmngr
+```
 
 ## <a name="update"></a>Actualizar
 
