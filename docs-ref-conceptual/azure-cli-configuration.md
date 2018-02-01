@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 71d9f57846cb83591ca5e3d338735b3c525987af
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: d60ede5b971ee2489482fb5a72bde9bf5389d37c
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Configuración de la CLI de Azure 2.0
 
@@ -30,7 +30,7 @@ Los valores de configuración usados por la CLI se evalúan según la siguiente 
 ## <a name="cli-configuration-with-az-configure"></a>Configuración de la CLI con az configure
 
 Los valores predeterminados para la CLI se establecen con el comando [az configure](/cli/azure/?view=azure-cli-latest#az_configure).
-Este comando toma un argumento, `--defaults`, que es una lista de pares `key=value` separada por espacios. La CLI utiliza los valores proporcionados en lugar de los argumentos necesarios. 
+Este comando toma un argumento, `--defaults`, que es una lista de pares `key=value` separada por espacios. La CLI utiliza los valores proporcionados en lugar de los argumentos necesarios.
 
 La siguiente es una lista de claves disponibles que puede usar.
 
@@ -52,7 +52,7 @@ az configure --defaults "location=westus2 group=MyResourceGroup"
 
 ## <a name="cli-configuration-file"></a>Archivo de configuración de la CLI
 
-El archivo de configuración de la CLI contiene otros valores que se usan para administrar el comportamiento de la CLI. El archivo de configuración se encuentra en `$AZURE_CONFIG_DIR/config`. El valor predeterminado de `AZURE_CONFIG_DIR` es `$HOME/.azure/config` en Linux y macOS y `%USERPROFILE%\.azure\config` en Windows. 
+El archivo de configuración de la CLI contiene otros valores que se usan para administrar el comportamiento de la CLI. El archivo de configuración se encuentra en `$AZURE_CONFIG_DIR/config`. El valor predeterminado de `AZURE_CONFIG_DIR` es `$HOME/.azure/config` en Linux y macOS y `%USERPROFILE%\.azure\config` en Windows.
 
 Los archivos de configuración se escriben en el formato de archivos INI. Estos archivos se componen de secciones que empiezan por un encabezado `[section-name]` seguido de una lista de entradas `key=value`. Los nombres de sección distinguen mayúsculas de minúsculas y los nombres de clave, no.
 Los comentarios son cualquier línea que comience por un `#` o `;`. No se permiten comentarios en línea. Los valores booleanos no distinguen mayúsculas de minúsculas y se representan por los valores siguientes.
