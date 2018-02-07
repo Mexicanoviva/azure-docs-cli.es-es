@@ -5,32 +5,34 @@ keywords: CLI de Azure, instalar la CLI de Azure, azure linux, azure instalar li
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 11/01/2017
+ms.date: 01/29/18
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cf1405cae70762146f63bc6629edc0dd1d949fff
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: d8c88d111c50a3cbb6b643a14dcd2a9773699657
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalación manual de la CLI de Azure 2.0 en Linux
 
-Si no tiene un paquete de la CLI de Azure disponible en la distribución, siempre puede ejecutar manualmente un script de instalación para instalar la CLI. Si dispone de un paquete, siempre es el método de instalación recomendado.
+Si no tiene un paquete de la CLI de Azure disponible en la distribución, siempre puede ejecutar manualmente un script de instalación para instalar la CLI.
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> Se recomienda utilizar un administrador de paquetes para la CLI. Con un administrador de paquetes se asegura de que siempre tendrá las últimas actualizaciones y garantiza la estabilidad de los componentes de la CLI. Compruebe si existe un paquete para su distribución antes de instalar manualmente.
 
-Para instalar la CLI, necesitará el siguiente software disponible en el sistema:
+## <a name="prerequisites"></a>requisitos previos
+
+Para instalar la CLI, necesita el siguiente software disponible en el sistema:
 
 * [Python 2.7 o Python 3.x](https://www.python.org/downloads/)
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
-## <a name="install-or-update-manually"></a>Instalación o actualización manual
+## <a name="install-or-update"></a>Instalación o actualización 
 
 Tanto si va a instalar como si va a actualizar la CLI, debe realizar una instalación completa. Una vez que tenga los requisitos previos, puede instalar la CLI ejecutando `curl`.
 
@@ -38,10 +40,11 @@ Tanto si va a instalar como si va a actualizar la CLI, debe realizar una instala
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Si no tiene `curl` en el sistema o prefiere ejecutar el script, puede descargarlo y ejecutarlo localmente. Para que algunos cambios surtan efecto, es posible que tenga que reiniciar el shell. Después de la instalación, ejecute la CLI con el comando `az`.
+También puede descargar el script y ejecutarlo localmente. Para que algunos cambios surtan efecto, es posible que tenga que reiniciar el shell. Después de la instalación, ejecute la CLI con el comando `az`.
 
 ## <a name="troubleshooting"></a>solución de problemas
 
+Estos son algunos problemas comunes que se han observado durante la instalación manual. Si su problema no está enumerado aquí, [notifique un problema en Github](https://github.com/Azure/azure-cli/issues).
 ### <a name="curl-object-moved-error"></a>Error de curl "Object Moved" (objeto movido)
 
 Si `curl` muestra un error relacionado con el parámetro `-L` o un mensaje de error con el texto "Object Moved" (Objeto movido), pruebe a usar la dirección URL completa en lugar de la redirección `aka.ms`:
@@ -52,7 +55,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 
 ### <a name="az-command-not-found"></a>Comando `az` no encontrado
 
-Si después de la instalación no se puede ejecutar el comando, debe borrar la memoria caché del hash de comandos del shell. Ejecute
+Si después de la instalación no se puede ejecutar el comando y utiliza `bash` o `zsh`, debe borrar la memoria caché del hash de comandos del shell. Ejecute
 
 ```bash
 hash -r
@@ -60,35 +63,32 @@ hash -r
 
 y compruebe si el problema se resuelve.
 
-Esto también puede ocurrir si no se reinició el shell después de la instalación. Asegúrese de que la ubicación del comando `az` esté en `$PATH`.
-
-Si ha ejecutado el script de instalación, la ruta será:
+Este problema también puede ocurrir si no se reinició el shell después de la instalación. Asegúrese de que la ubicación del comando `az` esté en `$PATH`. La ubicación del comando `az` es
 
 ```bash
 <install path>/bin
 ```
 
-## <a name="unstinall-manually"></a>Desinstalación manual
+## <a name="uninstall"></a>Desinstalación
 
-Si alguna vez decide desinstalar la CLI, sentimos que se marche. Antes de desinstalar, use el comando `az feedback` para enviarnos algunos de los motivos por los que eligió desinstalar la CLI y cómo podemos mejorar su experiencia con ella. Queremos asegurarnos de que la CLI de Azure sea fácil de usar y tan libre de errores como podamos. También puede [notificar un problema en github](https://github.com/Azure/azure-cli/issues).
+[!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-Para desinstalar la CLI, puede eliminar los archivos directamente de la ubicación de instalación. La ubicación de instalación se elige en el momento de la instalación, si realizó la instalación mediante el script `https://aka.ms/InstallAzureCLI`. La ubicación de instalación predeterminada es `$HOME`.
+Para desinstalar la CLI, puede eliminar los archivos directamente de la ubicación elegida en el momento de la instalación. La ubicación de instalación predeterminada es `$HOME`.
 
-En primer lugar, quite los archivos de la CLI instalados:
+1. Elimine los archivos de la CLI instalados.
+  
+  ```bash
+  rm -r <install location>/lib/azure-cli
+  rm <install location>/bin/az
+  ```
+2. Modifique el archivo `$HOME/.bash_profile` para eliminar la línea siguiente:
+  
+  ```
+  <install location>/lib/azure-cli/az.completion
+  ```
 
-```bash
-rm -r <install location>/lib/azure-cli
-rm <install location>/bin/az
-```
-
-A continuación, modifique su archivo `$HOME/.bash_profile` para quitar la línea:
-
-```
-<install location>/lib/azure-cli/az.completion
-```
-
-Y, por último, vuelva a cargar la memoria caché de comandos del shell, si utiliza una. Los usuarios de `bash` y `zsh` tendrán que realizar este paso:
-
-```bash
-hash -r
-```
+3. Si usa `bash` o `zsh`, vuelva a cargar la memoria caché de comandos del shell.
+  
+  ```bash
+  hash -r
+  ```
