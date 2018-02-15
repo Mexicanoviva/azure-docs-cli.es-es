@@ -1,21 +1,20 @@
 ---
 title: "Instalación manual de la CLI de Azure 2.0 para Linux"
 description: "Instalación manual de la CLI de Azure 2.0 para Linux"
-keywords: CLI de Azure, instalar la CLI de Azure, azure linux, azure instalar linux
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d8c88d111c50a3cbb6b643a14dcd2a9773699657
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4ab1f70308810e045b9a1d923fd809ad9848f6c6
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalación manual de la CLI de Azure 2.0 en Linux
 
@@ -32,7 +31,7 @@ Para instalar la CLI, necesita el siguiente software disponible en el sistema:
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
-## <a name="install-or-update"></a>Instalación o actualización 
+## <a name="install-or-update"></a>Instalación o actualización
 
 Tanto si va a instalar como si va a actualizar la CLI, debe realizar una instalación completa. Una vez que tenga los requisitos previos, puede instalar la CLI ejecutando `curl`.
 
@@ -76,19 +75,19 @@ Este problema también puede ocurrir si no se reinició el shell después de la 
 Para desinstalar la CLI, puede eliminar los archivos directamente de la ubicación elegida en el momento de la instalación. La ubicación de instalación predeterminada es `$HOME`.
 
 1. Elimine los archivos de la CLI instalados.
-  
+
   ```bash
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
 2. Modifique el archivo `$HOME/.bash_profile` para eliminar la línea siguiente:
-  
+
   ```
   <install location>/lib/azure-cli/az.completion
   ```
 
 3. Si usa `bash` o `zsh`, vuelva a cargar la memoria caché de comandos del shell.
-  
+
   ```bash
   hash -r
   ```
