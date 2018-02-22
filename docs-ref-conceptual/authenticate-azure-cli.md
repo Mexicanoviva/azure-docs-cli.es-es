@@ -1,30 +1,29 @@
 ---
 title: "Inicio de sesión con la CLI de Azure 2.0"
-description: "Inicie sesión con la CLI de Azure 2.0 en Linux, Mac o Windows."
-keywords: "CLI de Azure 2.0, inicio de sesión, CLI de Azure, autenticación, autorizar, iniciar sesión"
+description: "Inicio de sesión con la CLI de Azure 2.0 de forma interactiva o con credenciales locales"
 author: sptramer
-ms.author: stttramer
+ms.author: sttramer
 manager: routlaw
-ms.date: 11/13/2017
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 0a8ec3541783ae19961f2acf1192c0ee061a465f
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: a140f8f54ad72f7f3b5e2d63e2300d0aa2c061ac
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
-Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador o en la línea de comandos. El enfoque recomendado consiste en usar entidades de servicio que proporcionan una manera de crear cuentas no interactivas que puede usar para manipular recursos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros.
+Hay varias maneras de iniciar sesión y autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador con Azure Cloud Shell o con el comando `az login`.
+El método recomendado es el uso de entidades de servicio, que son cuentas con permisos restringidos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros.
 
-Ninguna información de credenciales privada se almacena localmente. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de inicio de sesión local es válido hasta que transcurren 14 días sin ser usado. En ese momento, debe volver a autenticarse.
+Ninguna información de credenciales privada se almacena localmente. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de inicio de sesión es válido hasta que transcurren 14 días sin ser usado. En ese momento, debe volver a autenticarse.
 
-Después de iniciar sesión, los comandos de la CLI se ejecutan con su suscripción predeterminada. Si tiene más de una suscripción, quizás desee [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
+Después de iniciar sesión, los comandos de la CLI se ejecutan con su suscripción predeterminada. Si tiene más de una suscripción, puede [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
 
 ## <a name="interactive-log-in"></a>Inicio de sesión interactivo
 
@@ -39,18 +38,17 @@ Proporcione sus credenciales en la línea de comandos.
 > [!Note]
 > Este enfoque no es compatible con cuentas de Microsoft o cuentas que tienen habilitada la autenticación en dos fases.
 
-```azurecli-interactive
+```azurecli
 az login -u <username> -p <password>
 ```
 
 ## <a name="logging-in-with-a-service-principal"></a>Inicio de sesión con una entidad de servicio
 
-Las entidades de servicio son parecidas a las cuentas de usuario a las que puede aplicar reglas con Azure Active Directory.
-La autenticación con una entidad de servicio es la mejor manera de proteger el uso de los recursos de Azure de sus scripts o aplicaciones que manipulan recursos. Si aún no tiene una entidad de servicio disponible y le gustaría crear una, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
+Las entidades de servicio son cuentas no asociadas a un usuario concreto, las cuales pueden tener permisos asignados mediante roles predefinidos. La autenticación con una entidad de servicio es la mejor manera de escribir scripts o programas seguros, lo que le permite aplicar las restricciones de permisos y la información de credenciales estáticas almacenadas de modo local. Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
 
 Para iniciar sesión con una entidad de servicio, proporcione el nombre de usuario, la contraseña o el archivo de certificado PEM y el inquilino asociado a la entidad de servicio:
 
-```azurecli-interactive
+```azurecli
 az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```
 
