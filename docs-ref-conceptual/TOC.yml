@@ -27,7 +27,7 @@
       items:
         - name: Creación de una entidad de servicio
           href: create-an-azure-service-principal-azure-cli.md
-        - name: Uso de identidades de servicio administradas
+        - name: Identidades de servicio administradas
           items:
             - name: Configuración de MSI para una máquina virtual de Azure
               href: /azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
@@ -57,6 +57,10 @@
       href: azure-cli-Configuration.md
     - name: Notas de la versión
       href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: Tutoriales
+  items:
+    - name: Creación de máquinas virtuales
+      href: azure-cli-vm-tutorial.yml
 - name: Scripts de ejemplo
   items:
     - name: Máquinas virtuales con Linux

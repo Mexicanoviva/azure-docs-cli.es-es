@@ -1,421 +1,112 @@
 ---
 title: "Introducción a la CLI de Azure 2.0"
-description: "Introducción a la CLI de Azure 2.0 en Linux, Mac o Windows."
-keywords: CLI de Azure 2.0, Linux, Mac, Windows, OS X, Ubuntu, Debian, CentOS, RHEL, SUSE, CoreOS, Docker, Windows, Python, PIP
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+description: "Introducción al uso de la CLI de Azure 2.0 y los conceptos básicos de los comandos."
+keywords: "CLI de Azure, ayuda de la CLI, ayuda de Azure, consulta, automatización,"
+author: sptramer
+ms.author: sttramer
+manager: routlaw
+ms.date: 02/05/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 689b8f4d77af5a6f398c0dd85e922baa398f767a
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: c2758922d74080d3a3110b1e3a507ddf0f8d85d1
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="get-started-with-azure-cli-20"></a><span data-ttu-id="b157d-104">Introducción a la CLI de Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="b157d-104">Get started with Azure CLI 2.0</span></span>
+# <a name="get-started-with-azure-cli-20"></a><span data-ttu-id="92d9d-104">Introducción a la CLI de Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="92d9d-104">Get started with Azure CLI 2.0</span></span>
 
-<span data-ttu-id="b157d-105">La CLI de Azure 2.0 es la nueva forma de usar la línea de comandos de Azure para administrar recursos de Azure.</span><span class="sxs-lookup"><span data-stu-id="b157d-105">The Azure CLI 2.0 is Azure's new command line experience for managing Azure resources.</span></span>
-<span data-ttu-id="b157d-106">Puede usarla en el explorador con [Azure Cloud Shell](/azure/cloud-shell/overview) o puede [instalarla](install-azure-cli.md) en macOS, Linux y Windows y ejecutarla desde la línea de comandos.</span><span class="sxs-lookup"><span data-stu-id="b157d-106">You can use it in your browser with [Azure Cloud Shell](/azure/cloud-shell/overview), or you can [install](install-azure-cli.md) it on macOS, Linux, and Windows and run it from the command line.</span></span>
+<span data-ttu-id="92d9d-105">Bienvenido a la CLI de Azure 2.0.</span><span class="sxs-lookup"><span data-stu-id="92d9d-105">Welcome to the Azure CLI 2.0!</span></span> <span data-ttu-id="92d9d-106">La CLI es una herramienta diseñada para ayudarle a trabajar de forma rápida y eficaz con los servicios de Azure, con énfasis en la automatización.</span><span class="sxs-lookup"><span data-stu-id="92d9d-106">The CLI is a tool designed to get you working quickly and efficiently with Azure services, with an emphasis on automation.</span></span> <span data-ttu-id="92d9d-107">En este artículo se detallan las características de la CLI y vínculos a recursos que le ayudarán a ser productivo.</span><span class="sxs-lookup"><span data-stu-id="92d9d-107">This article introduces features of the CLI and links out to resources that help you be productive.</span></span>
 
-<span data-ttu-id="b157d-107">La CLI de Azure 2.0 está optimizada para administrar recursos de Azure desde la línea de comandos y para generar scripts de automatización que funcionan con Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="b157d-107">Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager.</span></span>
-<span data-ttu-id="b157d-108">Este artículo le ayuda a empezar a usarlo y explica los conceptos básicos que hay detrás.</span><span class="sxs-lookup"><span data-stu-id="b157d-108">This article helps get you started using it, and teaches you the core concepts behind it.</span></span>
+## <a name="install-and-log-in"></a><span data-ttu-id="92d9d-108">Instalación e inicio de sesión</span><span class="sxs-lookup"><span data-stu-id="92d9d-108">Install and log in</span></span>
 
-<span data-ttu-id="b157d-109">Para más información sobre la versión más reciente, consulte las [notas de la versión](release-notes-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="b157d-109">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
+<span data-ttu-id="92d9d-109">Si no lo ha hecho ya, [instale la CLI](install-azure-cli.md) o pruebe el [Azure Cloud Shell](/azure/cloud-shell/overview).</span><span class="sxs-lookup"><span data-stu-id="92d9d-109">If you haven't already, [install the CLI](install-azure-cli.md) or try out the [Azure Cloud Shell](/azure/cloud-shell/overview).</span></span>
 
-## <a name="connect"></a><span data-ttu-id="b157d-110">Conectar</span><span class="sxs-lookup"><span data-stu-id="b157d-110">Connect</span></span>
+<span data-ttu-id="92d9d-110">Antes de usar los comandos de la CLI en una instalación local, deberá iniciar sesión con [az login](/cli/azure/index#az_login).</span><span class="sxs-lookup"><span data-stu-id="92d9d-110">Before using any CLI commands with a local install, you need to log in with [az login](/cli/azure/index#az_login).</span></span>
 
-<span data-ttu-id="b157d-111">La manera más sencilla de empezar es [iniciar Cloud Shell](/azure/cloud-shell/quickstart).</span><span class="sxs-lookup"><span data-stu-id="b157d-111">The simplest way to get started is to [launch Cloud Shell](/azure/cloud-shell/quickstart).</span></span>
-
-1. <span data-ttu-id="b157d-112">Inicie Cloud Shell en la navegación superior de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="b157d-112">Launch Cloud Shell from the top navigation of the Azure portal.</span></span>
-
-   ![Icono de Shell](media/get-started-with-azure-cli/shell-icon.png)
-
-2. <span data-ttu-id="b157d-114">Elija la suscripción que desea utilizar y cree una cuenta de almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="b157d-114">Choose the subscription you want to use and create a storage account.</span></span>
-
-   ![Crear una cuenta de almacenamiento](media/get-started-with-azure-cli/storage-prompt.png)
-
-<span data-ttu-id="b157d-116">También puede [instalar](install-azure-cli.md) la CLI y ejecutarla localmente desde la línea de comandos.</span><span class="sxs-lookup"><span data-stu-id="b157d-116">You can also [install](install-azure-cli.md) the CLI and run it locally from the command line.</span></span> <span data-ttu-id="b157d-117">Después de instalar la CLI, ejecute `az login` para iniciar sesión con su suscripción predeterminada.</span><span class="sxs-lookup"><span data-stu-id="b157d-117">Once you have installed the CLI, run `az login` to log in with your default subscription.</span></span>
-
-## <a name="create-a-resource-group"></a><span data-ttu-id="b157d-118">Creación de un grupo de recursos</span><span class="sxs-lookup"><span data-stu-id="b157d-118">Create a Resource Group</span></span>
-
-<span data-ttu-id="b157d-119">Ahora que todo está configurado, vamos a usar la CLI de Azure para crear recursos en Azure.</span><span class="sxs-lookup"><span data-stu-id="b157d-119">Now that we've got everything set up, let's use the Azure CLI to create resources within Azure.</span></span>
-
-<span data-ttu-id="b157d-120">En primer lugar, cree un grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="b157d-120">First, create a Resource Group.</span></span>  <span data-ttu-id="b157d-121">En Azure, los grupos de recursos proporcionan una manera de administrar varios recursos que se desean agrupar de manera lógica.</span><span class="sxs-lookup"><span data-stu-id="b157d-121">Resource Groups in Azure provide a way to manage multiple resources that you want to logically group.</span></span>  <span data-ttu-id="b157d-122">Por ejemplo, puede crear un grupo de recursos para una aplicación o un proyecto, y agregar una máquina virtual, una base de datos y un servicio de CDN en él.</span><span class="sxs-lookup"><span data-stu-id="b157d-122">For example, you might create a Resource Group for an application or project and add a virtual machine, a database and a CDN service within it.</span></span>
-
-<span data-ttu-id="b157d-123">Vamos a crear un grupo de recursos denominado "MyResourceGroup" en la región *oesteeeuu2* de Azure.</span><span class="sxs-lookup"><span data-stu-id="b157d-123">Let's create a resource group named "MyResourceGroup" in the *westus2* region of Azure.</span></span>  <span data-ttu-id="b157d-124">Para ello, escriba el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="b157d-124">To do so type the following command:</span></span>
-
-```azurecli-interactive
-az group create -n MyResourceGroup -l westus2
+```azurecli
+az login
 ```
 
-<span data-ttu-id="b157d-125">Una vez que se haya creado el grupo de recursos, el comando `az group create` genera varias propiedades del recursos recién creado:</span><span class="sxs-lookup"><span data-stu-id="b157d-125">Once the resource group has been created, the `az group create` command outputs several properties of the newly created resource:</span></span>
+<span data-ttu-id="92d9d-111">Este comando le pide que inicie sesión con un código de autenticación a través de un sitio web.</span><span class="sxs-lookup"><span data-stu-id="92d9d-111">This command prompts you to log in with an authentication code via a website.</span></span> <span data-ttu-id="92d9d-112">Hay maneras para iniciar sesión de una manera no interactiva, las cuales se tratan detalladamente en [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="92d9d-112">There are ways to log in non-interactively, which are covered in detail in [Log in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
 
-```Output
-{
-  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup",
-  "location": "westus2",
-  "managedBy": null,
-  "name": "MyResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
+## <a name="common-commands"></a><span data-ttu-id="92d9d-113">Comandos comunes</span><span class="sxs-lookup"><span data-stu-id="92d9d-113">Common commands</span></span>
+
+<span data-ttu-id="92d9d-114">Esta tabla enumera algunos de los comandos más comunes usados en la CLI junto con enlaces a páginas de documentación de referencia.</span><span class="sxs-lookup"><span data-stu-id="92d9d-114">This table lists a few of the common commands used in the CLI links out to their documentation pages in the reference.</span></span>
+<span data-ttu-id="92d9d-115">Todos los subcomandos de estos grupos y su documentación se pueden buscar en la referencia en línea o con el argumento `--help`.</span><span class="sxs-lookup"><span data-stu-id="92d9d-115">All subcommands of these groups and their documentation can be looked up in online reference or with the `--help` argument.</span></span>
+
+| <span data-ttu-id="92d9d-116">Tipo de recurso</span><span class="sxs-lookup"><span data-stu-id="92d9d-116">Resource type</span></span> | <span data-ttu-id="92d9d-117">Grupo de comandos de la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="92d9d-117">Azure CLI command group</span></span> |
+|---------------|-------------------------|
+| [<span data-ttu-id="92d9d-118">Grupos de recursos</span><span class="sxs-lookup"><span data-stu-id="92d9d-118">Resource group</span></span>](/azure/azure-resource-manager/resource-group-overview) | [<span data-ttu-id="92d9d-119">az group</span><span class="sxs-lookup"><span data-stu-id="92d9d-119">az group</span></span>](/cli/azure/group) |
+| [<span data-ttu-id="92d9d-120">Máquinas virtuales</span><span class="sxs-lookup"><span data-stu-id="92d9d-120">Virtual machines</span></span>](/azure/virtual-machines) | [<span data-ttu-id="92d9d-121">az vm</span><span class="sxs-lookup"><span data-stu-id="92d9d-121">az vm</span></span>](/cli/azure/vm) |
+| [<span data-ttu-id="92d9d-122">Cuentas de almacenamiento</span><span class="sxs-lookup"><span data-stu-id="92d9d-122">Storage accounts</span></span>](/azure/storage/common/storage-introduction) | [<span data-ttu-id="92d9d-123">az storage account</span><span class="sxs-lookup"><span data-stu-id="92d9d-123">az storage account</span></span>](/cli/azure/storage/account) |
+| [<span data-ttu-id="92d9d-124">Key Vault</span><span class="sxs-lookup"><span data-stu-id="92d9d-124">Key Vault</span></span>](/azure/key-vault/key-vault-whatis) | [<span data-ttu-id="92d9d-125">az keyvault</span><span class="sxs-lookup"><span data-stu-id="92d9d-125">az keyvault</span></span>](/cli/azure/keyvault) |
+| [<span data-ttu-id="92d9d-126">Aplicaciones web</span><span class="sxs-lookup"><span data-stu-id="92d9d-126">Web applications</span></span>](/azure/ap-service) | [<span data-ttu-id="92d9d-127">az webapp</span><span class="sxs-lookup"><span data-stu-id="92d9d-127">az webapp</span></span>](/cli/azure/webapp) |
+| [<span data-ttu-id="92d9d-128">Bases de datos SQL</span><span class="sxs-lookup"><span data-stu-id="92d9d-128">SQL databases</span></span>](/azure/sql-database) | [<span data-ttu-id="92d9d-129">az sql server</span><span class="sxs-lookup"><span data-stu-id="92d9d-129">az sql server</span></span>](/cli/azure/sql/server) |
+| [<span data-ttu-id="92d9d-130">CosmosDB</span><span class="sxs-lookup"><span data-stu-id="92d9d-130">CosmosDB</span></span>](/azure/cosmos-db) | [<span data-ttu-id="92d9d-131">az cosmosdb</span><span class="sxs-lookup"><span data-stu-id="92d9d-131">az cosmosdb</span></span>](/cli/azure/cosmosdb) |
+
+## <a name="finding-commands"></a><span data-ttu-id="92d9d-132">Búsqueda de comandos</span><span class="sxs-lookup"><span data-stu-id="92d9d-132">Finding commands</span></span>
+
+<span data-ttu-id="92d9d-133">Los comandos de la CLI se proporcionan como _subcomandos_ de _grupos_.</span><span class="sxs-lookup"><span data-stu-id="92d9d-133">Commands in the CLI are provided as _subcommands_ of _groups_.</span></span>
+<span data-ttu-id="92d9d-134">Cada grupo representa un servicio suministrado por Azure y los subgrupos dividen comandos para estos servicios en agrupaciones lógicas.</span><span class="sxs-lookup"><span data-stu-id="92d9d-134">Each group represents a service provided by Azure, and the subgroups divide commands for these services into logical groupings.</span></span>
+
+<span data-ttu-id="92d9d-135">Para buscar comandos, utilice [az find](/cli/azure/index#az_find).</span><span class="sxs-lookup"><span data-stu-id="92d9d-135">To search for commands, use [az find](/cli/azure/index#az_find).</span></span> <span data-ttu-id="92d9d-136">Por ejemplo, para buscar nombres de comando que contienen `secret`, use el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="92d9d-136">For example, to search for command names containing `secret`, use the following command:</span></span>
+
+```azurecli
+az find -q secret
 ```
 
-## <a name="create-a-linux-virtual-machine"></a><span data-ttu-id="b157d-126">Creación de una máquina virtual Linux</span><span class="sxs-lookup"><span data-stu-id="b157d-126">Create a Linux Virtual Machine</span></span>
+<span data-ttu-id="92d9d-137">Si sabe con qué grupo de comandos desea trabajar, el argumento `--help` puede ser una opción mejor.</span><span class="sxs-lookup"><span data-stu-id="92d9d-137">If you know which group of commands you want to work with, the `--help` argument may be a better choice.</span></span> <span data-ttu-id="92d9d-138">Además de mostrar información detallada para un comando, cuando se usa con un grupo de comandos muestra todos los subcomandos disponibles.</span><span class="sxs-lookup"><span data-stu-id="92d9d-138">This displays not just detailed information for a command, but when used with a command group, displays all of the available subcommands.</span></span> <span data-ttu-id="92d9d-139">Por ejemplo, cuando se trabaja con grupos de seguridad de red (NSG) puede encontrar los comandos y subgrupos de NSG disponibles.</span><span class="sxs-lookup"><span data-stu-id="92d9d-139">For example, when working with Network Security Groups (NSGs) you can find the available NSG subgroups and commands.</span></span>
 
-<span data-ttu-id="b157d-127">Ahora que tenemos nuestro grupo de recursos, vamos a crear una máquina virtual Linux en él.</span><span class="sxs-lookup"><span data-stu-id="b157d-127">Now that we have our resource group, let's create a Linux VM within it.</span></span>
-
-<span data-ttu-id="b157d-128">Puede crear una máquina virtual Linux con la popular imagen de UbuntuLTS, con dos discos de almacenamiento conectados de 10 GB y 20 GB, con el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="b157d-128">You can create a Linux VM using the popular UbuntuLTS image, with two attached storage disks of 10 GB and 20 GB, with the following command:</span></span>
-
-```azurecli-interactive
-az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20
+```azurecli
+az network nsg --help
 ```
 
-<span data-ttu-id="b157d-129">Al ejecutar el comando anterior, la CLI de Azure 2.0 busca un par de claves SSH almacenadas en el directorio ~/.ssh.</span><span class="sxs-lookup"><span data-stu-id="b157d-129">When you run the preceding command, the Azure CLI 2.0 looks for an SSH key pair stored under your ~/.ssh directory.</span></span>  <span data-ttu-id="b157d-130">Si aún no tiene un par de claves SSH almacenadas ahí, puede pedir a la CLI de Azure que lo cree automáticamente pasando el parámetro --parámetro --generate-ssh-keys:</span><span class="sxs-lookup"><span data-stu-id="b157d-130">If you don't already have an SSH key pair stored there, you can ask the Azure CLI to automatically create one for you by passing the --generate-ssh-keys parameter:</span></span>
+<span data-ttu-id="92d9d-140">La CLI dispone de la función de autocompletar con el tabulador para los comandos en el shell de bash.</span><span class="sxs-lookup"><span data-stu-id="92d9d-140">The CLI has full tab completion for commands under the bash shell.</span></span>
 
-```azurecli-interactive
-az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20 --generate-ssh-keys
-```
+## <a name="globally-available-arguments"></a><span data-ttu-id="92d9d-141">Argumentos disponibles globalmente</span><span class="sxs-lookup"><span data-stu-id="92d9d-141">Globally available arguments</span></span>
 
-<span data-ttu-id="b157d-131">El comando `az vm create` devuelve la salida una vez que la máquina virtual se haya creado completamente y que esté lista para usarla y para que se acceda a ella.</span><span class="sxs-lookup"><span data-stu-id="b157d-131">The `az vm create` command returns output once the VM has been fully created and is ready to be accessed and used.</span></span> <span data-ttu-id="b157d-132">La salida incluye varias propiedades de la máquina virtual recién creada, entre las que se incluye la dirección IP pública:</span><span class="sxs-lookup"><span data-stu-id="b157d-132">The output includes several properties of the newly created VM including its public IP address:</span></span>
+<span data-ttu-id="92d9d-142">Hay algunos argumentos que están disponibles para todos los comandos.</span><span class="sxs-lookup"><span data-stu-id="92d9d-142">There are some arguments that are available for every command.</span></span>
 
-```Output
-{
-  "fqdns": "",
-  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyLinuxVM",
-  "location": "westus2",
-  "macAddress": "xx-xx-xx-xx-xx-xx",
-  "powerState": "VM running",
-  "privateIpAddress": "xx.x.x.x",
-  "publicIpAddress": "xx.xxx.xxx.xx",
-  "resourceGroup": "MyResourceGroup"
-}
-```
+* <span data-ttu-id="92d9d-143">`--help` imprime información de referencia de la CLI sobre los comandos y sus argumentos y enumera los comandos y subgrupos disponibles.</span><span class="sxs-lookup"><span data-stu-id="92d9d-143">`--help` prints CLI reference information about commands and their arguments and lists available subgroups and commands.</span></span>
+* <span data-ttu-id="92d9d-144">`--output` cambia el formato de salida.</span><span class="sxs-lookup"><span data-stu-id="92d9d-144">`--output` changes the output format.</span></span> <span data-ttu-id="92d9d-145">Los formatos de salida disponibles son `json`, `jsonc` (JSON coloreado), `tsv` (Valores separados por tabulaciones) y `table` (tablas ASCII de lenguaje natural).</span><span class="sxs-lookup"><span data-stu-id="92d9d-145">The available output formats are `json`, `jsonc` (colorized JSON), `tsv` (Tab-Separated Values), and `table` (human-readable ASCII tables).</span></span> <span data-ttu-id="92d9d-146">De forma predeterminada, la CLI genera `json`.</span><span class="sxs-lookup"><span data-stu-id="92d9d-146">By default the CLI outputs `json`.</span></span> <span data-ttu-id="92d9d-147">Para más información sobre los formatos de salida disponibles, consulte [Formatos de salida de la CLI de Azure 2.0](format-output-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="92d9d-147">To learn more about the available output formats, see [Output formats for Azure CLI 2.0](format-output-azure-cli.md).</span></span>
+* <span data-ttu-id="92d9d-148">`--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure.</span><span class="sxs-lookup"><span data-stu-id="92d9d-148">`--query` uses the [JMESPath query language](http://jmespath.org/) to filter the output returned from Azure services.</span></span> <span data-ttu-id="92d9d-149">Para más información sobre las consultas, visite [Consulta de los resultados de los comandos con la CLI de Azure 2.0](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).</span><span class="sxs-lookup"><span data-stu-id="92d9d-149">To learn To learn more about queries, see [Query command results with Azure CLI 2.0](query-azure-cli.md) and the [JMESPath tutorial](http://jmespath.org/tutorial.html).</span></span>
+* <span data-ttu-id="92d9d-150">`--verbose` imprime información acerca de los recursos creados en Azure durante una operación y otra información de utilidad.</span><span class="sxs-lookup"><span data-stu-id="92d9d-150">`--verbose` prints information about resources created in Azure during an operation, and other useful information.</span></span>
+* <span data-ttu-id="92d9d-151">`--debug` imprime más información aún sobre las operaciones de la CLI y se utiliza con fines de depuración.</span><span class="sxs-lookup"><span data-stu-id="92d9d-151">`--debug` prints even more information about CLI operations, used for debugging purposes.</span></span> <span data-ttu-id="92d9d-152">Si se produce un error, proporcione los resultados generados con la marca `--debug` activada al enviar un informe de errores.</span><span class="sxs-lookup"><span data-stu-id="92d9d-152">If you encounter a bug, provide output generated with the `--debug` flag on when submitting a bug report.</span></span>
 
-<span data-ttu-id="b157d-133">Una vez creada la máquina virtual, puede iniciar sesión en la nueva máquina virtual Linux mediante **SSH** con la dirección IP pública de la máquina virtual que ha creado:</span><span class="sxs-lookup"><span data-stu-id="b157d-133">Now that the VM has been created, you can log on to your new Linux VM using **SSH** with the public IP address of the VM you created:</span></span>
 
-```azurecli-interactive
-ssh xx.xxx.xxx.xxx
-```
+## <a name="interactive-mode"></a><span data-ttu-id="92d9d-153">Modo interactivo</span><span class="sxs-lookup"><span data-stu-id="92d9d-153">Interactive mode</span></span>
 
-```Output
-Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+<span data-ttu-id="92d9d-154">La CLI ofrece un modo interactivo que muestra automáticamente información de ayuda y facilita la selección de subcomandos.</span><span class="sxs-lookup"><span data-stu-id="92d9d-154">The CLI offers an interactive mode that automatically displays help information and makes it easier to select subcommands.</span></span> <span data-ttu-id="92d9d-155">Puede entrar en el modo interactivo con el comando `az interactive`.</span><span class="sxs-lookup"><span data-stu-id="92d9d-155">You enter interactive mode with the `az interactive` command.</span></span> <span data-ttu-id="92d9d-156">Para más información sobre el modo interactivo y cómo ayuda a obtener información sobre la CLI, consulte [Modo interactivo de la CLI de Azure 2.0](interactive-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="92d9d-156">For more information on interactive mode and how it helps you learn the CLI, see [Azure CLI 2.0 Interactive Mode](interactive-azure-cli.md).</span></span>
 
- * Documentation:  https://help.ubuntu.com/
+<span data-ttu-id="92d9d-157">También hay un [complemento de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) que ofrece una experiencia interactiva, incluida la función de autocompletar y documentación al pasar el ratón.</span><span class="sxs-lookup"><span data-stu-id="92d9d-157">There is also a [Visual Studio Code plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) that offers an interactive experience, including autocomplete and mouse-over documentation.</span></span>
 
-  System information as of Sun Feb 19 00:32:28 UTC 2017
 
-  System load: 0.31              Memory usage: 3%   Processes:       89
-  Usage of /:  39.6% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-  Graph this data and manage this system at:
-    https://landscape.canonical.com/
+## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a><span data-ttu-id="92d9d-158">Conozca los aspectos básicos de la CLI con las guías de inicio rápido y los tutoriales</span><span class="sxs-lookup"><span data-stu-id="92d9d-158">Learn CLI basics with quickstarts and tutorials</span></span>
 
-  Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+<span data-ttu-id="92d9d-159">Para ayudarle a comenzar con la CLI de Azure 2.0, pruebe con un tutorial exhaustivo sobre la configuración de máquinas virtuales y el uso de la potencia de la CLI para consultar los recursos de Azure.</span><span class="sxs-lookup"><span data-stu-id="92d9d-159">To get you started with the Azure CLI 2.0, try an in-depth tutorial for setting up virtual machines and using the power of the CLI to query Azure resources.</span></span>
 
-0 packages can be updated.
-0 updates are security updates.
+> [!div class="nextstepaction"]
+> [<span data-ttu-id="92d9d-160">Tutorial de creación de máquinas virtuales con la CLI de Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="92d9d-160">Create virtual machines with the Azure CLI 2.0 tutorial</span></span>](azure-cli-vm-tutorial.yml)
 
+<span data-ttu-id="92d9d-161">Si prefiere centrarse en otros servicios, hay una variedad de tutoriales sobre los servicios de Azure que utilizan la CLI.</span><span class="sxs-lookup"><span data-stu-id="92d9d-161">If you would rather focus on other services, there are a variety of quickstarts for Azure services that use the CLI.</span></span>
 
+* [<span data-ttu-id="92d9d-162">Creación de una cuenta de almacenamiento con la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="92d9d-162">Create a storage account using the Azure CLI</span></span>](/azure/storage/common/storage-quickstart-create-storage-account-cl)
+* [<span data-ttu-id="92d9d-163">Transferencia de objetos a y desde Azure Blob Storage mediante la CLI</span><span class="sxs-lookup"><span data-stu-id="92d9d-163">Transfer objects to/from Azure Blob storage using the CLI</span></span>](/storage/blobs/storage-quickstart-blobs-cli)
+* [<span data-ttu-id="92d9d-164">Creación de una sola instancia de Azure SQL Database con la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="92d9d-164">Create a single Azure SQL database using the Azure CLI</span></span>](/azure/sql-database/sql-database-get-started-cli)
+* [<span data-ttu-id="92d9d-165">Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="92d9d-165">Create an Azure Database for MySQL server using the Azure CLI</span></span>](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+* <span data-ttu-id="92d9d-166">[Create an Azure Database for PostgreSQL using the Azure CLI](/azure/postgresql/quickstart-create-server-database-azure-cli) (Creación de una base de datos Azure Database for PostgreSQL con la CLI de Azure)</span><span class="sxs-lookup"><span data-stu-id="92d9d-166">[Create an Azure Database for PostgreSQL using the Azure CLI](/azure/postgresql/quickstart-create-server-database-azure-cli)</span></span>
+* [<span data-ttu-id="92d9d-167">Creación de una aplicación web de Python en Azure</span><span class="sxs-lookup"><span data-stu-id="92d9d-167">Create a Python web app in Azure</span></span>](/azure/app-service/app-service-web-get-started-python)
+* [<span data-ttu-id="92d9d-168">Ejecución de una imagen personalizada de Docker Hub en Azure Web Apps for Containers</span><span class="sxs-lookup"><span data-stu-id="92d9d-168">Run a custom Docker Hub image in Azure Web Apps for Containers</span></span>](/azure/app-service/containers/quickstart-custom-docker-image)
 
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
+## <a name="give-feedback"></a><span data-ttu-id="92d9d-169">Envíenos sus comentarios</span><span class="sxs-lookup"><span data-stu-id="92d9d-169">Give feedback</span></span>
 
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
+<span data-ttu-id="92d9d-170">Le agradecemos sus comentarios sobre la CLI para ayudarnos a mejorar y resolver errores.</span><span class="sxs-lookup"><span data-stu-id="92d9d-170">We welcome your feedback for the CLI to help us make improvements and resolve bugs.</span></span> <span data-ttu-id="92d9d-171">También puede [informar de un problema en Github](https://github.com/azure/azure-cli/issues) o utilizar las características integradas de la CLI para dejar comentarios generales con el comando `az feedback`.</span><span class="sxs-lookup"><span data-stu-id="92d9d-171">You can [file an issue on Github](https://github.com/azure/azure-cli/issues) or use the built-in features of the CLI to leave general feedback with the `az feedback` command.</span></span>
 
-my-login@MyLinuxVM:~$
-```
-
-## <a name="create-a-windows-server-virtual-machine"></a><span data-ttu-id="b157d-134">Creación de una máquina virtual con Windows Server</span><span class="sxs-lookup"><span data-stu-id="b157d-134">Create a Windows Server Virtual Machine</span></span>
-
-<span data-ttu-id="b157d-135">Ahora se va a crear una máquina virtual basada en Windows Server 2016 Datacenter mediante el comando `az vm create` y a agregarla al mismo grupo de recursos "MyResourceGroup" que se ha usado para la máquina virtual Linux.</span><span class="sxs-lookup"><span data-stu-id="b157d-135">Let's now create a Windows Server 2016 Datacenter-based VM using the `az vm create` command and add it to the same "MyResourceGroup" resource group that we used for our Linux VM.</span></span>  <span data-ttu-id="b157d-136">Al igual que en el ejemplo de la máquina virtual Linux, también se van a conectar dos discos de almacenamiento mediante el parámetro `--data-disk-sizes-gb`.</span><span class="sxs-lookup"><span data-stu-id="b157d-136">Like the Linux VM example, we'll also attach two storage disks using the `--data-disk-sizes-gb` parameter.</span></span>
-
-<span data-ttu-id="b157d-137">Azure requiere que se evite usar nombres de usuario o contraseñas que se adivinen con facilidad.</span><span class="sxs-lookup"><span data-stu-id="b157d-137">Azure requires that you avoid using easily guessed usernames/passwords.</span></span> <span data-ttu-id="b157d-138">Hay reglas específicas relativas a los caracteres que se pueden usar, así como a la longitud mínima del nombre de usuario y de la contraseña.</span><span class="sxs-lookup"><span data-stu-id="b157d-138">There are specific rules for what characters can be used as well as the minimum length of both username and password.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="b157d-139">Al ejecutar este comando, se le pedirá que escriba el nombre de usuario y la contraseña.</span><span class="sxs-lookup"><span data-stu-id="b157d-139">You will be prompted to enter your username and password when running this command.</span></span>
-
-```azurecli-interactive
-az vm create -n MyWinVM -g MyResourceGroup --image Win2016Datacenter
-```
-
-<span data-ttu-id="b157d-140">El comando `az vm create` devuelve los resultados una vez que la máquina virtual se haya creado completamente y que esté lista para usarla y para que se acceda a ella.</span><span class="sxs-lookup"><span data-stu-id="b157d-140">The `az vm create` command output results once the VM has been fully created and is ready to be accessed and used.</span></span>
-
-```Output
-{
-  "fqdns": "",
-  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWinVM",
-  "location": "westus2",
-  "macAddress": "xx-xx-xx-xx-xx-xx",
-  "powerState": "VM running",
-  "privateIpAddress": "xx.x.x.x",
-  "publicIpAddress": "xx.xxx.xx.xxx",
-  "resourceGroup": "MyResourceGroup"
-}
-```
-
-<span data-ttu-id="b157d-141">A continuación, inicie sesión en la máquina virtual con Windows Server recién creada mediante el Escritorio remoto y la dirección IP pública de la máquina virtual (que se devuelve en los resultados de `az vm create`).</span><span class="sxs-lookup"><span data-stu-id="b157d-141">Now log on to your newly created Windows Server VM using Remote Desktop and the public IP address of the VM (which is returned in the output from `az vm create`).</span></span>
-<span data-ttu-id="b157d-142">Si se encuentra en un sistema basado en Windows, puede hacerlo desde la línea de comandos mediante el comando `mstsc`:</span><span class="sxs-lookup"><span data-stu-id="b157d-142">If you are on a Windows-based system, you can do this from the command line using the `mstsc` command:</span></span>
-
-```azurecli-interactive
-mstsc /v:xx.xxx.xx.xxx
-```
-
-<span data-ttu-id="b157d-143">Especifique la misma combinación de nombre de usuario y contraseña que utilizó al crear la máquina virtual para iniciar sesión.</span><span class="sxs-lookup"><span data-stu-id="b157d-143">Supply the same username/password combination you used when creating the VM to log in.</span></span>
-
-## <a name="creating-other-resources-in-azure"></a><span data-ttu-id="b157d-144">Creación de otros recursos en Azure</span><span class="sxs-lookup"><span data-stu-id="b157d-144">Creating other resources in Azure</span></span>
-
-<span data-ttu-id="b157d-145">Ya se ha visto cómo se crean un grupo de recursos, una máquina virtual Linux y una VM con Windows Server.</span><span class="sxs-lookup"><span data-stu-id="b157d-145">We've now walked through how to create a Resource Group, a Linux VM, and a Windows Server VM.</span></span> <span data-ttu-id="b157d-146">Sin embargo, también se pueden crear muchos otros tipos de recursos de Azure.</span><span class="sxs-lookup"><span data-stu-id="b157d-146">You can create many other types of Azure resources as well.</span></span>
-
-<span data-ttu-id="b157d-147">Todos los recursos nuevos se crean mediante un patrón de nomenclatura de `az <resource type name> create` consistente.</span><span class="sxs-lookup"><span data-stu-id="b157d-147">All new resources are created using a consistent `az <resource type name> create` naming pattern.</span></span>  <span data-ttu-id="b157d-148">Por ejemplo, para crear un equilibrador de carga de red de Azure que luego se pueda asociar con las máquinas virtuales recién creadas, se puede utilizar el siguiente comando create:</span><span class="sxs-lookup"><span data-stu-id="b157d-148">For example, to create an Azure Network Load Balancer that we could then associate with our newly created VMs, we can use the following create command:</span></span>
-
-```azurecli-interactive
-az network lb create -n MyLoadBalancer -g MyResourceGroup
-```
-
-<span data-ttu-id="b157d-149">También se puede crear una red virtual privada nueva (que se suele denominar "Virtual Network" en Azure) para nuestra infraestructura con el siguiente comando create:</span><span class="sxs-lookup"><span data-stu-id="b157d-149">We could also create a new private Virtual Network (commonly referred to as a "VNet" within Azure) for our infrastructure using the following create command:</span></span>
-
-```azurecli-interactive
-az network vnet create -n MyVirtualNetwork -g MyResourceGroup --address-prefix 10.0.0.0/16
-```
-
-<span data-ttu-id="b157d-150">Lo que hace que tanto Azure como la CLI de Azure sean muy eficaces, es que se pueden usar no solo para obtener una infraestructura en la nube, sino también para crear servicios de plataforma administrados.</span><span class="sxs-lookup"><span data-stu-id="b157d-150">What makes Azure and the Azure CLI powerful is that we can use it not just to get cloud-based infrastructure but also to create managed platform services.</span></span>  <span data-ttu-id="b157d-151">Los servicios de plataforma administrados también se pueden combinar con una infraestructura para compilar soluciones aún más eficaces.</span><span class="sxs-lookup"><span data-stu-id="b157d-151">The managed platform services can also be combined with infrastructure to build even more powerful solutions.</span></span>
-
-<span data-ttu-id="b157d-152">Por ejemplo, la CLI de Azure se puede utilizar para crear una instancia de Azure App Service.</span><span class="sxs-lookup"><span data-stu-id="b157d-152">For example, you can use the Azure CLI to create an Azure AppService.</span></span>  <span data-ttu-id="b157d-153">Azure App Service es un servicio de plataforma administrado que proporciona una manera excelente de hospedar aplicaciones web sin tener que preocuparse de la infraestructura.</span><span class="sxs-lookup"><span data-stu-id="b157d-153">Azure AppService is a managed platform service that provides a great way to host web apps without having to worry about infrastructure.</span></span>  <span data-ttu-id="b157d-154">Después de crear la instancia de Azure App Service, se pueden crear dos nuevas instancias de Azure Web Apps en App Service mediante los siguientes comandos create:</span><span class="sxs-lookup"><span data-stu-id="b157d-154">After creating the Azure AppService, you can create two new Azure Web Apps within the AppService using the following create commands:</span></span>
-
-```azurecli-interactive
-# Create an Azure AppService that we can host any number of web apps within
-az appservice plan create -n MyAppServicePlan -g MyResourceGroup
-
-# Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan
-az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan
-```
-
-<span data-ttu-id="b157d-155">Una vez que conozca los conceptos básicos del patrón de `az <resource type name> create`, resulta fácil crear cualquier cosa.</span><span class="sxs-lookup"><span data-stu-id="b157d-155">Once you understand the basics of the `az <resource type name> create` pattern, it becomes easy to create anything.</span></span> <span data-ttu-id="b157d-156">A continuación hay varios tipos de recurso de Azure y los correspondientes comandos create de la CLI de Azure para crearlos:</span><span class="sxs-lookup"><span data-stu-id="b157d-156">Following are some popular Azure resource types and the corresponding Azure CLI create commands to create them:</span></span>
-
-```
-Resource Type               Azure CLI create command
--------------               ------------------------
-Resource Group              az group create
-Virtual Machine             az vm create
-Virtual Network             az network vnet create
-Load Balancer               az network lb create
-Managed Disk                az disk create
-Storage account             az storage account create
-Virtual Machine Scale Set   az vmss create
-Azure Container Service     az acs create
-Web App                     az webapp create
-SQL Database Server         az sql server create
-Document DB                 az documentdb create
-```
-
-<span data-ttu-id="b157d-157">Para más información acerca de los parámetros adicionales específicos de los recursos que se pueden pasar a cada uno de los comandos anteriores y tipos de recurso que se pueden crear, visite la [documentación de referencia](/cli/azure).</span><span class="sxs-lookup"><span data-stu-id="b157d-157">Visit the [Reference documentation](/cli/azure) to learn more about the additional resource-specific parameters that you can pass to each of the preceding commands and the resource types you can create.</span></span>
-
-## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a><span data-ttu-id="b157d-158">Sugerencia útil: optimización de las operaciones create mediante -- no wait</span><span class="sxs-lookup"><span data-stu-id="b157d-158">Useful tip: Optimizing create operations using --no-wait</span></span>
-
-<span data-ttu-id="b157d-159">De forma predeterminada cuando se crean recursos mediante la CLI de Azure 2.0, el comando `az <resource type name> create` espera hasta que el recurso se haya creado y está listo para su uso.</span><span class="sxs-lookup"><span data-stu-id="b157d-159">By default when you create resources using the Azure CLI 2.0, the `az <resource type name> create` command waits until the resource has been created and is ready for you to use.</span></span>  <span data-ttu-id="b157d-160">Por ejemplo, si crea una máquina virtual, de manera predeterminada el comando `az vm create` no se devolverá hasta que la máquina virtual se crea y está lista para usar SSH o RDP en ella.</span><span class="sxs-lookup"><span data-stu-id="b157d-160">For example, if you create a VM, the `az vm create` command will, by default, not return until the VM is created and is ready for you to SSH or RDP into it.</span></span>
-
-<span data-ttu-id="b157d-161">Este enfoque se usa porque facilita la escritura de scripts de automatización que contienen varios pasos con dependencias (y necesitan que se haya completado satisfactoriamente una tarea anterior antes de continuar).</span><span class="sxs-lookup"><span data-stu-id="b157d-161">We use this approach because it makes it easier to write automation scripts that contain multiple steps with dependencies (and need a prior task to have completed successfully before continuing).</span></span>
-
-<span data-ttu-id="b157d-162">Si no tiene que esperar a la creación de un recurso antes de continuar, puede usar la opción `no-wait` para iniciar una acción create en segundo plano.</span><span class="sxs-lookup"><span data-stu-id="b157d-162">If you do not need to wait on creation of a resource before continuing, you can use the `no-wait` option to start a create action in the background.</span></span> <span data-ttu-id="b157d-163">La CLI se puede seguir usando para otros comandos.</span><span class="sxs-lookup"><span data-stu-id="b157d-163">You can continue using the CLI for other commands.</span></span>
-
-<span data-ttu-id="b157d-164">Por ejemplo, el siguiente uso de `az vm create` inicia una implementación de máquina virtual y, después, volver mucho más rápidamente (y antes de que la máquina virtual se haya iniciado totalmente):</span><span class="sxs-lookup"><span data-stu-id="b157d-164">For example, the following usage of the `az vm create` starts a VM deployment and then return much more quickly (and before the VM has fully booted):</span></span>
-
-```azurecli-interactive
-az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
-```
-
-<span data-ttu-id="b157d-165">El uso del enfoque de `--no-wait` puede ayudarle a optimizar considerablemente el rendimiento de los scripts de automatización.</span><span class="sxs-lookup"><span data-stu-id="b157d-165">Using the `--no-wait` approach can help you optimize the performance of your automation scripts considerably.</span></span>
-
-## <a name="listing-resources-and-formatting-output"></a><span data-ttu-id="b157d-166">Enumeración de recursos y aplicación de formato al resultado</span><span class="sxs-lookup"><span data-stu-id="b157d-166">Listing resources and formatting output</span></span>
-
-<span data-ttu-id="b157d-167">El comando `list` se puede usar en la CLI de Azure para buscar y enumerar los recursos que se ejecutan en Azure.</span><span class="sxs-lookup"><span data-stu-id="b157d-167">You can use the `list` command within the Azure CLI to find and list the resources running in Azure.</span></span>
-
-<span data-ttu-id="b157d-168">Al igual que con el comando create, los recursos se pueden enumerar mediante la CLI de Azure 2.0 mediante un patrón de nomenclatura de `az <resource type name> list` que sea coherente con todos los tipos de recursos.</span><span class="sxs-lookup"><span data-stu-id="b157d-168">Like with the create command, you can list resources using the Azure CLI 2.0 using a common `az <resource type name> list` naming pattern that is consistent across all resource types.</span></span>  <span data-ttu-id="b157d-169">Existen varios formatos de salida y opciones de consulta disponibles para filtrar y ordenar la lista de recursos de la forma que prefiera para verlos.</span><span class="sxs-lookup"><span data-stu-id="b157d-169">There are various output formats and query options available to filter and sort the list of resources in the way you prefer to see them.</span></span>
-
-<span data-ttu-id="b157d-170">Por ejemplo, `az vm list` muestra la lista de todas las máquinas virtuales que tiene.</span><span class="sxs-lookup"><span data-stu-id="b157d-170">For example, `az vm list` shows the list of all VMs you have.</span></span>
-
-```azurecli-interactive
-az vm list
-```
-<span data-ttu-id="b157d-171">Los valores que se devuelven están, de forma predeterminada, en JSON (solo que muestra el resultado parcial por motivos de brevedad).</span><span class="sxs-lookup"><span data-stu-id="b157d-171">The values returned are by default in JSON (only showing partial output for sake of brevity).</span></span>
-
-```json
-[
-  {
-    "availabilitySet": null,
-    "diagnosticsProfile": null,
-    "hardwareProfile": {
-      "vmSize": "Standard_DS1_v2"
-    },
-    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010",
-    "instanceView": null,
-    "licenseType": null,
-    "location": "westus2",
-    "name": "MyLinuxVM",
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/demorg1/providers/Microsoft.Network/networkInterfaces/DemoVM010VMNic",
-          "primary": null,
-          "resourceGroup": "MyResourceGroup"
-        }
-      ]
-    },
-          ...
-          ...
-          ...
-]
-```
-
-<span data-ttu-id="b157d-172">Opcionalmente, puede modificar el formato de salida mediante la opción `--output`.</span><span class="sxs-lookup"><span data-stu-id="b157d-172">You can optionally modify the output format using the `--output` option.</span></span>  <span data-ttu-id="b157d-173">Ejecute el comando `az vm list` para ver las máquinas virtuales Linux y con Windows Server creadas con anterioridad, junto con las propiedades más comunes de una máquina virtual, mediante la opción de formato de *table* fácil de leer:</span><span class="sxs-lookup"><span data-stu-id="b157d-173">Run the `az vm list` command to see both the Linux and Windows Server VMs created earlier, along with the most common properties of a VM, using the easy to read *table* format option:</span></span>
-
-```azurecli-interactive
-az vm list --output table
-```
-
-```Output
-Name       ResourceGroup    Location
----------  ---------------  ----------
-MyLinuxVM  MyResourceGroup  westus2
-MyWinVM    MyResourceGroup  westus2
-```
-
-<span data-ttu-id="b157d-174">La opción de salida *tsv* se puede utilizar para obtener un formato de texto separado por tabulaciones sin encabezados.</span><span class="sxs-lookup"><span data-stu-id="b157d-174">The *tsv* output option can be used to get a text-based, tab-separated format without any headers.</span></span>  <span data-ttu-id="b157d-175">Este formato resulta útil cuando se desea canalizar la salida a otra herramienta de texto como grep.</span><span class="sxs-lookup"><span data-stu-id="b157d-175">This format is useful when you want to pipe the output into another text-based tool like grep.</span></span>
-
-```azurecli-interactive
-az vm list --output tsv
-```
-
-```
-None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyLinuxVM        None    None    westus2 MyLinuxVM                   None        Succeeded       MyResourceGroup None                    Microsoft.Compute/virtualMachines       XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWinVM  None    None    westus2 MyWinVM                 None    Succeeded       MyResourceGroup None                    Microsoft.Compute/virtualMachines       XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
-<span data-ttu-id="b157d-176">Consulte el artículo acerca de los [formatos de salida](format-output-azure-cli.md) para obtener más información sobre formas adicionales de enumerar recursos y dar formato al resultado.</span><span class="sxs-lookup"><span data-stu-id="b157d-176">Visit the [output formats](format-output-azure-cli.md) article to learn more about the additional ways to list resources and format the output.</span></span>
-
-## <a name="querying-resources-and-shaping-outputs"></a><span data-ttu-id="b157d-177">Consulta de recursos y forma de las salidas</span><span class="sxs-lookup"><span data-stu-id="b157d-177">Querying resources and shaping outputs</span></span>
-
-<span data-ttu-id="b157d-178">A menudo desea poder consultar solo los recursos que cumplan una condición concreta.</span><span class="sxs-lookup"><span data-stu-id="b157d-178">Often you want to be able to query for only those resources that meet a specific condition.</span></span>
-
-<span data-ttu-id="b157d-179">El comando `list` tiene compatibilidad integrada, lo que facilita el filtro de los recursos por nombre de grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="b157d-179">The `list` command has built-in support that makes it easy to filter resources by Resource Group name.</span></span>  <span data-ttu-id="b157d-180">Por ejemplo, puede usar un parámetro `--ResourceGroup` o `-g` con un comando `list` para recuperar solo los recursos de un grupo de recursos concreto:</span><span class="sxs-lookup"><span data-stu-id="b157d-180">For example, you can pass either a `--ResourceGroup` or `-g` parameter to a `list` command to only retrieve those resources within a specific resource group:</span></span>
-
-
-```azurecli-interactive
-az vm list -g MyResourceGroup --output table
-```
-
-```Output
-Name       ResourceGroup    Location
----------  ---------------  ----------
-MyLinuxVM  MyResourceGroup  westus2
-MyWinVM    MyResourceGroup  westus2
-```
-
-<span data-ttu-id="b157d-181">Para que el soporte técnico de las consultas sea aún más eficaz, puede usar el parámetro `--query` para ejecutar una consulta JMESPath en los resultados de *cualquier* comando `az`.</span><span class="sxs-lookup"><span data-stu-id="b157d-181">For even more powerful querying support, you can use the `--query` parameter to execute a JMESPath query on the results of *any* `az` command.</span></span>  <span data-ttu-id="b157d-182">Las consultas JMESPath se pueden usar tanto para filtrar como para dar forma a la salida de todos los resultados devueltos.</span><span class="sxs-lookup"><span data-stu-id="b157d-182">JMESPath queries can be used both to filter as well as shape the output of any returned result.</span></span>
-
-<span data-ttu-id="b157d-183">Por ejemplo, ejecute el siguiente comando para consultar si algún recurso de máquina virtual de todos los grupos de recursos contiene las letras "My":</span><span class="sxs-lookup"><span data-stu-id="b157d-183">For example, execute the following command to query for any VM resource within any resource group that contains the letters "My":</span></span>
-
-```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')]"
-```
-
-```Output
-ResourceGroup    ProvisioningState    Name       Location    VmId
----------------  -------------------  ---------  ----------  ------------------------------------
-MYRESOURCEGROUP  Succeeded            MyLinuxVM  westus2     XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
-
-<span data-ttu-id="b157d-184">Luego, también puede refinar más el resultado mediante el uso de la funcionalidad de moldeado de las consultas JMESPath para generar valores diferentes.</span><span class="sxs-lookup"><span data-stu-id="b157d-184">We could then choose to further refine the output by using the shaping capability of JMESPath queries to output different values as well.</span></span>  <span data-ttu-id="b157d-185">Por ejemplo, el siguiente comando recupera el tipo de disco del sistema operativo que usa la máquina virtual para determinar si el sistema operativo es Linux o Windows:</span><span class="sxs-lookup"><span data-stu-id="b157d-185">For example, the following command retrieves the type of OS disk the VM is using to determine whether the OS is Linux or Windows based:</span></span>
-
-```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }"
-```
-
-```Output
-VMName     OSType
----------  --------
-MyLinuxVM  Linux
-MyWinVM    Windows
-```
-
-<span data-ttu-id="b157d-186">La compatibilidad con JMESPath de la CLI de Azure es eficaz.</span><span class="sxs-lookup"><span data-stu-id="b157d-186">The JMESPath support in Azure CLI is powerful.</span></span>  <span data-ttu-id="b157d-187">Para más información acerca de cómo utilizarla, consulte el siguiente artículo acerca de las [consultas](query-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="b157d-187">Learn more about how to use it in our [query](query-azure-cli.md) article.</span></span>
-
-## <a name="deleting-resources"></a><span data-ttu-id="b157d-188">Eliminación de recursos</span><span class="sxs-lookup"><span data-stu-id="b157d-188">Deleting resources</span></span>
-
-<span data-ttu-id="b157d-189">Puede usar el comando `delete` de la CLI de Azure para eliminar los recursos que no necesite.</span><span class="sxs-lookup"><span data-stu-id="b157d-189">You can use the `delete` command within Azure CLI to delete the resources you no longer need.</span></span> <span data-ttu-id="b157d-190">El comando `delete` se puede usar con cualquier recurso, exactamente igual que sucede con el comando `create`.</span><span class="sxs-lookup"><span data-stu-id="b157d-190">You can use the `delete` command with any resource just like you can with the `create` command.</span></span>
-
-```azurecli-interactive
-az vm delete -n MyLinuxVM -g MyResourceGroup
-```
-
-<span data-ttu-id="b157d-191">De manera predeterminada la CLI solicita que se confirme la eliminación.</span><span class="sxs-lookup"><span data-stu-id="b157d-191">By default the CLI prompts to confirm deletion.</span></span>  <span data-ttu-id="b157d-192">Este mensaje se puede en los scripts automatizados.</span><span class="sxs-lookup"><span data-stu-id="b157d-192">You can suppress this prompt for automated scripts.</span></span>
-
-```Output
-Are you sure you want to perform this operation? (y/n): y
-EndTime                           Name                                  StartTime                         Status
---------------------------------  ------------------------------------  --------------------------------  ---------
-2017-02-19T02:35:56.678905+00:00  5b74ab80-9b29-4329-b483-52b406583e2f  2017-02-19T02:33:35.372769+00:00  Succeeded
-```
-
-<span data-ttu-id="b157d-193">También se puede usar el comando `delete` para eliminar varios recursos a la vez.</span><span class="sxs-lookup"><span data-stu-id="b157d-193">You can also use the `delete` command to delete many resources at a time.</span></span> <span data-ttu-id="b157d-194">Por ejemplo, el siguiente comando elimina todos los recursos del grupo de recursos "MyResourceGroup" que hemos usado para todos los ejemplos de este tutorial de introducción.</span><span class="sxs-lookup"><span data-stu-id="b157d-194">For example, the following command deletes all the resources in the "MyResourceGroup" resource group that we've used for all the samples in this Get Started tutorial.</span></span>
-
-```azurecli-interactive
-az group delete -n MyResourceGroup
-```
-
-```Output
-Are you sure you want to perform this operation? (y/n): y
-```
-
-## <a name="get-samples"></a><span data-ttu-id="b157d-195">Obtención de ejemplos</span><span class="sxs-lookup"><span data-stu-id="b157d-195">Get samples</span></span>
-
-<span data-ttu-id="b157d-196">Para más información acerca de las distintas formas de usar la CLI de Azure, consulte nuestro scripts más comunes para [máquinas virtuales Linux](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [máquinas virtuales Windows](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [Web Apps](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json) y [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="b157d-196">To learn more about ways to use the Azure CLI, check out our most common scripts for [Linux VMs](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [Windows VMs](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), [Web apps](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json), and [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json).</span></span>
-
-## <a name="read-the-api-reference-docs"></a><span data-ttu-id="b157d-197">Lectura de los documentos de referencia de la API</span><span class="sxs-lookup"><span data-stu-id="b157d-197">Read the API reference docs</span></span>
-
-[<span data-ttu-id="b157d-198">Referencia de API</span><span class="sxs-lookup"><span data-stu-id="b157d-198">API reference</span></span>](/cli/azure)
-
-## <a name="get-help"></a><span data-ttu-id="b157d-199">Obtención de ayuda</span><span class="sxs-lookup"><span data-stu-id="b157d-199">Get help</span></span>
-
-<span data-ttu-id="b157d-200">La CLI de Azure tiene documentación de ayuda integrada, que coincide con la documentación web que se puede ejecutar desde la línea de comandos:</span><span class="sxs-lookup"><span data-stu-id="b157d-200">The Azure CLI has built-in help documentation, which matches our web documentation that you can run from the command line:</span></span>
-
-```azurecli-interactive
-az [command-group [command]] -h
-```
-
-<span data-ttu-id="b157d-201">Por ejemplo, para ver los comandos y subgrupos disponibles para las máquinas virtuales, use:</span><span class="sxs-lookup"><span data-stu-id="b157d-201">For example, to see what commands and subgroups are available for VMs, use:</span></span>
-
-```azurecli-interactive
-az vm -h
-```
-
-<span data-ttu-id="b157d-202">Para obtener ayuda acerca del comando para crear máquinas virtuales, use:</span><span class="sxs-lookup"><span data-stu-id="b157d-202">To get help with the command to create a VM, use:</span></span>
-
-```azurecli-interactive
-az vm create -h
-```
-
-## <a name="switch-from-azure-cli-10"></a><span data-ttu-id="b157d-203">Cambio desde la CLI de Azure 1.0</span><span class="sxs-lookup"><span data-stu-id="b157d-203">Switch from Azure CLI 1.0</span></span>
-
-<span data-ttu-id="b157d-204">Si ya sabe usar la CLI de Azure 1.0 (azure.js), se dará cuenta de que hay sitios en los que los comandos no son exactamente los mismos.</span><span class="sxs-lookup"><span data-stu-id="b157d-204">If you already know how to use Azure CLI 1.0 (azure.js), you'll notice places where the commands aren't quite the same.</span></span>
-<span data-ttu-id="b157d-205">En ocasiones, los comandos para realizar una tarea son considerablemente diferentes.</span><span class="sxs-lookup"><span data-stu-id="b157d-205">Sometimes the commands to perform a task are significantly different.</span></span>
-<span data-ttu-id="b157d-206">Para ayudarle a pasar de la CLI de Azure 1.0 a la 2.0, hemos iniciado esta [asignación de comandos](https://github.com/Azure/azure-cli/blob/master/doc/azure2az_commands.rst).</span><span class="sxs-lookup"><span data-stu-id="b157d-206">To help you make the switch from Azure CLI 1.0 to Azure CLI 2.0, we've started this [command mapping](https://github.com/Azure/azure-cli/blob/master/doc/azure2az_commands.rst).</span></span>
-
-## <a name="send-us-your-feedback"></a><span data-ttu-id="b157d-207">Envíenos sus comentarios</span><span class="sxs-lookup"><span data-stu-id="b157d-207">Send us your feedback</span></span>
-
-```azurecli-interactive
+```azurecli
 az feedback
 ```
