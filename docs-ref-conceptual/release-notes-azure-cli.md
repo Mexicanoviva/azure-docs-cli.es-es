@@ -3,20 +3,80 @@ title: "Notas de la versión de la CLI de Azure 2.0"
 description: "Obtenga información acerca de las actualizaciones más recientes de la CLI de Azure 2.0"
 author: sptramer
 ms.author: sttramer
-manager: routlaw
-ms.date: 02/13/2018
+manager: carmonm
+ms.date: 02/27/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
+ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="february-27-2018"></a>27 de febrero de 2018
+
+Versión 2.0.28
+
+### <a name="core"></a>Núcleo
+
+* Se ha corregido [#5184](https://github.com/Azure/azure-cli/issues/5184): problema de instalación de Homebrew
+* Se ha agregado compatibilidad para la telemetría de la extensión con claves personalizadas
+* Se ha agregado el registro de HTTP a `--debug`
+
+### <a name="acs"></a>ACS
+
+* Se ha modificado para usar el gráfico de Helm `virtual-kubelet-for-aks` para `aks install-connector` de forma predeterminada
+* Problema corregido: problema de permisos insuficientes para que las entidades de servicio creen el grupo de contenedores ACI
+* Se han agregados los parámetros `--aci-container-group`, `--location` y `--image-tag` a `aks install-connector`
+* Se ha eliminado el aviso de desuso de `aks get-versions`
+
+### <a name="appservice"></a>Appservice
+
+* Actualizaciones de la nueva versión del SDK (azure-mgmt-web 0.35.0)
+* Se ha corregido [#5538](https://github.com/Azure/azure-cli/issues/5538): se notificaba `Free` como SKU no válida
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* Se ha actualizado el "aviso" cuando se crea una nueva cuenta de Cognitive Services
+
+### <a name="consumption"></a>Consumo
+
+* Se han agregado nuevos comandos a la API PriceSheet
+* Se han actualizados los formatos existentes para Detalles de uso y Detalles de la reserva
+
+### <a name="container"></a>Contenedor
+
+* Se han agregado los argumentos `--secrets` y `--secrets-mount-path` a `container create` para usar secretos en ACI
+
+### <a name="network"></a>Red
+
+* Se ha corregido [#5559](https://github.com/Azure/azure-cli/issues/5559): falta el cliente en `network vnet-gateway vpn-client generate`
+
+### <a name="resource"></a>Recurso
+
+* Se ha modificado `group deployment export` para mostrar una plantilla parcial y mensajes en caso de error
+
+### <a name="role"></a>Rol
+
+* Se ha agregado `role assignment list-changelogs` para permitir la auditoría de los roles de la entidad de servicio
+
+### <a name="sql"></a>SQL
+
+* Se ha agregado compatibilidad para redundancia de zona para las bases de datos y los grupos elásticos tanto en creación como en actualización
+
+### <a name="storage"></a>Storage
+
+* Se ha habilitado al especificación de destino y ruta de acceso o prefijo para `storage blob [upload-batch|download-batch]`
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha agregado compatibilidad con la conexión y desconexión de discos en una única instancia de VMSS
+
 
 ## <a name="february-13-2018"></a>13 de febrero de 2018
 
