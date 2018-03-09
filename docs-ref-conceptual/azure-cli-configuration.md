@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d60ede5b971ee2489482fb5a72bde9bf5389d37c
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: a85824cfcd1eb4176c7675a6e38327eccb390ca0
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Configuración de la CLI de Azure 2.0
 
@@ -29,7 +29,7 @@ Los valores de configuración usados por la CLI se evalúan según la siguiente 
 
 ## <a name="cli-configuration-with-az-configure"></a>Configuración de la CLI con az configure
 
-Los valores predeterminados para la CLI se establecen con el comando [az configure](/cli/azure/?view=azure-cli-latest#az_configure).
+Los valores predeterminados para la CLI se establecen con el comando [az configure](/cli/azure/reference-index#az_configure).
 Este comando toma un argumento, `--defaults`, que es una lista de pares `key=value` separada por espacios. La CLI utiliza los valores proporcionados en lugar de los argumentos necesarios.
 
 La siguiente es una lista de claves disponibles que puede usar.
@@ -52,7 +52,7 @@ az configure --defaults "location=westus2 group=MyResourceGroup"
 
 ## <a name="cli-configuration-file"></a>Archivo de configuración de la CLI
 
-El archivo de configuración de la CLI contiene otros valores que se usan para administrar el comportamiento de la CLI. El archivo de configuración se encuentra en `$AZURE_CONFIG_DIR/config`. El valor predeterminado de `AZURE_CONFIG_DIR` es `$HOME/.azure/config` en Linux y macOS y `%USERPROFILE%\.azure\config` en Windows.
+El archivo de configuración de la CLI contiene otros valores que se usan para administrar el comportamiento de la CLI. El archivo de configuración se encuentra en `$AZURE_CONFIG_DIR/config`. El valor predeterminado de `AZURE_CONFIG_DIR` es `$HOME/.azure` en Linux y macOS y `%USERPROFILE%\.azure` en Windows.
 
 Los archivos de configuración se escriben en el formato de archivos INI. Estos archivos se componen de secciones que empiezan por un encabezado `[section-name]` seguido de una lista de entradas `key=value`. Los nombres de sección distinguen mayúsculas de minúsculas y los nombres de clave, no.
 Los comentarios son cualquier línea que comience por un `#` o `;`. No se permiten comentarios en línea. Los valores booleanos no distinguen mayúsculas de minúsculas y se representan por los valores siguientes.
@@ -81,21 +81,21 @@ Cualquier valor con un valor predeterminado disponible no necesita estar present
 
 | Sección | NOMBRE      | type | DESCRIPCIÓN|
 |---------|-----------|------|------------|
-| __core__ | output | cadena | El formato de salida predeterminado. Puede ser `json`, `jsonc`, `tsv` o `table`. |
+| __core__ | output | string | El formato de salida predeterminado. Puede ser `json`, `jsonc`, `tsv` o `table`. |
 | | disable\_confirm\_prompt | boolean | Activa o desactiva los mensajes de confirmación. |
 | | collect\_telemetry | boolean | Permite que Microsoft recopile datos anónimos sobre el uso de la CLI. Para obtener información de privacidad, consulte los [Términos de uso de la CLI de Azure 2.0](http://aka.ms/AzureCliLegal). |
 | __logging__ | enable\_log\_file | boolean | Activar o desactivar el registro. |
-| | log\_dir | cadena | El directorio en el que se escribe el registro. De manera predeterminada, será `${AZURE_CONFIG_DIR}/logs`. |
-| __storage__ | connection\_string | cadena | La cadena de conexión predeterminada que se usará para los comandos `az storage`. |
-| | cuenta | cadena | El nombre de la cuenta predeterminada que se usará para los comandos `az storage`. |
-| | key | cadena | La clave de la cuenta predeterminada que se usará para los comandos `az storage`. |
-| | sas\_token | cadena | El token de SAS predeterminado que se usará para los comandos `az storage`. |
-| __batchai__ | storage\_account | cadena | La cuenta de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
-| | storage\_key | cadena | La clave de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
-| __batch__ | cuenta | cadena | El nombre de la cuenta de Azure Batch predeterminada que se usará para los comandos `az batch`. |
-| | access\_key | cadena | La clave de acceso predeterminada que se usará para los comandos `az batch`. Solo se usa con autorización `aad`. |
-| | endpoint | cadena | El punto de conexión predeterminado para los comandos `az batch`. |
-| | auth\_mode | cadena | El modo de autorización que se usará para los comandos `az batch`. Puede ser `shared_key` o `aad`. |
+| | log\_dir | string | El directorio en el que se escribe el registro. De manera predeterminada, será `${AZURE_CONFIG_DIR}/logs`. |
+| __storage__ | connection\_string | string | La cadena de conexión predeterminada que se usará para los comandos `az storage`. |
+| | cuenta | string | El nombre de la cuenta predeterminada que se usará para los comandos `az storage`. |
+| | key | string | La clave de la cuenta predeterminada que se usará para los comandos `az storage`. |
+| | sas\_token | string | El token de SAS predeterminado que se usará para los comandos `az storage`. |
+| __batchai__ | storage\_account | string | La cuenta de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
+| | storage\_key | string | La clave de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
+| __batch__ | cuenta | string | El nombre de la cuenta de Azure Batch predeterminada que se usará para los comandos `az batch`. |
+| | access\_key | string | La clave de acceso predeterminada que se usará para los comandos `az batch`. Solo se usa con autorización `aad`. |
+| | endpoint | string | El punto de conexión predeterminado para los comandos `az batch`. |
+| | auth\_mode | string | El modo de autorización que se usará para los comandos `az batch`. Puede ser `shared_key` o `aad`. |
 
 > [!NOTE]
 > Puede ver otros valores en el archivo de configuración, pero estos se administran directamente mediante comandos de la CLI, incluido `az configure`. Los que aparecen en la tabla anterior son los únicos valores que debe cambiar usted mismo.
