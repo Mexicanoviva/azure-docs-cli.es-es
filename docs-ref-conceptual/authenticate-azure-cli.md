@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a140f8f54ad72f7f3b5e2d63e2300d0aa2c061ac
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 92c96b7e969de686689ef02bf068392b9f565698
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
@@ -42,6 +42,14 @@ Proporcione sus credenciales en la línea de comandos.
 az login -u <username> -p <password>
 ```
 
+## <a name="log-in-with-a-specific-tenant"></a>Inicie sesión con un inquilino específico
+
+Si trabaja con varios inquilinos, puede usar el argumento `--tenant` para seleccionar el inquilino con el que iniciará sesión. El valor de este argumento puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino. Puede iniciar sesión de forma interactiva o proporcionar las credenciales con los argumentos `--user` y `--password`. 
+
+```
+az login --tenant <tenant>
+```
+
 ## <a name="logging-in-with-a-service-principal"></a>Inicio de sesión con una entidad de servicio
 
 Las entidades de servicio son cuentas no asociadas a un usuario concreto, las cuales pueden tener permisos asignados mediante roles predefinidos. La autenticación con una entidad de servicio es la mejor manera de escribir scripts o programas seguros, lo que le permite aplicar las restricciones de permisos y la información de credenciales estáticas almacenadas de modo local. Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
@@ -52,10 +60,9 @@ Para iniciar sesión con una entidad de servicio, proporcione el nombre de usuar
 az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```
 
-El valor del inquilino es el inquilino de Azure Active Directory asociado a la entidad de servicio. Puede ser un dominio .onmicrosoft.com o el identificador de objeto de Azure del inquilino.
+El valor del inquilino es el inquilino de Azure Active Directory asociado a la entidad de servicio. Puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino.
 Para obtener el identificador de objeto de inquilino del inicio de sesión actual, use este comando:
 
 ```azurecli
 az account show --query 'tenantId' -o tsv
 ```
-
