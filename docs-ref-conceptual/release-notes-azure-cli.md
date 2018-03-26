@@ -1,6 +1,6 @@
 ---
-title: "Notas de la versión de la CLI de Azure 2.0"
-description: "Obtenga información acerca de las actualizaciones más recientes de la CLI de Azure 2.0"
+title: Notas de la versión de la CLI de Azure 2.0
+description: Obtenga información acerca de las actualizaciones más recientes de la CLI de Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,13 +10,100 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
-ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
+ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
+ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="march-13-2018"></a>13 de marzo de 2018
+
+Versión 2.0.29
+
+### <a name="acr"></a>ACR
+
+* Se ha agregado compatibilidad con el parámetro `--image` a `repository delete`.
+* Los parámetros `--manifest` y `--tag` del comando `repository delete` están en desuso.
+* Se ha agregado el comando `repository untag` para quitar una etiqueta sin eliminar los datos.
+
+### <a name="acs"></a>ACS
+
+* Se ha agregado el comando `aks upgrade-connector` para actualizar un conector existente.
+* Se han cambiado los archivos de configuración `kubectl` para usar código YAML con un estilo de bloque más legible.
+
+### <a name="advisor"></a>Advisor
+
+* [NUEVO CAMBIO] Se cambió el nombre de `advisor configuration get` a `advisor configuration list`.
+* [NUEVO CAMBIO] Se cambió el nombre de `advisor configuration set` a `advisor configuration update`.
+* [NUEVO CAMBIO] Se ha quitado `advisor recommendation generate`. 
+* Se ha agregado el parámetro `--refresh` a `advisor recommendation list`
+* Se agregó el comando `advisor recommendation show`.
+
+### <a name="appservice"></a>Appservice
+
+* `[webapp|functionapp] assign-identity` está en desuso.
+* Se han agregado los comandos de identidad administrada `webapp identity [assign|show]` y `functionapp identity [assign|show]`.
+
+### <a name="eventhubs"></a>Event Hubs
+
+* Versión inicial.
+
+### <a name="extension"></a>Extensión
+
+* Se ha agregado una comprobación para advertir al usuario si usa una distribución diferente de la que está almacenada en el archivo de origen del paquete, porque podría provocar errores.
+
+### <a name="interactive"></a>Interactive
+
+* Se ha corregido el problema [5625](https://github.com/Azure/azure-cli/issues/5625): el historial se conserva entre sesiones diferentes.
+* Se ha corregido el problema [3016](https://github.com/Azure/azure-cli/issues/3016): el historial no se registra mientras está en el ámbito.
+* Se ha corregido el problema [5688](https://github.com/Azure/azure-cli/issues/5688): las finalizaciones no aparecen si el comando de carga de tabla detecta una excepción.
+* Se ha corregido el indicador de progreso durante operaciones de ejecución prolongada.
+
+### <a name="monitor"></a>Supervisión
+
+* Los comandos `monitor autoscale-settings` están en desuso.
+* Se agregaron los comandos `monitor autoscale`.
+* Se agregaron los comandos `monitor autoscale profile`.
+* Se agregaron los comandos `monitor autoscale rule`.
+
+### <a name="network"></a>Red
+
+* [CAMBIO IMPORTANTE] Se ha quitado el parámetro `--tags` de `route-filter rule create`.
+* Se han quitado algunos valores erróneos predeterminado de los siguientes comandos:
+  * `network express-route update`
+  * `network nsg rule update`
+  * `network public-ip update`
+  * `traffic-manager profile update`
+  * `network vnet-gateway update`
+* Se han agregado comandos `network watcher connection-monitor`.
+* Se han agregado los parámetros `--vnet` y `--subnet` a `network watcher show-topology`.
+
+### <a name="profile"></a>Perfil
+
+* El parámetro `--msi` de `az login` está en desuso.
+* Se ha agregado el parámetro `--identity` a `az login` para reemplazar a `--msi`.
+
+### <a name="rdbms"></a>RDBMS
+
+* [VERSIÓN PRELIMINAR] Se ha cambiado para usar la API 2017-12-01-preview
+
+### <a name="service-bus"></a>Azure Service Bus
+
+* Versión inicial.
+
+### <a name="storage"></a>Storage
+
+* Se ha corregido el problema [4971](https://github.com/Azure/azure-cli/issues/4971): `storage blob copy` ahora admite otras nubes de Azure.
+* Se ha corregido el problema [5286](https://github.com/Azure/azure-cli/issues/5286): los comandos `storage blob [delete-batch|download-batch|upload-batch]` de Batch ya no producen errores después de errores de condición previa.
+
+### <a name="vm"></a>máquina virtual
+
+* Se agregó compatibilidad para `[vm|vmss] create` para conectar los discos de datos no administrados y configurar el almacenamiento en caché.
+* `[vm|vmss] assign-identity` y `[vm|vmss] remove-identity` están en desuso.
+* Se han agregado los comandos `vm identity [assign|remove|show]` y `vmss identity [assign|remove|show]` para reemplazar los comandos en desuso.
+* Se ha cambiado la prioridad predeterminada en `vmss create` a None.
 
 ## <a name="february-27-2018"></a>27 de febrero de 2018
 
@@ -1457,7 +1544,7 @@ vm (2.0.2)
 * VM/VMSS: Incorporación de la lógica de validación de credenciales utilizada por el portal ([#2537](https://github.com/Azure/azure-cli/pull/2537))
 * Se han agregado comandos wait y soporte --no-wait ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * Conjunto de escalado de máquinas virtuales: admiten * para enumerar vistas de instancias entre máquinas virtuales ([#2467](https://github.com/Azure/azure-cli/pull/2467))
-* Se ha agregado el comando --secrets para máquinas virtuales y conjuntos de escalado de máquinas virtuales ([#2212} (https://github.com/Azure/azure-cli/pull/2212))
+* Adición de secretos a máquinas virtuales y conjuntos de escalado de máquinas virtuales ([2212} (https://github.com/Azure/azure-cli/pull/2212))
 * Se permite la creación de máquinas virtuales con un VHD especializado ([#2256](https://github.com/Azure/azure-cli/pull/2256))
 
 ## <a name="february-27-2017"></a>27 de febrero de 2017
@@ -1510,7 +1597,7 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> Algunos de los módulos de comandos tienen un postfijo "b*n*" o "rc*n*".
+> Algunos de los módulos de comando tienen un postfijo "b*n*" o "rc*n*".
 > Estos módulos de comandos todavía están en vista previa y tendrán disponibilidad general en el futuro.
 
 También tenemos versiones preliminares nocturnas de la CLI.
