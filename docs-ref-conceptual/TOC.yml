@@ -52,7 +52,12 @@
     - name: Consultar
       href: query-azure-cli.md
     - name: Extensiones
-      href: azure-cli-extensions.md
+      href: azure-cli-extensions-overview.md
+      items:
+        - name: Extensiones disponibles
+          href: azure-cli-extensions-list.md
+        - name: Extensión alias
+          href: azure-cli-extension-alias.md
     - name: Valores de configuración
       href: azure-cli-Configuration.md
     - name: Notas de la versión
