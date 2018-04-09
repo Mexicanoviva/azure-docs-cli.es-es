@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: e8419394bb221d2614e15171bd19dd76fd9cd773
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: e457d78b1009fe573554df36db18f525516e0b4a
+ms.sourcegitcommit: 335c11e6c34f7907e61a43507745ba84ed4e7469
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Extensión alias de la CLI de Azure 2.0
 
@@ -115,7 +115,7 @@ command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vm
 
 Al ejecutar este comando, asigne valores a los argumentos posicionales.
 
-```azruecli
+```azurecli
 az get-vm-ip MyResourceGroup MyVM
 ```
 
@@ -143,7 +143,7 @@ Para más información sobre el motor de plantillas Jinja2, consulte [la documen
 
 Para desinstalar la extensión, use el comando [az extension remove](/cli/azure/extension#az-extension-remove).
 
-```bash
+```azurecli
 az extension remove --name alias
 ```
 
