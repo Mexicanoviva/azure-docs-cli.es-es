@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 5695d1df42689b315dd9d8783232ce35205a0a0e
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: a150edbc174ff77f4320a2cb60e031dc3c6ad1cc
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Uso de extensiones con la CLI de Azure 2.0
 
@@ -25,7 +25,7 @@ Este artículo le ayuda a aprender a instalar, actualizar y eliminar extensiones
 
 ## <a name="find-extensions"></a>Buscar extensiones
 
-Para saber qué extensiones están disponibles, puede usar [az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available). Este comando muestra las extensiones oficiales proporcionadas y mantenidas por Microsoft.
+Para saber qué extensiones están disponibles, puede usar [az extension list-available](/cli/azure/extension#az-extension-list-available). Este comando muestra las extensiones oficiales proporcionadas y mantenidas por Microsoft.
 
 ```azurecli
 az extension list-available --output table
@@ -35,7 +35,7 @@ También hospedamos una [lista de las extensiones de Microsoft](azure-cli-extens
 
 ## <a name="install-extensions"></a>Instalar extensiones
 
-Una vez que haya encontrado una extensión para instalar, use [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) para obtenerla. Si la extensión aparece enumerada en `az extension list-available`, puede instalarla por nombre.
+Una vez que haya encontrado una extensión para instalar, use [az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add) para obtenerla. Si la extensión aparece enumerada en `az extension list-available`, puede instalarla por nombre.
 
 ```azurecli
 az extension add --name <extension-name>
@@ -51,7 +51,7 @@ Cuando se instala una extensión, se puede encontrar en el valor de la variable 
 
 ## <a name="update-extensions"></a>Actualizar extensiones
 
-Si se instaló una extensión por nombre, se puede actualizar con [az extension update](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-update).
+Si se instaló una extensión por nombre, se puede actualizar con [az extension update](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update).
 
 ```azurecli
 az extension update --name <extension-name>
@@ -63,7 +63,7 @@ Si un nombre de extensión no se puede resolver mediante la CLI, desinstálela e
 
 ## <a name="uninstall-extensions"></a>Desinstalar extensiones
 
-Si ya no necesita una extensión, se puede eliminar con [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-remove).
+Si ya no necesita una extensión, se puede eliminar con [az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove).
 
 ```azurecli
 az extension remove --name <extension-name>

@@ -10,17 +10,17 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: e7cf22d1611c224e1d7af351210e12fe0124fad0
-ms.sourcegitcommit: 26e0816dad17cc3584d1724493feecf5f5faa1f5
+ms.openlocfilehash: 794ea005816b33fe78ca6c15b86dcf94ace3eaa8
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Extensiones disponibles para la CLI de Azure 2.0
 
 Este artículo es una lista completa de las extensiones disponibles para la CLI de Azure 2.0 que Microsoft proporciona y mantiene.
 
-La lista de extensiones también está disponible directamente en la CLI. Para obtenerla, ejecute [az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available):
+La lista de extensiones también está disponible directamente en la CLI. Para obtenerla, ejecute [az extension list-available](/cli/azure/extension#az-extension-list-available):
 
 ```azurecli
 az extension list-available --output table

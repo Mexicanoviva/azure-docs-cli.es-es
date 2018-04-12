@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: b46c735a14240bddd07659475ada1c33c75a1e67
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: fd615c762f997cb8bd4835d387cd96dd9c475928
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -22,7 +22,7 @@ Si desea crear un inicio de sesión independiente con restricciones de acceso, p
 
 ## <a name="create-the-service-principal"></a>Creación de la entidad de servicio
 
-Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) para crear una entidad de servicio. El nombre de la entidad de servicio no está vinculado a ninguna aplicación o nombre de usuario existentes. Puede crear una entidad de servicio con el tipo de autenticación de su elección.
+Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) para crear una entidad de servicio. El nombre de la entidad de servicio no está vinculado a ninguna aplicación o nombre de usuario existentes. Puede crear una entidad de servicio con el tipo de autenticación de su elección.
 
 * `--password` se utiliza para la autenticación basada en contraseña. Asegúrese de que se crea una contraseña segura siguiendo las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Si no especifica una contraseña, se crea una automáticamente.
 
@@ -67,9 +67,9 @@ Los valores `appId`, `tenant` y `password` se utilizan para la autenticación. E
 
 La CLI de Azure 2.0 proporciona los siguientes comandos para administrar las asignaciones de roles.
 
-* [az role assignment list](/cli/azure/role/assignment#list)
-* [az role assignment create](/cli/azure/role/assignment#create)
-* [az role assignment delete](/cli/azure/role/assignment#delete)
+* [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
+* [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
+* [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
 El rol predeterminado de una entidad de servicio es **colaborador**. Este rol tiene permiso total para leer y escribir en una cuenta de Azure y normalmente no es adecuado para aplicaciones. El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.  Para más información sobre el control de acceso basado en roles (RBAC) y los roles, consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).
 
@@ -108,7 +108,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 ```
 ## <a name="reset-credentials"></a>Restablecimiento de las credenciales
 
-En caso de que olvide las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials). Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.
+En caso de que olvide las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials). Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.
 
 ```azurecli
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD

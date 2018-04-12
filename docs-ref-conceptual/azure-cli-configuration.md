@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 6970844bf9eba5ccf18b7603115de629e995f2c4
-ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
+ms.openlocfilehash: 7ef6175815014ac3f822e8c1038b4f5af8bba9dc
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Configuración de la CLI de Azure 2.0
 
@@ -29,7 +29,7 @@ Los valores de configuración usados por la CLI se evalúan según la siguiente 
 
 ## <a name="cli-configuration-with-az-configure"></a>Configuración de la CLI con az configure
 
-Los valores predeterminados para la CLI se establecen con el comando [az configure](/cli/azure/reference-index#az_configure).
+Los valores predeterminados para la CLI se establecen con el comando [az configure](/cli/azure/reference-index#az-configure).
 Este comando toma un argumento, `--defaults`, que es una lista de pares `key=value` separada por espacios. La CLI utiliza los valores proporcionados en lugar de los argumentos necesarios.
 
 La siguiente es una lista de claves disponibles que puede usar.
