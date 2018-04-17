@@ -1,7 +1,7 @@
 ---
-title: "Introducción a la CLI de Azure 2.0"
-description: "Introducción al uso de la CLI de Azure 2.0 y los conceptos básicos de los comandos."
-keywords: "CLI de Azure, ayuda de la CLI, ayuda de Azure, consulta, automatización,"
+title: Introducción a la CLI de Azure 2.0
+description: Introducción al uso de la CLI de Azure 2.0 y los conceptos básicos de los comandos.
+keywords: CLI de Azure, ayuda de la CLI, ayuda de Azure, consulta, automatización,
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3f5fe1b01a8ce691846126a6c03e7222e9b20e0d
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: 9eec3161a726d6cca53d92f80992059bfd056bf7
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introducción a la CLI de Azure 2.0
 
@@ -25,7 +25,7 @@ Bienvenido a la CLI de Azure 2.0. La CLI es una herramienta diseñada para ayuda
 
 Si no lo ha hecho ya, [instale la CLI](install-azure-cli.md) o pruebe el [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-Antes de usar los comandos de la CLI en una instalación local, deberá iniciar sesión con [az login](/cli/azure/reference-index#az_login).
+Antes de usar los comandos de la CLI en una instalación local, deberá iniciar sesión con [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -53,7 +53,7 @@ Todos los subcomandos de estos grupos y su documentación se pueden buscar en la
 Los comandos de la CLI se proporcionan como _subcomandos_ de _grupos_.
 Cada grupo representa un servicio suministrado por Azure y los subgrupos dividen comandos para estos servicios en agrupaciones lógicas.
 
-Para buscar comandos, utilice [az find](/cli/azure/reference-index#az_find). Por ejemplo, para buscar nombres de comando que contienen `secret`, use el siguiente comando:
+Para buscar comandos, utilice [az find](/cli/azure/reference-index#az-find). Por ejemplo, para buscar nombres de comando que contienen `secret`, use el siguiente comando:
 
 ```azurecli
 az find -q secret
@@ -80,7 +80,7 @@ Hay algunos argumentos que están disponibles para todos los comandos.
 
 ## <a name="interactive-mode"></a>Modo interactivo
 
-La CLI ofrece un modo interactivo que muestra automáticamente información de ayuda y facilita la selección de subcomandos. Puede entrar en el modo interactivo con el comando `az interactive`. Para más información sobre el modo interactivo y cómo ayuda a obtener información sobre la CLI, consulte [Modo interactivo de la CLI de Azure 2.0](interactive-azure-cli.md).
+La CLI ofrece un modo interactivo que muestra automáticamente información de ayuda y facilita la selección de subcomandos. Puede entrar en el modo interactivo con el comando [az interactive](/cli/azure/reference-index#az-interactive). Para más información sobre el modo interactivo y cómo ayuda a obtener información sobre la CLI, consulte [Modo interactivo de la CLI de Azure 2.0](interactive-azure-cli.md).
 
 También hay un [complemento de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) que ofrece una experiencia interactiva, incluida la función de autocompletar y documentación al pasar el ratón.
 
@@ -105,7 +105,7 @@ Si prefiere centrarse en otros servicios, hay una variedad de tutoriales sobre l
 
 ## <a name="give-feedback"></a>Envíenos sus comentarios
 
-Le agradecemos sus comentarios sobre la CLI para ayudarnos a mejorar y resolver errores. También puede [informar de un problema en Github](https://github.com/azure/azure-cli/issues) o utilizar las características integradas de la CLI para dejar comentarios generales con el comando `az feedback`.
+Le agradecemos sus comentarios sobre la CLI para ayudarnos a mejorar y resolver errores. También puede [informar de un problema en Github](https://github.com/azure/azure-cli/issues) o utilizar las características integradas de la CLI para dejar comentarios generales con el comando [az feedback](/cli/azure/reference-index#az-feedback).
 
 ```azurecli
 az feedback
