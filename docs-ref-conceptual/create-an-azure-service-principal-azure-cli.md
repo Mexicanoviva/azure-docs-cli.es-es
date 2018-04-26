@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fd615c762f997cb8bd4835d387cd96dd9c475928
-ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
+ms.openlocfilehash: fc87e3476d3a58bb16dd37bdde9679679a860f53
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -38,10 +38,20 @@ Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-r
 
   Se puede agregar el argumento `--keyvault` para indicar que el certificado se almacena en Azure Key Vault. En este caso, el valor `--cert` hace referencia al nombre del certificado en el almacén de claves.
 
-* `--create-cert` crea un certificado _autofirmado_ para la autenticación. Se puede agregar el argumento `--keyvault` para almacenar el certificado en Azure Key Vault.
+  ```azurecli
+  az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
+  ```
+
+* `--create-cert` crea un certificado _autofirmado_ para la autenticación. Si no se proporciona el argumento `--cert`, se genera un nombre de certificado aleatorio.
 
   ```azurecli
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
+  ```
+
+  Se puede agregar el argumento `--keyvault` para almacenar el certificado en Azure Key Vault. Cuando se usa `--keyvault`, el argumento `--cert` también es necesario.
+
+  ```azurecli
+  az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
 Si no se incluye un argumento para indicar el tipo de autenticación, se utiliza `--password` de forma predeterminada.

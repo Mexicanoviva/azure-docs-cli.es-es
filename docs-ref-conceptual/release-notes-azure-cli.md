@@ -4,19 +4,136 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/27/2018
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: 1e6bd4cd8bab853fb417ed9c4dd71d56e5de7cdc
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="april-10-2018"></a>10 de abril de 2018
+
+Versión 2.0.31
+
+### <a name="acr"></a>ACR
+
+* Control de errores mejorado de la conmutación por recuperación con wincred
+
+### <a name="acs"></a>ACS
+
+* Se cambió AKS, se crearon SPN para que sean válidas durante 5 años
+
+### <a name="appservice"></a>Appservice
+
+* [[CAMBIO IMPORTANTE]]: Removed `assign-identity`
+* Se ha corregido la excepción no detectada de planes de webapp no existentes
+
+### <a name="batchai"></a>BatchAI
+
+* Se ha agregado compatibilidad con la API 2018-03-01
+
+ - Montaje en el nivel de trabajo
+ - Variables de entorno con valores de secreto
+ - Configuración de contadores de rendimiento
+ - Creación de informes de segmentos de ruta de acceso específicas del trabajo
+ - Compatibilidad con subcarpetas en API de lista de archivos
+ - Uso y los límites de informes
+ - Permitir especificar el tipo de almacenamiento en caché de los servidores NFS
+ - Compatibilidad con imágenes personalizadas
+ - Se ha agregado compatibilidad con el kit de herramientas de pyTorch
+
+* Se ha agregado el comando `job wait` que permite esperar a que termine el trabajo y notifica el código de salida del trabajo
+* Se ha agregado el comando `usage show` para enumerar el uso actual de los recursos de Batch AI y los límites de las diferentes regiones
+* Se admiten las nubes nacionales
+* Se han agregado argumentos de línea de comandos al trabajo para montar sistemas de archivos en el nivel de trabajo, además de los archivos de configuración
+* Se han agregado más opciones para personalizar los clústeres: prioridad de las máquinas virtuales, subred, número inicial de nodos para los clústeres de escalado automático, especificar la imagen personalizada
+* Se ha agregado la opción de línea de comandos para especificar el tipo de almacenamiento en caché para NFS administrado por Batch AI
+* Se ha simplificado el montaje de sistemas de archivos en los archivos de configuración. Ahora, puede omitir las credenciales para el recurso compartido de archivos de Azure y los contenedores de blobs de Azure. La CLI rellenará las credenciales que faltan con la clave de cuenta de almacenamiento proporcionada con los parámetros de línea de comandos o con la variable de entorno, o bien consultará la clave en Azure Storage (si la cuenta de almacenamiento pertenece a la suscripción actual)
+* Ahora, el comando de transmisión de archivos del trabajo se completa automáticamente cuando el trabajo finaliza (realizado correctamente, realizado con errores, terminado o eliminado)
+* Se mejoró la salida `table` de las operaciones `show`.
+* Se agregó la opción `--use-auto-storage` para la creación de clústeres. Esta opción facilita la administración de cuentas de almacenamiento y el montaje de recursos compartidos de archivos de Azure y contenedores de blobs de Azure en clústeres
+* Se agregó la opción `--generate-ssh-keys` a `cluster create` y `file-server create`
+* Se agregó la posibilidad de proporcionar la tarea de configuración de nodo mediante la línea de comandos
+* [[CAMBIO IMPORTANTE]] Los comandos `job stream-file` y `job list-files` se han trasladado al grupo `job file`
+* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `--admin-user-name` a `--user-name` en el comando `file-server create` para que sea coherente con el comando `cluster create`
+
+### <a name="billing"></a>Facturación
+
+* Se han agregado comandos de inscripción de cuenta
+
+### <a name="consumption"></a>Consumo
+
+* Se agregaron los comandos `marketplace`.
+* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `reservations summaries` a `reservation summary`
+* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `reservations details` a `reservation detail`
+* [[CAMBIO IMPORTANTE]] Se han quitado las opciones cortas `--reservation-order-id` y `--reservation-id` de los comandos `reservation`
+* [[CAMBIO IMPORTANTE]] Se han quitado las opciones cortas `--grain` de los comandos `reservation summary`
+* [[CAMBIO IMPORTANTE]] Se han quitado las opciones cortas `--include-meter-details` de los comandos `pricesheet`
+
+### <a name="container"></a>Contenedor
+
+* Se han agregado parámetros de montaje de volúmenes del repositorio git `--gitrepo-url` `--gitrepo-dir` `--gitrepo-revision` y `--gitrepo-mount-path`
+* Se ha corregido el error [5926](https://github.com/Azure/azure-cli/issues/5926): Error de `az container exec` cuando se especifica --container-name
+
+### <a name="extension"></a>Extensión
+
+* Se ha cambiado el mensaje de comprobación de la distribución a nivel de depuración
+
+### <a name="interactive"></a>Interactive
+
+* Se ha cambiado para detener la finalización de los comandos no reconocidos
+* Se han agregado enlaces de evento antes y después de crear el subárbol de comandos
+* Se ha agregado finalización para los parámetros `--ids`
+
+### <a name="network"></a>Red
+
+* Se ha corregido el error [5936](https://github.com/Azure/azure-cli/issues/5936): No se pudieron establecer las etiquetas `application-gateway create`
+* Se ha agregado el argumento `--auth-certs` para asociar los certificados de autenticación para `application-gateway http-settings [create|update]`. [4910](https://github.com/Azure/azure-cli/issues/4910)
+* Se han agregado los comandos `ddos-protection` para crear planes de DDoS Protection 
+* Se ha agregado compatibilidad con `--ddos-protection-plan` a `vnet [create|update]` para asociar una red virtual a un plan de DDoS Protection
+* Se ha corregido el error con la marca `--disable-bgp-route-propagation` en `network route-table [create|update]`
+* Se han retirado los argumentos ficticios `--public-ip-address-type` y `--subnet-type` de `network lb [create|update]`
+* Se ha agregado compatibilidad de los registros TXT con las secuencias de escape de RFC 1035 a `network dns zone [import|export]` y `network dns record-set txt add-record`
+
+### <a name="profile"></a>Perfil
+
+* Se ha agregado compatibilidad para las cuentas de Azure clásico en `account list`
+* [[CAMBIO IMPORTANTE]] Se han quitado los argumentos `--msi` & `--msi-port`
+
+### <a name="rdbms"></a>RDBMS
+
+* Se agregó el comando `georestore`.
+* Se ha elimina la restricción de tamaño de almacenamiento del comando `create`
+
+### <a name="resource"></a>Recurso
+
+* Se agregó compatibilidad para `--metadata` a `policy definition create`.
+* Se ha agregado compatibilidad para `--metadata`, `--set`, `--add`, `--remove` a `policy definition update`
+
+### <a name="sql"></a>SQL
+
+* Se han agregado `sql elastic-pool op list` y `sql elastic-pool op cancel`
+
+### <a name="storage"></a>Storage
+
+* Se han mejorado los mensajes de error para las cadenas de conexión que tienen un formato incorrecto
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha agregado compatibilidad para configurar el número de dominios de error de la plataforma en `vmss create`
+* Se ha cambiado `vmss create` para que el valor predeterminado sea LB Estándar para conjuntos de escalado zonales, grandes o con grupos de ubicación únicos deshabilitados
+* [CAMBIO IMPORTANTE]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
+* Se ha agregado compatibilidad para la SKU de IP pública a `vm create`
+* Se han agregado los argumentos `--keyvault` y `--resource-group` a `vm secret format` para admitir escenarios en los que el comando no puede resolver el identificador de almacén. [5718](https://github.com/Azure/azure-cli/issues/5718)
+* Errores mejorados para `[vm|vmss create]` cuando la ubicación de un grupo de recursos no admite zonas
+
 
 ## <a name="march-27-2018"></a>27 de marzo de 2018
 
@@ -103,7 +220,7 @@ Versión 2.0.30
 
 ### <a name="resource"></a>Recurso
 
-* [[CAMBIO IMPORTANTE]]: Changed `provider operation [list|show]` to not require `--api-version`
+* [CAMBIO IMPORTANTE]: Changed `provider operation [list|show]` to not require `--api-version`
 
 ### <a name="role"></a>Rol
 
@@ -1633,7 +1750,7 @@ vm (2.0.2)
 * appservice: soporte para obtener la dirección IP externa utilizada para los registros DNS A ([#2627](https://github.com/Azure/azure-cli/pull/2627))
 * appservice: admite certificados de comodín de enlace ([#2625](https://github.com/Azure/azure-cli/pull/2625))
 * appservice: admite perfiles de publicación de listas ([#2504](https://github.com/Azure/azure-cli/pull/2504))
-* AppService: desencadena la sincronización del control de código fuente después de la configuración ([&#2326;](https://github.com/Azure/azure-cli/pull/2326))
+* AppService: desencadena la sincronización del control de código fuente después de la configuración ([2326 #](https://github.com/Azure/azure-cli/pull/2326))
 
 ### <a name="datalake"></a>DataLake
 

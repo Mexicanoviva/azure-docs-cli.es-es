@@ -1,6 +1,6 @@
 ---
-title: "Instalación de la CLI de Azure para Windows"
-description: "Instalación de la CLI de Azure 2.0 en Windows"
+title: Instalación de la CLI de Azure para Windows
+description: Instalación de la CLI de Azure 2.0 en Windows
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: df1c2b33589c160525710845cc81d076082a9ecc
-ms.sourcegitcommit: def1a07bfccf26a4178ba6dd836764a1df205929
+ms.openlocfilehash: 30b9621c82af259e3de762127fd20b31eb249234
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Instalación de la CLI de Azure 2.0 en Windows
 
@@ -30,7 +30,13 @@ El archivo MSI distribuible se usa para instalar, actualizar y desinstalar el co
 
 Cuando el instalador le pregunte si puede realizar cambios en el equipo, haga clic en la casilla "Sí".
 
-Ya puede ejecutar la CLI de Azure con el comando `az` desde el símbolo del sistema de Windows o PowerShell. PowerShell ofrece algunas características de la función de autocompletar que no están disponibles desde CMD.
+Ya puede ejecutar la CLI de Azure con el comando `az` desde el símbolo del sistema de Windows o PowerShell. PowerShell ofrece algunas características de finalización que no están disponibles en el símbolo del sistema de Windows. Para iniciar sesión, ejecute el comando `az login`.
+
+```azurecli
+az login
+```
+
+Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="uninstall"></a>Desinstalación
 

@@ -1,6 +1,6 @@
 ---
-title: "Instalación de la CLI de Azure 2.0 en Linux con apt"
-description: "Instalación de la CLI de Azure 2.0 con el administrador de paquetes apt"
+title: Instalación de la CLI de Azure 2.0 en Linux con apt
+description: Instalación de la CLI de Azure 2.0 con el administrador de paquetes apt
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 188e7dfded21bb5c7036b3a950b3e4cb10bc1d33
-ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
+ms.openlocfilehash: a2578c79ba961cb12f3f49e77a9eaa73c4fe97a2
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
@@ -33,15 +33,33 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
-2. Ejecute los siguientes comandos sudo:
+2. Obtenga la clave de firma de Microsoft:
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   ```
+
+  > [!WARNING]
+  > Esta clave de firma está en desuso y se reemplazará a finales de mayo de 2018. Para seguir recibiendo actualizaciones con `apt`, asegúrese de instalar también la nueva clave:
+  > 
+  > ```bash
+  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  > ``` 
+
+3. Instale la CLI de Azure:
+
+   ```bash
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
 
-Puede ejecutar la CLI de Azure con el comando `az`.
+Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
+
+```azurecli
+az login
+```
+
+Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="troubleshooting"></a>solución de problemas
 

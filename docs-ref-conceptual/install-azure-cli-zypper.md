@@ -1,6 +1,6 @@
 ---
-title: "Instalación de la CLI de Azure 2.0 en Linux con zypper"
-description: "Instalación de la CLI de Azure 2.0 con zypper"
+title: Instalación de la CLI de Azure 2.0 en Linux con zypper
+description: Instalación de la CLI de Azure 2.0 con zypper
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 6ee3aff74f43fab0c80c58c7fe57c9fa74a6ef2f
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 01d293eff229ab8b0eb3a3ff4e23978ea9e00174
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>Instalación de la CLI de Azure 2.0 con zypper
 
@@ -50,7 +50,13 @@ Si está ejecutando una distribución que viene con `zypper`, como openSUSE o SL
    sudo zypper install -y azure-cli
    ```
 
-Puede ejecutar la CLI con el comando `az`.
+Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
+
+```azurecli
+az login
+```
+
+Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="update"></a>Actualizar
 

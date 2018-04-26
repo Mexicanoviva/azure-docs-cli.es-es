@@ -1,6 +1,6 @@
 ---
-title: "Instalación de la CLI de Azure para macOS"
-description: "Instalación de la CLI de Azure 2.0 en macOS"
+title: Instalación de la CLI de Azure para macOS
+description: Instalación de la CLI de Azure 2.0 en macOS
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 0295846abc2fe6091940824c6efc47b8fd64ce9f
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 295e84d2d30365aac4334e1e962f23c7b8e38d37
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-on-macos"></a>Instalación de la CLI de Azure 2.0 en macOS
 
@@ -31,7 +31,13 @@ Para instalar la CLI, actualice la información del repositorio de Homebrew y ej
 brew update && brew install azure-cli
 ```
 
-Después, ejecute la CLI de Azure con el comando `az`.
+Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
+
+```azurecli
+az login
+```
+
+Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="troubleshooting"></a>solución de problemas
 

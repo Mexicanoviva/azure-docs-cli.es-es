@@ -9,11 +9,11 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: c17506cc81adc859ff5778b109c1832c857764e6
-ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
+ms.openlocfilehash: 1a01dde9381e40065299a4165d649fc85af7ca2e
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Administración de varias nubes con la CLI de Azure 2.0
 
@@ -85,7 +85,7 @@ az cloud set --name AzureChinaCloud
 
 ## <a name="register-a-cloud"></a>Registro de una nube
 
-Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de funcionalidades con puntos de conexión asociados. Para más información sobre cómo registrar una nube para su uso con Azure Stack, consulte [Instalación y configuración de la CLI para su uso con Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack).
+Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de funcionalidades con puntos de conexión asociados. Para más información sobre cómo registrar una nube para usarla con Azure Stack, consulte [Uso de los perfiles de la versión de la API con la CLI de Azure 2.0 en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
 
 No es necesario registrar su propia nube para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft las administra y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud#az-cloud-register).
 
