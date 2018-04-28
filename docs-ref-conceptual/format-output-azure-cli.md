@@ -1,20 +1,19 @@
 ---
 title: Formatos de salida para la CLI de Azure 2.0
-description: "Obtenga información acerca de cómo dar formato a la salida de los comandos de la CLI de Azure 2.0 como tablas, listas o código JSON."
+description: Obtenga información acerca de cómo dar formato a la salida de los comandos de la CLI de Azure 2.0 como tablas, listas o código JSON.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: ec96d1cb21b32cd982dbec5e4bf38110f8686c25
-ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: 1eb0fa1421fc2a5f52ccebec7d535824c2434ed2
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Formatos de salida de los comandos de la CLI de Azure 2.0
 
