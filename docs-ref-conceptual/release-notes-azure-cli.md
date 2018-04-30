@@ -7,14 +7,13 @@ manager: carmonm
 ms.date: 04/10/2018
 ms.topic: article
 ms.prod: azure
-ms.technology: azure
-ms.devlang: azurecli
-ms.service: multiple
-ms.openlocfilehash: 1e6bd4cd8bab853fb417ed9c4dd71d56e5de7cdc
-ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
+ms.technology: azure-cli
+ms.devlang: azure-cli
+ms.openlocfilehash: fd5d82e34089a9a884c25c9a5620526f9d30577a
+ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
 
@@ -790,7 +789,7 @@ Versión 2.0.21
 
 * Se cambió `[job|account] list` para devolver información más concisa
 
-### <a name="data-lake-store"></a>Almacén de Data Lake
+### <a name="data-lake-store"></a>Data Lake Store
 
 * Se cambió `account list` para devolver información más concisa
 
@@ -1183,7 +1182,7 @@ Versión 2.0.13
 * `create`: se corrigió el problema por el que no se permitía el signo igual en una variable de entorno.
 
 
-### <a name="data-lake-store"></a>Almacén de Data Lake
+### <a name="data-lake-store"></a>Data Lake Store
 
 * Control de progreso habilitado.
 
@@ -1335,7 +1334,7 @@ vm (2.0.11)
 * Se agregó `dla job pipeline show`.
 * Se agregó `dla job recurrence list`.
 
-### <a name="data-lake-store"></a>Almacén de Data Lake
+### <a name="data-lake-store"></a>Data Lake Store
 
 * Se agregó compatibilidad para la rotación de claves de almacén de claves administrados por el usuario en `dls account update`.
 * Se actualizó la versión subyacente del SDK del sistema de archivos de Data Lake Store para solucionar un problema de rendimiento.
@@ -1589,7 +1588,7 @@ vm (2.0.6)
   * Ver
   * Estadísticas de tabla. Esto también se puede enumerar con un esquema, pero sin especificar un nombre de tabla
 
-### <a name="data-lake-store"></a>Almacén de Data Lake
+### <a name="data-lake-store"></a>Data Lake Store
 
 * Se actualiza la versión del SDK del sistema de archivos subyacente, que ofrece mayor compatibilidad para escenarios de limitación del lado del servidor
 * Se mejora el rendimiento de la carga de paquetes y de la ejecución de comandos ([#2819](https://github.com/Azure/azure-cli/issues/2819)).
