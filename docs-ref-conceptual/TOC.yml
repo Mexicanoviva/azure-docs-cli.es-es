@@ -66,6 +66,8 @@
   items:
     - name: Creación de máquinas virtuales
       href: azure-cli-vm-tutorial.yml
+    - name: 'Aprendizaje: creación de máquinas virtuales'
+      href: 'https://docs.microsoft.com/learn/azure-cli-2-0/index'
 - name: Scripts de ejemplo
   items:
     - name: Máquinas virtuales con Linux
