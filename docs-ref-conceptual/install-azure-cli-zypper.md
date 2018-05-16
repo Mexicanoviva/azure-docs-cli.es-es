@@ -46,11 +46,7 @@ Si está ejecutando una distribución que viene con `zypper`, como openSUSE o SL
 
    ```bash
    sudo zypper refresh
-   sudo zypper install --from azure-cli -y azure-cli
    ```
-
-Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
-
 ```azurecli
 az login
 ```

@@ -40,6 +40,5 @@ az extension list-available --output table
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | Compatibilidad con la versión preliminar de administración de partners. |  |
 | [rdbms](https://github.com/Azure/azure-cli-extensions) | 0.0.5 | Extensión de la CLI de Azure que proporciona compatibilidad con Azure MySQL y Azure PostgreSQL. |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Compatibilidad con la versión preliminar de la administración de signalr. | Sí |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Proporciona una versión preliminar de las características de almacenamiento futuras. | Sí |
 | [suscripción](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Compatibilidad con la versión preliminar de la administración de suscripciones. |  |
 | [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.6 | Extensión de la CLI de Azure para administrar recursos de appservice | Sí |
