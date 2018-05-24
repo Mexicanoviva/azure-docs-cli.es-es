@@ -4,16 +4,16 @@ description: Obtenga información acerca de cómo realizar consultas JMESPath co
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: eb9311686bf950a450db4bc450da363bbe409f49
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: ed8f8ac160dd8225170ffcfff9619d94b92e456a
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Uso de consultas JMESPath con la CLI de Azure 2.0
 
@@ -25,13 +25,13 @@ El argumento `--query` es compatible con todos los comandos de la CLI de Azure. 
 
 Los comandos que devuelven un diccionario JSON se pueden explorar por los nombres de clave por sí mismos. Las rutas de acceso de las claves utilizan el carácter `.` como separador. En el ejemplo siguiente se extrae una lista de las claves SSH públicas que pueden conectarse a una máquina virtual Linux:
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
 También puede obtener varios valores, colocándolos en una matriz ordenada. La matriz no tiene ninguna información de clave, pero el orden de los elementos de la matriz coincide con el orden de las claves consultadas. En el ejemplo siguiente se muestra cómo recuperar el nombre de oferta de la imagen de Azure y el tamaño del disco del sistema operativo:
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
 ```
 
@@ -44,7 +44,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer,
 
 Si desea que las claves estén presentes en la salida, puede usar una sintaxis de diccionario alternativa. La selección de múltiples elementos en un diccionario utiliza el formato `{displayKey:keyPath, ...}` para filtrar según la expresión JMESPath `keyPath`. Esto se muestra en la salida como `{displayKey: value}`. En el ejemplo siguiente se toma la consulta del último ejemplo, que resulta más clara asignando claves a la salida:
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
 ```
 
@@ -68,7 +68,7 @@ Al mostrar información en el formato de salida `table`, la presentación del di
 
 Los comandos de la CLI que pueden devolver más de un valor siempre devuelven una matriz. Es posible acceder a los elementos de la matriz por su índice, pero nunca hay garantía de orden por parte de la CLI. La mejor manera para consultar una matriz de valores es aplanar dichos valores con el operador `[]`. El operador se escribe después de la clave de la matriz o como el primer elemento de la expresión. El aplanado ejecuta la consulta con cada elemento individual de la matriz y coloca los valores resultantes en una nueva matriz. En el ejemplo siguiente se imprime el nombre y el sistema operativo que se ejecuta en cada máquina virtual de un grupo de recursos. 
 
-```azurecli
+```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
 ```
 
@@ -99,7 +99,7 @@ az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageRefere
 
 También se pueden aplanar las matrices que forman parte de una ruta de acceso de clave. En este ejemplo se muestra una consulta que obtiene los identificadores de objeto de Azure de las NIC a las que está conectada una máquina virtual.
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
 ```
 
@@ -107,7 +107,7 @@ az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id
 
 JMESPath ofrece [expresiones de filtro](http://jmespath.org/specification.html#filterexpressions) para filtrar los datos mostrados. Estas expresiones son eficaces, especialmente cuando se combinan con las [funciones integradas de JMESPath](http://jmespath.org/specification.html#built-in-functions) para realizar coincidencias parciales o manipular los datos en un formato estándar. Las expresiones de filtro solo funcionan en datos de matriz y, cuando se utilizan en cualquier otra situación, devuelven el valor `null`. Por ejemplo, puede tomar la salida de comandos como `vm list` y filtrarla para buscar tipos específicos de máquinas virtuales. En el ejemplo siguiente se amplía el anterior filtrando el tipo de máquina virtual para capturar solo máquinas virtuales Windows e imprimir su nombre.
 
-```azurecli
+```azurecli-interactive
 az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 ```
 

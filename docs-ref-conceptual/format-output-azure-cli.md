@@ -4,16 +4,16 @@ description: Obtenga información acerca de cómo dar formato a la salida de los
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/15/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1eb0fa1421fc2a5f52ccebec7d535824c2434ed2
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 016465080e95af3ab0650146e955dd8cffc569e8
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Formatos de salida de los comandos de la CLI de Azure 2.0
 
@@ -30,7 +30,7 @@ La CLI de Azure 2.0 usa json como su opción de salida predeterminada, pero ofre
 
 En el ejemplo siguiente se muestra la lista de máquinas virtuales de sus suscripciones en el formato json predeterminado.
 
-```azurecli
+```azurecli-interactive
 az vm list --output json
 ```
 
@@ -68,7 +68,7 @@ La salida siguiente tiene algunos campos que se omiten para mayor brevedad y se 
 
 El formato de salida `table` proporciona una salida con formato de filas y columnas de datos intercalados, lo que facilita la lectura y la búsqueda. Los objetos anidados no se incluyen en la salida de tabla, pero se pueden filtrar como parte de una consulta. Algunos campos también se omiten en la tabla de datos, por lo que este formato es adecuado cuando se desea una revisión rápida de los datos con posibilidad de que el usuario realice búsquedas.
 
-```azurecli
+```azurecli-interactive
 az vm list --out table
 ```
 
@@ -81,13 +81,14 @@ demovm213    DEMORG1          westus
 KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
+
 Puede usar el parámetro `--query` para personalizar las propiedades y las columnas que desea mostrar en la salida de la lista. En el ejemplo siguiente se muestra cómo seleccionar el nombre de máquina virtual y el nombre del grupo de recursos en el comando `list`.
 
 ```azurecli
 az vm list --query "[].{resource:resourceGroup, name:name}" -o table
 ```
 
-```
+```output
 Resource    Name
 ----------  -----------
 DEMORG1     DemoVM010
@@ -112,7 +113,7 @@ El formato de salida `tsv` devuelve valores separados por tabulaciones y nueva l
 
 Mediante el ejemplo anterior con la opción `tsv` se genera un resultado separado por tabulaciones.
 
-```azurecli
+```azurecli-interactive
 az vm list --out tsv
 ```
 
@@ -141,7 +142,7 @@ Para fines de procesamiento de campos separados por tabulaciones, los valores es
 
 Puede usar el comando interactivo `az configure` para configurar el entorno y establecer la configuración predeterminada de los formatos de salida. El formato de salida predeterminado es `json`. 
 
-```azurecli
+```azurecli-interactive
 az configure
 ```
 

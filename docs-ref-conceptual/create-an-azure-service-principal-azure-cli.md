@@ -4,17 +4,17 @@ description: Aprenda a crear y utilizar una entidad de servicio con la CLI de Az
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/12/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: c7c993e54d3b9bcfa098d89ea89ec15eecba359f
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 86fa8b448089bd9f6ede46c92b7e95abb7c88dad
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -26,31 +26,31 @@ Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-r
 
 * `--password` se utiliza para la autenticación basada en contraseña. Asegúrese de que se crea una contraseña segura siguiendo las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Si no especifica una contraseña, se crea una automáticamente.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
   ```
 
 * `--cert` se utiliza para la autenticación basada en certificados para un certificado existente, ya sea como una cadena pública PEM o DER o mediante `@{file}` para cargar un archivo.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
   ```
 
   Se puede agregar el argumento `--keyvault` para indicar que el certificado se almacena en Azure Key Vault. En este caso, el valor `--cert` hace referencia al nombre del certificado en el almacén de claves.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
   ```
 
 * `--create-cert` crea un certificado _autofirmado_ para la autenticación. Si no se proporciona el argumento `--cert`, se genera un nombre de certificado aleatorio.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
   ```
 
   Se puede agregar el argumento `--keyvault` para almacenar el certificado en Azure Key Vault. Cuando se usa `--keyvault`, el argumento `--cert` también es necesario.
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
@@ -85,7 +85,7 @@ El rol predeterminado de una entidad de servicio es **colaborador**. Este rol ti
 
 En este ejemplo se agrega el rol **Lector** y se elimina el rol **Colaborador**.
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
@@ -94,7 +94,7 @@ La adición de un rol _no_ cambia los permisos asignados previamente. Al restrin
 
 Los cambios se pueden comprobar obteniendo una lista de los roles asignados.
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
@@ -107,19 +107,20 @@ Puede probar el inicio de sesión y los permisos de la nueva entidad de servicio
 
 Para iniciar sesión con una contraseña, debe proporcionarla como un parámetro de argumento.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
 Para iniciar sesión con un certificado, debe estar disponible localmente en un archivo PEM o DER.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
 ```
+
 ## <a name="reset-credentials"></a>Restablecimiento de las credenciales
 
 En caso de que olvide las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials). Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.
 
-```azurecli
+```azurecli-interactive
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
 ```
