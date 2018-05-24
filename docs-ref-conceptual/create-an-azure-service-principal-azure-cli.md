@@ -4,59 +4,59 @@ description: Aprenda a crear y utilizar una entidad de servicio con la CLI de Az
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/12/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: c7c993e54d3b9bcfa098d89ea89ec15eecba359f
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 86fa8b448089bd9f6ede46c92b7e95abb7c88dad
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli-20"></a><span data-ttu-id="58340-103">Creación de una entidad de servicio de Azure con la CLI de Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="58340-103">Create an Azure service principal with Azure CLI 2.0</span></span>
+# <a name="create-an-azure-service-principal-with-azure-cli-20"></a><span data-ttu-id="45252-103">Creación de una entidad de servicio de Azure con la CLI de Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="45252-103">Create an Azure service principal with Azure CLI 2.0</span></span>
 
-<span data-ttu-id="58340-104">Si desea crear un inicio de sesión independiente con restricciones de acceso, puede hacerlo a través de una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="58340-104">If you want to create a separate login with access restrictions, you can do so through a service principal.</span></span> <span data-ttu-id="58340-105">Las entidades de servicio son identidades independientes que se pueden asociar con una cuenta.</span><span class="sxs-lookup"><span data-stu-id="58340-105">Service principals are separate identities that can be associated with an account.</span></span> <span data-ttu-id="58340-106">Las entidades de servicio son útiles para trabajar con aplicaciones y tareas que se deben automatizar.</span><span class="sxs-lookup"><span data-stu-id="58340-106">Service principals are useful for working with applications and tasks that must be automated.</span></span> <span data-ttu-id="58340-107">Este artículo le guía por los pasos de creación de una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="58340-107">This article runs you through the steps for creating a service principal.</span></span>
+<span data-ttu-id="45252-104">Si desea crear un inicio de sesión independiente con restricciones de acceso, puede hacerlo a través de una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="45252-104">If you want to create a separate login with access restrictions, you can do so through a service principal.</span></span> <span data-ttu-id="45252-105">Las entidades de servicio son identidades independientes que se pueden asociar con una cuenta.</span><span class="sxs-lookup"><span data-stu-id="45252-105">Service principals are separate identities that can be associated with an account.</span></span> <span data-ttu-id="45252-106">Las entidades de servicio son útiles para trabajar con aplicaciones y tareas que se deben automatizar.</span><span class="sxs-lookup"><span data-stu-id="45252-106">Service principals are useful for working with applications and tasks that must be automated.</span></span> <span data-ttu-id="45252-107">Este artículo le guía por los pasos de creación de una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="45252-107">This article runs you through the steps for creating a service principal.</span></span>
 
-## <a name="create-the-service-principal"></a><span data-ttu-id="58340-108">Creación de la entidad de servicio</span><span class="sxs-lookup"><span data-stu-id="58340-108">Create the service principal</span></span>
+## <a name="create-the-service-principal"></a><span data-ttu-id="45252-108">Creación de la entidad de servicio</span><span class="sxs-lookup"><span data-stu-id="45252-108">Create the service principal</span></span>
 
-<span data-ttu-id="58340-109">Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) para crear una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="58340-109">Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal.</span></span> <span data-ttu-id="58340-110">El nombre de la entidad de servicio no está vinculado a ninguna aplicación o nombre de usuario existentes.</span><span class="sxs-lookup"><span data-stu-id="58340-110">The Service Principal's name isn't tied to any existing application or user name.</span></span> <span data-ttu-id="58340-111">Puede crear una entidad de servicio con el tipo de autenticación de su elección.</span><span class="sxs-lookup"><span data-stu-id="58340-111">You can create a service principal with your choice of authentication type.</span></span>
+<span data-ttu-id="45252-109">Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) para crear una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="45252-109">Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal.</span></span> <span data-ttu-id="45252-110">El nombre de la entidad de servicio no está vinculado a ninguna aplicación o nombre de usuario existentes.</span><span class="sxs-lookup"><span data-stu-id="45252-110">The Service Principal's name isn't tied to any existing application or user name.</span></span> <span data-ttu-id="45252-111">Puede crear una entidad de servicio con el tipo de autenticación de su elección.</span><span class="sxs-lookup"><span data-stu-id="45252-111">You can create a service principal with your choice of authentication type.</span></span>
 
-* <span data-ttu-id="58340-112">`--password` se utiliza para la autenticación basada en contraseña.</span><span class="sxs-lookup"><span data-stu-id="58340-112">`--password` is used for password-based authentication.</span></span> <span data-ttu-id="58340-113">Asegúrese de que se crea una contraseña segura siguiendo las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy).</span><span class="sxs-lookup"><span data-stu-id="58340-113">Make sure that you create a strong password by following the [Azure Active Directory password rules and restrictions](/azure/active-directory/active-directory-passwords-policy).</span></span> <span data-ttu-id="58340-114">Si no especifica una contraseña, se crea una automáticamente.</span><span class="sxs-lookup"><span data-stu-id="58340-114">If you don't specify a password, one is created for you.</span></span>
+* <span data-ttu-id="45252-112">`--password` se utiliza para la autenticación basada en contraseña.</span><span class="sxs-lookup"><span data-stu-id="45252-112">`--password` is used for password-based authentication.</span></span> <span data-ttu-id="45252-113">Asegúrese de que se crea una contraseña segura siguiendo las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy).</span><span class="sxs-lookup"><span data-stu-id="45252-113">Make sure that you create a strong password by following the [Azure Active Directory password rules and restrictions](/azure/active-directory/active-directory-passwords-policy).</span></span> <span data-ttu-id="45252-114">Si no especifica una contraseña, se crea una automáticamente.</span><span class="sxs-lookup"><span data-stu-id="45252-114">If you don't specify a password, one is created for you.</span></span>
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
   ```
 
-* <span data-ttu-id="58340-115">`--cert` se utiliza para la autenticación basada en certificados para un certificado existente, ya sea como una cadena pública PEM o DER o mediante `@{file}` para cargar un archivo.</span><span class="sxs-lookup"><span data-stu-id="58340-115">`--cert` is used for certificate-based authentication for an existing certificate, either as a PEM or DER public string, or `@{file}` to load a file.</span></span>
+* <span data-ttu-id="45252-115">`--cert` se utiliza para la autenticación basada en certificados para un certificado existente, ya sea como una cadena pública PEM o DER o mediante `@{file}` para cargar un archivo.</span><span class="sxs-lookup"><span data-stu-id="45252-115">`--cert` is used for certificate-based authentication for an existing certificate, either as a PEM or DER public string, or `@{file}` to load a file.</span></span>
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
   ```
 
-  <span data-ttu-id="58340-116">Se puede agregar el argumento `--keyvault` para indicar que el certificado se almacena en Azure Key Vault.</span><span class="sxs-lookup"><span data-stu-id="58340-116">The `--keyvault` argument can be added to indicate the cert is stored in Azure Key Vault.</span></span> <span data-ttu-id="58340-117">En este caso, el valor `--cert` hace referencia al nombre del certificado en el almacén de claves.</span><span class="sxs-lookup"><span data-stu-id="58340-117">In this case, the `--cert` value refers to the name of the certificate in Key Vault.</span></span>
+  <span data-ttu-id="45252-116">Se puede agregar el argumento `--keyvault` para indicar que el certificado se almacena en Azure Key Vault.</span><span class="sxs-lookup"><span data-stu-id="45252-116">The `--keyvault` argument can be added to indicate the cert is stored in Azure Key Vault.</span></span> <span data-ttu-id="45252-117">En este caso, el valor `--cert` hace referencia al nombre del certificado en el almacén de claves.</span><span class="sxs-lookup"><span data-stu-id="45252-117">In this case, the `--cert` value refers to the name of the certificate in Key Vault.</span></span>
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
   ```
 
-* <span data-ttu-id="58340-118">`--create-cert` crea un certificado _autofirmado_ para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="58340-118">`--create-cert` creates a _self-signed_ certificate for authentication.</span></span> <span data-ttu-id="58340-119">Si no se proporciona el argumento `--cert`, se genera un nombre de certificado aleatorio.</span><span class="sxs-lookup"><span data-stu-id="58340-119">If the `--cert` argument is not provided, a random certificate name is generated.</span></span>
+* <span data-ttu-id="45252-118">`--create-cert` crea un certificado _autofirmado_ para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="45252-118">`--create-cert` creates a _self-signed_ certificate for authentication.</span></span> <span data-ttu-id="45252-119">Si no se proporciona el argumento `--cert`, se genera un nombre de certificado aleatorio.</span><span class="sxs-lookup"><span data-stu-id="45252-119">If the `--cert` argument is not provided, a random certificate name is generated.</span></span>
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
   ```
 
-  <span data-ttu-id="58340-120">Se puede agregar el argumento `--keyvault` para almacenar el certificado en Azure Key Vault.</span><span class="sxs-lookup"><span data-stu-id="58340-120">The `--keyvault` argument can be added to store the certificate in Azure Key Vault.</span></span> <span data-ttu-id="58340-121">Cuando se usa `--keyvault`, el argumento `--cert` también es necesario.</span><span class="sxs-lookup"><span data-stu-id="58340-121">When using `--keyvault`, the `--cert` argument is also required.</span></span>
+  <span data-ttu-id="45252-120">Se puede agregar el argumento `--keyvault` para almacenar el certificado en Azure Key Vault.</span><span class="sxs-lookup"><span data-stu-id="45252-120">The `--keyvault` argument can be added to store the certificate in Azure Key Vault.</span></span> <span data-ttu-id="45252-121">Cuando se usa `--keyvault`, el argumento `--cert` también es necesario.</span><span class="sxs-lookup"><span data-stu-id="45252-121">When using `--keyvault`, the `--cert` argument is also required.</span></span>
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
-<span data-ttu-id="58340-122">Si no se incluye un argumento para indicar el tipo de autenticación, se utiliza `--password` de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="58340-122">If an argument indicating the authentication type isn't included, `--password` is used by default.</span></span>
+<span data-ttu-id="45252-122">Si no se incluye un argumento para indicar el tipo de autenticación, se utiliza `--password` de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="45252-122">If an argument indicating the authentication type isn't included, `--password` is used by default.</span></span>
 
-<span data-ttu-id="58340-123">La salida del comando `create-for-rbac` tiene el formato siguiente:</span><span class="sxs-lookup"><span data-stu-id="58340-123">The output of the `create-for-rbac` command is in the following format:</span></span>
+<span data-ttu-id="45252-123">La salida del comando `create-for-rbac` tiene el formato siguiente:</span><span class="sxs-lookup"><span data-stu-id="45252-123">The output of the `create-for-rbac` command is in the following format:</span></span>
 
 ```json
 {
@@ -68,58 +68,59 @@ ms.lasthandoff: 04/28/2018
 }
 ```
 
-<span data-ttu-id="58340-124">Los valores `appId`, `tenant` y `password` se utilizan para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="58340-124">The `appId`, `tenant`, and `password` values are used for authentication.</span></span> <span data-ttu-id="58340-125">El valor `displayName` se utiliza cuando se busca una entidad de servicio existente.</span><span class="sxs-lookup"><span data-stu-id="58340-125">The `displayName` is used when searching for an existing service principal.</span></span>
+<span data-ttu-id="45252-124">Los valores `appId`, `tenant` y `password` se utilizan para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="45252-124">The `appId`, `tenant`, and `password` values are used for authentication.</span></span> <span data-ttu-id="45252-125">El valor `displayName` se utiliza cuando se busca una entidad de servicio existente.</span><span class="sxs-lookup"><span data-stu-id="45252-125">The `displayName` is used when searching for an existing service principal.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="58340-126">Si su cuenta no tiene permisos suficientes para crear una entidad de servicio, verá un mensaje de error que contiene el texto "Privilegios suficientes para completar la operación".</span><span class="sxs-lookup"><span data-stu-id="58340-126">If your account does not have sufficient permissions to create a service principal, you see an error message containing "Insufficient privileges to complete the operation."</span></span> <span data-ttu-id="58340-127">Póngase en contacto con el administrador de Azure Active Directory para crear a una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="58340-127">Contact your Azure Active Directory admin to create a service principal.</span></span>
+> <span data-ttu-id="45252-126">Si su cuenta no tiene permisos suficientes para crear una entidad de servicio, verá un mensaje de error que contiene el texto "Privilegios suficientes para completar la operación".</span><span class="sxs-lookup"><span data-stu-id="45252-126">If your account does not have sufficient permissions to create a service principal, you see an error message containing "Insufficient privileges to complete the operation."</span></span> <span data-ttu-id="45252-127">Póngase en contacto con el administrador de Azure Active Directory para crear a una entidad de servicio.</span><span class="sxs-lookup"><span data-stu-id="45252-127">Contact your Azure Active Directory admin to create a service principal.</span></span>
 
-## <a name="manage-service-principal-roles"></a><span data-ttu-id="58340-128">Administración de roles de la entidad de servicio</span><span class="sxs-lookup"><span data-stu-id="58340-128">Manage service principal roles</span></span> 
+## <a name="manage-service-principal-roles"></a><span data-ttu-id="45252-128">Administración de roles de la entidad de servicio</span><span class="sxs-lookup"><span data-stu-id="45252-128">Manage service principal roles</span></span> 
 
-<span data-ttu-id="58340-129">La CLI de Azure 2.0 proporciona los siguientes comandos para administrar las asignaciones de roles.</span><span class="sxs-lookup"><span data-stu-id="58340-129">The Azure CLI 2.0 provides the following commands to manage role assignments.</span></span>
+<span data-ttu-id="45252-129">La CLI de Azure 2.0 proporciona los siguientes comandos para administrar las asignaciones de roles.</span><span class="sxs-lookup"><span data-stu-id="45252-129">The Azure CLI 2.0 provides the following commands to manage role assignments.</span></span>
 
-* [<span data-ttu-id="58340-130">az role assignment list</span><span class="sxs-lookup"><span data-stu-id="58340-130">az role assignment list</span></span>](/cli/azure/role/assignment#az-role-assignment-list)
-* [<span data-ttu-id="58340-131">az role assignment create</span><span class="sxs-lookup"><span data-stu-id="58340-131">az role assignment create</span></span>](/cli/azure/role/assignment#az-role-assignment-create)
-* [<span data-ttu-id="58340-132">az role assignment delete</span><span class="sxs-lookup"><span data-stu-id="58340-132">az role assignment delete</span></span>](/cli/azure/role/assignment#az-role-assignment-delete)
+* [<span data-ttu-id="45252-130">az role assignment list</span><span class="sxs-lookup"><span data-stu-id="45252-130">az role assignment list</span></span>](/cli/azure/role/assignment#az-role-assignment-list)
+* [<span data-ttu-id="45252-131">az role assignment create</span><span class="sxs-lookup"><span data-stu-id="45252-131">az role assignment create</span></span>](/cli/azure/role/assignment#az-role-assignment-create)
+* [<span data-ttu-id="45252-132">az role assignment delete</span><span class="sxs-lookup"><span data-stu-id="45252-132">az role assignment delete</span></span>](/cli/azure/role/assignment#az-role-assignment-delete)
 
-<span data-ttu-id="58340-133">El rol predeterminado de una entidad de servicio es **colaborador**.</span><span class="sxs-lookup"><span data-stu-id="58340-133">The default role for a service principal is **Contributor**.</span></span> <span data-ttu-id="58340-134">Este rol tiene permiso total para leer y escribir en una cuenta de Azure y normalmente no es adecuado para aplicaciones.</span><span class="sxs-lookup"><span data-stu-id="58340-134">This role has full permissions to read and write to an Azure account, and is usually not appropriate for applications.</span></span> <span data-ttu-id="58340-135">El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.</span><span class="sxs-lookup"><span data-stu-id="58340-135">The **Reader** role is more restrictive, providing read-only access.</span></span>  <span data-ttu-id="58340-136">Para más información sobre el control de acceso basado en roles (RBAC) y los roles, consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).</span><span class="sxs-lookup"><span data-stu-id="58340-136">For more information on Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
+<span data-ttu-id="45252-133">El rol predeterminado de una entidad de servicio es **colaborador**.</span><span class="sxs-lookup"><span data-stu-id="45252-133">The default role for a service principal is **Contributor**.</span></span> <span data-ttu-id="45252-134">Este rol tiene permiso total para leer y escribir en una cuenta de Azure y normalmente no es adecuado para aplicaciones.</span><span class="sxs-lookup"><span data-stu-id="45252-134">This role has full permissions to read and write to an Azure account, and is usually not appropriate for applications.</span></span> <span data-ttu-id="45252-135">El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.</span><span class="sxs-lookup"><span data-stu-id="45252-135">The **Reader** role is more restrictive, providing read-only access.</span></span>  <span data-ttu-id="45252-136">Para más información sobre el control de acceso basado en roles (RBAC) y los roles, consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).</span><span class="sxs-lookup"><span data-stu-id="45252-136">For more information on Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
 
-<span data-ttu-id="58340-137">En este ejemplo se agrega el rol **Lector** y se elimina el rol **Colaborador**.</span><span class="sxs-lookup"><span data-stu-id="58340-137">This example adds the **Reader** role and deletes the **Contributor** one.</span></span>
+<span data-ttu-id="45252-137">En este ejemplo se agrega el rol **Lector** y se elimina el rol **Colaborador**.</span><span class="sxs-lookup"><span data-stu-id="45252-137">This example adds the **Reader** role and deletes the **Contributor** one.</span></span>
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
 
-<span data-ttu-id="58340-138">La adición de un rol _no_ cambia los permisos asignados previamente.</span><span class="sxs-lookup"><span data-stu-id="58340-138">Adding a role does _not_ change any previously assigned permissions.</span></span> <span data-ttu-id="58340-139">Al restringir los permisos de una entidad de servicio, el rol __Colaborador__ siempre se debe eliminar.</span><span class="sxs-lookup"><span data-stu-id="58340-139">When restricting a service principal's permissions, the __Contributor__ role should always be removed.</span></span>
+<span data-ttu-id="45252-138">La adición de un rol _no_ cambia los permisos asignados previamente.</span><span class="sxs-lookup"><span data-stu-id="45252-138">Adding a role does _not_ change any previously assigned permissions.</span></span> <span data-ttu-id="45252-139">Al restringir los permisos de una entidad de servicio, el rol __Colaborador__ siempre se debe eliminar.</span><span class="sxs-lookup"><span data-stu-id="45252-139">When restricting a service principal's permissions, the __Contributor__ role should always be removed.</span></span>
 
-<span data-ttu-id="58340-140">Los cambios se pueden comprobar obteniendo una lista de los roles asignados.</span><span class="sxs-lookup"><span data-stu-id="58340-140">The changes can be verified by listing the assigned roles.</span></span>
+<span data-ttu-id="45252-140">Los cambios se pueden comprobar obteniendo una lista de los roles asignados.</span><span class="sxs-lookup"><span data-stu-id="45252-140">The changes can be verified by listing the assigned roles.</span></span>
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
 > [!NOTE] 
-> <span data-ttu-id="58340-141">Si su cuenta no tiene permisos para asignar un rol, verá un mensaje de error indicando que su cuenta "no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write" sobre el ámbito "/subscriptions/{guid}". Póngase en contacto con el administrador de Azure Active Directory para administrar los roles.</span><span class="sxs-lookup"><span data-stu-id="58340-141">If your account doesn't have the permissions to assign a role, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'." Contact your Azure Active Directory admin to manage roles.</span></span>
+> <span data-ttu-id="45252-141">Si su cuenta no tiene permisos para asignar un rol, verá un mensaje de error indicando que su cuenta "no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write" sobre el ámbito "/subscriptions/{guid}". Póngase en contacto con el administrador de Azure Active Directory para administrar los roles.</span><span class="sxs-lookup"><span data-stu-id="45252-141">If your account doesn't have the permissions to assign a role, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'." Contact your Azure Active Directory admin to manage roles.</span></span>
 
-## <a name="log-in-using-the-service-principal"></a><span data-ttu-id="58340-142">Inicio de sesión con la entidad de servicio</span><span class="sxs-lookup"><span data-stu-id="58340-142">Log in using the service principal</span></span>
+## <a name="log-in-using-the-service-principal"></a><span data-ttu-id="45252-142">Inicio de sesión con la entidad de servicio</span><span class="sxs-lookup"><span data-stu-id="45252-142">Log in using the service principal</span></span>
 
-<span data-ttu-id="58340-143">Puede probar el inicio de sesión y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure.</span><span class="sxs-lookup"><span data-stu-id="58340-143">You can test the new service principal's login and permissions by logging in under it within the Azure CLI.</span></span> <span data-ttu-id="58340-144">Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales.</span><span class="sxs-lookup"><span data-stu-id="58340-144">Log in as the new service principal using the `appId`, `tenant`, and credentials values.</span></span> <span data-ttu-id="58340-145">La información de autenticación que debe proporcionar cambia en función de si eligió crear la entidad de servicio con una contraseña o con un certificado.</span><span class="sxs-lookup"><span data-stu-id="58340-145">The authentication information you provide changes based on whether you chose to create the service principal with a password, or a certificate.</span></span>
+<span data-ttu-id="45252-143">Puede probar el inicio de sesión y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure.</span><span class="sxs-lookup"><span data-stu-id="45252-143">You can test the new service principal's login and permissions by logging in under it within the Azure CLI.</span></span> <span data-ttu-id="45252-144">Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales.</span><span class="sxs-lookup"><span data-stu-id="45252-144">Log in as the new service principal using the `appId`, `tenant`, and credentials values.</span></span> <span data-ttu-id="45252-145">La información de autenticación que debe proporcionar cambia en función de si eligió crear la entidad de servicio con una contraseña o con un certificado.</span><span class="sxs-lookup"><span data-stu-id="45252-145">The authentication information you provide changes based on whether you chose to create the service principal with a password, or a certificate.</span></span>
 
-<span data-ttu-id="58340-146">Para iniciar sesión con una contraseña, debe proporcionarla como un parámetro de argumento.</span><span class="sxs-lookup"><span data-stu-id="58340-146">To log in with a password, provide it as an argument parameter.</span></span>
+<span data-ttu-id="45252-146">Para iniciar sesión con una contraseña, debe proporcionarla como un parámetro de argumento.</span><span class="sxs-lookup"><span data-stu-id="45252-146">To log in with a password, provide it as an argument parameter.</span></span>
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-<span data-ttu-id="58340-147">Para iniciar sesión con un certificado, debe estar disponible localmente en un archivo PEM o DER.</span><span class="sxs-lookup"><span data-stu-id="58340-147">To log in with a certificate, it must be available locally as a PEM or DER file.</span></span>
+<span data-ttu-id="45252-147">Para iniciar sesión con un certificado, debe estar disponible localmente en un archivo PEM o DER.</span><span class="sxs-lookup"><span data-stu-id="45252-147">To log in with a certificate, it must be available locally as a PEM or DER file.</span></span>
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
 ```
-## <a name="reset-credentials"></a><span data-ttu-id="58340-148">Restablecimiento de las credenciales</span><span class="sxs-lookup"><span data-stu-id="58340-148">Reset credentials</span></span>
 
-<span data-ttu-id="58340-149">En caso de que olvide las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials).</span><span class="sxs-lookup"><span data-stu-id="58340-149">In the event that you forget the credentials for a service principal, they can be reset with the [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) command.</span></span> <span data-ttu-id="58340-150">Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.</span><span class="sxs-lookup"><span data-stu-id="58340-150">The same restrictions and options for creating a new service principal also apply here.</span></span>
+## <a name="reset-credentials"></a><span data-ttu-id="45252-148">Restablecimiento de las credenciales</span><span class="sxs-lookup"><span data-stu-id="45252-148">Reset credentials</span></span>
 
-```azurecli
+<span data-ttu-id="45252-149">En caso de que olvide las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials).</span><span class="sxs-lookup"><span data-stu-id="45252-149">In the event that you forget the credentials for a service principal, they can be reset with the [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) command.</span></span> <span data-ttu-id="45252-150">Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.</span><span class="sxs-lookup"><span data-stu-id="45252-150">The same restrictions and options for creating a new service principal also apply here.</span></span>
+
+```azurecli-interactive
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
 ```
