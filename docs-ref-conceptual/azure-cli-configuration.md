@@ -5,16 +5,17 @@ keywords: CLI de Azure, configuración, valores, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/13/2017
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dac383fa0dbd785f9448514e3d0a3242e4853038
-ms.sourcegitcommit: 42f1ba77b2f562d89dadd302655d1f02ee4b6130
+ms.openlocfilehash: b0d26beac83a7ce3bba44d5e64d129a211c82836
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305883"
 ---
 # <a name="azure-cli-20-configuration"></a>Configuración de la CLI de Azure 2.0
 
@@ -45,7 +46,7 @@ La siguiente es una lista de claves disponibles que puede usar.
 
 Por ejemplo, aquí se muestra cómo se establecería el grupo de recursos y la ubicación de forma predeterminada para todos los comandos.
 
-```azurecli
+```azurecli-interactive
 az configure --defaults location=westus2 group=MyResourceGroup
 ```
 
@@ -61,7 +62,7 @@ Los comentarios son cualquier línea que comience por un `#` o `;`. No se permit
 
 Este es un ejemplo de un archivo de configuración de la CLI que deshabilita los mensajes de confirmación y establece el registro en el directorio `/var/log/azure`.
 
-```
+```ini
 [core]
 disable_confirm_prompt=Yes
 
