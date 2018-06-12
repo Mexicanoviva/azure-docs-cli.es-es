@@ -4,16 +4,17 @@ description: Instalación de la CLI de Azure 2.0 con el administrador de paquete
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/06/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7eb04b408f403264f3951bf663d43686601c4ab8
-ms.sourcegitcommit: 1d18f667af28b59f5524a3499a4b7dc12af5163d
+ms.openlocfilehash: 7b5835581bf1e14e2d9fdc7c9584c704d1a5d82f
+ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34703186"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
@@ -24,26 +25,19 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
 
 ## <a name="install"></a>Instalación
 
-1. Modifique la lista de orígenes:
+1. <a name="install-step-1"/> Modifique la lista de orígenes:
 
-     ```bash
-     AZ_REPO=$(lsb_release -cs)
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
+    ```bash
+    AZ_REPO=$(lsb_release -cs)
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+        sudo tee /etc/apt/sources.list.d/azure-cli.list
+    ```
 
-2. Obtenga la clave de firma de Microsoft:
+2. <a name="signingKey"></a>Obtenga la clave de firma de Microsoft:
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
    ```
-
-  > [!WARNING]
-  > Esta clave de firma está en desuso y se reemplazará a finales de mayo de 2018. Para seguir recibiendo actualizaciones con `apt`, asegúrese de instalar también la nueva clave:
-  > 
-  > ```bash
-  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  > ``` 
 
 3. Instale la CLI de Azure:
 
@@ -51,6 +45,9 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
+
+   > [!WARNING]
+   > La clave de firma se actualizó en mayo de 2018 y se ha reemplazado. Si recibe errores de clave de firma, asegúrese de que ha [adquirido la clave de firma más reciente](#signingKey).
 
 Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
 
@@ -78,6 +75,10 @@ El error se debe a que lsb_release no está instalado. Puede resolver este probl
 sudo apt-get install lsb-release
 ```
 
+### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release no devuelve la versión de distribución de base
+
+Algunas distribuciones derivadas de Ubuntu o Debian, como Linux Mint, no pueden devolver el nombre de la versión correcta de `lsb_release`. Este valor se utiliza en el proceso de instalación para determinar el paquete que desea instalar. Si conoce el nombre de la versión de la que deriva su distribución, puede establecer el valor de `AZ_REPO` manualmente en el [paso 1 de la instalación](#install-step-1). En caso contrario, busque información relativa a su distribución acerca de cómo determinar el nombre de la distribución base y establezca `AZ_REPO` en el valor correcto.
+
 ### <a name="apt-key-fails-with-no-dirmngr"></a>Se produce un error en el comando apt-key con "No dirmngr"
 
 Cuando se ejecuta el comando `apt-key`, verá una salida similar al siguiente error:
@@ -104,7 +105,7 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
 
 Si no sabe si tiene un servidor proxy, póngase en contacto con el administrador del sistema. Si el proxy no requiere un inicio de sesión, omita el usuario, la contraseña y el token `@`.
 
-## <a name="update"></a>Actualizar
+## <a name="update"></a>Update
 
 Para actualizar el paquete de la CLI, use `apt-get upgrade`.
 
@@ -112,6 +113,9 @@ Para actualizar el paquete de la CLI, use `apt-get upgrade`.
    sudo apt-get update && sudo apt-get upgrade
    ```
 
+> [!WARNING]
+> La clave de firma se actualizó en mayo de 2018 y ha sido reemplazada. Si recibe errores de clave de firma, asegúrese de que ha [adquirido la clave de firma más reciente](#signingKey).
+   
 > [!NOTE]
 > Este comando actualiza todos los paquetes instalados en el sistema que no hayan tenido un cambio de dependencia.
 > Para actualizar solo la CLI, use `apt-get install`.

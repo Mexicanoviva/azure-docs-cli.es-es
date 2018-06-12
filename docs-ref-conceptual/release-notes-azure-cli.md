@@ -4,18 +4,153 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/10/2018
+ms.date: 06/01/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 254c7b306440d921cef6b611268839150fdf3196
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: 57f13c7d17e2d248132e2e9c49bb0b4994f041f5
+ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34799267"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="june-5-2018"></a>5 de junio de 2018
+
+Versión 2.0.34
+
+### <a name="core"></a>Núcleo
+
+* Se ha agregado compatibilidad para referencias a recursos entre inquilinos
+* Se ha mejorado la confiabilidad de la carga de datos de telemetría
+
+### <a name="acr"></a>ACR
+
+* Se ha agregado compatibilidad para VSTS como ubicación de origen remoto
+* Se agregó el comando `acr import`.
+
+### <a name="aks"></a>AKS
+
+* Se ha cambiado `aks get-credentials` para crear el archivo de configuración de Kube con permisos más seguros del sistema de archivos
+
+### <a name="batch"></a>Batch
+
+* Se ha corregido el error en el formato de la tabla de lista de grupos [[Problema 4378](https://github.com/Azure/azure-cli/issues/4378)]
+
+### <a name="iot"></a>IoT
+
+* Se ha agregado compatibilidad para crear centros de IoT de nivel básico
+
+### <a name="network"></a>Red
+
+* Se ha mejorado `network vnet peering`
+
+### <a name="policy-insights"></a>Información de directiva
+
+* Versión inicial
+
+### <a name="arm"></a>ARM
+
+* Se han agregado comandos `account management-group`.
+
+### <a name="sql"></a>SQL
+
+* Se han agregado nuevos comandos de instancia administrada:
+  * `sql mi create`
+  * `sql mi show`
+  * `sql mi list`
+  * `sql mi update`
+  * `sql mi delete`
+* Se han agregado nuevos comandos de base de datos administrada:
+  * `sql midb create`
+  * `sql midb show`
+  * `sql midb list`
+  * `sql midb restore`
+  * `sql midb delete`
+
+### <a name="storage"></a>Storage
+
+* Se han agregado tipos de MIME adicionales para JSON y JavaScript para poder derivarlos de las extensiones de archivo
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha cambiado `vm list-skus` para usar columnas fijas y agregar la advertencia de que `Tier` y `Size` se van a quitar
+* Se agregó la opción `--accelerated-networking` a `vm create`
+* Se ha agregado `--tags` a `identity create`
+
+## <a name="may-22-2018"></a>22 de mayo de 2018
+
+Versión 2.0.33
+
+### <a name="core"></a>Núcleo
+
+* Se ha agregado compatibilidad para expandir `@` en nombres de archivo
+
+### <a name="acs"></a>ACS
+
+* Se han agregado los nuevos comandos Dev-Spaces `aks use-dev-spaces` y `aks remove-dev-spaces`
+* Se ha corregido el error tipográfico en el mensaje de ayuda
+
+### <a name="appservice"></a>AppService
+
+* Se han mejorado los comandos de actualización genéricos
+* Se ha añadido compatibilidad con async para `webapp deployment source config-zip`
+
+### <a name="container"></a>Contenedor
+
+* Se ha agregado compatibilidad para exportar un grupo de contenedores al formato yaml
+* Se ha agregado compatibilidad para usar un archivo yaml para crear o actualizar un grupo de contenedores
+
+### <a name="extension"></a>Extensión
+
+* Se ha mejorado la eliminación de extensiones
+
+### <a name="interactive"></a>Interactive
+
+* Se ha cambiado el registro para silenciar el analizador en las finalizaciones
+* Se ha mejorado el control de los almacenamientos en caché incorrectos de la ayuda
+
+### <a name="keyvault"></a>KeyVault
+
+* Se han corregido los comandos de keyvault para trabajar en Cloud Shell o en máquinas virtuales con identidad
+
+### <a name="network"></a>Red
+
+* Se ha corregido el problema por el que `network watcher show-topology` no funcionaba con el nombre de red virtual o subred [6326](https://github.com/Azure/azure-cli/issues/6326)
+* Se ha corregido el problema por el que algunos comandos `network watcher` indicaban que Network Watcher no está habilitado en regiones donde sí lo está [6264](https://github.com/Azure/azure-cli/issues/6264)
+
+### <a name="sql"></a>SQL
+
+* [CAMBIO IMPORTANTE] Se cambiaron los objetos de respuesta devueltos por los comandos `db` y `dw`:
+    * Se ha cambiado el nombre de la propiedad `serviceLevelObjective` a `currentServiceObjectiveName`
+    * Se han quitado las propiedades `currentServiceObjectiveId` y `requestedServiceObjectiveId` 
+    * Se ha cambiado la propiedad `maxSizeBytes` para que sea un valor entero en lugar de una cadena
+* [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `db` y `dw` siguientes para que sean de solo lectura:
+    * `requestedServiceObjectiveName`.  Para actualizar, use el parámetro `--service-objective` o establezca la propiedad `sku.name`
+    * `edition`. Para actualizar, use el parámetro `--edition` o establezca la propiedad `sku.tier`
+    * `elasticPoolName`. Para actualizar, use el parámetro `--elastic-pool` o establezca la propiedad `elasticPoolId`
+* [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `elastic-pool` para que sean de solo lectura:
+    * `edition`. Para actualizar, use el parámetro `--edition`
+    * `dtu`. Para actualizar, use el parámetro `--capacity`
+    *  `databaseDtuMin`. Para actualizar, use el parámetro `--db-min-capacity`
+    *  `databaseDtuMax`. Para actualizar, use el parámetro `--db-max-capacity`
+* Se han agregados los parámetros `--family` y `--capacity` a los comandos `db`, `dw` y `elastic-pool`.
+* Se han agregados formateadores de tabla a los comandos `db`, `dw` y `elastic-pool`.
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado la función de autocompletar al argumento `--account-name`
+* Se ha corregido un problema con `storage entity query`
+
+### <a name="vm"></a>máquina virtual
+
+* [CAMBIO IMPORTANTE] Se ha eliminado `--write-accelerator` de `vm create`. Se puede obtener la misma compatibilidad mediante `vm update` o `vm disk attach`
+* Se ha corregido la correspondencia de imágenes de extensión en `[vm|vmss] extension`
+* Se ha agregado `--boot-diagnostics-storage` a `vm create` para capturar el registro de arranque
+* Se ha agregado `--license-type` a `[vm|vmss] update`
 
 ## <a name="may-7-2018"></a>7 de mayo de 2018
 
@@ -97,7 +232,7 @@ Versión 2.0.32
 
 ### <a name="network"></a>Red
 
-* [[CAMBIO IMPORTANTE]] Se ha eliminado el parámetro `--ids` en: 
+* [CAMBIO IMPORTANTE] Se ha eliminado el parámetro `--ids` en: 
   * `express-route auth list`
   * `express-route peering list`
   * `nic ip-config list`
@@ -109,7 +244,7 @@ Versión 2.0.32
 ### <a name="profile"></a>Perfil
 
 * Se ha corregido la detección de origen en `disk create`
-* [[CAMBIO IMPORTANTE]] Se han eliminado `--msi-port` y `--identity-port` por no utilizarse
+* [CAMBIO IMPORTANTE] Se han eliminado `--msi-port` y `--identity-port` por no utilizarse
 * Se ha corregido el error de escritura en el resumen breve de `account get-access-token`
 
 ### <a name="redis"></a>Redis
@@ -121,7 +256,7 @@ Versión 2.0.32
 
 ### <a name="role"></a>Rol
 
-* [[CAMBIO IMPORTANTE]] Se ha eliminado `ad sp reset-credentials` por desuso
+* [CAMBIO IMPORTANTE] Se ha eliminado `ad sp reset-credentials` por desuso
 
 ### <a name="storage"></a>Storage
 
@@ -135,9 +270,9 @@ Versión 2.0.32
 
 * Se ha corregido una lógica de detección no válida en el identificador URI de blobs no administrados
 * Se ha agregado compatibilidad con el cifrado de disco sin entidades de servicio proporcionadas por el usuario
-* [[CAMBIO IMPORTANTE]] No utilizar "ManagedIdentityExtension" de la máquina virtual para compatibilidad con MSI
+* [CAMBIO IMPORTANTE] No utilizar "ManagedIdentityExtension" de la máquina virtual para compatibilidad con MSI
 * Se ha agregado compatibilidad con la directiva de expulsión para `vmss`
-* [[CAMBIO IMPORTANTE]] Se ha eliminado `--ids` en:
+* [CAMBIO IMPORTANTE] Se ha eliminado `--ids` en:
   * `vm extension list`
   * `vm secret list`
   * `vm unmanaged-disk list`
@@ -162,7 +297,7 @@ Versión 2.0.31
 
 ### <a name="appservice"></a>Appservice
 
-* [[CAMBIO IMPORTANTE]]: Removed `assign-identity`
+* [CAMBIO IMPORTANTE]: Removed `assign-identity`
 * Se ha corregido la excepción no detectada de planes de webapp no existentes
 
 ### <a name="batchai"></a>BatchAI
@@ -191,8 +326,8 @@ Versión 2.0.31
 * Se agregó la opción `--use-auto-storage` para la creación de clústeres. Esta opción facilita la administración de cuentas de almacenamiento y el montaje de recursos compartidos de archivos de Azure y contenedores de blobs de Azure en clústeres
 * Se agregó la opción `--generate-ssh-keys` a `cluster create` y `file-server create`
 * Se agregó la posibilidad de proporcionar la tarea de configuración de nodo mediante la línea de comandos
-* [[CAMBIO IMPORTANTE]] Los comandos `job stream-file` y `job list-files` se han trasladado al grupo `job file`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `--admin-user-name` a `--user-name` en el comando `file-server create` para que sea coherente con el comando `cluster create`
+* [CAMBIO IMPORTANTE] Los comandos `job stream-file` y `job list-files` se han trasladado al grupo `job file`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `--admin-user-name` a `--user-name` en el comando `file-server create` para que sea coherente con el comando `cluster create`
 
 ### <a name="billing"></a>Facturación
 
@@ -201,11 +336,11 @@ Versión 2.0.31
 ### <a name="consumption"></a>Consumo
 
 * Se agregaron los comandos `marketplace`.
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `reservations summaries` a `reservation summary`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `reservations details` a `reservation detail`
-* [[CAMBIO IMPORTANTE]] Se han quitado las opciones cortas `--reservation-order-id` y `--reservation-id` de los comandos `reservation`
-* [[CAMBIO IMPORTANTE]] Se han quitado las opciones cortas `--grain` de los comandos `reservation summary`
-* [[CAMBIO IMPORTANTE]] Se han quitado las opciones cortas `--include-meter-details` de los comandos `pricesheet`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `reservations summaries` a `reservation summary`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `reservations details` a `reservation detail`
+* [CAMBIO IMPORTANTE] Se han quitado las opciones cortas `--reservation-order-id` y `--reservation-id` de los comandos `reservation`
+* [CAMBIO IMPORTANTE] Se han quitado las opciones cortas `--grain` de los comandos `reservation summary`
+* [CAMBIO IMPORTANTE] Se han quitado las opciones cortas `--include-meter-details` de los comandos `pricesheet`
 
 ### <a name="container"></a>Contenedor
 
@@ -235,7 +370,7 @@ Versión 2.0.31
 ### <a name="profile"></a>Perfil
 
 * Se ha agregado compatibilidad para las cuentas de Azure clásico en `account list`
-* [[CAMBIO IMPORTANTE]] Se han quitado los argumentos `--msi` & `--msi-port`
+* [CAMBIO IMPORTANTE] Se han quitado los argumentos `--msi` & `--msi-port`
 
 ### <a name="rdbms"></a>RDBMS
 
@@ -317,7 +452,7 @@ Versión 2.0.30
 
 * Se ha agregado un mensaje para `extension add` si la extensión está en versión preliminar
 * Se ha cambiado `extension list-available` para mostrar los datos completos de la extensión con `--show-details`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado `extension list-available` para mostrar los datos simplificados de la extensión de forma predeterminada
+* [CAMBIO IMPORTANTE] Se ha cambiado `extension list-available` para mostrar los datos simplificados de la extensión de forma predeterminada
 
 ### <a name="interactive"></a>Interactive
 
@@ -357,7 +492,7 @@ Versión 2.0.30
 * Se ha agregado compatibilidad para configuraciones de acceso necesarias y clientes nativos a `az ad app create`
 * Se han cambiado los comandos `rbac` para que devuelvan menos de 1000 identificadores de resolución de objeto
 * Se agregaron comandos de administración de credenciales `ad sp credential [reset|list|delete]`
-* [[CAMBIO IMPORTANTE]] Se quitó "properties" de la salida de `az role assignment [list|show]`
+* [CAMBIO IMPORTANTE] Se quitó "properties" de la salida de `az role assignment [list|show]`
 * Se ha agregado compatibilidad para los permisos `dataActions` y `notDataActions` a `role definition`
 
 ### <a name="storage"></a>Storage
@@ -370,7 +505,7 @@ Versión 2.0.30
 * Se ha agregado una advertencia a `vmss create` de próximos cambios importantes para conjuntos con más de 100 instancias
 * Se ha agregado compatibilidad con zonas resistentes a `vm [snapshot|image]`
 * Se ha cambiado la vista de instancia de disco para que informe mejor del estado de cifrado
-* [[CAMBIO IMPORTANTE]] Se ha cambiado `vm extension delete` para que ya no devuelva una salida
+* [CAMBIO IMPORTANTE] Se ha cambiado `vm extension delete` para que ya no devuelva una salida
 
 ## <a name="march-13-2018"></a>13 de marzo de 2018
 
@@ -389,9 +524,9 @@ Versión 2.0.29
 
 ### <a name="advisor"></a>Advisor
 
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `advisor configuration get` a `advisor configuration list`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `advisor configuration set` a `advisor configuration update`
-* [[CAMBIO IMPORTANTE]] Se quitó `advisor recommendation generate` 
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `advisor configuration get` a `advisor configuration list`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `advisor configuration set` a `advisor configuration update`
+* [CAMBIO IMPORTANTE] Se quitó `advisor recommendation generate` 
 * Se ha agregado el parámetro `--refresh` a `advisor recommendation list`
 * Se agregó el comando `advisor recommendation show`.
 
@@ -424,7 +559,7 @@ Versión 2.0.29
 
 ### <a name="network"></a>Red
 
-* [[CAMBIO IMPORTANTE]] Se quitó el parámetro `--tags` de `route-filter rule create`
+* [CAMBIO IMPORTANTE] Se quitó el parámetro `--tags` de `route-filter rule create`
 * Se han quitado algunos valores erróneos predeterminado de los siguientes comandos:
   * `network express-route update`
   * `network nsg rule update`
@@ -529,7 +664,7 @@ Versión 2.0.27
 
 ### <a name="acs"></a>ACS
 
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `aks get-versions` a `aks get-upgrades` para mayor precisión
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `aks get-versions` a `aks get-upgrades` para mayor precisión
 * Se ha cambiado `aks get-versions` para mostrar las versiones disponibles de Kubernetes para `aks create`
 * Se han cambiado los valores predeterminados de `aks create` para permitir que el servidor elija la versión de Kubernetes
 * Se han actualizado los mensajes de ayuda que hacen referencia a la entidad de servicio generada por AKS
@@ -732,9 +867,9 @@ Versión 2.0.25
 
 ### <a name="event-grid"></a>Event Grid
 
-* [[CAMBIO IMPORTANTE]] Se han movido los comandos `az eventgrid topic event-subscription` a `eventgrid event-subscription`
-* [[CAMBIO IMPORTANTE]] Se han movido los comandos `az eventgrid resource event-subscription` a `eventgrid event-subscription`
-* [[CAMBIO IMPORTANTE]] Se ha eliminado el comando `eventgrid event-subscription show-endpoint-url`. Use `eventgrid event-subscription show --include-full-endpoint-url` en su lugar
+* [CAMBIO IMPORTANTE] Se han movido los comandos `az eventgrid topic event-subscription` a `eventgrid event-subscription`
+* [CAMBIO IMPORTANTE] Se han movido los comandos `az eventgrid resource event-subscription` a `eventgrid event-subscription`
+* [CAMBIO IMPORTANTE] Se ha eliminado el comando `eventgrid event-subscription show-endpoint-url`. Use `eventgrid event-subscription show --include-full-endpoint-url` en su lugar
 * Se ha agregado el comando `eventgrid topic update`
 * Se ha agregado el comando `eventgrid event-subscription update`
 * Se ha agregado el parámetro `--ids` a los comandos `eventgrid topic`
@@ -778,8 +913,8 @@ Versión 2.0.25
 ### <a name="vm"></a>máquina virtual
 
 * [VERSIÓN PRELIMINAR] Compatibilidad entre zonas para `vmss`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el valor predeterminado de `vmss` de zona única al equilibrador de carga "Estándar"
-* [[CAMBIO IMPORTANTE]] Se ha cambiado `externalIdentities` a `userAssignedIdentities` para EMSI
+* [CAMBIO IMPORTANTE] Se ha cambiado el valor predeterminado de `vmss` de zona única al equilibrador de carga "Estándar"
+* [CAMBIO IMPORTANTE] Se ha cambiado `externalIdentities` a `userAssignedIdentities` para EMSI
 * [VERSIÓN PRELIMINAR] Se ha agregado compatibilidad con el intercambio de discos de sistema operativo
 * Se ha agregado compatibilidad con el uso de imágenes de máquina virtual de otras suscripciones
 * Se han agregado los argumentos `--plan-name`, `--plan-product`, `--plan-promotion-code` y `--plan-publisher` a `[vm|vmss] create`
@@ -1082,7 +1217,7 @@ Versión 2.0.18
 * Se agregó compatibilidad para mostrar las definiciones de directivas integradas
 * Se agregó compatibilidad con el parámetro de modo para crear definiciones de directiva
 * Se agregó compatibilidad para las plantillas y definiciones de interfaz de usuario de `managedapp definition create`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el tipo de recurso `managedapp` de `appliances` a `applications` y `applianceDefinitions` a `applicationDefinitions`
+* [CAMBIO IMPORTANTE] Se ha cambiado el tipo de recurso `managedapp` de `appliances` a `applications` y `applianceDefinitions` a `applicationDefinitions`
 
 ### <a name="network"></a>Red
 
@@ -1223,7 +1358,7 @@ Version 2.0.15
 
 ### <a name="appservice"></a>Appservice
 
-* [[CAMBIO IMPORTANTE]] Se han corregido las incoherencias en la salida de `az webapp config appsettings [delete|set]`
+* [CAMBIO IMPORTANTE] Se han corregido las incoherencias en la salida de `az webapp config appsettings [delete|set]`
 * Se agregó un nuevo alias de `-i` para `az webapp config container set --docker-custom-image-name`.
 * Se expuso `az webapp log show`.
 * Se expusieron nuevos argumentos de `az webapp delete` para conservar el plan de App Service, las métricas o el registro de DNS.
@@ -1235,8 +1370,8 @@ Version 2.0.15
 
 ### <a name="network"></a>Red
 
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de `vnet list-private-access-services` a `vnet list-endpoint-services`
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de la opción `--private-access-services` a `--service-endpoints` para `vnet subnet [create|update]`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `vnet list-private-access-services` a `vnet list-endpoint-services`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de la opción `--private-access-services` a `--service-endpoints` para `vnet subnet [create|update]`
 * Se agregó compatibilidad con varios intervalos de direcciones IP y puertos a `nsg rule [create|update]`.
 * Se agregó compatibilidad para SKU a `lb create`.
 * Se agregó compatibilidad para SKU a `public-ip create`.
@@ -1258,7 +1393,7 @@ Version 2.0.15
 * Se agregaron los argumento s`--bypass` y `--default-action` a `storage account [create|update]` para admitir la tunelización del servicio.
 * Se incorporaron comandos para agregar reglas de red virtual y reglas basadas en IP a `storage account network-rule`.
 * Se habilitó el cifrado del servicio por clave administrada de cliente.
-* [[CAMBIO IMPORTANTE]] Se ha cambiado el nombre de la opción `--encryption` a `--encryption-services` para el comando `az storage account create and az storage account update`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de la opción `--encryption` a `--encryption-services` para el comando `az storage account create and az storage account update`
 * Corrección n.º 4220: `az storage account update encryption` -error de coincidencia de sintaxis
 
 ### <a name="vm"></a>máquina virtual
@@ -1352,7 +1487,7 @@ Versión 2.0.12
 * Se agregaron comandos de contenedor.
 * Se agregaron módulos de facturación y consumo.
 
-```
+```text
 azure-cli (2.0.12)
 
 acr (2.0.9)
@@ -1630,7 +1765,7 @@ Versión 2.0.6
 * Se agrega "az -v" como método abreviado de "az --version" ([#2926](https://github.com/Azure/azure-cli/issues/2926)).
 * Se mejora el rendimiento de la carga de paquetes y de la ejecución de comandos ([#2819](https://github.com/Azure/azure-cli/issues/2819)).
 
-```
+```text
 azure-cli (2.0.6)
 
 acr (2.0.4)
@@ -1827,7 +1962,7 @@ Versión 2.0.2
 
 Se publican los componentes ACR, Batch, KeyVault y SQL en esta versión
 
-```
+```text
 azure-cli (2.0.2)
 
 acr (2.0.0)
@@ -1917,7 +2052,7 @@ Los comandos de estos módulos son estables y no es previsible que cambie la sin
 
 Para comprobar la versión de la CLI, use `az --version`. La salida muestra la versión de la propia CLI (2.0.0 en este caso), los módulos de comandos individuales y las versiones de Python y GCC que esté usando
 
-```
+```text
 azure-cli (2.0.0)
 
 acs (2.0.0)
