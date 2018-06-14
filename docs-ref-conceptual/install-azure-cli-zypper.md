@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dde90e78f3ec53d323ca78c816ceefb8cf65608b
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: a862cca17adb1bfa0201af250819158081c29813
+ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35512978"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>Instalación de la CLI de Azure 2.0 con zypper
 
@@ -26,7 +27,6 @@ Si está ejecutando una distribución que viene con `zypper`, como openSUSE o SL
 1. Instale `curl`:
 
    ```bash
-   sudo zypper refresh
    sudo zypper install -y curl
    ```
 
@@ -39,14 +39,17 @@ Si está ejecutando una distribución que viene con `zypper`, como openSUSE o SL
 3. Cree la información del repositorio `azure-cli` local:
 
    ```bash
-   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/azure-cli.repo'
+   sudo zypper addrepo --name 'Azure CLI' --check https://packages.microsoft.com/yumrepos/azure-cli azure-cli
    ```
 
 4. Actualice el índice del paquete `zypper` e instálelo:
 
    ```bash
-   sudo zypper refresh
+   sudo zypper install --from azure-cli -y azure-cli
    ```
+
+Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
+
 ```azurecli
 az login
 ```
@@ -75,7 +78,7 @@ sudo zypper update azure-cli
 2. Si no piensa volver a instalar la CLI, elimine la información del repositorio.
 
   ```bash
-  sudo rm /etc/zypp/repos.d/azure-cli.repo
+  sudo zypper removerepo azure-cli
   ```
 
 3. Si ha eliminado la información del repositorio, elimine también la clave de la firma GPG de Microsoft.
