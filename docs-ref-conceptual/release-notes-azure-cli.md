@@ -9,14 +9,38 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 57f13c7d17e2d248132e2e9c49bb0b4994f041f5
-ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
+ms.openlocfilehash: 72e667d74ff8d55f26ecbf3b3c8845c9c03b56be
+ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34799267"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35512910"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="june-13-2018"></a>13 de junio de 2018
+
+Versión 2.0.36
+
+### <a name="aks"></a>AKS
+
+* Se han agregado opciones de red avanzadas a `aks create`
+* Se han agregado argumentos a `aks create` para habilitar la supervisión y el enrutamiento de HTTP 
+* Se agregó el argumento `--no-ssh-key` a `aks create`
+* Se agregó el argumento `--enable-rbac` a `aks create`
+* [VISTA PREVIA] Se agregó compatibilidad para la autenticación de Azure Active Directory a `aks create`
+
+### <a name="appservice"></a>AppService
+
+* Se corrigió un problema con las versiones de urllib incompatibles
+
+## <a name="june-5-2018"></a>5 de junio de 2018
+
+Versión 2.0.35
+
+### <a name="interactive"></a>Interactive
+
+* Se agregaron límites a las dependencias de modo interactivo
 
 ## <a name="june-5-2018"></a>5 de junio de 2018
 
