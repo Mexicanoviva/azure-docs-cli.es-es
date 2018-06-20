@@ -14,6 +14,7 @@ ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32044118"
 ---
 # <a name="install-azure-cli-20-on-macos"></a><span data-ttu-id="042c7-103">Instalación de la CLI de Azure 2.0 en macOS</span><span class="sxs-lookup"><span data-stu-id="042c7-103">Install Azure CLI 2.0 on macOS</span></span>
 
