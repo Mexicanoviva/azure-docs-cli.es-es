@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305985"
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Formatos de salida de los comandos de la CLI de Azure 2.0
 
