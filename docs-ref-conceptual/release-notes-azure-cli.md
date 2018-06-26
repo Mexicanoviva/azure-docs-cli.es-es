@@ -9,14 +9,109 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 72e667d74ff8d55f26ecbf3b3c8845c9c03b56be
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512910"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262665"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="june-19-2018"></a>19 de junio de 2018
+
+Versión 2.0.38
+
+### <a name="core"></a>Núcleo
+
+* Se ha agregado compatibilidad global con `--subscription` a la mayoría de los comandos
+
+### <a name="acr"></a>ACR
+
+* Se ha agregado `azure-storage-blob` como dependencia
+* Se cambió la configuración de CPU predeterminada con `acr build-task create` para utilizar 2 núcleos
+
+### <a name="acs"></a>ACS
+
+* Se actualizaron las opciones del comando `aks use-dev-spaces`. Se ha agregado compatibilidad con `--update`
+* Se cambió `aks get-credentials --admin` para que no reemplace el contexto de usuario en `$HOME/.kube/config`
+* Se ha expuesto la propiedad `nodeResourceGroup` de solo lectura en clústeres administrados
+* Se ha corregido el error del comando `acs browse`
+* Se ha hecho que `--connector-name` sea opcional para `aks install-connector`, `aks upgrade-connector` y `aks remove-connector`
+* Se han agregado nuevas regiones de Azure Container Instances para `aks install-connector`
+* Se ha agregado la ubicación normalizada en el nombre de la versión y el nombre de nodo de Helm a `aks install-connector` 
+
+### <a name="appservice"></a>AppService
+
+* Se ha agregado compatibilidad con las versiones más recientes de urllib
+* Se ha agregado compatibilidad a `functionapp create` para que utilice el plan appservice de grupos de recursos externos
+
+### <a name="batch"></a>Batch
+
+* Se ha eliminado la dependencia de `azure-batch-extensions`
+
+### <a name="batch-ai"></a>Batch AI
+
+* Se ha agregado compatibilidad para áreas de trabajo. Las áreas de trabajo permiten agrupar clústeres, servidores de archivos y experimentos en grupos, y eliminar el límite de recursos que se pueden crear.
+* Se ha agregado compatibilidad para experimentos. Los experimentos permiten agrupar los trabajos en colecciones y eliminan el límite de trabajos creados
+* Se ha agregado compatibilidad para configurar `/dev/shm` para la ejecución de trabajos en un contenedor de Docker
+* Se han agregado los comandos `batchai cluster node exec` y `batchai job node exec`. Estos comandos no permiten ejecutar comandos directamente en los nodos y proporcionan la funcionalidad de enrutamiento de puertos.
+* Se ha agregado compatibilidad para `--ids` a los comandos `batchai`. 
+* [CAMBIO IMPORTANTE] Todos los clústeres y servidores de archivos deben crearse en áreas de trabajo.
+* [CAMBIO IMPORTANTE] Los trabajos deben crearse en experimentos.
+* [CAMBIO IMPORTANTE] Se ha eliminado `--nfs-resource-group` de los comandos `cluster create` y `job create`. Para montar un NFS que pertenezca a un grupo de recursos o a un área de trabajo diferente, proporcione el identificador de ARM del servidor de archivos con la opción `--nfs`.
+* [CAMBIO IMPORTANTE] Se ha eliminado `--cluster-resource-group` del comando `job create`. Para enviar un trabajo para un clúster que pertenezca a un grupo de recursos o a un área de trabajo diferente, proporcione el identificador de ARM del clúster con la opción `--cluster`.
+* [CAMBIO IMPORTANTE] Se ha eliminado el atributo `location` de los trabajos, clústeres y servidores de archivos. Ahora, la ubicación ahora es un atributo de un área de trabajo.
+* [CAMBIO IMPORTANTE] Se ha eliminado `--location` de los comandos `job create`, `cluster create` y `file-server create`.
+* [CAMBIO IMPORTANTE] Se cambiaron los nombres de las opciones cortas para que la interfaz sea más homogénea:
+ - Se cambió el nombre de [`--config`, `-c`] a [`--config-file`, `-f`]
+ - Se cambió el nombre de [`--cluster`, `-r`] a [`--cluster`, `-c`]
+ - Se cambió el nombre de [`--cluster`, `-n`] a [`--cluster`, `-c`]
+ - Se cambió el nombre de [`--job`, `-n`] a [`--job`, `-j`]
+
+### <a name="maps"></a>Mapas
+
+* [CAMBIO IMPORTANTE] Se cambió `maps account create` para requerir que se acepten los términos del servicio mediante un aviso interactivo o con la marca `--accept-tos`.
+
+### <a name="network"></a>Red
+
+* Se ha agregado compatibilidad para `https` a `network lb probe create` [n.º 6571](https://github.com/Azure/azure-cli/issues/6571)
+* Se ha corregido un problema por el que `--endpoint-status` distinguía entre mayúsculas y minúsculas. [n.º 6502](https://github.com/Azure/azure-cli/issues/6502)
+
+### <a name="reservations"></a>Reservations
+
+* [CAMBIO IMPORTANTE] Se ha agregado el parámetro necesario `ReservedResourceType` a `reservations catalog show`.
+* Se ha agregado el parámetro `Location` a `reservations catalog show`.
+* [CAMBIO IMPORTANTE] Se ha eliminado `kind` de `ReservationProperties`.
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `capabilities` a `sku_properties` en `Catalog`.
+* [CAMBIO IMPORTANTE] Se han quitado las propiedades `size` y `tier` de `Catalog`.
+* Se ha agregado el parámetro `InstanceFlexibility` a `reservations reservation update`.
+
+### <a name="role"></a>Rol
+
+* Se ha mejorado el control de errores
+
+### <a name="sql"></a>SQL
+
+* Se ha corregido un error que producía confusión al ejecutar `az sql db list-editions` para una ubicación que no está disponible en su suscripción
+
+### <a name="storage"></a>Storage
+
+* Se ha cambiado la salida de la tabla para `storage blob download` para que sea más legible
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha mejorado la comprobación del tamaño de máquina virtual para permitir redes aceleradas en `vm create`
+* Se ha agregado la advertencia para `vmss create` que indica que se cambiará el tamaño de máquina virtual predeterminado de `Standard_D1_v2` a `Standard_DS1_v2`
+* Se ha agregado `--force-update` a `[vm|vmss] extension set` para actualizar la extensión aunque la configuración no haya cambiado
+
+## <a name="june-13-2018"></a>13 de junio de 2018
+
+Versión 2.0.37
+
+### <a name="core"></a>Núcleo
+
+* Se ha mejorado la telemetría interactiva
 
 ## <a name="june-13-2018"></a>13 de junio de 2018
 
@@ -153,14 +248,14 @@ Versión 2.0.33
     * Se han quitado las propiedades `currentServiceObjectiveId` y `requestedServiceObjectiveId` 
     * Se ha cambiado la propiedad `maxSizeBytes` para que sea un valor entero en lugar de una cadena
 * [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `db` y `dw` siguientes para que sean de solo lectura:
-    * `requestedServiceObjectiveName`.  Para actualizar, use el parámetro `--service-objective` o establezca la propiedad `sku.name`
+    * (Unión permanente)(Unión permanente).  Para actualizar, use el parámetro `--service-objective` o establezca la propiedad `sku.name`
     * `edition`. Para actualizar, use el parámetro `--edition` o establezca la propiedad `sku.tier`
     * `elasticPoolName`. Para actualizar, use el parámetro `--elastic-pool` o establezca la propiedad `elasticPoolId`
 * [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `elastic-pool` para que sean de solo lectura:
     * `edition`. Para actualizar, use el parámetro `--edition`
     * `dtu`. Para actualizar, use el parámetro `--capacity`
-    *  `databaseDtuMin`. Para actualizar, use el parámetro `--db-min-capacity`
-    *  `databaseDtuMax`. Para actualizar, use el parámetro `--db-max-capacity`
+    *  (Unión permanente)(Unión permanente). Para actualizar, use el parámetro `--db-min-capacity`
+    *  (Unión permanente)(Unión permanente). Para actualizar, use el parámetro `--db-max-capacity`
 * Se han agregados los parámetros `--family` y `--capacity` a los comandos `db`, `dw` y `elastic-pool`.
 * Se han agregados formateadores de tabla a los comandos `db`, `dw` y `elastic-pool`.
 
