@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7b5835581bf1e14e2d9fdc7c9584c704d1a5d82f
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: abbffb1c474d752130dfffa8e60937b3d632fa14
+ms.sourcegitcommit: c6c3058254974b3a1d5d2fa2cd231a900c53d321
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703186"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126589"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
 Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian, hay un paquete de 64 bits disponible para la CLI de Azure. Este paquete se ha probado con:
 
-* Ubuntu trusty, xenial y artful
+* Ubuntu trusty, xenial, artful y bionic
 * Debian wheezy, jessie y stretch
 
 ## <a name="install"></a>Instalación
@@ -47,7 +47,7 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
    ```
 
    > [!WARNING]
-   > La clave de firma se actualizó en mayo de 2018 y se ha reemplazado. Si recibe errores de clave de firma, asegúrese de que ha [adquirido la clave de firma más reciente](#signingKey).
+   > La clave de firma se actualizó en mayo de 2018 y ha sido reemplazada. Si recibe errores de clave de firma, asegúrese de que ha [adquirido la clave de firma más reciente](#signingKey).
 
 Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, ejecute el comando `az login`.
 
@@ -105,7 +105,7 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
 
 Si no sabe si tiene un servidor proxy, póngase en contacto con el administrador del sistema. Si el proxy no requiere un inicio de sesión, omita el usuario, la contraseña y el token `@`.
 
-## <a name="update"></a>Update
+## <a name="update"></a>Actualizar
 
 Para actualizar el paquete de la CLI, use `apt-get upgrade`.
 
