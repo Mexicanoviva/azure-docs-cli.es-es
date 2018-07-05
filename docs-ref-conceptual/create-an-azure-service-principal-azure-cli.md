@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: d250cb2d35a128c789fccd3aca17c47074121a25
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: cd9a41b66d18410afa091ede50ca24e7d4b5e9ed
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703118"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439965"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -101,7 +101,7 @@ az role assignment list --assignee APP_ID
 > [!NOTE] 
 > Si su cuenta no tiene permisos para asignar un rol, verá un mensaje de error indicando que su cuenta "no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write" sobre el ámbito "/subscriptions/{guid}". Póngase en contacto con el administrador de Azure Active Directory para administrar los roles.
 
-## <a name="log-in-using-the-service-principal"></a>Inicio de sesión con la entidad de servicio
+## <a name="sign-in-using-the-service-principal"></a>Inicio de sesión mediante la entidad de servicio
 
 Puede probar el inicio de sesión y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure. Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales. La información de autenticación que debe proporcionar cambia en función de si eligió crear la entidad de servicio con una contraseña o con un certificado.
 
