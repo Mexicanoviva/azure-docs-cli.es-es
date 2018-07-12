@@ -10,28 +10,26 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dbb6233e8fed15b440282b8396d3b3bd056e80f7
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: c973d31312fbe0f9232bf3f0f3ed5f3b70b6559a
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512944"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439948"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introducción a la CLI de Azure 2.0
 
 Bienvenido a la CLI de Azure 2.0. La CLI es una herramienta diseñada para ayudarle a trabajar de forma rápida y eficaz con los servicios de Azure, con énfasis en la automatización. En este artículo se detallan las características de la CLI y vínculos a recursos que le ayudarán a ser productivo.
 
-## <a name="install-and-log-in"></a>Instalación e inicio de sesión
+## <a name="install-and-sign-in"></a>Instalación e inicio de sesión
 
 Si no lo ha hecho ya, [instale la CLI](install-azure-cli.md) o pruebe el [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 Antes de usar los comandos de la CLI en una instalación local, deberá iniciar sesión con [az login](/cli/azure/reference-index#az-login).
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Este comando le pide que inicie sesión con un código de autenticación a través de un sitio web. Hay maneras para iniciar sesión de una manera no interactiva, las cuales se tratan detalladamente en [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
+Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="common-commands"></a>Comandos comunes
 

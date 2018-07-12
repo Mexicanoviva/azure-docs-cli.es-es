@@ -10,12 +10,12 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: 4d5bee6514477c494ec53d2bd7bba778301ba490
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: bbd64458b49d3e6c6a533a489d5c8105f364d3d7
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703152"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439880"
 ---
 # <a name="log-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
@@ -26,9 +26,9 @@ Ninguna información de credenciales privada se almacena localmente. En su lugar
 
 Después de iniciar sesión, los comandos de la CLI se ejecutan con su suscripción predeterminada. Si tiene más de una suscripción, puede [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
 
-## <a name="interactive-log-in"></a>Inicio de sesión interactivo
+## <a name="interactive-sign-in"></a>Inicio de sesión interactivo
 
-Inicie sesión de forma interactiva desde el explorador web.
+El método de autenticación predeterminado de la CLI de Azure es iniciar sesión de forma interactiva desde el explorador web.
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 

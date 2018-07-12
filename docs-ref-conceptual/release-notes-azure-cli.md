@@ -4,19 +4,100 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/01/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
-ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
+ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262665"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439676"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="july-3-2018"></a>3 de julio de 2018
+
+Versión 2.0.41
+
+### <a name="aks"></a>AKS
+
+* Se ha cambiado la supervisión para utilizar el identificador de suscripción
+
+## <a name="july-3-2018"></a>3 de julio de 2018
+
+Versión 2.0.40
+
+### <a name="core"></a>Núcleo
+
+* Se ha agregado un nuevo flujo de código de autorización para el inicio de sesión interactivo
+
+### <a name="acr"></a>ACR
+
+* Se ha agregado el estado de compilación de sondeo
+* Se ha agregado compatibilidad para los valores de enumeración sin distinguir mayúsculas y minúsculas
+* Se han agregado los parámetros `--top` y `--orderby` para `show-manifests`
+
+### <a name="acs"></a>ACS
+
+* [CAMBIO IMPORTANTE] Se ha habilitado el control de acceso basado en rol de Kubernetes de forma predeterminada.
+* Se ha agregado el argumento `--disable-rbac` y `--enable-rbac` está en desuso porque ahora es el valor predeterminado
+* Se han actualizado las opciones del comando `aks browse`. Se ha agregado compatibilidad con `--listen-port`
+* Se ha actualizado el paquete del gráfico de helm predeterminado para el comando `aks install-connector`. Use virtual-kubelet-for-aks-latest.tgz
+* Se han agregado los comandos `aks enable-addons` y `aks disable-addons` para actualizar un clúster existente
+
+### <a name="appservice"></a>AppService
+
+* Se ha agregado compatibilidad para deshabilitar la identidad mediante `webapp identity remove`
+* Se ha quitado la etiqueta `preview` para la característica de identidad
+
+### <a name="backup"></a>Backup
+
+* Se ha actualizado la definición del módulo
+
+### <a name="batchai"></a>BatchAI
+
+* Se ha corregido la salida de la tabla para los comandos `batchai cluster node list` y `batchai job node list`
+
+### <a name="cloud"></a>Nube
+
+* Se ha agregado el sufijo de servidor `acr login` a la configuración de nube
+
+### <a name="container"></a>Contenedor
+
+* Se ha cambiado `container create` al valor predeterminado para operaciones de larga ejecución
+* Se han agregado los parámetros de Log Analytics `--log-analytics-workspace` y `--log-analytics-workspace-key`
+* Se ha agregado el parámetro `--protocol` para especificar qué protocolo de red desea usar
+
+### <a name="extension"></a>Extensión
+
+* Se ha cambiado `extension list-available` para mostrar solo las extensiones compatibles con la versión de la CLI
+
+### <a name="network"></a>Red
+
+* Se ha corregido el problema por el que los tipos de registro distinguían entre mayúsculas y minúsculas ([n.º 6602](https://github.com/Azure/azure-cli/issues/6602))
+
+### <a name="rdbms"></a>Rdbms
+
+* Se agregaron los comandos `[postgres|myql] server vnet-rule`.
+
+### <a name="resource"></a>Recurso
+
+* Se ha agregado un nuevo grupo de operaciones `deployment`
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha agregado compatibilidad para quitar la identidad asignada por el sistema
+
+## <a name="june-25-2018"></a>25 de junio de 2018
+
+Versión 2.0.39
+
+### <a name="cli"></a>CLI
+
+* Se ha actualizado el recorte de archivo en el instalador MSI para corregir el problema de instalación de extensión
 
 ## <a name="june-19-2018"></a>19 de junio de 2018
 
@@ -248,14 +329,14 @@ Versión 2.0.33
     * Se han quitado las propiedades `currentServiceObjectiveId` y `requestedServiceObjectiveId` 
     * Se ha cambiado la propiedad `maxSizeBytes` para que sea un valor entero en lugar de una cadena
 * [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `db` y `dw` siguientes para que sean de solo lectura:
-    * (Unión permanente)(Unión permanente).  Para actualizar, use el parámetro `--service-objective` o establezca la propiedad `sku.name`
+    * `requestedServiceObjectiveName`.  Para actualizar, use el parámetro `--service-objective` o establezca la propiedad `sku.name`
     * `edition`. Para actualizar, use el parámetro `--edition` o establezca la propiedad `sku.tier`
     * `elasticPoolName`. Para actualizar, use el parámetro `--elastic-pool` o establezca la propiedad `elasticPoolId`
 * [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `elastic-pool` para que sean de solo lectura:
     * `edition`. Para actualizar, use el parámetro `--edition`
     * `dtu`. Para actualizar, use el parámetro `--capacity`
-    *  (Unión permanente)(Unión permanente). Para actualizar, use el parámetro `--db-min-capacity`
-    *  (Unión permanente)(Unión permanente). Para actualizar, use el parámetro `--db-max-capacity`
+    *  `databaseDtuMin`. Para actualizar, use el parámetro `--db-min-capacity`
+    *  `databaseDtuMax`. Para actualizar, use el parámetro `--db-max-capacity`
 * Se han agregados los parámetros `--family` y `--capacity` a los comandos `db`, `dw` y `elastic-pool`.
 * Se han agregados formateadores de tabla a los comandos `db`, `dw` y `elastic-pool`.
 
