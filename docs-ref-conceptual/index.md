@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 9b6f7a5c79033c0b0bec2bf8b56eb40831484f1a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: ffa435f8c6ee5aa82d2efe2e09d7bcb1f1dc434b
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306257"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967697"
 ---
 # <a name="azure-cli-20"></a>CLI de Azure 2.0
 
@@ -32,8 +32,8 @@ Lea el artículo de [introducción](get-started-with-azure-cli.md) para empezar 
 Para más información sobre la versión más reciente, consulte las [notas de la versión](release-notes-azure-cli.md).
 
 Los ejemplos siguientes le ayudarán a empezar a tareas comunes en la CLI de Azure 2.0:
+
 - [Máquinas virtuales Linux](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-- Interactivo: [Creación de máquinas virtuales Linux](https://docs.microsoft.com/learn/azure-cli-2-0/index)
 - [Máquinas virtuales Windows](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 - [Aplicaciones web](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 - [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)

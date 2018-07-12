@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ed8f8ac160dd8225170ffcfff9619d94b92e456a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 97fcd9d5b5a65480957734cec0ead68029918a49
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306172"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967799"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Uso de consultas JMESPath con la CLI de Azure 2.0
 
@@ -67,7 +67,7 @@ Al mostrar información en el formato de salida `table`, la presentación del di
 
 ## <a name="work-with-list-output"></a>Trabajar con la salida de lista
 
-Los comandos de la CLI que pueden devolver más de un valor siempre devuelven una matriz. Es posible acceder a los elementos de la matriz por su índice, pero nunca hay garantía de orden por parte de la CLI. La mejor manera para consultar una matriz de valores es aplanar dichos valores con el operador `[]`. El operador se escribe después de la clave de la matriz o como el primer elemento de la expresión. El aplanado ejecuta la consulta con cada elemento individual de la matriz y coloca los valores resultantes en una nueva matriz. En el ejemplo siguiente se imprime el nombre y el sistema operativo que se ejecuta en cada máquina virtual de un grupo de recursos. 
+Los comandos de la CLI que pueden devolver más de un valor siempre devuelven una matriz. Es posible acceder a los elementos de la matriz por su índice, pero nunca hay garantía de orden por parte de la CLI. La mejor manera para consultar una matriz de valores es aplanar dichos valores con el operador `[]`. El operador se escribe después de la clave de la matriz o como el primer elemento de la expresión. El aplanado ejecuta la consulta con cada elemento individual de la matriz y coloca los valores resultantes en una nueva matriz. En el ejemplo siguiente se imprime el nombre y el sistema operativo que se ejecuta en cada máquina virtual de un grupo de recursos.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
