@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: b44a387a144b9d7daca8d87309d8a5e1a47b078a
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439676"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967884"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
 
@@ -53,7 +53,7 @@ Versión 2.0.40
 * Se ha agregado compatibilidad para deshabilitar la identidad mediante `webapp identity remove`
 * Se ha quitado la etiqueta `preview` para la característica de identidad
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Copia de seguridad
 
 * Se ha actualizado la definición del módulo
 
@@ -120,7 +120,7 @@ Versión 2.0.38
 * Se ha corregido el error del comando `acs browse`
 * Se ha hecho que `--connector-name` sea opcional para `aks install-connector`, `aks upgrade-connector` y `aks remove-connector`
 * Se han agregado nuevas regiones de Azure Container Instances para `aks install-connector`
-* Se ha agregado la ubicación normalizada en el nombre de la versión y el nombre de nodo de Helm a `aks install-connector` 
+* Se ha agregado la ubicación normalizada en el nombre de la versión y el nombre de nodo de Helm a `aks install-connector`
 
 ### <a name="appservice"></a>AppService
 
@@ -137,7 +137,7 @@ Versión 2.0.38
 * Se ha agregado compatibilidad para experimentos. Los experimentos permiten agrupar los trabajos en colecciones y eliminan el límite de trabajos creados
 * Se ha agregado compatibilidad para configurar `/dev/shm` para la ejecución de trabajos en un contenedor de Docker
 * Se han agregado los comandos `batchai cluster node exec` y `batchai job node exec`. Estos comandos no permiten ejecutar comandos directamente en los nodos y proporcionan la funcionalidad de enrutamiento de puertos.
-* Se ha agregado compatibilidad para `--ids` a los comandos `batchai`. 
+* Se ha agregado compatibilidad para `--ids` a los comandos `batchai`.
 * [CAMBIO IMPORTANTE] Todos los clústeres y servidores de archivos deben crearse en áreas de trabajo.
 * [CAMBIO IMPORTANTE] Los trabajos deben crearse en experimentos.
 * [CAMBIO IMPORTANTE] Se ha eliminado `--nfs-resource-group` de los comandos `cluster create` y `job create`. Para montar un NFS que pertenezca a un grupo de recursos o a un área de trabajo diferente, proporcione el identificador de ARM del servidor de archivos con la opción `--nfs`.
@@ -201,7 +201,7 @@ Versión 2.0.36
 ### <a name="aks"></a>AKS
 
 * Se han agregado opciones de red avanzadas a `aks create`
-* Se han agregado argumentos a `aks create` para habilitar la supervisión y el enrutamiento de HTTP 
+* Se han agregado argumentos a `aks create` para habilitar la supervisión y el enrutamiento de HTTP
 * Se agregó el argumento `--no-ssh-key` a `aks create`
 * Se agregó el argumento `--enable-rbac` a `aks create`
 * [VISTA PREVIA] Se agregó compatibilidad para la autenticación de Azure Active Directory a `aks create`
@@ -326,7 +326,7 @@ Versión 2.0.33
 
 * [CAMBIO IMPORTANTE] Se cambiaron los objetos de respuesta devueltos por los comandos `db` y `dw`:
     * Se ha cambiado el nombre de la propiedad `serviceLevelObjective` a `currentServiceObjectiveName`
-    * Se han quitado las propiedades `currentServiceObjectiveId` y `requestedServiceObjectiveId` 
+    * Se han quitado las propiedades `currentServiceObjectiveId` y `requestedServiceObjectiveId`
     * Se ha cambiado la propiedad `maxSizeBytes` para que sea un valor entero en lugar de una cadena
 * [CAMBIO IMPORTANTE] Se han cambiado las siguientes propiedades de `db` y `dw` siguientes para que sean de solo lectura:
     * `requestedServiceObjectiveName`.  Para actualizar, use el parámetro `--service-objective` o establezca la propiedad `sku.name`
@@ -432,7 +432,7 @@ Versión 2.0.32
 
 ### <a name="network"></a>Red
 
-* [CAMBIO IMPORTANTE] Se ha eliminado el parámetro `--ids` en: 
+* [CAMBIO IMPORTANTE] Se ha eliminado el parámetro `--ids` en:
   * `express-route auth list`
   * `express-route peering list`
   * `nic ip-config list`
@@ -477,7 +477,7 @@ Versión 2.0.32
   * `vm secret list`
   * `vm unmanaged-disk list`
   * `vmss nic list`
-* Se ha agregado compatibilidad con el acelerador de escritura 
+* Se ha agregado compatibilidad con el acelerador de escritura
 * Se agregó `vmss perform-maintenance`.
 * Se ha corregido `vm diagnostics set` para que detecte el tipo de sistema operativo de la máquina virtual de forma confiable
 * Se ha cambiado `vm resize` para comprobar si el tamaño solicitado es diferente del establecido actualmente y actualizar solo en caso de cambio
@@ -561,7 +561,7 @@ Versión 2.0.31
 
 * Se ha corregido el error [5936](https://github.com/Azure/azure-cli/issues/5936): No se pudieron establecer las etiquetas `application-gateway create`
 * Se ha agregado el argumento `--auth-certs` para asociar los certificados de autenticación para `application-gateway http-settings [create|update]`. [4910](https://github.com/Azure/azure-cli/issues/4910)
-* Se han agregado los comandos `ddos-protection` para crear planes de DDoS Protection 
+* Se han agregado los comandos `ddos-protection` para crear planes de DDoS Protection
 * Se ha agregado compatibilidad con `--ddos-protection-plan` a `vnet [create|update]` para asociar una red virtual a un plan de DDoS Protection
 * Se ha corregido el error con la marca `--disable-bgp-route-propagation` en `network route-table [create|update]`
 * Se han retirado los argumentos ficticios `--public-ip-address-type` y `--subnet-type` de `network lb [create|update]`
@@ -617,7 +617,7 @@ Versión 2.0.30
 * Se ha agregado compatibilidad solo para HTTPS a `webapp update`
 * Se ha agregado compatibilidad para espacios `az webapp identity [assign|show]` y `az functionapp identity [assign|show]`
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Copia de seguridad
 
 * Se ha agregado un nuevo comando `az backup protection isenabled-for-vm`. Este comando se puede usar para comprobar si algún almacén de la suscripción está haciendo la copia de seguridad de una máquina virtual
 * Se han habilitado los identificadores de objeto de Azure para los parámetros `--resource-group` y `--vault-name` para los siguientes comandos:
@@ -726,7 +726,7 @@ Versión 2.0.29
 
 * [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `advisor configuration get` a `advisor configuration list`
 * [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `advisor configuration set` a `advisor configuration update`
-* [CAMBIO IMPORTANTE] Se quitó `advisor recommendation generate` 
+* [CAMBIO IMPORTANTE] Se quitó `advisor recommendation generate`
 * Se ha agregado el parámetro `--refresh` a `advisor recommendation list`
 * Se agregó el comando `advisor recommendation show`.
 
@@ -998,7 +998,7 @@ Versión 2.0.26
 * Se han corregido los problemas siguientes en `dns zone export`:
   * Se ha corregido un problema por el que se exportaban incorrectamente los registros TXT largos
   * Se ha corregido un problema por el que los registros TXT entre comillas se exportaban incorrectamente sin comillas de escape
-* Se ha corregido un problema por el que algunos registros se importaban dos veces en `dns zone import` 
+* Se ha corregido un problema por el que algunos registros se importaban dos veces en `dns zone import`
 * Se han restaurado los comandos `vnet-gateway root-cert` y `vnet-gateway revoked-cert`
 
 ### <a name="profile"></a>Perfil
@@ -1013,7 +1013,7 @@ Versión 2.0.26
 
 * Se ha corregido un problema en la migración de cuentas de Storage V1 a Storage V2
 * Se ha agregado un informe de progreso a todos los comandos de carga y descarga
-* Se ha corregido un error en la opción "-n" en `storage account check-name`  
+* Se ha corregido un error en la opción "-n" en `storage account check-name`
 * Se ha agregado la columna "snapshot" a la salida de tabla de `blob [list|show]`
 * Se han corregido errores en varios parámetros que debían analizarse como enteros
 
@@ -1045,7 +1045,7 @@ Versión 2.0.25
 * Se ha agregado compatibilidad con direcciones URL personalizadas para `browse`
 * Se ha corregido la compatibilidad con ranuras en `log tail`
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Copia de seguridad
 
 * Se ha cambiado la opción `--container-name` de `backup item list` para que sea opcional
 * Se han agregado opciones de la cuenta de almacenamiento a `backup restore restore-disks`
@@ -1463,7 +1463,7 @@ Versión 2.0.18
 
 * Se agregó capacidad para actualizar y mostrar la configuración de autenticación con `webapp auth [update|show]`
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Copia de seguridad
 
 * Versión preliminar
 
