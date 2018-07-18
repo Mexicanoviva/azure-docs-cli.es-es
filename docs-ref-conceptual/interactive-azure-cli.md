@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3538569631718943e2575cd9c607eb9f79b47271
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 1ee7da8dfdde402d4d536f7ab4bb0599a8f3fa1d
+ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306019"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38229199"
 ---
 # <a name="interactive-azure-cli-20"></a>CLI de Azure 2.0 interactiva
 
@@ -26,7 +26,7 @@ De esta forma, se le remite a un shell interactivo donde los comandos se complet
 > [!NOTE]
 > Aquí no se va a usar el estilo predeterminado, ya que no se lee sobre un fondo negro.
 
-Si aún no se ha registrado en la cuenta, use el comando `login` para hacerlo.
+Si aún no ha iniciado sesión en la cuenta, use el comando `login`.
 
 ## <a name="configure"></a>Configuración
 
@@ -43,7 +43,7 @@ Puede activar o desactivar la visualización de los parámetros predeterminados 
 
 ![gestos](./media/interactive-azure-cli/gestures.png)
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ámbito
 
 Puede establecer el ámbito del modo interactivo a un grupo de comandos específico, como `vm` o `vm image`.
 Al hacerlo, todos los comandos se interpretan en ese ámbito.

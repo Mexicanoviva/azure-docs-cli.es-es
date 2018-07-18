@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: c973d31312fbe0f9232bf3f0f3ed5f3b70b6559a
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439948"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967748"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introducción a la CLI de Azure 2.0
 
@@ -74,7 +74,6 @@ Hay algunos argumentos que están disponibles para todos los comandos.
 * `--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure. Para más información sobre las consultas, visite [Consulta de los resultados de los comandos con la CLI de Azure 2.0](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
 * `--verbose` imprime información acerca de los recursos creados en Azure durante una operación y otra información de utilidad.
 * `--debug` imprime más información aún sobre las operaciones de la CLI y se utiliza con fines de depuración. Si se produce un error, proporcione los resultados generados con la marca `--debug` activada al enviar un informe de errores.
-
 
 ## <a name="interactive-mode"></a>Modo interactivo
 

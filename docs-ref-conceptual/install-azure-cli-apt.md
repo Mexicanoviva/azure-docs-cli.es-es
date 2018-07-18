@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439625"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967850"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
@@ -25,7 +25,7 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
 
 ## <a name="install"></a>Instalación
 
-1. <a name="install-step-1"/> Modifique la lista de orígenes:
+1. <div id="install-step-1"/>Modifique la lista de orígenes:
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
@@ -33,7 +33,7 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <a name="signingKey"></a>Obtenga la clave de firma de Microsoft:
+2. <div id="signingKey"/>Obtenga la clave de firma de Microsoft:
 
    ```bash
    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -53,7 +53,7 @@ Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
+Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="troubleshooting"></a>solución de problemas
 
@@ -113,7 +113,7 @@ Para actualizar el paquete de la CLI, use `apt-get upgrade`.
 
 > [!WARNING]
 > La clave de firma se actualizó en mayo de 2018 y ha sido reemplazada. Si recibe errores de clave de firma, asegúrese de que ha [adquirido la clave de firma más reciente](#signingKey).
-   
+>
 > [!NOTE]
 > Este comando actualiza todos los paquetes instalados en el sistema que no hayan tenido un cambio de dependencia.
 > Para actualizar solo la CLI, use `apt-get install`.

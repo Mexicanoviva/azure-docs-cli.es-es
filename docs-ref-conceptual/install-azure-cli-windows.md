@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: d662333f828c65fa709fa622de7de3a18bea58d8
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: e614f0d108cef0702525e033d166e0498a94729f
+ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439845"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38228982"
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Instalación de la CLI de Azure 2.0 en Windows
 
@@ -34,7 +34,7 @@ Ya puede ejecutar la CLI de Azure con el comando `az` desde el símbolo del sist
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
+Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="uninstall"></a>Desinstalación
 

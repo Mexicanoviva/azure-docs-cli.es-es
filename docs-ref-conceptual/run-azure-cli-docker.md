@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0eb3694c8dcb085e1aeb8cde54a21ac16157b26b
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 65d8140bd12a260c127efa2adb064c2f9294810b
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439843"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967782"
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Ejecución de la CLI de Azure 2.0 en un contenedor de Docker
 
@@ -30,7 +30,7 @@ Instalación de la CLI con `docker run`.
 
 > [!NOTE]
 > Si desea seleccionar las claves SSH de su entorno de usuario, puede utilizar `-v ${HOME}:/root` para montar $HOME como `/root`.
-
+>
 > ```bash
 > docker run -it -v ${HOME}:/root microsoft/azure-cli
 > ```
@@ -39,8 +39,7 @@ La CLI se instala en la imagen como el comando `az` en `/usr/local/bin`. Para in
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para más información acerca de los diferentes métodos de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
-
+Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
 
 ## <a name="update-docker-image"></a>Actualización de una imagen de Docker
 

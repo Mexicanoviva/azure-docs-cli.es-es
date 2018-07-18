@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: cd9a41b66d18410afa091ede50ca24e7d4b5e9ed
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 956a1c10c3e4321651df58f86f6f2c21ede5061f
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439965"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967918"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
@@ -33,7 +33,7 @@ Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-r
 * `--cert` se utiliza para la autenticación basada en certificados para un certificado existente, ya sea como una cadena pública PEM o DER o mediante `@{file}` para cargar un archivo.
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
+  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile}
   ```
 
   Se puede agregar el argumento `--keyvault` para indicar que el certificado se almacena en Azure Key Vault. En este caso, el valor `--cert` hace referencia al nombre del certificado en el almacén de claves.
@@ -73,7 +73,7 @@ Los valores `appId`, `tenant` y `password` se utilizan para la autenticación. E
 > [!NOTE]
 > Si su cuenta no tiene permisos suficientes para crear una entidad de servicio, verá un mensaje de error que contiene el texto "Privilegios suficientes para completar la operación". Póngase en contacto con el administrador de Azure Active Directory para crear a una entidad de servicio.
 
-## <a name="manage-service-principal-roles"></a>Administración de roles de la entidad de servicio 
+## <a name="manage-service-principal-roles"></a>Administración de roles de la entidad de servicio
 
 La CLI de Azure 2.0 proporciona los siguientes comandos para administrar las asignaciones de roles.
 
@@ -98,12 +98,12 @@ Los cambios se pueden comprobar obteniendo una lista de los roles asignados.
 az role assignment list --assignee APP_ID
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Si su cuenta no tiene permisos para asignar un rol, verá un mensaje de error indicando que su cuenta "no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write" sobre el ámbito "/subscriptions/{guid}". Póngase en contacto con el administrador de Azure Active Directory para administrar los roles.
 
 ## <a name="sign-in-using-the-service-principal"></a>Inicio de sesión mediante la entidad de servicio
 
-Puede probar el inicio de sesión y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure. Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales. La información de autenticación que debe proporcionar cambia en función de si eligió crear la entidad de servicio con una contraseña o con un certificado.
+Puede probar las credenciales y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure. Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales. La información de autenticación que debe proporcionar cambia en función de si eligió crear la entidad de servicio con una contraseña o con un certificado.
 
 Para iniciar sesión con una contraseña, debe proporcionarla como un parámetro de argumento.
 
