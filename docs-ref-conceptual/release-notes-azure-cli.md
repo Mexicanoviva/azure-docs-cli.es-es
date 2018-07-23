@@ -9,14 +9,83 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b44a387a144b9d7daca8d87309d8a5e1a47b078a
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 8d4f0879a18d2cf99ea7a284155bec86413406f8
+ms.sourcegitcommit: da34d0eecf19c676826bd32ab254a92bd0976124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967884"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138243"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="july-18-2018"></a>18 de julio de 2018
+
+Versión 2.0.42
+
+### <a name="core"></a>Núcleo
+
+* Se ha agregado compatibilidad con el inicio de sesión desde explorador en la ventana de bash de WSL
+* Se ha agregado la marca `--force-string` a todos los comandos de actualización genéricos
+* [CAMBIO IMPORTANTE] Han cambiado los comandos "show" para registrar el mensaje de error y se producirá un error con un código de salida de 3 si falta algún recurso
+
+### <a name="acr"></a>ACR
+
+* [CAMBIO IMPORTANTE] Se ha actualizado "--no - push" en una marca pura en el comando "acr build"
+* Se han agregado los comandos `show` y `update` en el grupo `acr repository`
+* Se ha agregado la marca `--detail` a `show-manifests` y `show-tags` para mostrar información más detallada
+* Se ha agregado el parámetro `--image` para admitir la obtención de detalles o registros de una compilación por parte de una imagen
+
+### <a name="acs"></a>ACS
+
+* Ha cambiado `az aks create` a la salida de error si `--max-pods` es menor que 5
+
+### <a name="appservice"></a>AppService
+
+* Se ha agregado compatibilidad con las SKU de PremiumV2
+
+### <a name="batch"></a>Batch
+
+* Se ha corregido el error del uso del credencial de token en el modo de shell en la nube
+* Se ha cambiado la entrada JSON para que no distinga mayúsculas de minúsculas
+
+### <a name="batch-ai"></a>Batch AI
+
+* Se ha corregido el comando `az batchai job exec`
+
+### <a name="container"></a>Contenedor
+
+* Se ha quitado el requisito de nombre de usuario y contraseña en los registros que no sean de dockerhub
+* Se ha corregido el error que se producía al crear grupos de contenedores desde el archivo yaml
+
+### <a name="network"></a>Red
+
+* Se ha agregado compatibilidad de `--no-wait` con `network nic [create|update|delete]` 
+* Se agregó `network nic wait`.
+* El argumento `--ids` desuso `network vnet [subnet|peering] list` ha pasado a estar en desuso
+* Se ha agregado la marca `--include-default` para incluir las reglas de seguridad predeterminadas en la salida de `network nsg rule list`  
+
+### <a name="resource"></a>Recurso
+
+* Se ha agregado compatibilidad de `--no-wait` con `group deployment delete`
+* Se ha agregado compatibilidad de `--no-wait` con `deployment delete`
+* Se agregó el comando `deployment wait`.
+* Se ha corregido un problema de que los comandos `az deployment` del nivel de suscripción aparecían para el perfil 2017-03-09-profile
+
+### <a name="sql"></a>SQL
+
+* Se ha corregido el error "El nombre del grupo de recursos proporcionado ... no coincidía con el nombre de la dirección URL' al especificar el nombre del grupo elástico en los comandos `sql db copy` y `sql db replica create`
+* Permite la configuración de servidor de SQL Server predeterminado mediante la ejecución de `az configure --defaults sql-server=<name>`
+* Se han implementado formateadores de tabla para los comandos `sql server`, `sql server firewall-rule`, `sql list-usages` y `sql show-usage`
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado la propiedad `pageRanges` a la salida de `storage blob show` que se rellenará en los blobs en páginas
+
+### <a name="vm"></a>máquina virtual
+
+* [CAMBIO IMPORTANTE] Ha cambiado `vmss create` para usar `Standard_DS1_v2` como tamaño de instancia predeterminado
+* Se ha agregado compatibilidad con `--no-wait` a `vm extension [set|delete]` y `vmss extension [set|delete]`
+* Se agregó `vm extension wait`.
 
 ## <a name="july-3-2018"></a>3 de julio de 2018
 
