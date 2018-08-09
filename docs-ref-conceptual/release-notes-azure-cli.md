@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: d0f8c01495cc95ecfbf6a41d510eb4bc54d47ba2
-ms.sourcegitcommit: 8019690502e9f89c083839d83a0a245cc812e8b6
+ms.openlocfilehash: 549317fb3ffffbe5f392e7a2bbc5cb4ed10b7e89
+ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392360"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39718021"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
 
@@ -72,7 +72,7 @@ Versión 2.0.43
 ### <a name="vm"></a>máquina virtual
 
 * Se ha agregado compatibilidad para enumerar los conjuntos de disponibilidad por suscripción.
-* Se ha agregado compatibilidad para admitir `StandardSSD_LRS`.
+* Se ha agregado compatibilidad con `StandardSSD_LRS`
 * Se ha agregado compatibilidad con los grupos de seguridad de la aplicación al crear un conjunto de escalado de máquinas virtuales.
 * [CAMBIO IMPORTANTE] Se ha cambiado `[vm|vmss] create`, `[vm|vmss] identity assign`, y `[vm|vmss] identity remove` para obtener las identidades asignadas por el usuario en formato de diccionario.
 
