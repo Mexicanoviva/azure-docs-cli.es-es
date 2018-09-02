@@ -4,19 +4,159 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/03/2018
+ms.date: 08/28/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 549317fb3ffffbe5f392e7a2bbc5cb4ed10b7e89
-ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
+ms.openlocfilehash: 62e57d048666f478b670f182bb9348dba90de6a0
+ms.sourcegitcommit: 8f060bc009278eafc0ed448bad4b7d08c742ff63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39718021"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43145097"
 ---
 # <a name="azure-cli-20-release-notes"></a>Notas de la versión de la CLI de Azure 2.0
+
+## <a name="auguest-28-2018"></a>28 de agosto de 2018
+
+Versión 2.0.45
+
+### <a name="core"></a>Núcleo
+
+* Se ha corregido un problema al cargar el archivo de configuración vacío
+* Se ha agregado compatibilidad al perfil `2018-03-01-hybrid` de Azure Stack
+
+### <a name="acr"></a>ACR
+
+* Se ha agregado una solución alternativa para las operaciones en tiempo de ejecución sin solicitudes ARM
+* Se ha cambiado para excluir los archivos de control de versiones (por ejemplo, .git, .gitignore) del tar cargado de manera predeterminada en el comando `build`
+
+### <a name="acs"></a>ACS
+
+* Se ha cambiado `aks create` a los valores predeterminados de las máquinas virtuales `Standard_DS2_v2`
+* Se ha cambiado `aks get-credentials` para llamar ahora a las nuevas API para obtener las credenciales de clúster
+
+### <a name="appservice"></a>AppService
+
+* Se ha agregado compatibilidad con CORS en functionapp y webapp
+* Se ha agregado compatibilidad con la etiqueta ARM al crear los comandos
+* Se ha cambiado `[webapp|functionapp] identity show` para salir con código 3 cuando falta un recurso
+
+### <a name="backup"></a>Copia de seguridad
+
+* Se ha cambiado `backup vault backup-properties show` para salir con código 3 cuando falta un recurso
+
+### <a name="bot-service"></a>Servicio de bots
+
+* Versión inicial de la CLI del servicio de bots
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* Se ha agregado un nuevo parámetro `--api-properties,`, que es necesario para la creación de algunos de los servicios
+
+### <a name="iot"></a>IoT
+
+* Se ha corregido un problema con los centros vinculados asociados
+
+### <a name="monitor"></a>Supervisión
+
+* Se han agregado comandos `monitor metrics alert` para las alertas de métricas prácticamente en tiempo real
+* Comandos `monitor alert` en desuso
+
+### <a name="network"></a>Red
+
+* Se ha cambiado `network application-gateway ssl-policy predefined show` para salir con código 3 cuando falta un recurso
+
+### <a name="resource"></a>Recurso
+
+* Se ha cambiado `provider operation show` para salir con código 3 cuando falta un recurso
+
+### <a name="storage"></a>Storage
+
+* Se ha cambiado `storage share policy show` para salir con código 3 cuando falta un recurso
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha cambiado `vm/vmss identity show` para salir con código 3 cuando falta un recurso 
+* `--storage-caching` en desuso para `vm create`
+
+## <a name="auguest-14-2018"></a>14 de agosto de 2018
+
+Versión 2.0.44
+
+### <a name="core"></a>Núcleo
+
+* Se ha corregido una presentación numérica en la salida `table`
+* Se ha agregado el formato de salida de YAML
+
+### <a name="telemetry"></a>Telemetría
+
+* Se han mejorado los informes de telemetría
+
+### <a name="acr"></a>ACR
+
+* Se agregaron los comandos `content-trust policy`.
+* Se ha solucionado un problema por el que `.dockerignore` no se controlaba correctamente
+
+### <a name="acs"></a>ACS
+
+* Se ha cambiado `az acs/aks install-cli` para instalar bajo `%USERPROFILE%\.azure-kubectl` en Windows
+* Se ha cambiado `az aks install-connector` para detectar si el clúster tiene RBAC y configurar correctamente el conector ACI
+* Se ha cambiado a la asignación de roles a la subred cuando se proporciona
+* Se ha agregado una nueva opción a "omitir la asignación de roles" para la subred cuando se proporciona                                 
+* Se ha cambiado para omitir la asignación de roles para la subred cuando la asignación ya existe                
+
+### <a name="appservice"></a>AppService
+
+* Se ha corregido un error que impedía crear una aplicación de función mediante cuentas de almacenamiento en grupos de recursos externos
+* Se ha corregido un bloqueo en la implementación de zip
+
+### <a name="batchai"></a>BatchAI
+
+* Se ha cambiado la salida del registrador para la creación de una cuenta de almacenamiento automático para especificar el "*grupo* de recursos".        
+
+### <a name="container"></a>Contenedor
+
+* Se ha agregado `--secure-environment-variables` para pasar variables de entorno seguras en un contenedor      
+
+### <a name="iot"></a>IoT
+
+* [CAMBIO IMPORTANTE] Se han quitado los comandos en desuso que se han movido a la extensión iot
+* Se han actualizado los elementos para que no asuman el dominio `azure-devices.net`
+
+### <a name="iot-central"></a>Iot Central
+
+* Versión inicial del módulo de IoT Central
+
+### <a name="keyvault"></a>KeyVault
+
+
+* Se han agregado comandos para administrar las cuentas de almacenamiento y definiciones de sas
+* Se han agregado comandos para las reglas de red                                                           
+* Se ha agregado el parámetro `--id` para operaciones de certificado, clave y secreto
+* Se ha agregado compatibilidad para la versión de varias api de administración de KV
+* Se ha agregado compatibilidad para la versión de varias api de plano de datos de KV
+
+### <a name="relay"></a>Retransmisión
+
+* Versión inicial.
+
+### <a name="sql"></a>Sql
+
+* Se agregaron los comandos `sql failover-group`.
+
+### <a name="storage"></a>Storage
+
+* [CAMBIO IMPORTANTE] Se ha cambiado `storage account show-usage` para requerir el parámetro `--location` y mostrará una lista por región
+* Se ha cambiado el parámetro `--resource-group` para que sea opcional para los comandos `storage account`
+* Se han quitado las advertencias de "Error en la condición previa' para los errores individuales en los comandos de lote para un solo mensaje agregado
+* Se han cambiado los comandos `[blob|file] delete-batch` para dejar de dar salida a la matriz de nulos
+* Se han cambiado los comandos `blob [download|upload|delete-batch]` para leer el token de sas de la dirección url del contenedor
+
+### <a name="vm"></a>máquina virtual
+
+* Se han agregado filtros comunes a `vm list-skus` para facilitar su uso
 
 ## <a name="july-31-2018"></a>31 de julio de 2018
 
