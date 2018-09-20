@@ -4,21 +4,21 @@ description: Aprenda a crear y utilizar una entidad de servicio con la CLI de Az
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: 3f20892e846bd07f8e97ccf788d05c4305fe3301
-ms.sourcegitcommit: 83826ca154c9f32c6091c63ce4b3e480694ba8d1
+ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "43144909"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388446"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
 
-Si desea crear un inicio de sesión independiente con restricciones de acceso, puede hacerlo a través de una entidad de servicio. Las entidades de servicio son identidades independientes que se pueden asociar con una cuenta. Las entidades de servicio son útiles para trabajar con aplicaciones y tareas que se deben automatizar. Este artículo le guía por los pasos de creación de una entidad de servicio.
+Si desea crear un inicio de sesión independiente con restricciones de acceso, puede hacerlo mediante una entidad de servicio. Las entidades de servicio son identidades independientes que se pueden asociar con una cuenta. Las entidades de servicio son útiles para trabajar con aplicaciones y tareas que se deben automatizar. Este artículo le guía por los pasos de creación de una entidad de servicio.
 
 ## <a name="create-the-service-principal"></a>Creación de la entidad de servicio
 
@@ -81,7 +81,7 @@ La CLI de Azure 2.0 proporciona los siguientes comandos para administrar las asi
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
-El rol predeterminado de una entidad de servicio es **colaborador**. Este rol tiene permiso total para leer y escribir en una cuenta de Azure y normalmente no es adecuado para aplicaciones. El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.  Para más información sobre el control de acceso basado en roles (RBAC) y los roles, consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).
+El rol predeterminado de una entidad de servicio es **colaborador**. Este rol tiene permiso total para leer y escribir en una cuenta de Azure y no es adecuado para aplicaciones. El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.  Para más información sobre el control de acceso basado en roles (RBAC) y los roles, consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).
 
 En este ejemplo se agrega el rol **Lector** y se elimina el rol **Colaborador**.
 
@@ -103,7 +103,7 @@ az role assignment list --assignee APP_ID
 
 ## <a name="sign-in-using-the-service-principal"></a>Inicio de sesión mediante la entidad de servicio
 
-Puede probar las credenciales y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure. Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales. La información de autenticación que debe proporcionar cambia en función de si eligió crear la entidad de servicio con una contraseña o con un certificado.
+Puede probar las credenciales y los permisos de la nueva entidad de servicio, iniciando sesión en la CLI de Azure. Inicie sesión como la nueva entidad de servicio utilizando `appId`, `tenant` y los valores de las credenciales. Utilice el tipo de autenticación con el que se creó la entidad de servicio.
 
 Para iniciar sesión con una contraseña, debe proporcionarla como un parámetro de argumento.
 
@@ -119,7 +119,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 
 ## <a name="reset-credentials"></a>Restablecimiento de las credenciales
 
-En caso de que olvide las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials). Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.
+Si olvida las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.
 
 ```azurecli-interactive
 az ad sp credential reset --name APP_ID --password NEW_PASSWORD

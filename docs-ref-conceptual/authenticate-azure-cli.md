@@ -4,35 +4,34 @@ description: Inicio de sesión con la CLI de Azure 2.0 de forma interactiva o co
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/09/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: a9476937af004609b35fae7a748d8c254f370541
-ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
+ms.openlocfilehash: ef77f407284752ad4f4a1585f8a4036b32b3eb1b
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43380907"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388327"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
-Hay varias maneras de autenticarse con la CLI de Azure. La manera más sencilla de empezar es iniciar sesión de forma interactiva mediante el explorador con Azure Cloud Shell o con el comando `az login`.
-El método recomendado es el uso de entidades de servicio, que son cuentas con permisos restringidos. Mediante la concesión de los permisos adecuados necesarios a una entidad de servicio, puede asegurarse de que sus scripts de automatización son aún más seguros.
+Hay varios tipos de autenticación para la CLI de Azure. La manera más fácil de empezar a trabajar es [Azure Cloud Shell](/azure/cloud-shell/overview), que inicia sesión automáticamente. De forma local, puede iniciar sesión interactivamente en el explorador con el comando `az login`. Al escribir scripts, el enfoque recomendado es usar entidades de servicio. Para proteger la automatización, conceda los permisos adecuados necesarios a una entidad de servicio.
 
-Ninguna información de credenciales privada se almacena localmente. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de autenticación es válido hasta que transcurran 90 días sin usarse. En ese momento, debe volver a autenticarse.
+La CLI no almacena ninguna de la información de inicio de sesión. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de autenticación es válido hasta que transcurran 90 días sin usarse.
 
-Después de iniciar sesión, los comandos de la CLI se ejecutan con su suscripción predeterminada. Si tiene más de una suscripción, puede [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
+Después de iniciar sesión, los comandos de la CLI se ejecutan en su suscripción predeterminada. Si tiene varias suscripciones, puede [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
 
-## <a name="interactive-sign-in"></a>Inicio de sesión interactivo
+## <a name="sign-in-interactively"></a>Inicio sesión interactivo
 
 El método de autenticación predeterminado de la CLI de Azure usa un explorador web y un token de acceso para iniciar sesión.
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 
-## <a name="command-line"></a>Línea de comandos
+## <a name="sign-in-with-credentials-on-the-command-line"></a>Inicie sesión con sus credenciales en la línea de comandos.
 
 Proporcione sus credenciales de usuario de Azure en la línea de comandos.
 
@@ -61,7 +60,7 @@ az login -u <username> -p <password>
 
 ## <a name="sign-in-with-a-specific-tenant"></a>Inicio de sesión con un inquilino específico
 
-Si trabaja con varios inquilinos, puede usar el argumento `--tenant` para seleccionar el inquilino con el que iniciará sesión. El valor de este argumento puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino. Puede iniciar sesión de forma interactiva o proporcionar las credenciales con los argumentos `--user` y `--password`.
+Puede seleccionar un inquilino para iniciar sesión con el argumento `--tenant`. El valor de este argumento puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino. Tanto el método de inicio de sesión interactivo como el de línea de comandos funcionan con `--tenant`.
 
 ```azurecli
 az login --tenant <tenant>
@@ -71,17 +70,14 @@ az login --tenant <tenant>
 
 Las entidades de servicio son cuentas no asociadas a un usuario concreto, las cuales pueden tener permisos asignados mediante roles predefinidos. La autenticación con una entidad de servicio es la mejor manera de escribir scripts o programas seguros, lo que le permite aplicar las restricciones de permisos y la información de credenciales estáticas almacenadas de modo local. Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
 
-Para iniciar sesión con una entidad de servicio, proporcione el nombre de usuario, la contraseña o el archivo de certificado PEM y el inquilino asociado a la entidad de servicio:
+Para iniciar sesión con una entidad de servicio, necesita:
+
+* La dirección URL o el nombre asociado a la entidad de servicio.
+* La contraseña de la entidad de servicio o el certificado X509 utilizado para crear la entidad de servicio con el formato PEM.
+* El inquilino asociado con la entidad de servicio, como un dominio de `.onmicrosoft.com` o un identificador de objeto de Azure.
 
 ```azurecli
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
-```
-
-El valor del inquilino es el inquilino de Azure Active Directory asociado a la entidad de servicio. Puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino.
-Para obtener el identificador de objeto de inquilino de la cuenta actualmente activa, use este comando:
-
-```azurecli-interactive
-az account show --query 'tenantId' -o tsv
 ```
 
 > [!IMPORTANT]

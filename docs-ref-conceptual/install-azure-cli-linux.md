@@ -4,28 +4,28 @@ description: Instalación manual de la CLI de Azure 2.0 para Linux
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 01/29/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7e73ae8bbbba80bf48c6f01fc1c37a3c32c6eb31
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: c5c7ea61a35e915760081897e88d8c43b80919e0
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967561"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388361"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Instalación manual de la CLI de Azure 2.0 en Linux
 
-Si no tiene un paquete de la CLI de Azure disponible en la distribución, siempre puede ejecutar manualmente un script de instalación para instalar la CLI.
+Si no hay ningún paquete de la CLI de Azure para su distribución, ejecute un script para instalar la CLI manualmente.
 
 > [!NOTE]
-> Se recomienda utilizar un administrador de paquetes para la CLI. Con un administrador de paquetes se asegura de que siempre tendrá las últimas actualizaciones y garantiza la estabilidad de los componentes de la CLI. Compruebe si existe un paquete para su distribución antes de instalar manualmente.
+> Se recomienda utilizar un administrador de paquetes para instalar la CLI. Con un administrador de paquetes se asegura de que siempre tendrá las últimas actualizaciones y garantiza la estabilidad de los componentes de la CLI. Compruebe si existe un paquete para su distribución antes de instalar manualmente.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para instalar la CLI, necesita el siguiente software disponible en el sistema:
+La CLI requiere el software siguiente:
 
 * [Python 2.7 o Python 3.x](https://www.python.org/downloads/)
 * [libffi](https://sourceware.org/libffi/)
@@ -33,13 +33,13 @@ Para instalar la CLI, necesita el siguiente software disponible en el sistema:
 
 ## <a name="install-or-update"></a>Instalación o actualización
 
-Tanto si va a instalar como si va a actualizar la CLI, debe realizar una instalación completa. Una vez que tenga los requisitos previos, puede instalar la CLI ejecutando `curl`.
+Para instalar y actualizar la CLI es necesario volver a ejecutar el script de instalación. Ejecute `curl` para instalar la CLI.
 
 ```bash
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-También puede descargar el script y ejecutarlo localmente. Para que algunos cambios surtan efecto, es posible que tenga que reiniciar el shell.
+El script también se puede descargar y ejecutar localmente. Para que algunos cambios surtan efecto, es posible que tenga que reiniciar el shell.
 
 Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use el comando [az login](/cli/azure/reference-index#az-login).
 
@@ -49,7 +49,7 @@ Para más información acerca de los diferentes métodos de autenticación, cons
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Estos son algunos problemas comunes que se han observado durante la instalación manual. Si su problema no está enumerado aquí, [notifique un problema en Github](https://github.com/Azure/azure-cli/issues).
+Estos son algunos problemas comunes que se han observado durante la instalación manual. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="curl-object-moved-error"></a>Error de curl "Object Moved" (objeto movido)
 
@@ -69,7 +69,7 @@ hash -r
 
 y compruebe si el problema se resuelve.
 
-Este problema también puede ocurrir si no se reinició el shell después de la instalación. Asegúrese de que la ubicación del comando `az` esté en `$PATH`. La ubicación del comando `az` es
+Este problema también puede ocurrir si no reinició el shell después de la instalación. Asegúrese de que la ubicación del comando `az` esté en `$PATH`. La ubicación del comando `az` es
 
 ```bash
 <install path>/bin

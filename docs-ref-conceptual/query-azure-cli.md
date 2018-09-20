@@ -4,17 +4,17 @@ description: Obtenga información acerca de cómo realizar consultas JMESPath co
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 97fcd9d5b5a65480957734cec0ead68029918a49
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 55880b87e1bffc37bbdeaeb84206deb5b9b7b227
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967799"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388384"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Uso de consultas JMESPath con la CLI de Azure 2.0
 
@@ -30,7 +30,7 @@ Los comandos que devuelven un diccionario JSON se pueden explorar por los nombre
 az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
-También puede obtener varios valores, colocándolos en una matriz ordenada. La matriz no tiene ninguna información de clave, pero el orden de los elementos de la matriz coincide con el orden de las claves consultadas. En el ejemplo siguiente se muestra cómo recuperar el nombre de oferta de la imagen de Azure y el tamaño del disco del sistema operativo:
+Si hay varios valores, se pueden colocar en una matriz ordenada. En el ejemplo siguiente se muestra cómo recuperar el nombre de oferta de la imagen de Azure y el tamaño del disco del sistema operativo:
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
@@ -43,7 +43,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer,
 ]
 ```
 
-Si desea que las claves estén presentes en la salida, puede usar una sintaxis de diccionario alternativa. La selección de múltiples elementos en un diccionario utiliza el formato `{displayKey:keyPath, ...}` para filtrar según la expresión JMESPath `keyPath`. Esto se muestra en la salida como `{displayKey: value}`. En el ejemplo siguiente se toma la consulta del último ejemplo, que resulta más clara asignando claves a la salida:
+Si desea que las claves estén presentes en la salida, puede usar una sintaxis de diccionario alternativa.  La selección de elementos en un diccionario utiliza el formato `{displayKey:keyPath, ...}` para filtrar según la expresión JMESPath `keyPath`. En los valores de salida, los pares clave-valor se cambian a `{displayKey: value}`. En el ejemplo siguiente se toma la consulta del último ejemplo, que resulta más clara asignando claves a la salida:
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
@@ -56,7 +56,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 }
 ```
 
-Al mostrar información en el formato de salida `table`, la presentación del diccionario es especialmente útil. Esto permite establecer sus propios encabezados de columna, lo que hace la salida aún más fácil de leer. Para más información sobre los formatos de salida, consulte [Formatos de salida de los comandos de la CLI de Azure 2.0](/cli/azure/format-output-azure-cli).
+Al mostrar información con el formato de salida `table`, la presentación del diccionario permite establecer sus propios encabezados de columna. Para más información sobre los formatos de salida, consulte [Formatos de salida de los comandos de la CLI de Azure 2.0](/cli/azure/format-output-azure-cli).
 
 > [!NOTE]
 > Determinadas claves se filtran y no se imprimen en la vista de tabla. Estas claves son `id`, `type` y `etag`. Si necesita mostrar esta información, puede cambiar el nombre de la clave y evitar el filtrado.
@@ -67,7 +67,9 @@ Al mostrar información en el formato de salida `table`, la presentación del di
 
 ## <a name="work-with-list-output"></a>Trabajar con la salida de lista
 
-Los comandos de la CLI que pueden devolver más de un valor siempre devuelven una matriz. Es posible acceder a los elementos de la matriz por su índice, pero nunca hay garantía de orden por parte de la CLI. La mejor manera para consultar una matriz de valores es aplanar dichos valores con el operador `[]`. El operador se escribe después de la clave de la matriz o como el primer elemento de la expresión. El aplanado ejecuta la consulta con cada elemento individual de la matriz y coloca los valores resultantes en una nueva matriz. En el ejemplo siguiente se imprime el nombre y el sistema operativo que se ejecuta en cada máquina virtual de un grupo de recursos.
+Los comandos de la CLI que pueden devolver más de un valor devuelven una matriz. A los elementos de la matriz se accede por el índice y no se pueden devolver en el mismo orden cada vez. Para consultar todos los elementos de una matriz a la vez, puede aplanarla con el operador `[]`. El operador se escribe después de la matriz o como el primer elemento de una expresión. Para aplanar una matriz, se ejecuta la consulta posterior en cada elemento de la matriz.
+
+En el ejemplo siguiente se imprime el nombre y el sistema operativo que se ejecuta en cada máquina virtual de un grupo de recursos.
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
@@ -98,7 +100,7 @@ az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageRefere
 ]
 ```
 
-También se pueden aplanar las matrices que forman parte de una ruta de acceso de clave. En este ejemplo se muestra una consulta que obtiene los identificadores de objeto de Azure de las NIC a las que está conectada una máquina virtual.
+También se pueden aplanar las matrices que forman parte de una ruta de acceso de clave. La siguiente consulta obtiene los identificadores de objeto de Azure de las NIC a las que está conectada una máquina virtual.
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
@@ -120,7 +122,7 @@ az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 
 ## <a name="experiment-with-queries-interactively"></a>Experimentación con las consultas de forma interactiva
 
-Para experimentar con expresiones JMESPath, puede querer trabajar de forma que pueda editar las consultas rápidamente y revisar la salida. El paquete de Python [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) ofrece un entorno interactivo que permite canalizar los datos como entrada y, a continuación, escribir consultas en el programa para extraer los datos.
+Para empezar a aprender JMESPath, el paquete [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) de Python ofrece un entorno interactivo para experimentar con las consultas. Los datos se canalizan como entrada y, a continuación, se escriben consultas en el programa y se puede editar para extraer los datos.
 
 ```bash
 pip install jmespath-terminal

@@ -5,17 +5,17 @@ keywords: CLI de Azure, ayuda de la CLI, ayuda de Azure, consulta, automatizaci�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 165da295d187edf7dbc19a332670fd49d8f8bdd5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967748"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388565"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Introducción a la CLI de Azure 2.0
 
@@ -33,8 +33,7 @@ Hay varias formas de iniciar sesión de una manera no interactiva, que se descri
 
 ## <a name="common-commands"></a>Comandos comunes
 
-Esta tabla enumera algunos de los comandos más comunes usados en la CLI junto con enlaces a páginas de documentación de referencia.
-Todos los subcomandos de estos grupos y su documentación se pueden buscar en la referencia en línea o con el argumento `--help`.
+En esta tabla se enumeran algunos comandos comunes utilizados en la CLI, así como vínculos a documentación de referencia.
 
 | Tipo de recurso | Grupo de comandos de la CLI de Azure |
 |---------------|-------------------------|
@@ -48,8 +47,7 @@ Todos los subcomandos de estos grupos y su documentación se pueden buscar en la
 
 ## <a name="finding-commands"></a>Búsqueda de comandos
 
-Los comandos de la CLI se proporcionan como _subcomandos_ de _grupos_.
-Cada grupo representa un servicio suministrado por Azure y los subgrupos dividen comandos para estos servicios en agrupaciones lógicas.
+Los comandos de la CLI se organizan como _grupos_ de _comandos_. Cada grupo representa un servicio de Azure y los comandos funcionan en ese servicio.
 
 Para buscar comandos, utilice [az find](/cli/azure/reference-index#az-find). Por ejemplo, para buscar nombres de comando que contienen `secret`, use el siguiente comando:
 
@@ -57,7 +55,7 @@ Para buscar comandos, utilice [az find](/cli/azure/reference-index#az-find). Por
 az find -q secret
 ```
 
-Si sabe con qué grupo de comandos desea trabajar, el argumento `--help` puede ser una opción mejor. Además de mostrar información detallada para un comando, cuando se usa con un grupo de comandos muestra todos los subcomandos disponibles. Por ejemplo, cuando se trabaja con grupos de seguridad de red (NSG) puede encontrar los comandos y subgrupos de NSG disponibles.
+Use el argumento `--help` para obtener una lista completa de los comandos y los subgrupos de un grupo. Por ejemplo, para encontrar los comandos de la CLI para trabajar con grupos de seguridad de red (NSG):
 
 ```azurecli-interactive
 az network nsg --help
@@ -73,7 +71,7 @@ Hay algunos argumentos que están disponibles para todos los comandos.
 * `--output` cambia el formato de salida. Los formatos de salida disponibles son `json`, `jsonc` (JSON coloreado), `tsv` (Valores separados por tabulaciones) y `table` (tablas ASCII de lenguaje natural). De forma predeterminada, la CLI genera `json`. Para más información sobre los formatos de salida disponibles, consulte [Formatos de salida de la CLI de Azure 2.0](format-output-azure-cli.md).
 * `--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure. Para más información sobre las consultas, visite [Consulta de los resultados de los comandos con la CLI de Azure 2.0](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
 * `--verbose` imprime información acerca de los recursos creados en Azure durante una operación y otra información de utilidad.
-* `--debug` imprime más información aún sobre las operaciones de la CLI y se utiliza con fines de depuración. Si se produce un error, proporcione los resultados generados con la marca `--debug` activada al enviar un informe de errores.
+* `--debug` imprime más información aún sobre las operaciones de la CLI y se utiliza con fines de depuración. Si encuentra un error, proporcione la salida que se genera con la marca `--debug` activada al enviar un informe de errores.
 
 ## <a name="interactive-mode"></a>Modo interactivo
 
@@ -94,7 +92,7 @@ Para ayudarle a comenzar con la CLI de Azure 2.0, pruebe con un tutorial exhaust
 > [!div class="nextstepaction"]
 > [Tutorial de creación de máquinas virtuales con la CLI de Azure 2.0](azure-cli-vm-tutorial.yml)
 
-Si prefiere centrarse en otros servicios, hay una variedad de tutoriales sobre los servicios de Azure que utilizan la CLI.
+También hay guías de inicio rápido para otros servicios populares.
 
 * [Creación de una cuenta de almacenamiento con la CLI de Azure](/azure/storage/common/storage-quickstart-create-storage-account-cli)
 * [Transferencia de objetos a y desde Azure Blob Storage mediante la CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)

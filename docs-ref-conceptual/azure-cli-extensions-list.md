@@ -4,17 +4,17 @@ description: Lista completa de las extensiones oficialmente compatibles para la 
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 11125445d09ec8f0c62b1f508093bdfef9ad9e44
-ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
+ms.openlocfilehash: 24134d9769f7e89afe82f74490c6b49c81c7883f
+ms.sourcegitcommit: 46d4040eae1923c59caaac22aedab303b3116dad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43380924"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44048755"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Extensiones disponibles para la CLI de Azure 2.0
 
@@ -31,8 +31,8 @@ az extension list-available --output table
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Administración de las extensiones de supervisión mejorada de Azure para SAP. |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | Compatibilidad con alias de comandos | SÍ |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.4.1 | Comandos adicionales para trabajar con el servicio Azure Batch |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.1 | Proporciona una capa de comandos en el plano de datos para Azure IoT Hub, IoT Edge e IoT Device Provisioning Service. |  |
-| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.3 | Compatibilidad con las características de la versión preliminar de Azure Bot Service 2017-12-01 | SÍ |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.2 | Proporciona una capa de comandos en el plano de datos para Azure IoT Hub, IoT Edge e IoT Device Provisioning Service. |  |
+| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | Correcciones de errores para los problemas en el módulo nativo de comandos de la CLI botservice. | SÍ |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. | SÍ |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Extensión de la CLI de Azure para las zonas DNS |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Compatibilidad con las características de Azure EventGrid versión 2018-05-01-preview | SÍ |

@@ -1,28 +1,28 @@
 ---
-title: Administración de varias nubes con la CLI de Azure 2.0
+title: Selección de nubes con la CLI de Azure 2.0
 description: Cree, inicie sesión y administre varias nubes con la CLI de Azure 2.0.
 author: sptramer
 manager: carmonm
 ms.author: sttramer
-ms.date: 05/16/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 836bf920adaae7bff8482c697bf105f0d457c658
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: 26b9f414ddaba3cc3f834b4749dee9807d84aa79
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38228944"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388416"
 ---
-# <a name="managing-multiple-clouds-with-azure-cli-20"></a>Administración de varias nubes con la CLI de Azure 2.0
+# <a name="select-clouds-with-azure-cli-20"></a>Selección de nubes con la CLI de Azure 2.0
 
-Si trabaja en diferentes regiones o usa [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/), puede que necesite utilizar más de una nube. Microsoft pone a su disposición nubes para el cumplimiento de las leyes locales. En este artículo se muestra cómo obtener información sobre las nubes disponibles para su cuenta, cómo cambiar la nube actual y cómo registrar o anular el registro de nuevas nubes para su uso con Azure Stack.
+Si trabaja en diferentes regiones o usa [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/), puede que necesite utilizar más de una nube. Microsoft pone a su disposición nubes para el cumplimiento de las leyes locales. En este artículo se muestra cómo obtener información sobre las nubes, cómo cambiar la nube actual y cómo registrar o anular el registro de nuevas nubes.
 
-## <a name="listing-clouds"></a>Listas de nubes
+## <a name="list-available-clouds"></a>Lista de las nubes disponibles
 
-Para enumerar las nubes disponibles, use el comando [az cloud list](/cli/azure/cloud#az-cloud-list). Le indicará qué nube está actualmente activa y cuál es su perfil actual, así como información sobre los nombres de host y los sufijos regionales.
+Para enumerar las nubes disponibles, use el comando [az cloud list](/cli/azure/cloud#az-cloud-list). Este comando muestra qué nube está actualmente activa y cuál es su perfil actual, así como información sobre los nombres de host y los sufijos regionales.
 
 Para obtener la nube activa y una lista de todas las nubes disponibles:
 
@@ -72,7 +72,7 @@ az cloud show --name AzureChinaCloud --output json
 }
 ```
 
-## <a name="switching-the-active-cloud"></a>Cambio de la nube activa
+## <a name="switch-the-active-cloud"></a>Cambio de la nube activa
 
 Para cambiar la nube actualmente activa, ejecute el comando [az cloud set](/cli/azure/cloud#az-cloud-set). Este comando toma un argumento necesario, el nombre de la nube.
 
@@ -84,22 +84,22 @@ az cloud set --name AzureChinaCloud
 > Si la autenticación de la nube activada ha expirado, debe volver a autenticarse antes de realizar otras tareas con la CLI. Si es la primera vez que cambia a la nueva nube, debe establecer la suscripción activa.
 > Para obtener instrucciones sobre la autenticación, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md). Para más información sobre la administración de suscripciones, vea [Administración de suscripciones de Azure con la CLI de Azure 2.0](manage-azure-subscriptions-azure-cli.md)
 
-## <a name="register-a-cloud"></a>Registro de una nube
+## <a name="register-a-new-cloud"></a>Registro de una nube nueva
 
-Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de funcionalidades con puntos de conexión asociados. Para más información sobre cómo registrar una nube para usarla con Azure Stack, consulte [Uso de los perfiles de la versión de la API con la CLI de Azure 2.0 en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
+Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de puntos de conexión de servicio. Para más información sobre cómo registrar una nube para usarla con Azure Stack, consulte [Uso de los perfiles de la versión de la API con la CLI de Azure 2.0 en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
 
-No es necesario registrar su propia nube para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft las administra y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud#az-cloud-register).
+No es necesario registrar su propia nube para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft administra estas nubes y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud#az-cloud-register).
 
-Al registrar una nube no se cambia automáticamente a ella. Use el comando `az cloud set` para seleccionar la nube recién creada, tal y como se describió anteriormente.
+Al registrar una nube no se cambia automáticamente a ella. Use el comando `az cloud set` para seleccionar la nube recién creada.
 
 ## <a name="update-an-existing-cloud"></a>Actualización de una nube existente
 
-Si tiene permisos, también puede actualizar una nube existente. Hágalo cuando necesita cambiar a un perfil de Azure diferente o para agregar o cambiar un punto de conexión.
-Para ello, se usa el comando [az cloud update](/cli/azure/cloud#az-cloud-update), que tiene los mismos argumentos que `az cloud register`.
+Si tiene permisos, también puede actualizar una nube existente. Al actualizar una nube se cambia a un perfil de servicios de Azure diferente o modifica los puntos de conexión.
+Actualice una nube con el comando [az cloud update](/cli/azure/cloud#az-cloud-update), que toma los mismos argumentos que `az cloud register`.
 
 ## <a name="unregister-a-cloud"></a>Anulación del registro de una nube
 
-Si ya no necesita una nube registrada, puede anular el registro con el comando [az cloud unregister](/cli/azure/cloud#az-cloud-unregister):
+Si ya no necesita la nube creada, puede anular el registro con el comando [cloud unregister](/cli/azure/cloud#az-cloud-unregister):
 
 ```azurecli-interactive
 az cloud unregister --name MyCloud

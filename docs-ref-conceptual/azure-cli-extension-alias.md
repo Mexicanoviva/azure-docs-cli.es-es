@@ -4,21 +4,21 @@ description: Cómo usar la extensión alias de la CLI de Azure 2.0
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 39996693d6b796c2d9a45cd909121829f00291a8
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306274"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388633"
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Extensión alias de la CLI de Azure 2.0
 
-La extensión alias permite a los usuarios definir comandos personalizados para la CLI de Azure mediante comandos existentes. Los alias son métodos abreviados que ayudan a mantener los flujos de trabajo concisos y sencillos, y permiten usar argumentos posicionales. Como los alias se basan en el motor de plantillas Jinja2, ofrecen incluso un procesamiento avanzado de los argumentos.
+La extensión alias permite a los usuarios definir comandos personalizados para la CLI de Azure mediante comandos existentes. Los alias ayudan a simplificar el flujo de trabajo gracias a los accesos directos. Como los alias se basan en el motor de plantillas Jinja2, ofrecen incluso un procesamiento avanzado de los argumentos.
 
 > [!NOTE]
 > La extensión alias está en versión preliminar pública. Las características y el formato del archivo de configuración pueden cambiar.
@@ -47,7 +47,7 @@ alias
 
 ## <a name="keep-the-extension-up-to-date"></a>Mantener actualizada la extensión
 
-La extensión alias se encuentra en desarrollo activo y se publican nuevas versiones con regularidad. Las nuevas versiones no se instalan automáticamente cada vez que actualice la CLI. Instale las actualizaciones de la extensión con [az extension update](/cli/azure/extension#az-extension-update).
+La extensión alias se encuentra en desarrollo activo y se publican nuevas versiones con regularidad. No se instalan nuevas versiones al actualizar la CLI. Instale las actualizaciones de la extensión con [az extension update](/cli/azure/extension#az-extension-update).
 
 ```azurecli-interactive
 az extension update --name alias
@@ -55,7 +55,7 @@ az extension update --name alias
 
 ## <a name="manage-aliases-for-the-azure-cli"></a>Administración de alias de la CLI de Azure
 
-La extensión de alias proporciona comandos cómodos y familiares para administrar los alias. Para ver todos los comandos disponibles y los detalles de los parámetros, invoque el comando de alias con `--help`.
+La extensión de alias permite crear y administrar alias para otros comandos de la CLI. Para ver todos los comandos disponibles y los detalles de los parámetros, ejecute el comando de alias con `--help`.
 
 ```azurecli-interactive
 az alias --help
@@ -115,7 +115,7 @@ Al ejecutar este comando, asigne valores a los argumentos posicionales.
 az get-vm-ip MyResourceGroup MyVM
 ```
 
-También puede usar variables de entorno en comandos invocados por alias, que se evalúan en tiempo de ejecución. En el ejemplo siguiente, se agrega el alias `create-rg`, que crea un grupo de recursos en `eastus` y agrega una etiqueta `owner`. A esta etiqueta se le asigna el valor de la variable de entorno local `USER`.
+También puede usar variables de entorno en los comandos de alias, que se evalúan en tiempo de ejecución. En el ejemplo siguiente, se agrega el alias `create-rg`, que crea un grupo de recursos en `eastus` y agrega una etiqueta `owner`. A esta etiqueta se le asigna el valor de la variable de entorno local `USER`.
 
 ```azurecli-interactive
 az alias create \
@@ -127,9 +127,9 @@ Para registrar las variables de entorno en el comando del alias, se debe agregar
 
 ## <a name="process-arguments-using-jinja2-templates"></a>Procesar argumentos mediante plantillas de Jinja2
 
-La sustitución de argumentos en la extensión alias se realiza mediante [Jinja2](http://jinja.pocoo.org/docs/2.10/), lo que le proporciona acceso completo a las funcionalidades del motor de plantillas Jinja2. Las plantillas permiten realizar acciones como la extracción de datos y la sustitución en cadenas.
+La sustitución de argumentos en la extensión de alias la realiza [Jinja2](http://jinja.pocoo.org/docs/2.10/). Las plantillas de Jinja2 permiten manipular los argumentos.
 
-Con las plantillas de Jinja2, puede escribir alias que tomen tipos de argumentos diferentes del comando subyacente. Por ejemplo, puede crear un alias que tome una dirección URL de almacenamiento. Después, se analiza esta dirección URL para pasar el nombre de la cuenta y el contenedor al comando de almacenamiento.
+Con las plantillas de Jinja2, puede escribir alias que tomen tipos de argumentos diferentes que los del comando subyacente. Por ejemplo, puede crear un alias que tome una dirección URL de almacenamiento. Después, se analiza esta dirección URL para pasar el nombre de la cuenta y el contenedor al comando de almacenamiento.
 
 ```azurecli-interactive
 az alias create \
@@ -150,7 +150,7 @@ Otra manera de crear y modificar alias es modificar el archivo de configuración
 command = invoked_commands
 ```
 
-Para los alias que contienen argumentos de posición, el formato de los comandos de alias es:
+Para los alias que tienen argumentos de posición, el formato de los comandos de alias es:
 
 ```ini
 [alias_name {{ arg1 }} {{ arg2 }} ...]
@@ -159,7 +159,7 @@ command = invoked_commands_including_args
 
 ## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>Creación de un comando de alias con argumentos mediante el archivo de configuración de alias
 
-A continuación se muestra un archivo de configuración de alias que contiene un comando de alias de ejemplo con argumentos, que obtiene la dirección IP pública de una máquina virtual. Asegúrese de que el comando invocado está en una sola línea y que contiene los mismos argumentos que se definen en el alias.
+El ejemplo siguiente muestra un alias para un comando con argumentos. Este comando obtiene la dirección IP pública de una máquina virtual. Los comandos de alias deben estar todos en una sola línea y usar todos los argumentos en el nombre de alias.
 
 ```ini
 [get-vm-ip {{ resourceGroup }} {{ vmName }}]
@@ -174,4 +174,4 @@ Para desinstalar la extensión, use el comando [az extension remove](/cli/azure/
 az extension remove --name alias
 ```
 
-Si desinstala debido a un error u otro problema con la extensión, [abra un problema en GitHub](https://github.com/Azure/azure-cli-extensions/issues) para que podamos proporcionar una corrección.
+Si desinstala debido a un error u otros problemas con la extensión, [abra un problema en GitHub](https://github.com/Azure/azure-cli-extensions/issues) para que podamos proporcionar una corrección.

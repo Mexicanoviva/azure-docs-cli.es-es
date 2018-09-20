@@ -1,37 +1,43 @@
 ---
-title: CLI de Azure 2.0
+title: Introducción a la CLI de Azure 2.0
 description: Introducción a la CLI de Azure 2.0.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ffa435f8c6ee5aa82d2efe2e09d7bcb1f1dc434b
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 55c5ea3ad69df60d211cc076e3570e9f07040af7
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967697"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388395"
 ---
 # <a name="azure-cli-20"></a>CLI de Azure 2.0
 
 La CLI de Azure 2.0 es la experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure.
 Puede usarla en el explorador con [Azure Cloud Shell](/azure/cloud-shell/overview) o puede [instalarla](install-azure-cli.md) en macOS, Linux y Windows y ejecutarla desde la línea de comandos.
 
-La CLI de Azure 2.0 está optimizada para administrar recursos de Azure desde la línea de comandos y para generar scripts de automatización que funcionan con Azure Resource Manager. Mediante la CLI de Azure 2.0, puede crear máquinas virtuales en Azure simplemente con escribir el siguiente comando:
+Es muy fácil empezar a trabajar con la CLI de Azure 2.0, y está indicada para crear scripts de automatización que funcionan con Azure Resource Manager. Mediante la CLI de Azure 2.0, puede crear máquinas virtuales en Azure simplemente con escribir el siguiente comando:
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 
-Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](install-azure-cli.md) en Windows, Linux o macOS.
-Lea el artículo de [introducción](get-started-with-azure-cli.md) para empezar a usar la CLI.
-Para más información sobre la versión más reciente, consulte las [notas de la versión](release-notes-azure-cli.md).
+## <a name="run-or-install"></a>Ejecutar o instalar
 
-Los ejemplos siguientes le ayudarán a empezar a tareas comunes en la CLI de Azure 2.0:
+Puede instalar la CLI localmente, ejecutarla en el explorador con Azure Cloud Shell o ejecutarla en un contenedor de Docker.
+
+* Para ejecutarla en el explorador con Azure Cloud Shell, consulte [Inicio rápido de Bash en Azure Cloud Shell](/azure/cloud-shell/quickstart) o [Inicio rápido de PowerShell en Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell).
+* Para instalar la CLI, consulte [Instalación de la CLI de Azure 2.0](install-azure-cli.md).
+* Para ejecutarla como un contenedor de Docker, consulte [Ejecución de la CLI de Azure 2.0 en un contenedor de Docker](run-azure-cli-docker.md).
+
+## <a name="get-started"></a>Introducción
+
+Lea el artículo de [introducción](get-started-with-azure-cli.md) para conocer los conceptos básicos de la CLI. Los ejemplos siguientes muestran algunos casos de uso comunes:
 
 - [Máquinas virtuales Linux](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 - [Máquinas virtuales Windows](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
@@ -39,8 +45,6 @@ Los ejemplos siguientes le ayudarán a empezar a tareas comunes en la CLI de Azu
 - [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 
 Hay una detallada [referencia](/cli/azure/reference-index) también disponible que muestra cómo utilizar cada comando de la CLI de Azure 2.0 de forma individual.
-
-[Empiece](get-started-with-azure-cli.md) ya a trabajar con la CLI de Azure 2.0.
 
 > [!NOTE]
 > Si utiliza la versión anterior de la CLI (CLI de Azure 1.0), aún podrá seguir usándola.

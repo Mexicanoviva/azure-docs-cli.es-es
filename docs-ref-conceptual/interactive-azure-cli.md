@@ -4,22 +4,22 @@ description: Use la CLI de Azure 2.0 en modo interactivo.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/06/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1ee7da8dfdde402d4d536f7ab4bb0599a8f3fa1d
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38229199"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388582"
 ---
 # <a name="interactive-azure-cli-20"></a>CLI de Azure 2.0 interactiva
 
 Puede usar la CLI de Azure 2.0 en modo interactivo mediante la ejecución del comando `az interactive`.
-De esta forma, se le remite a un shell interactivo donde los comandos se completan automáticamente y donde puede acceder a las descripciones de los comandos y a sus parámetros, así como a ejemplos de comandos.
+Este modo abre un shell interactivo con función autocompletar, descripciones de los comandos y ejemplos.
 
 ![modo interactivo](./media/interactive-azure-cli/webapp-create.png)
 
@@ -31,7 +31,7 @@ Si aún no ha iniciado sesión en la cuenta, use el comando `login`.
 ## <a name="configure"></a>Configuración
 
 El modo interactivo muestra de manera opcional descripciones de comandos, descripciones de parámetros y ejemplos de comandos.
-Puede activar o desactivar las descripciones y los ejemplos mediante `F1`.
+Active o desactive las descripciones y los ejemplos con `F1`.
 
 ![descripciones y ejemplos](./media/interactive-azure-cli/descriptions-and-examples.png)
 

@@ -4,21 +4,21 @@ description: Obtenga información acerca de cómo dar formato a la salida de los
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b402ce89cbf51adb3d521a604e992dd1fb5a42fa
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 07a5e9d913257d6aeb20a68263a6256ffadbe627
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967612"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388514"
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Formatos de salida de los comandos de la CLI de Azure 2.0
 
-La CLI de Azure 2.0 usa json como su opción de salida predeterminada, pero ofrece varias formas de dar formato a la salida de cualquier comando.  Use el parámetro `--output` (o `--out` o `-o`) para dar formato a la salida del comando con uno de los tipos de salida que se indican en la tabla siguiente:
+La CLI de Azure 2.0 usa JSON como formato de salida predeterminado, pero ofrece otros formatos.  Use el parámetro `--output` (`--out` o `-o`) para dar formato a la salida de la CLI. Los valores de argumento y los tipos de salida son:
 
 --output | DESCRIPCIÓN
 ---------|-------------------------------
@@ -67,7 +67,7 @@ La salida siguiente tiene algunos campos que se omiten para mayor brevedad y se 
 
 ## <a name="table-output-format"></a>Formato de salida de tabla
 
-El formato de salida `table` proporciona una salida con formato de filas y columnas de datos intercalados, lo que facilita la lectura y la búsqueda. Los objetos anidados no se incluyen en la salida de tabla, pero se pueden filtrar como parte de una consulta. Algunos campos también se omiten en la tabla de datos, por lo que este formato es adecuado cuando se desea una revisión rápida de los datos con posibilidad de que el usuario realice búsquedas.
+El formato `table` imprime la salida como una tabla ASCII, lo que facilita la lectura y la búsqueda. Los objetos anidados no se incluyen en la tabla de salida, pero se pueden filtrar como parte de una consulta. Algunos campos no se incluyen en la tabla, por lo que este formato es adecuado cuando se desea una revisión rápida de los datos con posibilidad de que el usuario realice búsquedas.
 
 ```azurecli-interactive
 az vm list --out table
@@ -100,7 +100,7 @@ RGDEMO001   KBDemo020
 ```
 
 > [!NOTE]
-> Determinadas claves se filtran y no se imprimen en la vista de tabla. Se trata de `id`, `type` y `etag`. Si necesita ver estos datos en la salida, puede usar la característica de reentrada de claves de JMESPath para cambiar el nombre de la clave y evitar el filtrado.
+> Algunas claves no se imprimen en la vista de tabla de forma predeterminada. Se trata de `id`, `type` y `etag`. Si necesita ver estos datos en la salida, puede usar la característica de reentrada de claves de JMESPath para cambiar el nombre de la clave y evitar el filtrado.
 >
 > ```azurecli
 > az vm list --query "[].{objectID:id}" -o table
@@ -110,7 +110,7 @@ Para más información sobre el uso de consultas para filtrar los datos, consult
 
 ## <a name="tsv-output-format"></a>Formato de salida TSV
 
-El formato de salida `tsv` devuelve valores separados por tabulaciones y nueva línea sin formato adicional, claves ni otros símbolos. Este formato facilita el consumo de la salida en otros comandos y herramientas que necesitan procesar el texto de alguna forma. Al igual que el formato `table`, la opción de salida `tsv` no imprime objetos anidados.
+El formato de salida `tsv` devuelve valores separados por tabulaciones y nueva línea sin formato adicional, claves ni otros símbolos. Este formato facilita el consumo de la salida en otros comandos y herramientas que necesitan procesar el texto de alguna forma. Al igual que el formato `table`, `tsv` no imprime objetos anidados.
 
 Mediante el ejemplo anterior con la opción `tsv` se genera un resultado separado por tabulaciones.
 
@@ -126,7 +126,7 @@ None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Micros
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-En el siguiente ejemplo se muestra cómo se puede canalizar la salida `tsv` a otros comandos en sistemas UNIX para extraer datos más específicos. El comando `grep` selecciona los elementos que tienen el texto "RGD" y el comando `cut` selecciona el octavo campo (separado por tabulaciones) para mostrar el nombre de la máquina virtual en la salida.
+El ejemplo siguiente muestra cómo se puede canalizar la salida `tsv` a otros comandos en Bash. `grep` selecciona los elementos que tienen el texto "RGD" y el comando `cut` selecciona el octavo campo para mostrar el nombre de la máquina virtual en la salida.
 
 ```bash
 az vm list --out tsv | grep RGD | cut -f8

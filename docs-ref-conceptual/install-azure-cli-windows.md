@@ -4,22 +4,22 @@ description: Instalación de la CLI de Azure 2.0 en Windows
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 01/29/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: e614f0d108cef0702525e033d166e0498a94729f
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: 30bdb327601c7d898b5e64a3a472a104dc5db3b4
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38228982"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388463"
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Instalación de la CLI de Azure 2.0 en Windows
 
-En Windows, el archivo binario de la CLI de Azure se instala mediante un archivo MSI que proporciona acceso a la CLI a través del símbolo del sistema de Windows (CMD) o PowerShell.
-Si está ejecutando el subsistema de Windows para Linux (WSL), hay paquetes disponibles para la distribución de Linux. Consulte la [página principal de instalación](install-azure-cli.md) para obtener la lista de administradores de paquetes admitidos o información para instalar manualmente en WSL.
+En Windows, la CLI de Azure se instala mediante un archivo MSI que proporciona acceso a la CLI a través del símbolo del sistema de Windows (CMD) o PowerShell.
+Si se va a instalar el subsistema de Windows para Linux (WSL), hay paquetes disponibles para su distribución de Linux. Consulte la [página principal de instalación](install-azure-cli.md) para obtener la lista de administradores de paquetes admitidos o información para instalar manualmente en WSL.
 
 ## <a name="install-or-update"></a>Instalación o actualización
 

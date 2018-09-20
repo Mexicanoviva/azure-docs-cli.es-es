@@ -4,17 +4,17 @@ description: Instalación de la CLI de Azure 2.0 con el administrador de paquete
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/24/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 88b4570f62858ec1e12898aea51a5dbce6d677b5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967850"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388429"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
@@ -57,7 +57,7 @@ Para más información acerca de los diferentes métodos de autenticación, cons
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Estos son algunos problemas comunes que se han observado cuando se instala con `apt`. Si su problema no está enumerado aquí, [notifique un problema en Github](https://github.com/Azure/azure-cli/issues).
+Estos son algunos problemas comunes que se han observado cuando se instala con `apt`. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
 
 ### <a name="lsbrelease-fails-with-command-not-found"></a>Se produce un error en lsb_release con el mensaje "No se encontró el comando"
 
@@ -67,7 +67,7 @@ Cuando se ejecuta el comando `lsb_release`, verá una salida similar al siguient
 -bash: lsb_release: command not found
 ```
 
-El error se debe a que lsb_release no está instalado. Puede resolver este problema mediante la instalación del paquete `lsb-release`.
+El error se debe a que el comando `lsb_release` no está instalado. Puede resolver este problema mediante la instalación del paquete `lsb-release`.
 
 ```bash
 sudo apt-get install lsb-release
@@ -101,7 +101,7 @@ Si está detrás de un firewall que bloquea las conexiones salientes al puerto 1
 sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 ```
 
-Si no sabe si tiene un servidor proxy, póngase en contacto con el administrador del sistema. Si el proxy no requiere un inicio de sesión, omita el usuario, la contraseña y el token `@`.
+Para determinar si tiene un servidor proxy, póngase en contacto con el administrador del sistema. Si el proxy no requiere un inicio de sesión, omita el usuario, la contraseña y el token `@`.
 
 ## <a name="update"></a>Actualizar
 
@@ -131,7 +131,7 @@ Para actualizar el paquete de la CLI, use `apt-get upgrade`.
     sudo apt-get remove -y azure-cli
     ```
 
-2. Si no piensa volver a instalar la CLI, elimine la información del repositorio de la CLI de Azure.
+2. Si no tiene previsto volver a instalar la CLI, elimine la información del repositorio de la CLI de Azure.
 
    ```bash
    sudo rm /etc/apt/sources.list.d/azure-cli.list
