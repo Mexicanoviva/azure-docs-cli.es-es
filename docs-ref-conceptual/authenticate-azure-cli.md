@@ -10,18 +10,18 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: ef77f407284752ad4f4a1585f8a4036b32b3eb1b
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: f6f3e8bc015420795dda48da093bc92bbf246529
+ms.sourcegitcommit: 8e6e3129f8f4824a8acfa12edb5dae52466d4be8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388327"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45626931"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
 
 Hay varios tipos de autenticación para la CLI de Azure. La manera más fácil de empezar a trabajar es [Azure Cloud Shell](/azure/cloud-shell/overview), que inicia sesión automáticamente. De forma local, puede iniciar sesión interactivamente en el explorador con el comando `az login`. Al escribir scripts, el enfoque recomendado es usar entidades de servicio. Para proteger la automatización, conceda los permisos adecuados necesarios a una entidad de servicio.
 
-La CLI no almacena ninguna de la información de inicio de sesión. En su lugar, Azure genera un token de autenticación que se almacena. Después de iniciar sesión, el token de autenticación es válido hasta que transcurran 90 días sin usarse.
+La CLI no almacena ninguna de la información de inicio de sesión. En su lugar, Azure genera y almacena un [token de autenticación](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens). A partir de agosto de 2018, este token se revoca después de 90 días de inactividad, pero este valor lo puede cambiar Microsoft o el administrador de inquilinos. Una vez revocado el token, recibirá un mensaje desde la CLI indicando que debe volver a iniciar sesión.
 
 Después de iniciar sesión, los comandos de la CLI se ejecutan en su suscripción predeterminada. Si tiene varias suscripciones, puede [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
 

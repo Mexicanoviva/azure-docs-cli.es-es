@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 88b4570f62858ec1e12898aea51a5dbce6d677b5
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 13cc995e099cee47534a46097b2e1afd8e96e8b4
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388429"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469987"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>Instalación de la CLI de Azure 2.0 con apt
 
@@ -42,8 +42,8 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
 3. Instale la CLI de Azure:
 
    ```bash
-   sudo apt-get install apt-transport-https
-   sudo apt-get update && sudo apt-get install azure-cli
+   sudo apt-get update
+   sudo apt-get install apt-transport-https azure-cli
    ```
 
    > [!WARNING]
@@ -142,3 +142,10 @@ Para actualizar el paquete de la CLI, use `apt-get upgrade`.
    ```bash
    sudo apt autoremove
    ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que ha instalado la CLI de Azure, dé un breve paseo por sus características y comandos más comunes.
+
+> [!div class="nextstepaction"]
+> [Introducción a la CLI de Azure](get-started-with-azure-cli.md)
