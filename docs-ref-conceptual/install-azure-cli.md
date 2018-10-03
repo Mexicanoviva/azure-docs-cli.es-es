@@ -1,6 +1,6 @@
 ---
-title: Instalación de la CLI de Azure 2.0
-description: Referencia de la instalación de la CLI de Azure 2.0
+title: Instalación de la CLI de Azure
+description: Referencia de la instalación de la CLI de Azure
 keywords: CLI de Azure, instalación de la CLI de Azure
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 67367926aa7d01635417b1f6e11c8898a402db55
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: dafde67d4d5685367ffbf0202c258b2d1f70b8ec
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46470004"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177630"
 ---
-# <a name="install-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
+# <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
 
-La CLI de Azure 2.0 es una herramienta de la línea de comandos que proporciona una nueva experiencia para administrar los recursos de Azure. La CLI está diseñada para facilitar el uso de scripts, con datos de consulta, compatibilidad con operaciones de larga y mucho más. Pruébela hoy y descubra todo lo que ofrece la CLI.
+La CLI de Azure es una herramienta de la línea de comandos que proporciona una nueva experiencia para administrar los recursos de Azure. La CLI está diseñada para facilitar el uso de scripts, con datos de consulta, compatibilidad con operaciones de larga y mucho más. Pruébela hoy y descubra todo lo que ofrece la CLI.
 
 La versión actual de la CLI es __2.0.46__. Para más información sobre la versión más reciente, consulte las [notas de la versión](release-notes-azure-cli.md).
 
@@ -33,4 +33,4 @@ La versión actual de la CLI es __2.0.46__. Para más información sobre la vers
 * [Ejecución en un contenedor de Docker](run-azure-cli-docker.md)
 
 > [!NOTE]
-> Si está utilizando el modelo de implementación clásico de Azure, [instale la CLI de Azure 1.0](install-cli-version-1.0.md).
+> Si usa el modelo de implementación clásico de Azure, [instale la CLI clásica de Azure](install-classic-cli.md).

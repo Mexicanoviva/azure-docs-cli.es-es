@@ -1,6 +1,6 @@
 ---
-title: Uso de entidades de servicio de Azure con la CLI de Azure 2.0
-description: Aprenda a crear y utilizar una entidad de servicio con la CLI de Azure 2.0.
+title: Uso de entidades de servicio de Azure con la CLI de Azure
+description: Aprenda a crear y utilizar una entidad de servicio con la CLI de Azure.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,15 +8,14 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.service: role-based-access-control
-ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 5ba7d8b0bf313a8d8ea1b20fb861c2ac0086b2be
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388446"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237619"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Creación de una entidad de servicio de Azure con la CLI de Azure 2.0
+# <a name="create-an-azure-service-principal-with-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
 
 Si desea crear un inicio de sesión independiente con restricciones de acceso, puede hacerlo mediante una entidad de servicio. Las entidades de servicio son identidades independientes que se pueden asociar con una cuenta. Las entidades de servicio son útiles para trabajar con aplicaciones y tareas que se deben automatizar. Este artículo le guía por los pasos de creación de una entidad de servicio.
 
@@ -75,7 +74,7 @@ Los valores `appId`, `tenant` y `password` se utilizan para la autenticación. E
 
 ## <a name="manage-service-principal-roles"></a>Administración de roles de la entidad de servicio
 
-La CLI de Azure 2.0 proporciona los siguientes comandos para administrar las asignaciones de roles.
+La CLI de Azure proporciona los siguientes comandos para administrar las asignaciones de roles.
 
 * [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)

@@ -1,6 +1,6 @@
 ---
-title: Resultados del comando de consulta con la CLI de Azure 2.0
-description: Obtenga información acerca de cómo realizar consultas JMESPath con la salida de los comandos de la CLI de Azure 2.0.
+title: Resultados del comando de consulta con la CLI de Azure
+description: Obtenga información acerca de cómo realizar consultas JMESPath con la salida de los comandos de la CLI de Azure.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 55880b87e1bffc37bbdeaeb84206deb5b9b7b227
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 4522242952e5d257449c9c593885c62de2f56d0f
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388384"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178038"
 ---
-# <a name="use-jmespath-queries-with-azure-cli-20"></a>Uso de consultas JMESPath con la CLI de Azure 2.0
+# <a name="use-jmespath-queries-with-azure-cli"></a>Uso de consultas JMESPath con la CLI de Azure 
 
-La CLI de Azure 2.0 utiliza el argumento `--query` para ejecutar una [consulta JMESPath](http://jmespath.org) en los resultados de los comandos. JMESPath es un lenguaje de consulta para JSON que ofrece la posibilidad de seleccionar y presentar datos de la salida de la CLI. Estas consultas se ejecutan en la salida JSON antes de realizar cualquier otro formato de presentación.
+La CLI de Azure utiliza el argumento `--query` para ejecutar una [consulta JMESPath](http://jmespath.org) en los resultados de los comandos. JMESPath es un lenguaje de consulta para JSON que ofrece la posibilidad de seleccionar y presentar datos de la salida de la CLI. Estas consultas se ejecutan en la salida JSON antes de realizar cualquier otro formato de presentación.
 
 El argumento `--query` es compatible con todos los comandos de la CLI de Azure. Los ejemplos de este artículo cubren los casos de uso más comunes y muestran cómo usar las características de JMESPath.
 
@@ -56,7 +56,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 }
 ```
 
-Al mostrar información con el formato de salida `table`, la presentación del diccionario permite establecer sus propios encabezados de columna. Para más información sobre los formatos de salida, consulte [Formatos de salida de los comandos de la CLI de Azure 2.0](/cli/azure/format-output-azure-cli).
+Al mostrar información con el formato de salida `table`, la presentación del diccionario permite establecer sus propios encabezados de columna. Para más información sobre los formatos de salida, consulte [Formatos de salida de los comandos de la CLI de Azure](/cli/azure/format-output-azure-cli).
 
 > [!NOTE]
 > Determinadas claves se filtran y no se imprimen en la vista de tabla. Estas claves son `id`, `type` y `etag`. Si necesita mostrar esta información, puede cambiar el nombre de la clave y evitar el filtrado.

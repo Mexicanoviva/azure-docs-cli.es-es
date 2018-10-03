@@ -1,6 +1,6 @@
 ---
-title: Modo interactivo de la CLI de Azure 2.0
-description: Use la CLI de Azure 2.0 en modo interactivo.
+title: Modo interactivo de la CLI de Azure
+description: Use la CLI de Azure en modo interactivo.
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 2a07b77873f4b0439e494a96243b0298f7d77b8d
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388582"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177698"
 ---
-# <a name="interactive-azure-cli-20"></a>CLI de Azure 2.0 interactiva
+# <a name="azure-cli-interactive-mode"></a>Modo interactivo de la CLI de Azure
 
-Puede usar la CLI de Azure 2.0 en modo interactivo mediante la ejecución del comando `az interactive`.
+Puede usar la CLI de Azure en modo interactivo mediante la ejecución del comando `az interactive`.
 Este modo abre un shell interactivo con función autocompletar, descripciones de los comandos y ejemplos.
 
 ![modo interactivo](./media/interactive-azure-cli/webapp-create.png)
@@ -96,7 +96,7 @@ az>> ? [*].provisioningState
 ]
 ```
 
-Para más información sobre cómo consultar los resultados de los comandos, vea [Consulta de resultados de comandos con Azure 2.0](query-azure-cli.md).
+Para más información sobre cómo consultar los resultados de los comandos, examine [Consulta de resultados de los comandos con la CLI de Azure](query-azure-cli.md).
 
 ## <a name="bash-commands"></a>Comandos de Bash
 

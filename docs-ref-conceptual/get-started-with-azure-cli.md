@@ -1,6 +1,6 @@
 ---
-title: Introducción a la CLI de Azure 2.0
-description: Introducción al uso de la CLI de Azure 2.0 y los conceptos básicos de los comandos.
+title: Introducción a la CLI de Azure
+description: Introducción al uso de la CLI de Azure y los conceptos básicos de los comandos.
 keywords: CLI de Azure, ayuda de la CLI, ayuda de Azure, consulta, automatización,
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 00cfca8d55f0b404cae32ba9b4ce464dfa8afa08
-ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
+ms.openlocfilehash: d23548a9cdfe307c2597d992dc014125f80704d0
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45561582"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178004"
 ---
-# <a name="get-started-with-azure-cli-20"></a>Introducción a la CLI de Azure 2.0
+# <a name="get-started-with-azure-cli"></a>Introducción a la CLI de Azure
 
-Bienvenido a la CLI de Azure 2.0. La CLI es una herramienta diseñada para ayudarle a trabajar de forma rápida y eficaz con los servicios de Azure, con énfasis en la automatización. En este artículo se detallan las características de la CLI y vínculos a recursos que le ayudarán a ser productivo.
+Bienvenido a la CLI de Azure. La CLI es una herramienta diseñada para ayudarle a trabajar de forma rápida y eficaz con los servicios de Azure, con énfasis en la automatización. En este artículo se detallan las características de la CLI y vínculos a recursos que le ayudarán a ser productivo.
 
 ## <a name="install-or-run-in-azure-cloud-shell"></a>Instalación o ejecución en Azure Cloud Shell
 
@@ -33,7 +33,7 @@ Antes de usar los comandos de la CLI en una instalación local, deberá iniciar 
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
+Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
 ## <a name="common-commands"></a>Comandos comunes
 
@@ -72,8 +72,8 @@ La CLI dispone de la función de autocompletar con el tabulador para los comando
 Hay algunos argumentos que están disponibles para todos los comandos.
 
 * `--help` imprime información de referencia de la CLI sobre los comandos y sus argumentos y enumera los comandos y subgrupos disponibles.
-* `--output` cambia el formato de salida. Los formatos de salida disponibles son `json`, `jsonc` (JSON coloreado), `tsv` (Valores separados por tabulaciones) y `table` (tablas ASCII de lenguaje natural). De forma predeterminada, la CLI genera `json`. Para más información sobre los formatos de salida disponibles, consulte [Formatos de salida de la CLI de Azure 2.0](format-output-azure-cli.md).
-* `--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure. Para más información sobre las consultas, visite [Consulta de los resultados de los comandos con la CLI de Azure 2.0](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
+* `--output` cambia el formato de salida. Los formatos de salida disponibles son `json`, `jsonc` (JSON coloreado), `tsv` (Valores separados por tabulaciones) y `table` (tablas ASCII de lenguaje natural). De forma predeterminada, la CLI genera `json`. Para más información sobre los formatos de salida disponibles, consulte [Formatos de salida de la CLI de Azure](format-output-azure-cli.md).
+* `--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure. Para más información sobre las consultas, consulte [Consulta de los resultados de los comandos con la CLI de Azure](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
 * `--verbose` imprime información acerca de los recursos creados en Azure durante una operación y otra información de utilidad.
 * `--debug` imprime más información aún sobre las operaciones de la CLI y se utiliza con fines de depuración. Si encuentra un error, proporcione la salida que se genera con la marca `--debug` activada al enviar un informe de errores.
 
@@ -85,16 +85,16 @@ La CLI ofrece un modo interactivo que muestra automáticamente información de a
 az interactive
 ```
 
-Para más información sobre el modo interactivo, consulte [Modo interactivo de la CLI de Azure 2.0](interactive-azure-cli.md).
+Para más información sobre el modo interactivo, consulte [Modo interactivo de la CLI de Azure](interactive-azure-cli.md).
 
 También hay un [complemento de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) que ofrece una experiencia interactiva, incluida la función de autocompletar y documentación al pasar el ratón.
 
 ## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>Conozca los aspectos básicos de la CLI con las guías de inicio rápido y los tutoriales
 
-Para ayudarle a comenzar con la CLI de Azure 2.0, pruebe con un tutorial exhaustivo sobre la configuración de máquinas virtuales y el uso de la potencia de la CLI para consultar los recursos de Azure.
+Para ayudarle a comenzar con la CLI de Azure, pruebe con un tutorial exhaustivo sobre la configuración de máquinas virtuales y el uso de la potencia de la CLI para consultar los recursos de Azure.
 
 > [!div class="nextstepaction"]
-> [Tutorial de creación de máquinas virtuales con la CLI de Azure 2.0](azure-cli-vm-tutorial.yml)
+> [Tutorial de creación de máquinas virtuales con la CLI de Azure](azure-cli-vm-tutorial.yml)
 
 También hay guías de inicio rápido para otros servicios populares.
 

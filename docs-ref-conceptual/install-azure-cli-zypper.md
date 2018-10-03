@@ -1,6 +1,6 @@
 ---
-title: Instalación de la CLI de Azure 2.0 en Linux con zypper
-description: Instalación de la CLI de Azure 2.0 con zypper
+title: Instalación de la CLI de Azure en Linux con zypper
+description: Cómo instalar la CLI de Azure con zypper
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: d5197e1d62b89bc293970a85bcf976a38898862e
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: 201cce81046d5039a313b918ac48b2849352995c
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469919"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177681"
 ---
-# <a name="install-azure-cli-20-with-zypper"></a>Instalación de la CLI de Azure 2.0 con zypper
+# <a name="install-azure-cli-with-zypper"></a>Instalación de la CLI de Azure con zypper
 
 Para las distribuciones de Linux con `zypper`, como openSUSE o SLES, hay un paquete disponible para la CLI de Azure. Este paquete se ha probado con openSUSE 42.2 y SLES 12 SP 2.
 
@@ -52,7 +52,7 @@ Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md).
+Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
 ## <a name="update"></a>Actualizar
 
@@ -85,7 +85,6 @@ sudo zypper update azure-cli
   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
   sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha instalado la CLI de Azure, dé un breve paseo por sus características y comandos más comunes.

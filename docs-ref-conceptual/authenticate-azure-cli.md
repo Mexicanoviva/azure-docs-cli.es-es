@@ -1,6 +1,6 @@
 ---
-title: Inicio de sesión con la CLI de Azure 2.0
-description: Inicio de sesión con la CLI de Azure 2.0 de forma interactiva o con credenciales locales
+title: Inicio de sesión con la CLI de Azure
+description: Inicio de sesión con la CLI de Azure de forma interactiva o con credenciales locales
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,16 +8,15 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: f6f3e8bc015420795dda48da093bc92bbf246529
-ms.sourcegitcommit: 8e6e3129f8f4824a8acfa12edb5dae52466d4be8
+ms.openlocfilehash: 6176fbbbe58e72ae45fc9769514478ffe4a8fea5
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45626931"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237636"
 ---
-# <a name="sign-in-with-azure-cli-20"></a>Inicio de sesión con la CLI de Azure 2.0
+# <a name="sign-in-with-azure-cli"></a>Inicio de sesión con la CLI de Azure 
 
 Hay varios tipos de autenticación para la CLI de Azure. La manera más fácil de empezar a trabajar es [Azure Cloud Shell](/azure/cloud-shell/overview), que inicia sesión automáticamente. De forma local, puede iniciar sesión interactivamente en el explorador con el comando `az login`. Al escribir scripts, el enfoque recomendado es usar entidades de servicio. Para proteger la automatización, conceda los permisos adecuados necesarios a una entidad de servicio.
 
@@ -58,14 +57,6 @@ az login -u <username> -p <password>
 > $AzPass = ""
 > ```
 
-## <a name="sign-in-with-a-specific-tenant"></a>Inicio de sesión con un inquilino específico
-
-Puede seleccionar un inquilino para iniciar sesión con el argumento `--tenant`. El valor de este argumento puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino. Tanto el método de inicio de sesión interactivo como el de línea de comandos funcionan con `--tenant`.
-
-```azurecli
-az login --tenant <tenant>
-```
-
 ## <a name="sign-in-with-a-service-principal"></a>Inicio de sesión con una entidad de servicio
 
 Las entidades de servicio son cuentas no asociadas a un usuario concreto, las cuales pueden tener permisos asignados mediante roles predefinidos. La autenticación con una entidad de servicio es la mejor manera de escribir scripts o programas seguros, lo que le permite aplicar las restricciones de permisos y la información de credenciales estáticas almacenadas de modo local. Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
@@ -95,3 +86,21 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 > az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
 > $AzPass = ""
 > ```
+
+## <a name="sign-in-with-a-different-tenant"></a>Inicio de sesión con un inquilino diferente
+
+Puede seleccionar un inquilino para iniciar sesión con el argumento `--tenant`. El valor de este argumento puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino. Tanto el método de inicio de sesión interactivo como el de línea de comandos funcionan con `--tenant`.
+
+```azurecli
+az login --tenant <tenant>
+```
+
+## <a name="sign-in-with-a-managed-identity"></a>Inicio de sesión con una identidad administrada
+
+En los recursos configurados para las identidades administradas para los recursos de Azure, puede iniciar sesión con la identidad administrada. El inicio de sesión con la identidad del recurso se realiza mediante la marca `--identity`.
+
+```azurecli
+az login --identity
+```
+
+Para más información acerca de las identidades administradas para los recursos de Azure, consulte [Configuración de identidades administradas para recursos de Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) y [Uso de identidades administradas para recursos de Azure para el inicio de sesión](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).

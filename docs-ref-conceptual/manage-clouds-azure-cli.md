@@ -1,6 +1,6 @@
 ---
-title: Selección de nubes con la CLI de Azure 2.0
-description: Cree, inicie sesión y administre varias nubes con la CLI de Azure 2.0.
+title: Selección de nubes con la CLI de Azure
+description: Cree, inicie sesión y administre varias nubes con la CLI de Azure.
 author: sptramer
 manager: carmonm
 ms.author: sttramer
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 26b9f414ddaba3cc3f834b4749dee9807d84aa79
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 92910e68a52fad3b3577db1bd01e918b69a895d7
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388416"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177715"
 ---
-# <a name="select-clouds-with-azure-cli-20"></a>Selección de nubes con la CLI de Azure 2.0
+# <a name="select-clouds-with-the-azure-cli"></a>Selección de nubes con la CLI de Azure 
 
 Si trabaja en diferentes regiones o usa [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/), puede que necesite utilizar más de una nube. Microsoft pone a su disposición nubes para el cumplimiento de las leyes locales. En este artículo se muestra cómo obtener información sobre las nubes, cómo cambiar la nube actual y cómo registrar o anular el registro de nuevas nubes.
 
@@ -82,11 +82,11 @@ az cloud set --name AzureChinaCloud
 
 > [!IMPORTANT]
 > Si la autenticación de la nube activada ha expirado, debe volver a autenticarse antes de realizar otras tareas con la CLI. Si es la primera vez que cambia a la nueva nube, debe establecer la suscripción activa.
-> Para obtener instrucciones sobre la autenticación, consulte [Inicio de sesión con la CLI de Azure 2.0](authenticate-azure-cli.md). Para más información sobre la administración de suscripciones, vea [Administración de suscripciones de Azure con la CLI de Azure 2.0](manage-azure-subscriptions-azure-cli.md)
+> Para obtener instrucciones sobre la autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md). Para más información sobre la administración de suscripciones, consulte [Administración de suscripciones de Azure con la CLI de Azure](manage-azure-subscriptions-azure-cli.md)
 
 ## <a name="register-a-new-cloud"></a>Registro de una nube nueva
 
-Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de puntos de conexión de servicio. Para más información sobre cómo registrar una nube para usarla con Azure Stack, consulte [Uso de los perfiles de la versión de la API con la CLI de Azure 2.0 en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
+Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de puntos de conexión de servicio. Para más información sobre cómo registrar una nube para usarla con Azure Stack, consulte [Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
 
 No es necesario registrar su propia nube para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft administra estas nubes y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud#az-cloud-register).
 

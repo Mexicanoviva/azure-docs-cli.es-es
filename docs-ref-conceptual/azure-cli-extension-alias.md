@@ -1,6 +1,6 @@
 ---
-title: Extensión alias de la CLI de Azure 2.0
-description: Cómo usar la extensión alias de la CLI de Azure 2.0
+title: Extensión alias de la CLI de Azure
+description: Cómo usar la extensión alias de la CLI de Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 47afede5cb1954ddd33f03fd4a6a6dc6c5ed7aee
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388633"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177936"
 ---
-# <a name="the-azure-cli-20-alias-extension"></a>Extensión alias de la CLI de Azure 2.0
+# <a name="the-azure-cli-alias-extension"></a>Extensión alias de la CLI de Azure
 
 La extensión alias permite a los usuarios definir comandos personalizados para la CLI de Azure mediante comandos existentes. Los alias ayudan a simplificar el flujo de trabajo gracias a los accesos directos. Como los alias se basan en el motor de plantillas Jinja2, ofrecen incluso un procesamiento avanzado de los argumentos.
 
@@ -25,7 +25,7 @@ La extensión alias permite a los usuarios definir comandos personalizados para 
 
 ## <a name="install-the-alias-extension"></a>Instalar la extensión alias
 
-La versión mínima necesaria de la CLI de Azure para usar la extensión alias es **2.0.28**. Para comprobar la versión de la CLI, ejecute `az --version`. Si tiene que actualizar la instalación, siga las instrucciones de [Instalación de la CLI de Azure 2.0](./install-azure-cli.md).
+La versión mínima necesaria de la CLI de Azure para usar la extensión alias es **2.0.28**. Para comprobar la versión de la CLI, ejecute `az --version`. Si tiene que actualizar la instalación, siga las instrucciones de [Instalación de la CLI de Azure](./install-azure-cli.md).
 
 Instale la extensión con el comando [az extension add](/cli/azure/extension#az-extension-add).
 

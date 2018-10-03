@@ -1,25 +1,25 @@
 ---
 title: Opciones de configuración de la CLI de Azure
-description: Cómo configurar la CLI de Azure 2.0
+description: Cómo configurar la CLI de Azure
 keywords: CLI de Azure, configuración, valores, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 75ea347b0d4d018142a26bf985ee3639f2b79924
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: f4f1e89e5541d741ef4e02f309a49eece033af5d
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388599"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177987"
 ---
-# <a name="azure-cli-20-configuration"></a>Configuración de la CLI de Azure 2.0
+# <a name="azure-cli-configuration"></a>Configuración de la CLI de Azure
 
-La CLI de Azure 2.0 permite que el usuario configure opciones tales como el registro, la recopilación de datos y los valores de argumento predeterminados.
+La CLI de Azure permite que el usuario configure opciones tales como el registro, la recopilación de datos y los valores de argumento predeterminados.
 La CLI ofrece un práctico comando para administrar algunos valores predeterminados, `az configure`. Otros valores se pueden establecer en un archivo de configuración o con variables de entorno.
 
 Los valores de configuración usados por la CLI se evalúan según la siguiente prioridad, con mayor prioridad en los elementos superiores de la lista.
@@ -88,7 +88,7 @@ Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumen
 |---------|-----------|------|------------|
 | __core__ | output | string | El formato de salida predeterminado. Puede ser `json`, `jsonc`, `tsv` o `table`. |
 | | disable\_confirm\_prompt | boolean | Activa o desactiva los mensajes de confirmación. |
-| | collect\_telemetry | boolean | Permite que Microsoft recopile datos anónimos sobre el uso de la CLI. Para obtener información de privacidad, consulte los [Términos de uso de la CLI de Azure 2.0](https://aka.ms/AzureCliLegal). |
+| | collect\_telemetry | boolean | Permite que Microsoft recopile datos anónimos sobre el uso de la CLI. Para obtener información de privacidad, consulte los [Términos de uso de la CLI de Azure](http://aka.ms/AzureCliLegal). |
 | __logging__ | enable\_log\_file | boolean | Activar o desactivar el registro. |
 | | log\_dir | string | El directorio en el que se escribe el registro. De manera predeterminada, este valor es `${AZURE_CONFIG_DIR}/logs`. |
 | __storage__ | connection\_string | string | La cadena de conexión predeterminada que se usará para los comandos `az storage`. |
