@@ -4,23 +4,85 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/21/2018
+ms.date: 10/09/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f0ee84c3f70cf168818de447289d6c7ab5a40c9e
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 0aec9dce0eda007c71df3693b39c7ec8cc9856cd
+ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178089"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48904793"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
 
+## <a name="october-9-2018"></a>9 de octubre de 2018
+
+Versión 2.0.47
+
+### <a name="core"></a>Núcleo
+* Ha mejorado el control de errores para los errores de "Solicitud incorrecta"
+
+### <a name="acr"></a>ACR
+* Se ha agregado compatibilidad para el formato de tablas similares como el cliente de helm
+
+### <a name="acs"></a>ACS
+* Se ha agregado `aks [create|scale] --nodepool-name` para configurar el nombre del grupo de nodos, truncado a 12 caracteres, con un valor predeterminado de: nodepool1 
+* Se ha corregido para realizar la reversión a "scp" cuando se produce un error en Parimiko
+* Se ha cambiado `aks create` para que no requiera `--aad-tenant-id` en adelante
+* Se ha mejorado la combinación de credenciales de Kubernetes cuando hay entradas duplicadas
+
+### <a name="container"></a>Contenedor
+* Se ha cambiado `functionapp create` para permitir la creación de un tipo de plan de consumo de Linux con un runtime específico
+* [VERSIÓN PRELIMINAR] Se ha agregado compatibilidad para el hospedaje de aplicaciones web en contenedores Windows
+
+### <a name="event-hub"></a>Centro de eventos
+* Se ha corregido el comando `eventhub update`
+* [CAMBIO IMPORTANTE] Se han cambiado los comandos `list` para controlar los errores de recurso no encontrado (404) de la manera habitual en lugar de mostrar una lista vacía
+
+### <a name="extensions"></a>Extensiones
+* Se ha corregido un problema al intentar agregar una extensión que ya está instalada
+
+### <a name="hdinsight"></a>HDInsight
+* Versión inicial.
+
+### <a name="iot"></a>IoT
+* Se ha agregado un comando de instalación de extensiones al banner de primera ejecución
+
+### <a name="keyvault"></a>KeyVault
+* Se ha modificado para restringir los comandos de almacenamiento del almacén de claves al perfil de API más reciente
+
+### <a name="network"></a>Red
+* Se ha corregido `network dns zone create`: el comando se ejecuta correctamente incluso si el usuario ha configurado una ubicación predeterminada. Consulte el número 6052
+* `--remote-vnet-id` en desuso para `network vnet peering create`
+* Se ha agregado `--remote-vnet` a `network vnet peering create`, el cual acepta un nombre o identificador
+* Se ha agregado compatibilidad con varios prefijos de subred a `network vnet create` con `--subnet-prefixes`
+* Se ha agregado compatibilidad con varios prefijos de dirección a `network vnet subnet [create|update]` con `--address-prefixes`
+* Se ha corregido el problema con `network application-gateway create` que impedía la creación de puertas de enlace con las SKU `WAF_v2` o `Standard_v2`
+* Se ha agregado el argumento de comodidad `--service-endpoint-policy` a `network vnet subnet update`
+
+### <a name="role"></a>Rol
+* Se ha agregado compatibilidad para enumerar los propietarios de aplicaciones de Azure AD a `ad app owner`
+* Se ha agregado compatibilidad para enumerar los propietarios de entidades de servicio de Azure AD a `ad sp owner`
+* Se ha modificado para asegurarse de que los comandos de creación y actualización de definiciones de rol aceptan varias configuraciones de permisos
+* Se ha modificado `ad sp create-for-rbac` para asegurarse de que el identificador URI de la página principal siempre es "https"
+
+### <a name="service-bus"></a>Azure Service Bus
+* [CAMBIO IMPORTANTE] Se han cambiado los comandos `list` para controlar los errores de recurso no encontrado (404) de la manera habitual en lugar de mostrar una lista vacía
+
+### <a name="vm"></a>máquina virtual
+* Se ha corregido el campo `accessSas` vacío en `disk grant-access`
+* Se ha modificado `vmss create` para reservar un intervalo de puertos de front-end lo suficientemente grande como para controlar el aprovisionamiento en exceso
+* Se ha corregido los comandos de actualización de `sig`
+* Se ha agregado compatibilidad con `--no-wait` para la administración de versiones de imágenes en `sig`
+* Se ha modificado `vm list-ip-addresses` para mostrar la zona de disponibilidad de las direcciones IP públicas
+* Se ha modificado `[vm|vmss] disk attach` para establecer el LUN predeterminado del disco en la primera zona disponible
+
 ## <a name="september-21-2018"></a>21 de septiembre de 2018
 
-Versión 20.46
+Versión 2.0.46
 
 ### <a name="acr"></a>ACR
 * Se han agregado comandos de tareas de ACR
