@@ -22,7 +22,7 @@
       "build_entry_point": "docs",
       "template_folder": "_themes",
       "customized_template_paths": [
-         "_dependentPackages/uref/content"
+        "_dependentPackages/uref/content"
       ],
       "customized_tasks": {
         "docset_prebuild": [
@@ -76,6 +76,12 @@
       "ConceptualTOC": "docs-ref-conceptual/toc.yml",
       "ReferenceTOCUrl": "/cli/azure/command/toc.json?view=azure-cli-2017-03-09-profile",
       "ConceptualTOCUrl": "/cli/azure/toc.json?view=azure-cli-2017-03-09-profile"
+    },
+    {
+      "TopLevelTOC": "2018-03-01-hybrid/docs-ref-autogen/toc.yml",
+      "ConceptualTOC": "docs-ref-conceptual/toc.yml",
+      "ReferenceTOCUrl": "/cli/azure/command/toc.json?view=azure-cli-2018-03-01-hybrid",
+      "ConceptualTOCUrl": "/cli/azure/toc.json?view=azure-cli-2018-03-01-hybrid"
     }
   ]
 }
