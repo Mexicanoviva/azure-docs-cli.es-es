@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 787b773a8717ff36a0d0ea689b7770ed80aa9439
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 3747f276a30740602271477e154322cad45f190e
+ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177647"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652471"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalación de la CLI de Azure con yum
 
@@ -74,10 +74,10 @@ sudo yum update azure-cli
 
 3. Si ha eliminado la información del repositorio, elimine también la clave de la firma GPG de Microsoft.
 
-  ```bash
-  MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
-  sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
-  ```
+   ```bash
+   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
+   sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
