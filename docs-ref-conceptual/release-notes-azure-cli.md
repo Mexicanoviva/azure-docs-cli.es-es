@@ -4,19 +4,90 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/09/2018
+ms.date: 10/23/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0aec9dce0eda007c71df3693b39c7ec8cc9856cd
-ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
+ms.openlocfilehash: 65e34ab6014c47ae92a6d4bae8cdc30d4a1413dc
+ms.sourcegitcommit: aec89531c938781b4724f43b5bb4b878e106a26a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904793"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49952492"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="october-23-2018"></a>23 de octubre de 2018
+
+Versión 2.0.49
+
+### <a name="core"></a>Núcleo
+* Se ha corregido el problema con `--ids` en el que `--subscription` tendría prioridad sobre la suscripción en `--ids`
+* Se han agregado advertencias explícitas cuando se ignoran los parámetros debido al uso de `--ids`
+
+### <a name="acr"></a>ACR
+* Se ha corregido un problema de codificación de compilación de ACR en Python2
+
+### <a name="cdn"></a>CDN
+* [CAMBIO IMPORTANTE] Se ha cambiado el comportamiento del almacenamiento en caché de la cadena de consulta predeterminada de `cdn endpoint create` para que el valor predeterminado ya no sea "IgnoreQueryString". Ahora lo establece el servicio
+
+### <a name="container"></a>Contenedor
+* Se ha agregado `Private` como un tipo válido para pasar a "--ip-address"
+* Se ha modificado para permitir únicamente el uso del identificador de subred para configurar una red virtual para el grupo de contenedores
+* Se ha modificado para permitir el uso del nombre de red virtual o el identificador de recurso para habilitar el uso de redes virtuales de grupos de recursos distintos
+* Se ha agregado `--assign-identity` para agregar una identidad de MSI a un grupo de contenedores
+* Se ha agregado `--scope` para crear una asignación de roles para la identidad de MSI asignada por el sistema
+* Se ha agregado una advertencia al crear un grupo de contenedores con una imagen sin un proceso de ejecución prolongada
+* Se han corregido problemas en la salida de la tabla para los comandos `list` y `show`
+
+### <a name="cosmosdb"></a>CosmosDB
+* Se ha agregado compatibilidad de `--enable-multiple-write-locations` con `cosmosdb create`
+
+### <a name="interactive"></a>Interactive
+* Se ha modificado para asegurarse de que el parámetro de suscripción global aparece en los parámetros
+
+### <a name="iot-central"></a>IoT Central
+* Se han agregado opciones de plantilla y nombre para mostrar para la creación de aplicaciones de IoT Central
+* [CAMBIO IMPORTANTE] Se ha eliminado la compatibilidad con la SKU F1; utilice en su lugar la SKU S1
+
+### <a name="monitor"></a>Supervisión
+* Cambios en `monitor activity-log list`:
+  * Se ha agregado compatibilidad para enumerar todos los eventos en el nivel de suscripción
+  * Se ha agregado el parámetro `--offset` para crear consultas de tiempo más fácilmente
+  * Se ha mejorado la validación en `--start-time` y `--end-time` para usar un conjunto de formatos ISO8601 más amplio y formatos de fecha y hora más sencillos
+  * Se ha agregado `--namespace` como alias para la opción en desuso `--resource-provider`
+  * Se deja en desuso `--filters` porque el servicio no admite otros valores que los que tienen opciones fuertemente tipadas
+* Cambios en `monitor metrics list`:
+  * Se ha agregado el parámetro `--offset` para crear consultas de tiempo más fácilmente
+  * Se ha mejorado la validación en `--start-time` y `--end-time` para usar un conjunto de formatos ISO8601 más amplio y formatos de fecha y hora más sencillos
+* Se ha mejorado de validación en los argumentos `--event-hub` y `--event-hub-rule` en `monitor diagnostic-settings create`
+
+### <a name="network"></a>Red
+* Se han agregado los argumentos `--app-gateway-address-pools` y `--gateway-name` en `nic create` para admitir la adición de grupos de direcciones de back-end de puerta de enlace de aplicación a una NIC
+* Se han agregado los argumentos `--app-gateway-address-pools` y `--gateway-name` en `nic ip-config create/update` para admitir la adición de grupos de direcciones de back-end de puerta de enlace de aplicación a una NIC
+
+### <a name="servicebus"></a>ServiceBus
+* Se ha agregado la propiedad de solo lectura `migration_state` a MigrationConfigProperties para mostrar el estado actual de la migración del espacio de nombres de Service Bus Estándar a Premium
+
+### <a name="sql"></a>SQL
+* Se han corregido `sql failover-group create` y `sql failover-group update` para trabajar con la directiva de conmutación por error manual
+
+### <a name="storage"></a>Storage
+* Se ha corregido el formato de salida de `az storage cors list` para que todos los elementos muestren la clave "Service" correcta
+* Se ha agregado el parámetro `--bypass-immutability-policy` para la eliminación de un contenedor bloqueado por la directiva de inmutabilidad
+
+### <a name="vm"></a>máquina virtual
+* Se exige que el modo de almacenamiento en caché de disco modo sea `None` en las máquinas de la serie Lv/Lv2 en `[vm|vmss] create`
+* Se ha actualizado la lista de tamaños admitidos que admiten el acelerador de redes para `vm create`
+* Se han agregado argumentos fuertemente tipados para configuraciones de ultrassd iops y mbps para `disk create`
+
+## <a name="october-16-2018"></a>16 de octubre de 2018
+
+Versión 2.0.48
+
+### <a name="vm"></a>máquina virtual
+* Se ha corregido el problema del SDK que provocaba errores en la instalación de Homebrew
 
 ## <a name="october-9-2018"></a>9 de octubre de 2018
 
@@ -578,10 +649,10 @@ Versión 2.0.38
 * [CAMBIO IMPORTANTE] Se ha eliminado el atributo `location` de los trabajos, clústeres y servidores de archivos. Ahora, la ubicación ahora es un atributo de un área de trabajo.
 * [CAMBIO IMPORTANTE] Se ha eliminado `--location` de los comandos `job create`, `cluster create` y `file-server create`.
 * [CAMBIO IMPORTANTE] Se cambiaron los nombres de las opciones cortas para que la interfaz sea más homogénea:
- - Se cambió el nombre de [`--config`, `-c`] a [`--config-file`, `-f`]
- - Se cambió el nombre de [`--cluster`, `-r`] a [`--cluster`, `-c`]
- - Se cambió el nombre de [`--cluster`, `-n`] a [`--cluster`, `-c`]
- - Se cambió el nombre de [`--job`, `-n`] a [`--job`, `-j`]
+  - Se cambió el nombre de [`--config`, `-c`] a [`--config-file`, `-f`]
+  - Se cambió el nombre de [`--cluster`, `-r`] a [`--cluster`, `-c`]
+  - Se cambió el nombre de [`--cluster`, `-n`] a [`--cluster`, `-c`]
+  - Se cambió el nombre de [`--job`, `-n`] a [`--job`, `-j`]
 
 ### <a name="maps"></a>Mapas
 
@@ -937,15 +1008,15 @@ Versión 2.0.31
 
 * Se ha agregado compatibilidad con la API 2018-03-01
 
- - Montaje en el nivel de trabajo
- - Variables de entorno con valores de secreto
- - Configuración de contadores de rendimiento
- - Creación de informes de segmentos de ruta de acceso específicas del trabajo
- - Compatibilidad con subcarpetas en API de lista de archivos
- - Uso y los límites de informes
- - Permitir especificar el tipo de almacenamiento en caché de los servidores NFS
- - Compatibilidad con imágenes personalizadas
- - Se ha agregado compatibilidad con el kit de herramientas de pyTorch
+  - Montaje en el nivel de trabajo
+  - Variables de entorno con valores de secreto
+  - Configuración de contadores de rendimiento
+  - Creación de informes de segmentos de ruta de acceso específicas del trabajo
+  - Compatibilidad con subcarpetas en API de lista de archivos
+  - Uso y los límites de informes
+  - Permitir especificar el tipo de almacenamiento en caché de los servidores NFS
+  - Compatibilidad con imágenes personalizadas
+  - Se ha agregado compatibilidad con el kit de herramientas de pyTorch
 
 * Se ha agregado el comando `job wait` que permite esperar a que termine el trabajo y notifica el código de salida del trabajo
 * Se ha agregado el comando `usage show` para enumerar el uso actual de los recursos de Batch AI y los límites de las diferentes regiones
@@ -2666,7 +2737,7 @@ vm (2.0.2)
 * VM/VMSS: Incorporación de la lógica de validación de credenciales utilizada por el portal ([#2537](https://github.com/Azure/azure-cli/pull/2537))
 * Se han agregado comandos wait y soporte --no-wait ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * Conjunto de escalado de máquinas virtuales: admiten * para enumerar vistas de instancias entre máquinas virtuales ([#2467](https://github.com/Azure/azure-cli/pull/2467))
-* Adición de secretos a máquinas virtuales y conjuntos de escalado de máquinas virtuales ([2212} (https://github.com/Azure/azure-cli/pull/2212))
+* Se ha agregado --secrets en máquinas virtuales y conjuntos de escalado de máquinas virtuales ([2212}(<https://github.com/Azure/azure-cli/pull/2212>))
 * Se permite la creación de máquinas virtuales con un VHD especializado ([#2256](https://github.com/Azure/azure-cli/pull/2256))
 
 ## <a name="february-27-2017"></a>27 de febrero de 2017
