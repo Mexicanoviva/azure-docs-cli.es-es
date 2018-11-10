@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 4522242952e5d257449c9c593885c62de2f56d0f
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 1736d1677fb6c7fc83a092493e8706c2d5edfccd
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178038"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222538"
 ---
 # <a name="use-jmespath-queries-with-azure-cli"></a>Uso de consultas JMESPath con la CLI de Azure 
 
@@ -61,7 +61,7 @@ Al mostrar información con el formato de salida `table`, la presentación del d
 > [!NOTE]
 > Determinadas claves se filtran y no se imprimen en la vista de tabla. Estas claves son `id`, `type` y `etag`. Si necesita mostrar esta información, puede cambiar el nombre de la clave y evitar el filtrado.
 >
-> ```azurecli
+> ```azurecli-interactive
 > az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
 > ```
 

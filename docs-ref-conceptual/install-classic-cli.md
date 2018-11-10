@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 68aa728b9b9324a53856008f05d8ce30eb61c76d
-ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
+ms.openlocfilehash: 78043f9c070626545030971dea2a8fd155ac76c2
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222470"
 ---
 # <a name="install-the-azure-classic-cli"></a>Instalación de la CLI clásica de Azure
 
@@ -74,7 +74,7 @@ docker run -it microsoft/azure-cli:0.10.17
 
 Una vez instalada la CLI clásica de Azure, ejecute el comando `azure` desde la interfaz de usuario de la línea de comandos (Bash, Terminal, símbolo del sistema, etc.). Por ejemplo, si desea ejecutar el comando help, escriba lo siguiente:
 
-```azurecli
+```azurecli-interactive
 azure help
 ```
 
@@ -87,7 +87,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 Para saber qué versión de la CLI clásica de Azure se ha instalado, escriba lo siguiente:
 
-```azurecli
+```azurecli-interactive
 azure --version
 ```
 
