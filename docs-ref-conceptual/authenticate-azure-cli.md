@@ -9,16 +9,17 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 6176fbbbe58e72ae45fc9769514478ffe4a8fea5
-ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
+ms.openlocfilehash: 05a4ef87fcf23af21ec6dc1d6cd9daa82369d5b9
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47237636"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222453"
 ---
 # <a name="sign-in-with-azure-cli"></a>Inicio de sesión con la CLI de Azure 
 
-Hay varios tipos de autenticación para la CLI de Azure. La manera más fácil de empezar a trabajar es [Azure Cloud Shell](/azure/cloud-shell/overview), que inicia sesión automáticamente. De forma local, puede iniciar sesión interactivamente en el explorador con el comando `az login`. Al escribir scripts, el enfoque recomendado es usar entidades de servicio. Para proteger la automatización, conceda los permisos adecuados necesarios a una entidad de servicio.
+Hay varios tipos de autenticación para la CLI de Azure. La manera más fácil de empezar a trabajar es [Azure Cloud Shell](/azure/cloud-shell/overview), que inicia sesión automáticamente.
+De forma local, puede iniciar sesión interactivamente en el explorador con el comando [az login](/cli/azure/reference-index#az-login). Al escribir scripts, el enfoque recomendado es usar entidades de servicio. Para proteger la automatización, conceda los permisos adecuados necesarios a una entidad de servicio.
 
 La CLI no almacena ninguna de la información de inicio de sesión. En su lugar, Azure genera y almacena un [token de autenticación](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens). A partir de agosto de 2018, este token se revoca después de 90 días de inactividad, pero este valor lo puede cambiar Microsoft o el administrador de inquilinos. Una vez revocado el token, recibirá un mensaje desde la CLI indicando que debe volver a iniciar sesión.
 
@@ -37,7 +38,7 @@ Proporcione sus credenciales de usuario de Azure en la línea de comandos.
 > [!Note]
 > Este enfoque no es compatible con cuentas de Microsoft o cuentas que tienen habilitada la autenticación en dos fases.
 
-```azurecli
+```azurecli-interactive
 az login -u <username> -p <password>
 ```
 
@@ -67,7 +68,7 @@ Para iniciar sesión con una entidad de servicio, necesita:
 * La contraseña de la entidad de servicio o el certificado X509 utilizado para crear la entidad de servicio con el formato PEM.
 * El inquilino asociado con la entidad de servicio, como un dominio de `.onmicrosoft.com` o un identificador de objeto de Azure.
 
-```azurecli
+```azurecli-interactive
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
 
@@ -91,7 +92,7 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 
 Puede seleccionar un inquilino para iniciar sesión con el argumento `--tenant`. El valor de este argumento puede ser un dominio `.onmicrosoft.com` o el identificador de objeto de Azure del inquilino. Tanto el método de inicio de sesión interactivo como el de línea de comandos funcionan con `--tenant`.
 
-```azurecli
+```azurecli-interactive
 az login --tenant <tenant>
 ```
 
@@ -99,7 +100,7 @@ az login --tenant <tenant>
 
 En los recursos configurados para las identidades administradas para los recursos de Azure, puede iniciar sesión con la identidad administrada. El inicio de sesión con la identidad del recurso se realiza mediante la marca `--identity`.
 
-```azurecli
+```azurecli-interactive
 az login --identity
 ```
 
