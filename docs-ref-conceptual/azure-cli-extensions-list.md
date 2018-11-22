@@ -4,17 +4,17 @@ description: Lista completa de las extensiones oficialmente admitidas por la CLI
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/08/2018
+ms.date: 11/19/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: ad57a08cab342aeb85982fb232b901f9ea3fc7ab
-ms.sourcegitcommit: ab8cffd1cc9f057316be87c9cb202fe215a34890
+ms.openlocfilehash: 39271b393e8fbc08bb33fd1843b78745437d0385
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51296793"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159361"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensiones disponibles para la CLI de Azure
 
@@ -58,4 +58,4 @@ az extension list-available --output table
 | [suscripción](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Compatibilidad con la versión preliminar de la administración de suscripciones. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | Administración de TAP de red virtual (VTAP). | SÍ |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | Administración de redes WAN virtuales, concentradores, puertas de enlace de VPN y sitios de VPN. | SÍ |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.15 | Comandos adicionales para Azure App Service. | SÍ |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.16 | Comandos adicionales para Azure App Service. | SÍ |
