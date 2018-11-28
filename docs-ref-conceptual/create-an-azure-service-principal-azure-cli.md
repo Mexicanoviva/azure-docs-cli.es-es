@@ -8,12 +8,12 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5ba7d8b0bf313a8d8ea1b20fb861c2ac0086b2be
-ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
+ms.openlocfilehash: 40ff3b54cdd1f4908b59479e317092ee62b05bb0
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47237619"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159378"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
 
@@ -55,7 +55,7 @@ Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-r
 
 Si no se incluye un argumento para indicar el tipo de autenticación, se utiliza `--password` de forma predeterminada.
 
-La salida del comando `create-for-rbac` tiene el formato siguiente:
+La salida JSON del comando `create-for-rbac` tiene el formato siguiente:
 
 ```json
 {

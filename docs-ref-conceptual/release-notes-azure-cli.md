@@ -4,19 +4,69 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/06/2018
+ms.date: 11/20/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 51b8b8cad6d25f916006b8e68b8f300587f5d45b
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
+ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222572"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52267337"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+## <a name="november-20-2018"></a>20 de noviembre de 2018
+
+Versión 2.0.51
+### <a name="core"></a>Núcleo
+* Se ha cambiado el inicio de sesión de MSI para no reutilizar el nombre de suscripción en la identidad.
+
+### <a name="acr"></a>ACR
+* Se ha agregado un token de contexto al paso de la tarea.
+* Se ha agregado compatibilidad para la configuración de secretos en la ejecución de acr para reflejar la tarea de acr.
+* Se ha mejorado la compatibilidad mejorada para `--top` y `--orderby` para los comandos `show-tags` y `show-manifests`.
+
+### <a name="appservice"></a>Appservice
+* Se ha cambiado el tiempo de espera predeterminado de la implementación de zip para sondear el estado a 5 minutos, agregando también una propiedad de tiempo de espera para personalizar este valor.
+* Se ha actualizado el valor predeterminado `node_version`. El restablecimiento de la acción de intercambio de ranura, durante un intercambio de dos fases conserva todos los ajustes de la aplicación y las cadenas de conexión.
+* Se ha quitado la comprobación de SKU de cliente para crear el plan de servicio de aplicaciones de Linux.
+* Se ha corregido un error al intentar obtener el estado de zipdeploy.
+
+### <a name="iotcentral"></a>IotCentral
+* Se ha agregado la comprobación de disponibilidad de subdominios al crear una aplicación de IoT Central
+
+### <a name="keyvault"></a>KeyVault
+* Se ha corregido un error donde se han ignorado los errores.
+
+### <a name="network"></a>Red
+* Se han agregado los subcomandos `root-cert` a `application-gateway` para controlar los certificados de raíz de confianza.
+* Se han agregado las opciones `--min-capacity` y `--custom-error-pages` a `application-gateway [create|update]`:
+* Se ha agregado `--zones` a `application-gateway create` para compatibilidad con la zona de disponibilidad. 
+* Se han agregado los argumentos `--file-upload-limit`, `--max-request-body-size` y `--request-body-check` a `application-gateway waf-config set`.
+
+### <a name="rdbms"></a>Rdbms
+* Se han agregado comandos de red virtual de mariadb.
+
+### <a name="rbac"></a>Rbac
+* Se ha corregido un problema al intentar actualizar credenciales inmutables en `ad app update`.
+* Se han agregado advertencias de salida para comunicar los cambios importantes en un futuro próximo para `ad [app|sp] list`. 
+
+### <a name="storage"></a>Storage
+* Se ha mejorado el tratamiento de los casos excepcionales para los comandos de copia de almacenamiento.
+* Se ha solucionado un problema con `storage blob copy start-batch` que no utilizaba las credenciales de inicio de sesión cuando las cuentas de destino y de origen eran las mismas.
+* Se ha corregido un error con `storage [blob|file] url` donde `sas_token` no estaba incorporado en la dirección URL.
+* Se ha agregado la advertencia de cambio importante a `[blob|container] list`: pronto se generarán los primeros 5000 resultados de manera predeterminada.
+
+### <a name="vm"></a>máquina virtual
+* Se ha agregado compatibilidad a `[vm|vmss] create --storage-sku` para especificar la SKU de la cuenta de almacenamiento para el sistema operativo administrado y los discos de datos de forma independiente.
+* Se ha cambiado el nombre de los parámetros de la versión a `sig image-version` para ser `--image-version -e`.
+* Ha quedado en desuso `sig image-version` argumento `--image-version-name` y se reemplazado por `--image-version`.
+* Se ha agregado compatibilidad para usar el disco local del sistema operativo en `[vm|vmss] create --ephemeral-os-disk`.
+* Se agregó compatibilidad para `--no-wait` a `snapshot create/update`.
+* Se agregó el comando `snapshot wait`.
+* Se ha agregado compatibilidad para usar el nombre de instancia con `[vm|vmss] extension set --extension-instance-name`.
 
 ## <a name="november-6-2018"></a>6 de noviembre de 2018
 
