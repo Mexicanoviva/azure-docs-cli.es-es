@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3747f276a30740602271477e154322cad45f190e
-ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
+ms.openlocfilehash: 7e2c7c5477c8d5a617875eeaed8e3d267d9bcf8c
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652471"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450316"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalación de la CLI de Azure con yum
 
@@ -47,6 +47,12 @@ Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Estos son algunos problemas comunes que se han observado cuando se instala con `yum`. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
+
+[!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
 ## <a name="update"></a>Actualizar
 
