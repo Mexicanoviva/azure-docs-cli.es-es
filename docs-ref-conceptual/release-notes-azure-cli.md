@@ -9,14 +9,37 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
-ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
+ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
+ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52267337"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892690"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+## <a name="december-4-2018"></a>4 de diciembre de 2018
+
+Versión 2.0.52
+### <a name="core"></a>Núcleo
+* Se ha agregado compatibilidad para el aprovisionamiento de recursos entre inquilinos para entidades de servicio multiinquilino
+* Se ha corregido el error por el que los comandos con salida tsv no se analizaban correctamente
+
+### <a name="appservice"></a>Appservice
+* [VERSIÓN PRELIMINAR] Se han agregado comandos `webapp up` que ayudan a crear e implementar contenido a la aplicación
+* Se ha corregido un error en la aplicación Windows basada en contenedor debido a un cambio de back-end
+
+### <a name="network"></a>Red
+* Se ha agregado el argumento `--exclusion` a `application-gateway waf-config set` para admitir las exclusiones de WAF
+
+### <a name="role"></a>Rol
+* Se ha agregado compatibilidad para identificadores personalizados para las credenciales de contraseña 
+
+### <a name="vm"></a>máquina virtual
+* [EN DESUSO] El parámetro `vm extension [show|wait] --expand` está en desuso
+* Se ha agregado el parámetro `--force` a `vm restart` para volver a implementar máquinas virtuales que no responden
+* Se ha cambiado `[vm|vmss] create --authentication-type` para que acepte el valor "all" para crear una máquina virtual con autenticación mediante contraseña y SSH
+* Se ha agregado el parámetro `image create --os-disk-caching` para establecer el almacenamiento en caché del disco de sistema operativo de una imagen
+
 ## <a name="november-20-2018"></a>20 de noviembre de 2018
 
 Versión 2.0.51
