@@ -9,13 +9,13 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: f4f1e89e5541d741ef4e02f309a49eece033af5d
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.devlang: azurecli
+ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177987"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593785"
 ---
 # <a name="azure-cli-configuration"></a>Configuración de la CLI de Azure
 
@@ -62,8 +62,8 @@ Los archivos de configuración se escriben en el formato de archivos INI. Este f
 
 Los valores booleanos no distinguen mayúsculas de minúsculas y se representan por los valores siguientes.
 
-* __Verdadero__: 1, yes, true, on
-* __Falso__: 0, no, false, off
+* __True__: 1, yes, true, on
+* __False__: 0, no, false, off
 
 Este es un ejemplo de un archivo de configuración de la CLI que deshabilita los avisos de confirmación y establece el registro en el directorio `/var/log/azure`.
 
@@ -99,7 +99,7 @@ Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumen
 | | storage\_key | string | La clave de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
 | __batch__ | cuenta | string | El nombre de la cuenta de Azure Batch predeterminada que se usará para los comandos `az batch`. |
 | | access\_key | string | La clave de acceso predeterminada que se usará para los comandos `az batch`. Solo se usa con autorización `aad`. |
-| | endpoint | string | El punto de conexión predeterminado para los comandos `az batch`. |
+| | punto de conexión | string | El punto de conexión predeterminado para los comandos `az batch`. |
 | | auth\_mode | string | El modo de autorización que se usará para los comandos `az batch`. Puede ser `shared_key` o `aad`. |
 
 > [!NOTE]

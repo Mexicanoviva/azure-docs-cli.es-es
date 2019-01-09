@@ -7,13 +7,13 @@ manager: carmonm
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 40ff3b54cdd1f4908b59479e317092ee62b05bb0
-ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
+ms.devlang: azurecli
+ms.openlocfilehash: 6cce8fb47dd2b57180487441055333343fff8330
+ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159378"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53805880"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
 
@@ -23,10 +23,15 @@ Si desea crear un inicio de sesión independiente con restricciones de acceso, p
 
 Use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) para crear una entidad de servicio. El nombre de la entidad de servicio no está vinculado a ninguna aplicación o nombre de usuario existentes. Puede crear una entidad de servicio con el tipo de autenticación de su elección.
 
-* `--password` se utiliza para la autenticación basada en contraseña. Asegúrese de que se crea una contraseña segura siguiendo las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Si no especifica una contraseña, se crea una automáticamente.
+* `--password` se utiliza para la autenticación basada en contraseña. Si no se incluye un argumento para indicar el tipo de autenticación, se utiliza la contraseña de forma predeterminada y la que haya creado el usuario. Si desea utilizar la autenticación basada en contraseña, le recomendamos que utilice este comando, de modo que la contraseña se cree para usted.  
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
+  az ad sp create-for-rbac --name ServicePrincipalName 
+  ```
+  Si desea elegir la contraseña, en lugar de que se cree para usted (lo que no es recomendable, por razones de seguridad), puede utilizar este comando. Asegúrese de que se crea una contraseña segura siguiendo las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). La opción de elegir una contraseña deja la posibilidad de que se elija una contraseña débil o de que se vuelva a utilizar la contraseña. Esta opción está pensada para dejar de utilizarse en una futura versión de la CLI de Azure. 
+
+  ```azurecli-interactive
+  az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
   ```
 
 * `--cert` se utiliza para la autenticación basada en certificados para un certificado existente, ya sea como una cadena pública PEM o DER o mediante `@{file}` para cargar un archivo.
@@ -80,7 +85,7 @@ La CLI de Azure proporciona los siguientes comandos para administrar las asignac
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
-El rol predeterminado de una entidad de servicio es **colaborador**. Este rol tiene permiso total para leer y escribir en una cuenta de Azure y no es adecuado para aplicaciones. El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.  Para más información sobre el control de acceso basado en roles (RBAC) y los roles, consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).
+El rol predeterminado de una entidad de servicio es **colaborador**. Este rol tiene permiso total para leer y escribir en una cuenta de Azure y no es adecuado para aplicaciones. El rol **Lector** es más restrictivo y proporciona acceso de solo lectura.  Para más información sobre el control de acceso basado en rol (RBAC), consulte [RBAC: roles integrados](/azure/active-directory/role-based-access-built-in-roles).
 
 En este ejemplo se agrega el rol **Lector** y se elimina el rol **Colaborador**.
 
@@ -121,5 +126,5 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 Si olvida las credenciales de una entidad de servicio, se pueden restablecer mediante el comando [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). Las mismas restricciones y opciones para crear una entidad de servicio nueva también se aplican aquí.
 
 ```azurecli-interactive
-az ad sp credential reset --name APP_ID --password NEW_PASSWORD
+az ad sp credential reset --name APP_ID 
 ```
