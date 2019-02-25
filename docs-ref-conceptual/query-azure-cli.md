@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1605b072a68d9aa781290fd862f1d67a847f571e
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593309"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158832"
 ---
 # <a name="query-azure-cli-command-output"></a>Resultados de los comandos de consulta de la CLI de Azure
 
@@ -197,7 +197,8 @@ az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUs
 La otra operación utilizada para obtener datos de una matriz es el _filtrado_. El filtrado se realiza con el operador de JMESPath `[?...]`.
 Este operador toma un predicado como su contenido. Un predicado es cualquier declaración que se puede evaluar como `true` o `false`. En la salida se incluyen las expresiones en las que el predicado se evalúa a `true`.
 
-JMESPath ofrece la comparación estándar y los operadores lógicos. Estos incluyen `<`, `<=`, `>`, `>=`, `==` y `!=`. JMESPath también admite la lógica y (`&&`) o (`||`) y no (`!`). Las expresiones se pueden agrupar entre paréntesis, lo que permite expresiones de predicados más complejas. Para obtener todos los detalles sobre predicados y operaciones lógicas, consulte la [especificación de JMESPath](http://jmespath.org/specification.html).
+JMESPath ofrece la comparación estándar y los operadores lógicos. Estos incluyen `<`, `<=`, `>`, `>=`, `==` y `!=`.
+JMESPath también admite la lógica y (`&&`) o (`||`) y no (`!`). Las expresiones se pueden agrupar entre paréntesis, lo que permite expresiones de predicados más complejas. Para obtener todos los detalles sobre predicados y operaciones lógicas, consulte la [especificación de JMESPath](http://jmespath.org/specification.html).
 
 En la última sección, simplificamos una matriz para obtener la lista completa de todas las máquinas virtuales de un grupo de recursos. Mediante el uso de filtros, esta salida puede restringirse solo a las máquinas virtuales Linux:
 

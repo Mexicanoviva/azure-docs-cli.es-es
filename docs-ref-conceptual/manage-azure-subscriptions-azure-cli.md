@@ -6,15 +6,15 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.produdct: azure
+ms.product: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 27f094b68812cb68a6a33a6977d4fd58e4178731
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 4c196b8376b0044e315cfee2b3958f2f4b476df7
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593666"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158674"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>Uso de varias suscripciones de Azure
 
@@ -28,7 +28,7 @@ Un usuario puede tener acceso a varias _suscripciones_, que son los acuerdos con
 Para más información sobre las diferencias entre inquilinos, usuarios y suscripciones, vea el [diccionario de terminología de la nube de Azure](/azure/azure-glossary-cloud-terminology).  Para más información sobre cómo agregar una nueva suscripción a su inquilino de Azure Active Directory, consulte [Adición de una suscripción de Azure a Azure Active Directory](/azure/active-directory/active-directory-how-subscriptions-associated-directory).
 Para más información sobre cómo iniciar sesión un inquilino específico, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="change-the-active-subscription"></a>Cambio de la suscripción activa 
+## <a name="change-the-active-subscription"></a>Cambio de la suscripción activa
 
 Para acceder a los recursos dentro de una suscripción, cambie la suscripción activa o use el argumento `--subscription`. Para cambiar la suscripción para todos los comandos, se usa [az account set](/cli/azure/account#az-account-set).
 

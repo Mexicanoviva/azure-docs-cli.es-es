@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593785"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158487"
 ---
 # <a name="azure-cli-configuration"></a>Configuración de la CLI de Azure
 
@@ -84,7 +84,7 @@ La tabla siguiente contiene todos los nombres de las secciones y de las opciones
 
 Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumento. En su lugar, se usa el valor predeterminado.
 
-| Sección | NOMBRE      | Escriba | DESCRIPCIÓN|
+| Sección | NOMBRE      | Type | DESCRIPCIÓN|
 |---------|-----------|------|------------|
 | __core__ | output | string | El formato de salida predeterminado. Puede ser `json`, `jsonc`, `tsv` o `table`. |
 | | disable\_confirm\_prompt | boolean | Activa o desactiva los mensajes de confirmación. |
@@ -92,12 +92,12 @@ Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumen
 | __logging__ | enable\_log\_file | boolean | Activar o desactivar el registro. |
 | | log\_dir | string | El directorio en el que se escribe el registro. De manera predeterminada, este valor es `${AZURE_CONFIG_DIR}/logs`. |
 | __storage__ | connection\_string | string | La cadena de conexión predeterminada que se usará para los comandos `az storage`. |
-| | cuenta | string | El nombre de la cuenta predeterminada que se usará para los comandos `az storage`. |
+| | account | string | El nombre de la cuenta predeterminada que se usará para los comandos `az storage`. |
 | | key | string | La clave de la cuenta predeterminada que se usará para los comandos `az storage`. |
 | | sas\_token | string | El token de SAS predeterminado que se usará para los comandos `az storage`. |
 | __batchai__ | storage\_account | string | La cuenta de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
 | | storage\_key | string | La clave de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
-| __batch__ | cuenta | string | El nombre de la cuenta de Azure Batch predeterminada que se usará para los comandos `az batch`. |
+| __batch__ | account | string | El nombre de la cuenta de Azure Batch predeterminada que se usará para los comandos `az batch`. |
 | | access\_key | string | La clave de acceso predeterminada que se usará para los comandos `az batch`. Solo se usa con autorización `aad`. |
 | | punto de conexión | string | El punto de conexión predeterminado para los comandos `az batch`. |
 | | auth\_mode | string | El modo de autorización que se usará para los comandos `az batch`. Puede ser `shared_key` o `aad`. |
