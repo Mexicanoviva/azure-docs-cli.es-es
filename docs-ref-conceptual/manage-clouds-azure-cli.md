@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e62523ba310f071020f0d66042e39e6f1867c56b
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 14f51e068c4d2b332b0de93406822e148d734701
+ms.sourcegitcommit: 032f35d553754fbac78b218259a8d6a697ac220e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593853"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56458695"
 ---
-# <a name="select-clouds-with-the-azure-cli"></a>Selección de nubes con la CLI de Azure 
+# <a name="select-clouds-with-the-azure-cli"></a>Selección de nubes con la CLI de Azure
 
 Si trabaja en diferentes regiones o usa [Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/), puede que necesite utilizar más de una nube. Microsoft pone a su disposición nubes para el cumplimiento de las leyes locales. En este artículo se muestra cómo obtener información sobre las nubes, cómo cambiar la nube actual y cómo registrar o anular el registro de nuevas nubes.
 
@@ -88,7 +88,7 @@ az cloud set --name AzureChinaCloud
 
 Registre una nube nueva si tiene sus propios puntos de conexión para Azure Stack. Las nubes se crean con el comando [az cloud register](/cli/azure/cloud#az-cloud-register). Este comando requiere un nombre y un conjunto de puntos de conexión de servicio. Para más información sobre cómo registrar una nube para usarla con Azure Stack, consulte [Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack).
 
-No es necesario registrar su propia nube para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft administra estas nubes y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud#az-cloud-register).
+No es necesario registrar la información para las regiones de China, Gobierno de EE. UU. o Alemania. Microsoft administra estas nubes y están disponibles de forma predeterminada.  Para más información sobre la configuración de todos los puntos de conexión disponibles, consulte la [documentación de `az cloud register`](/cli/azure/cloud#az-cloud-register).
 
 Al registrar una nube no se cambia automáticamente a ella. Use el comando `az cloud set` para seleccionar la nube recién creada.
 

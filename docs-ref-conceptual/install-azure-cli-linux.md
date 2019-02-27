@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b57ddd04d41b09eb145349179e3be48d3fdd5907
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593683"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56422007"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Instalación manual de la CLI de Azure en Linux
 
 Si no hay ningún paquete de la CLI de Azure para su distribución, ejecute un script para instalar la CLI manualmente.
+
+[!INCLUDE [current-version](includes/current-version.md)]
 
 > [!NOTE]
 > Se recomienda utilizar un administrador de paquetes para instalar la CLI. Con un administrador de paquetes se asegura de que siempre tendrá las últimas actualizaciones y garantiza la estabilidad de los componentes de la CLI. Compruebe si existe un paquete para su distribución antes de instalar manualmente.
@@ -27,9 +29,13 @@ Si no hay ningún paquete de la CLI de Azure para su distribución, ejecute un s
 
 La CLI requiere el software siguiente:
 
-* [Python 2.7 o Python 3.x](https://www.python.org/downloads/)
+* [Python 3.6.x o 3.7.x](https://www.python.org/downloads/). 
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
+
+> [!IMPORTANT]
+>
+> La CLI también es compatible con Python 2.7. x, que terminará su ciclo de vida el 1 de enero de 2020. Por este motivo, se recomienda instalar Python 3 para ejecutar la CLI.
 
 ## <a name="install-or-update"></a>Instalación o actualización
 

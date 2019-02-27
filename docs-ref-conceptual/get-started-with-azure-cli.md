@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a56ce4acf070c17d8deaec9674593ba930cca70f
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: b018f41824946dca36d0b806de0dd32a335a15b5
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593615"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56422024"
 ---
 # <a name="get-started-with-azure-cli"></a>Introducción a la CLI de Azure
 
@@ -26,6 +26,8 @@ Bienvenido a la CLI de Azure. La CLI es una herramienta diseñada para ayudarle 
 La manera más fácil empezar a trabajar con la CLI de Azure es ejecutarla en un entorno de Azure Cloud Shell en su explorador. Para más información acerca de Cloud Shell, consulte [Guía de inicio rápido de Bash en Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
 Cuando esté listo para instalar la CLI, consulte las [instrucciones de instalación](install-azure-cli.md).
+
+Después de instalar la CLI por primera vez, ejecute `az --version` para comprobar que está instalada y que tiene la versión correcta.
 
 ## <a name="sign-in"></a>Iniciar sesión
 
@@ -72,8 +74,8 @@ La CLI dispone de la función de autocompletar con el tabulador para los comando
 Hay algunos argumentos que están disponibles para todos los comandos.
 
 * `--help` imprime información de referencia de la CLI sobre los comandos y sus argumentos y enumera los comandos y subgrupos disponibles.
-* `--output` cambia el formato de salida. Los formatos de salida disponibles son `json`, `jsonc` (JSON coloreado), `tsv` (Valores separados por tabulaciones) y `table` (tablas ASCII de lenguaje natural). De forma predeterminada, la CLI genera `json`. Para más información sobre los formatos de salida disponibles, consulte [Formatos de salida de la CLI de Azure](format-output-azure-cli.md).
-* `--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure. Para más información sobre las consultas, consulte [Consulta de los resultados de los comandos con la CLI de Azure](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
+* `--output` cambia el formato de salida. Los formatos de salida disponibles son `json`, `jsonc` (JSON coloreado), `tsv` (valores separados por tabulaciones), `table` (tablas ASCII en lenguaje natural) y `yaml`. De forma predeterminada, la CLI genera `json`. Para más información sobre los formatos de salida disponibles, consulte [Formatos de salida de la CLI de Azure](format-output-azure-cli.md).
+* `--query` usa el [lenguaje de consulta JMESPath](http://jmespath.org/) para filtrar los resultados devueltos por los servicios de Azure. Para más información sobre las consultas, vea [Consulta de los resultados de los comandos con la CLI de Azure](query-azure-cli.md) y [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
 * `--verbose` imprime información acerca de los recursos creados en Azure durante una operación y otra información de utilidad.
 * `--debug` imprime más información aún sobre las operaciones de la CLI y se utiliza con fines de depuración. Si encuentra un error, proporcione la salida que se genera con la marca `--debug` activada al enviar un informe de errores.
 
@@ -108,7 +110,7 @@ También hay guías de inicio rápido para otros servicios populares.
 
 ## <a name="give-feedback"></a>Envíenos sus comentarios
 
-Le agradecemos sus comentarios sobre la CLI para ayudarnos a mejorar y resolver errores. También puede [informar de un problema en Github](https://github.com/azure/azure-cli/issues) o utilizar las características integradas de la CLI para dejar comentarios generales con el comando [az feedback](/cli/azure/reference-index#az-feedback).
+Le agradecemos sus comentarios sobre la CLI para ayudarnos a mejorar y resolver errores. También puede [informar de un problema en GitHub](https://github.com/azure/azure-cli/issues) o utilizar las características integradas de la CLI para dejar comentarios generales con el comando [az feedback](/cli/azure/reference-index#az-feedback).
 
 ```azurecli-interactive
 az feedback

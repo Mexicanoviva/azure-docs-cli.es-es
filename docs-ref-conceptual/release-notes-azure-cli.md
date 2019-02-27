@@ -4,19 +4,240 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/18/2018
+ms.date: 02/15/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 10663ad8e85a15b8fedb5ac12c5d17256d07e523
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
+ms.openlocfilehash: 1c6b2cc57b80256faff0a174bec5f13bd84f5a1b
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805965"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158731"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+## <a name="february-12-2019"></a>12 de febrero de 2019
+
+Versión 2.0.58
+
+### <a name="core"></a>Núcleo
+
+* `az --version` ahora muestra una notificación si tiene paquetes que se pueden actualizar.
+* Se ha corregido la regresión por la que `--ids` no podía usarse con la salida JSON.
+
+### <a name="acr"></a>ACR
+* [CAMBIO IMPORTANTE] Se ha eliminado el grupo de comandos `acr build-task`.
+* [CAMBIO IMPORTANTE] Se han quitado las opciones `--tag` y `--manifest` de `acr repository delete`.
+
+### <a name="acs"></a>ACS
+* Se ha agregado compatibilidad a `aks [enable-addons|disable-addons]` para que no distinga mayúsculas y minúsculas en los nombres.
+* Se ha agregado compatibilidad para la operación de actualización de Azure Active Directory mediante `aks update-credentials --reset-aad`.
+* Se ha incluido una aclaración de que `--output` se omite para `aks get-credentials`.
+
+### <a name="ams"></a>AMS
+* Se agregaron los comandos `ams streaming-endpoint [start | stop | create | update] wait`.
+* Se agregaron los comandos `ams live-event [create | start | stop | reset] wait`.
+
+### <a name="appservice"></a>Appservice
+* Se ha agregado la posibilidad de crear y configurar funciones mediante contenedores de ACR.
+* Se ha agregado compatibilidad para actualizar las configuraciones de las aplicaciones web mediante JSON.
+* Se ha mejorado la ayuda de `appservice-plan-update`.
+* Se ha agregado compatibilidad para App Insights al crear una aplicación de función.
+* Se han corregido los problemas de SSH con las aplicaciones web.
+
+### <a name="botservice"></a>Botservice
+* Se ha mejorado la experiencia de usuario de `bot publish`.
+* Se ha agregado una advertencia de tiempo de espera agotado cuando se ejecuta `npm install` durante `az bot publish`.
+* Se han quitado caracteres no válidos `.` de `--name` en `az bot create`.
+* Se ha dejado de generar nombres de recursos aleatorios al crear almacenamiento de Azure Storage, planes de App Service, funciones o aplicaciones web y recursos de Application Insights.
+* [EN DESUSO] Se ha dejado de usar el argumento `--proj-name` en favor de `--proj-file-path`.
+* Se ha cambiado `az bot publish` para quitar los archivos de implementación IIS de Node.js capturados si ya no existen.
+* Se ha agregado el argumento `--keep-node-modules` a `az bot publish` para no eliminar la carpeta `node_modules` en App Service.
+* Se ha agregado el par clave-valor `"publishCommand"` a la salida de `az bot create` al crear una función o un bot de aplicación web de Azure.
+  * El valor de `"publishCommand"` es un comando `az bot publish` rellenado previamente con los parámetros necesarios para publicar el bot recién creado.
+* Se ha actualizado `"WEBSITE_NODE_DEFAULT_VERSION"` en la plantilla ARM para que los bots del SDK v4 usen la versión 10.14.1 en lugar de la versión 8.9.4.
+
+### <a name="key-vault"></a>Key Vault
+* Se ha corregido el problema con `keyvault secret backup` por el que algunos usuarios recibían un error `unexpected_keyword` cuando usaban `--id`.
+
+### <a name="monitor"></a>Supervisión
+* Se ha cambiado `monitor metrics alert [create|update]` para permitir el valor de dimensión `*`.
+
+### <a name="network"></a>Red
+* Se ha cambiado `dns zone export` para asegurarse de que los valores de CNAME exportados sean nombres de dominio completos.
+* Se ha agregado el parámetro `--gateway-name` a `nic ip-config address-pool [add|remove]` para admitir grupos de direcciones de back-end de puerta de enlace de aplicaciones.
+* Se han agregado los argumentos `--traffic-analytics` y `--workspace` a `network watcher flow-log configure` para admitir el análisis de tráfico mediante un área de trabajo de Log Analytics.
+* Se ha agregado `--idle-timeout` y `--floating-ip` a `lb inbound-nat-pool [create|update]`.
+
+### <a name="policy-insights"></a>Información de directiva
+* Se han agregado los comandos `policy remediation` para admitir las características de corrección de directivas de recursos.
+
+### <a name="rdbms"></a>RDBMS
+* Se han mejorado los parámetros de mensajes y comandos de ayuda.
+
+### <a name="redis"></a>Redis
+* Se han agregado comandos para administrar reglas de firewall (crear, actualizar, eliminar, mostrar y enumerar).
+* Se han agregado comandos para administrar vínculos de servidor (crear, eliminar, mostrar y enumerar).
+* Se han agregado comandos para administrar programaciones de revisiones (crear, actualizar, eliminar y mostrar).
+* Se ha agregado compatibilidad con zonas de disponibilidad y versión de TLS mínima a "redis create".
+* [CAMBIO IMPORTANTE] Se han eliminado los comandos `redis update-settings` y `redis list-all`.
+* [CAMBIO IMPORTANTE] El parámetro "tenant settings" de `redis create` no se acepta en con el formato clave[=valor].
+* [EN DESUSO] Se ha agregado el mensaje de advertencia de desuso del comando `redis import-method`.
+
+### <a name="role"></a>Rol
+* [CAMBIO IMPORTANTE] Se ha movido el comando `az identity` aquí desde los comandos `vm`.
+
+### <a name="sql-vm"></a>VM con SQL
+* [EN DESUSO] Se ha dejado de usar el argumento `--boostrap-acc-pwd` debido a un error de escritura.
+
+### <a name="vm"></a>máquina virtual
+* Se ha cambiado `vm list-skus` para poder usar `--all` en lugar de `--all true`.
+* Se agregó `vmss run-command [invoke | list | show]`.
+* Se ha corregido el error por el que `vmss encryption enable` producía un error si se ejecutaba previamente.
+* [CAMBIO IMPORTANTE] Se ha movido el comandos `az identity` a los comandos `role`.
+
+## <a name="january-31-2019"></a>31 de enero de 2019
+
+Versión 2.0.57
+
+### <a name="core"></a>Núcleo
+
+* Corrección para el [problema 8399](https://github.com/Azure/azure-cli/issues/8399).
+
+## <a name="january-28-2019"></a>28 de enero de 2019
+
+Versión 2.0.56
+
+### <a name="acr"></a>ACR
+* Se ha agregado compatibilidad con las reglas de red virtual o dirección IP.
+
+### <a name="acs"></a>ACS
+* Se ha agregado la versión preliminar de nodos virtuales.
+* Se han agregado comandos OpenShift administrados.
+* Se ha agregado compatibilidad para la operación de actualización de la entidad de servicio con `aks update-credentials -reset-service-principal`.
+
+### <a name="ams"></a>AMS
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `ams asset get-streaming-locators` a `ams asset list-streaming-locators`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `ams streaming-locator get-content-keys` a `ams streaming-locator list-content-keys`
+
+### <a name="appservice"></a>Appservice
+* Se ha agregado compatibilidad para App Insights en `functionapp create`.
+* Se ha agregado a las aplicaciones de función compatibilidad para la creación de planes de App Service (includo el plan Premium Elástico).
+* Se han corregido los problemas de configuración de aplicaciones con los planes Premium Elástico.
+
+### <a name="container"></a>Contenedor
+* Se agregó el comando `container start`.
+* Se ha cambiado para poder usar valores decimales de la CPU durante la creación de contenedores.
+
+### <a name="eventgrid"></a>EventGrid
+* Se ha agregado el parámetro `--deadletter-endpoint` a `event-subscription [create|update]`
+* Se han agregado storagequeue y hybridconnection como nuevos valores para "event-subscription [create|update] --endpoint-type".
+* Se han agregado los parámetros `--max-delivery-attempts` y `--event-ttl` a `event-subscription create` para especificar la directiva de reintentos para los eventos.
+* Se ha agregado un mensaje de advertencia a `event-subscription [create|update]` cuando se usa un webhook como destino para una suscripción de eventos.
+* Se ha agregado el parámetro source-resource-id para todos los comandos relativos a suscripciones de eventos, y se han marcado en desuso todos los demás parámetros relativos al recurso de origen.
+
+### <a name="hdinsight"></a>HDInsight
+* [CAMBIO IMPORTANTE] Se han eliminado los parámetros `--virtual-network` y `--subnet-name` en `hdinsight [application] create`.
+* [CAMBIO IMPORTANTE] Se ha cambiado `hdinsight create --storage-account` para aceptar el nombre o el identificador de una cuenta de almacenamiento en lugar de los puntos de conexión de un blob.
+* Se han agregado los parámetros `--vnet-name` y `--subnet-name` a `hdinsight create`.
+* Se ha agregado compatibilidad con Enterprise Security Package y el cifrado de discos a `hdinsight create`. 
+* Se agregó el comando `hdinsight rotate-disk-encryption-key`.
+* Se agregó el comando `hdinsight update`.
+
+### <a name="iot"></a>IoT
+* Se ha agregado un formato de codificación al comando routing-endpoint.
+
+### <a name="kusto"></a>Kusto
+* Versión preliminar
+
+### <a name="monitor"></a>Supervisión
+* Se ha cambiado la comparación de identificadores para que no distinga entre mayúsculas y minúsculas.
+
+### <a name="profile"></a>Perfil
+* Se ha habilitado la cuenta de nivel de inquilino para la identidad de servicio administrada de `login`.
+
+### <a name="network"></a>Red
+* Se ha corregido el problema con `express-route update` por el que se pasaba por el alto el argumento `--bandwidth`.
+* Se ha corregido el problema con `ddos-protection update` por el que la comprensión de conjuntos provocaba el seguimiento de la pila.
+
+### <a name="resource"></a>Recurso
+* Se ha agregado compatibilidad para el archivo de parámetros URI a `group deployment create`.
+* Se ha agregado compatibilidad para identidades administradas a `policy assignment [create|list|show]`.
+
+### <a name="sql-virtual-machine"></a>Máquina virtual SQL
+* Versión preliminar
+
+### <a name="storage"></a>Almacenamiento
+* Se ha modificado una corrección para actualizar solo las propiedades que se cambian en el mismo objeto.
+* Se ha corregido el problema 8021: los datos binarios se codifican en base 64 cuando se devuelven.
+
+### <a name="vm"></a>máquina virtual
+* Se ha cambiado `vm encryption enable` para validar el almacén de claves de cifrado de disco y ese almacén de claves de cifrado existe.
+* Se ha agregado la marca `--force` a `vm encryption enable`.
+
+## <a name="january-15-2019"></a>15 de enero de 2019
+
+Versión 2.0.55
+
+### <a name="acr"></a>ACR
+* Se ha cambiado para poder forzar la inserción de un gráfico de Helm que no existe.
+* Se ha cambiado para permitir las operaciones en tiempo de ejecución sin solicitudes ARM.
+* [EN DESUSO] El parámetro `--resource-group` está en desuso en los comandos:
+  * `acr login`
+  * `acr repository`
+  * `acr helm`
+
+### <a name="acs"></a>ACS
+* Se ha agregado compatibilidad para nuevas regiones de ACI.
+
+### <a name="appservice"></a>Appservice
+* Se ha corregido un problema con la carga de certificados para aplicaciones hospedadas en un entorno ASE, donde los grupos de recursos del entorno ASE y de la aplicación son diferentes.
+* Se ha cambiado `webapp up` para que use la SKU P1V1 como predeterminada para Linux.
+* Se ha corregido `[webapp|functionapp] deployment source config-zip` para mostrar el mensaje de error correcto cuando se produce un error en una implementación. 
+* Se agregó el comando `webapp ssh`.
+
+### <a name="botservice"></a>Botservice
+* Se han agregado actualizaciones al estado de implementación a `bot create`.
+
+### <a name="configure"></a>Configuración
+* Se ha agregado `none` como formato de salida configurable.
+
+### <a name="cosmosdb"></a>CosmosDB
+* Se ha agregado compatibilidad para la creación de bases de datos con una capacidad de proceso compartida.
+
+### <a name="hdinsight"></a>HDInsight
+* Se han agregado comandos para administrar aplicaciones.
+* Se han agregado comandos para administrar acciones de script.
+* Se han agregado comandos para administrar Operations Management Suite (OMS).
+* Se ha agregado compatibilidad para enumerar el uso regional a `hdinsight list-usage`.
+* [CAMBIO IMPORTANTE] Se ha quitado el tipo de clúster predeterminado de `hdinsight create`.
+
+### <a name="network"></a>Red
+* Se agregaron los argumentos `--custom-headers` y `--status-code-ranges` a `traffic-manager profile [create|update]`
+* Se han agregado nuevos tipos enrutamientos: subred y multivalor.
+* Se agregaron los argumentos `--custom-headers` y `--subnets` a `traffic-manager endpoint [create|update]`  
+* Se ha corregido el problema por el que se producía un error al suministrar `--vnets ""` a `ddos-protection update`.
+
+### <a name="role"></a>Rol
+* [EN DESUSO] Se ha dejado de usar el argumento `--password` para `create-for-rbac`. En su lugar, use contraseñas seguras generadas por la CLI.
+
+### <a name="security"></a>Seguridad
+* Versión inicial
+
+### <a name="storage"></a>Almacenamiento
+* [CAMBIO IMPORTANTE] Se ha cambiado el número predeterminado de resultados de `storage [blob|file|container|share] list` a 5000. Use `--num-results *` para el comportamiento original de devolver todos los resultados.
+* Se ha agregado el parámetro `--marker` a `storage [blob|file|container|share] list`
+* Se ha agregado un marcador de registro para página siguiente en STDERR para `storage [blob|file|container|share] list`. 
+* Se ha agregado el comando `storage blob service-properties update` con compatibilidad para sitios web estáticos.
+
+### <a name="vm"></a>máquina virtual
+* Se ha cambiado `vm [disk|unmanaged-disk]` y `vmss disk` para que tengan parámetros más coherentes.
+* Se ha agregado compatibilidad para hacer referencia a imágenes entre inquilinos a `[vm|vmss] create`.
+* Se ha corregido el error con la configuración predeterminada de `vm diagnostics get-default-config --windows-os`.
+* Se ha agregado el argumento `--provision-after-extensions` a `vmss extension set` para definir qué extensiones se deben aprovisionar antes de establecer la extensión.
+* Se ha agregado el argumento `--replica-count` a `sig image-version update` para establecer el número predeterminado de replicaciones.
+* Se ha corregido el error con `image create --source` por el que se confundía el disco de sistema operativo de origen para una máquina virtual con el mismo nombre, aunque se proporcionara el identificador de recurso completo.
 
 ## <a name="december-20-2018"></a>20 de diciembre de 2018
 
@@ -80,7 +301,7 @@ Versión 2.0.53
 * Se ha corregido el control del parámetro de ámbito para los grupos de administración en `policy assignment [create|list|delete|show|update]`. 
 * Se ha agregado un nuevo comando `resource wait`.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 *  Se ha agregado la posibilidad de actualizar la versión del esquema de registro para servicios de almacenamiento en `storage logging update`.
 
 ### <a name="vm"></a>máquina virtual
@@ -145,7 +366,7 @@ Versión 2.0.51
 * Se ha corregido un problema al intentar actualizar credenciales inmutables en `ad app update`.
 * Se han agregado advertencias de salida para comunicar los cambios importantes en un futuro próximo para `ad [app|sp] list`. 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 * Se ha mejorado el tratamiento de los casos excepcionales para los comandos de copia de almacenamiento.
 * Se ha solucionado un problema con `storage blob copy start-batch` que no utilizaba las credenciales de inicio de sesión cuando las cuentas de destino y de origen eran las mismas.
 * Se ha corregido un error con `storage [blob|file] url` donde `sas_token` no estaba incorporado en la dirección URL.
@@ -241,7 +462,7 @@ Versión 2.0.50
 * Se ha cambiado `ad sp create-for-rbac` para aclarar la confusión entre el nombre para mostrar y el nombre de la entidad de servicio
 * Se ha agregado compatibilidad para conceder permisos a las aplicaciones AAD
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 * Se ha agregado compatibilidad para conectarse a los servicios de almacenamiento solo con SAS y puntos de conexión (sin un nombre de cuenta o una clave), como se describe en `Configure Azure Storage connection strings <https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string>`
 
 ### <a name="vm"></a>máquina virtual
@@ -306,7 +527,7 @@ Versión 2.0.49
 ### <a name="sql"></a>SQL
 * Se han corregido `sql failover-group create` y `sql failover-group update` para trabajar con la directiva de conmutación por error manual
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 * Se ha corregido el formato de salida de `az storage cors list` para que todos los elementos muestren la clave "Service" correcta
 * Se ha agregado el parámetro `--bypass-immutability-policy` para la eliminación de un contenedor bloqueado por la directiva de inmutabilidad
 
@@ -480,7 +701,7 @@ Versión 2.0.46
 ### <a name="signalr"></a>SignalR
 * Primera versión
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 * Se ha agregado el parámetro `--auth-mode login` para usar las credenciales de inicio de sesión del usuario para la autorización de blobs y colas
 * Se ha agregado `storage container immutability-policy/legal-hold` para administrar el almacenamiento inmutable
 
@@ -542,7 +763,7 @@ Versión 2.0.45
 
 * Se ha cambiado `provider operation show` para salir con código 3 cuando falta un recurso
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha cambiado `storage share policy show` para salir con código 3 cuando falta un recurso
 
@@ -616,7 +837,7 @@ Versión 2.0.44
 
 * Se agregaron los comandos `sql failover-group`.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * [CAMBIO IMPORTANTE] Se ha cambiado `storage account show-usage` para requerir el parámetro `--location` y mostrará una lista por región
 * Se ha cambiado el parámetro `--resource-group` para que sea opcional para los comandos `storage account`
@@ -674,7 +895,7 @@ Versión 2.0.43
   *  `--enable-batched-operations` y `--enable-dead-lettering-on-message-expiration` en `queue`
   *  `--dead-letter-on-filter-exceptions` en `subscriptions`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha agregado compatibilidad para la descarga de archivos grandes con una sola conexión.
 * Se han convertido los comandos `show` que no producían un error con código de salida 3 cuando faltaba un recurso.
@@ -745,7 +966,7 @@ Versión 2.0.42
 * Permite la configuración de servidor de SQL Server predeterminado mediante la ejecución de `az configure --defaults sql-server=<name>`
 * Se han implementado formateadores de tabla para los comandos `sql server`, `sql server firewall-rule`, `sql list-usages` y `sql show-usage`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha agregado la propiedad `pageRanges` a la salida de `storage blob show` que se rellenará en los blobs en páginas
 
@@ -913,7 +1134,7 @@ Versión 2.0.38
 
 * Se ha corregido un error que producía confusión al ejecutar `az sql db list-editions` para una ubicación que no está disponible en su suscripción
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha cambiado la salida de la tabla para `storage blob download` para que sea más legible
 
@@ -1008,7 +1229,7 @@ Versión 2.0.34
   * `sql midb restore`
   * `sql midb delete`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se han agregado tipos de MIME adicionales para JSON y JavaScript para poder derivarlos de las extensiones de archivo
 
@@ -1077,7 +1298,7 @@ Versión 2.0.33
 * Se han agregados los parámetros `--family` y `--capacity` a los comandos `db`, `dw` y `elastic-pool`.
 * Se han agregados formateadores de tabla a los comandos `db`, `dw` y `elastic-pool`.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha agregado la función de autocompletar al argumento `--account-name`
 * Se ha corregido un problema con `storage entity query`
@@ -1195,7 +1416,7 @@ Versión 2.0.32
 
 * [CAMBIO IMPORTANTE] Se ha eliminado `ad sp reset-credentials` por desuso
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se permite que el token de sas de destino se aplique al origen en la copia de blobs si no se especifican el sas de origen y la clave de cuenta
 * Se expone --socket-timeout en la carga y descarga de blobs
@@ -1323,7 +1544,7 @@ Versión 2.0.31
 
 * Se han agregado `sql elastic-pool op list` y `sql elastic-pool op cancel`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se han mejorado los mensajes de error para las cadenas de conexión que tienen un formato incorrecto
 
@@ -1432,7 +1653,7 @@ Versión 2.0.30
 * [CAMBIO IMPORTANTE] Se quitó "properties" de la salida de `az role assignment [list|show]`
 * Se ha agregado compatibilidad para los permisos `dataActions` y `notDataActions` a `role definition`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha corregido un problema al cargar archivos con un tamaño de entre 195 GB y 200 GB
 * Se ha corregido el problema [4049](https://github.com/Azure/azure-cli/issues/4049): los problemas con las cargas de blobs de anexión ignoraban los parámetros de condición
@@ -1519,7 +1740,7 @@ Versión 2.0.29
 
 * Versión inicial.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha corregido el problema [4971](https://github.com/Azure/azure-cli/issues/4971): `storage blob copy` ahora admite otras nubes de Azure.
 * Se ha corregido el problema [5286](https://github.com/Azure/azure-cli/issues/5286): los comandos `storage blob [delete-batch|download-batch|upload-batch]` de Batch ya no producen errores después de errores de condición previa.
@@ -1582,7 +1803,7 @@ Versión 2.0.28
 
 * Se ha agregado compatibilidad para redundancia de zona para las bases de datos y los grupos elásticos tanto en creación como en actualización
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha habilitado al especificación de destino y ruta de acceso o prefijo para `storage blob [upload-batch|download-batch]`
 
@@ -1681,7 +1902,7 @@ Versión 2.0.27
 * Se agregó `sql db rename`.
 * Se ha agregado compatibilidad con el argumento `--ids` a todos los comandos sql
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se han agregado los comandos `storage blob service-properties delete-policy` y `storage blob undelete` para habilitar la eliminación temporal
 
@@ -1746,7 +1967,7 @@ Versión 2.0.26
 
 * Se ha corregido un error en `deployment [create|validate]` por el que aparecía incorrectamente una advertencia cuando un campo "type" de la plantilla contenía valores en mayúsculas
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha corregido un problema en la migración de cuentas de Storage V1 a Storage V2
 * Se ha agregado un informe de progreso a todos los comandos de carga y descarga
@@ -1873,7 +2094,7 @@ Versión 2.0.23
 * Se agregó el argumento `--disable-bgp-route-propagation` a `route-table [create|update]`
 * Se agregó el argumento `--ip-tags` a `public-ip [create|update]`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se agregó compatibilidad con almacenamiento V2
 
@@ -2028,7 +2249,7 @@ Versión 2.0.21
 
 * Se ha agregado el parámetro `--ignore-missing-vnet-service-endpoint` a `sql server vnet-rule [create|update]`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se cambió `storage account create` para usar la SKU `Standard_RAGRS` como valor predeterminado
 * Se corrigieron los errores cuando se trabajaba con nombres de archivo/blob que incluían caracteres no ascii
@@ -2132,7 +2353,7 @@ Versión 2.0.19
 * Se ha agregado el comando `db list-deleted` y el parámetro `db restore --deleted-time` que permiten la posibilidad de buscar y restaurar bases de datos eliminadas
 * Se han agregado las opciones `db op list` y `db op cancel` que permiten la posibilidad de enumerar y cancelar operaciones en curso en la base de datos
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se ha agregado compatibilidad con instantáneas de recursos compartidos de archivos
 
@@ -2166,7 +2387,7 @@ Versión 2.0.18
 * Se agregaron los argumentos `--ddos-protection` y `--vm-protection` a `vnet [create|update]`
 * Se agregaron los comandos `network [vnet-gateway|vpn-client|show-url]`.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se corrigió un problema por el que los comandos `storage account network-rule` podían producir un error después de actualizar el SDK
 
@@ -2274,7 +2495,7 @@ Versión 2.0.16
 
 * Se dejan de usar todos los comandos en favor de la CLI de Service Fabric (sfctl).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se corrigió un problema por el que no se podían crear cuentas de almacenamiento en regiones que no admitieran la característica NetworkACLs.
 * Determinación del tipo de contenido y la codificación del contenido durante la carga de blobs y archivos si no se especifican ni el tipo de contenido ni la codificación del contenido.
@@ -2324,7 +2545,7 @@ Version 2.0.15
 * Se corrigió el mensaje de petición de contraseña al usuario incluso después de pasar el parámetro.
 * Se agregó compatibilidad para valores vacíos de `registry_cred`.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se habilitó la configuración de la capa de blobs.
 * Se agregaron los argumento s`--bypass` y `--default-action` a `storage account [create|update]` para admitir la tunelización del servicio.
@@ -2404,7 +2625,7 @@ Versión 2.0.13
 
 * `account list`: se ha agregado `--refresh` para sincronizar las suscripciones más recientes del servidor.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se habilitó la actualización de la cuenta de almacenamiento con la identidad asignada por el sistema.
 
@@ -2669,7 +2890,7 @@ vm (2.0.11)
 * Se quitaron los valores de contraseña de la salida de los comandos `sql server create` y `sql server update`.
 * Se agregaron los comandos `sql db list-editions` y `sql elastic-pool list-editions`.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Se quitó la opción `--marker` de los comandos `storage blob list`, `storage container list` y `storage share list` (n.º 3745).
 * Se habilitó la creación de una cuenta de almacenamiento solo https.
@@ -2874,7 +3095,7 @@ vm (2.0.6)
 * Se agregan los comandos az sql server list-usages y az sql db list-usages
 * SQL: capacidad de conectarse directamente al proveedor de recursos ([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * Ubicación predeterminada del grupo de recursos para `storage account create`
 * Agregar compatibilidad para la copia de blob incremental
@@ -2981,7 +3202,7 @@ Esta versión de la CLI de Azure 2.0 es la primera versión "disponible con car�
 - Container Service (acs)
 - Compute (incluidos Resource Manager, VM, conjuntos de escalado de máquinas virtuales, Managed Disks)
 - Redes
-- Storage
+- Almacenamiento
 
 Estos módulos de comandos puede usarse en producción y son compatibles con el SLA estándar de Microsoft. Los problemas se pueden abrir directamente con el soporte técnico de Microsoft o en nuestra [lista de problemas de GitHub](https://github.com/azure/azure-cli/issues/). Puede hacer preguntas en [StackOverflow con la etiqueta azure-cli](http://stackoverflow.com/questions/tagged/azure-cli) o póngase en contacto con el equipo del producto en [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com). Puede enviarnos sus comentarios desde la línea de comandos con el comando `az feedback`
 

@@ -4,17 +4,17 @@ description: Inicio de sesión con la CLI de Azure de forma interactiva o con cr
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 05a4ef87fcf23af21ec6dc1d6cd9daa82369d5b9
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: c1c2efa58b11c38ac0ed73d43c71ba1b2a44de2e
+ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222453"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741741"
 ---
 # <a name="sign-in-with-azure-cli"></a>Inicio de sesión con la CLI de Azure 
 
@@ -49,13 +49,11 @@ az login -u <username> -p <password>
 > read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
 > ```
 >
-> En PowerShell, use el cmdlet `Read-Host -AsSecureString` y proteja la conversión de cadenas.
+> En PowerShell, use el cmdlet `Get-Credential`.
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login -u <username> -p $AzPass;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <username>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password
 > ```
 
 ## <a name="sign-in-with-a-service-principal"></a>Inicio de sesión con una entidad de servicio
@@ -68,6 +66,10 @@ Para iniciar sesión con una entidad de servicio, necesita:
 * La contraseña de la entidad de servicio o el certificado X509 utilizado para crear la entidad de servicio con el formato PEM.
 * El inquilino asociado con la entidad de servicio, como un dominio de `.onmicrosoft.com` o un identificador de objeto de Azure.
 
+> [!IMPORTANT]
+>
+> Si la entidad de servicio utiliza un certificado que se almacena en Key Vault, la clave privada del certificado debe estar disponible sin iniciar sesión en Azure. Para recuperar una clave privada para su uso sin conexión, use [az keyvault secret show](/cli/azure/keyvault/secret).
+
 ```azurecli-interactive
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
@@ -79,13 +81,11 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 > read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
 > ```
 >
-> En PowerShell, use el cmdlet `Read-Host -AsSecureString` y proteja la conversión de cadenas.
+> En PowerShell, use el cmdlet `Get-Credential`.
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <app-url>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password --tenant <tenant>
 > ```
 
 ## <a name="sign-in-with-a-different-tenant"></a>Inicio de sesión con un inquilino diferente
