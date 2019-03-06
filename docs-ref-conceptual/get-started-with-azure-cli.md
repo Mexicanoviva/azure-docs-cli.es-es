@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b018f41824946dca36d0b806de0dd32a335a15b5
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: ddee71f39500b63065a3f71d01b3bed1a7311a52
+ms.sourcegitcommit: 943598f8bf05ee058593ca0d72aec507aa26c242
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422024"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56963466"
 ---
 # <a name="get-started-with-azure-cli"></a>Introducción a la CLI de Azure
 
@@ -34,6 +34,8 @@ Después de instalar la CLI por primera vez, ejecute `az --version` para comprob
 Antes de usar los comandos de la CLI en una instalación local, deberá iniciar sesión con [az login](/cli/azure/reference-index#az-login).
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
+
+Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](/cli/azure/account#az-account-set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](manage-azure-subscriptions-azure-cli.md).
 
 Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
