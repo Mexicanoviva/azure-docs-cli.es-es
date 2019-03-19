@@ -4,17 +4,17 @@ description: Lista completa de las extensiones oficialmente admitidas por la CLI
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/05/2019
+ms.date: 03/08/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 07a067fb24d263760cdeaa0109ffc5fa949f75df
-ms.sourcegitcommit: d3be678e60132083b2a2257ac7a97eb0e1e23798
+ms.openlocfilehash: 40522581225f5bbade2bc52a8f2f7b6ba239a5b4
+ms.sourcegitcommit: 67d60b0c40dcff63ded696184529827f14940cc1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57430263"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57754817"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensiones disponibles para la CLI de Azure
 
@@ -33,6 +33,7 @@ az extension list-available --output table
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Compatibilidad con alias de comandos | Sí |
 | [anf-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/anf-preview) | 0.1.0 | Proporciona una versión preliminar de las nuevas características de Azure NetApp Files (ANF). | Sí |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | Proporciona una versión preliminar de las futuras características de configuración de aplicaciones. | Sí |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.0 | Se ha agregado compatibilidad para consultar métricas, eventos y registros de Azure Application Insights. | Sí |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.2 | Comandos adicionales para trabajar con el servicio Azure Batch |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.1 | Proporciona una capa de comandos en el plano de datos para Azure IoT Hub, IoT Edge e IoT Device Provisioning Service. |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.3.0 | Herramientas para administrar Azure DevOps. | Sí |
