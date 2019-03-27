@@ -4,17 +4,17 @@ description: Lista completa de las extensiones oficialmente admitidas por la CLI
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/08/2019
+ms.date: 03/20/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 40522581225f5bbade2bc52a8f2f7b6ba239a5b4
-ms.sourcegitcommit: 67d60b0c40dcff63ded696184529827f14940cc1
+ms.openlocfilehash: 5f787111d349e32ef838ab89d3f964ab484a2ac4
+ms.sourcegitcommit: 5864f72b9a6fbf82a4d98bf805b3a16a7da18556
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57754817"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58343118"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensiones disponibles para la CLI de Azure
 
@@ -34,12 +34,12 @@ az extension list-available --output table
 | [anf-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/anf-preview) | 0.1.0 | Proporciona una versión preliminar de las nuevas características de Azure NetApp Files (ANF). | Sí |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | Proporciona una versión preliminar de las futuras características de configuración de aplicaciones. | Sí |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.0 | Se ha agregado compatibilidad para consultar métricas, eventos y registros de Azure Application Insights. | Sí |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.2 | Comandos adicionales para trabajar con el servicio Azure Batch |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.1 | Proporciona una capa de comandos en el plano de datos para Azure IoT Hub, IoT Edge e IoT Device Provisioning Service. |  |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.3 | Comandos adicionales para trabajar con el servicio Azure Batch |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.7.0 | Proporciona una capa de comandos en el plano de datos para Azure IoT Hub, IoT Edge e IoT Device Provisioning Service. |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.3.0 | Herramientas para administrar Azure DevOps. | Sí |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.1 | Administración de los recursos de Azure Firewall. | Sí |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.3 | Correcciones de errores para los problemas en el módulo nativo de comandos de la CLI botservice. | Sí |
-| [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.7 | Comandos adicionales para simplificar los flujos de trabajo de bases de datos de Azure. | Sí |
+| [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.9 | Comandos adicionales para simplificar los flujos de trabajo de bases de datos de Azure. | Sí |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. | Sí |
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.6.0 | Compatibilidad con nuevos escenarios de Database Migration Service. | Sí |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Extensión de la CLI de Azure para las zonas DNS |  |
@@ -47,14 +47,15 @@ az extension list-available --output table
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.3 | Administración de circuitos ExpressRoute con características en versión preliminar. | Sí |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | Administre circuitos ExpressRoute del cliente mediante una conexión cruzada de ExpressRoute. |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | Consultas inteligentes para obtener información de la CLI. | Sí |
-| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.1 | Administración de redes de Front Door. | Sí |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.2 | Administración de redes de Front Door. | Sí |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.9 | Compatibilidad para copiar imágenes de máquina virtual administradas entre regiones |  |
 | [interactive](https://github.com/Azure/azure-cli) | 0.4.1 | Shell interactivo de la línea de comandos de Microsoft Azure | Sí |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Comandos de Azure Key Vault en versión preliminar. | Sí |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Compatibilidad con las funcionalidades de consulta de Azure Log Analytics. | Sí |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensión de la CLI de Azure para los grupos de administración |  |
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | Compatibilidad con la versión preliminar de administración de partners. |  |
-| [mesh](https://github.com/Azure/azure-cli-extensions) | 0.10.2 | Compatibilidad con Microsoft Azure Service Fabric Mesh (versión preliminar pública). | Sí |
+| [mesh](https://github.com/Azure/azure-cli-extensions) | 0.10.4 | Compatibilidad con Microsoft Azure Service Fabric Mesh (versión preliminar pública). | Sí |
+| [mixed-reality](https://github.com/Azure/azure-cli-extensions) | 0.0.1 | Extensión de la CLI de Azure de Mixed Reality. |  |
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Comandos para administrar zonas DNS privadas. | Sí |
 | [rdbms-vnet](https://github.com/Azure/azure-cli-extensions) | 10.0.0 | Compatibilidad para reglas de red virtual en recursos de Azure MySQL y Azure PostgreSQL |  |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.8 | Se admite la consulta de recursos de Azure con Resource Graph. | Sí |

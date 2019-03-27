@@ -4,11 +4,11 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/07/2018
 ms.topic: include
-ms.openlocfilehash: c8925d6c55ccb974f3ffccdcec0dd462bbbb802c
-ms.sourcegitcommit: 9fb008f2802ca6a58f33e01263bf55a80d01f031
+ms.openlocfilehash: a93bc564f43283bf47818a44ca8a35f387a4ba14
+ms.sourcegitcommit: 71c0ccd475524cf4d6db45bba8139fef3262d764
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905527"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177786"
 ---
-La versión actual de la CLI es __2.0.59__. Para más información sobre la versión más reciente, consulte las [notas de la versión](../release-notes-azure-cli.md). Para ver la versión que se ejecuta en su sistema y comprobar si es necesario actualizar, ejecute `az --version`.
+La versión actual de la CLI es __2.0.60__. Para más información sobre la versión más reciente, consulte las [notas de la versión](../release-notes-azure-cli.md). Para ver la versión que se ejecuta en su sistema y comprobar si es necesario actualizar, ejecute `az --version`.
