@@ -4,19 +4,88 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/15/2019
+ms.date: 03/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4337f2203841d6247e4b487d245138424c63e448
-ms.sourcegitcommit: 71c0ccd475524cf4d6db45bba8139fef3262d764
+ms.openlocfilehash: d8307ca9797a9a780d7e08d6d21cb66446c7e289
+ms.sourcegitcommit: 6d9e8ee6dd07cfd07239a2948304d7f50ef781cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175140"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58508909"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+## <a name="march-26-2019"></a>26 de marzo de 2019
+
+### <a name="core"></a>Núcleo
+* Se han corregido problemas con la incompatibilidad de la extensión de desarrollo.
+* El control de errores ahora dirige a los clientes a la página de problemas.
+
+### <a name="cloud"></a>Nube
+* Se ha corregido un error de "suscripción no encontrada" en `cloud set`.
+
+### <a name="acr"></a>ACR
+* Se han corregido orígenes redundantes en la importación de imágenes.
+* Se ha agregado `--auth-mode` a los comandos `acr build`, `acr run`, `acr task create` y `acr task update`.
+* Se ha agregado el grupo de comandos "acr task credential" para administrar las credenciales de una tarea.
+* Se ha agregado "--no-wait" al comando `acr build`.
+
+### <a name="appservice"></a>AppService
+* Se ha corregido el error por el que `webapp up` no controlaba correctamente los escenarios de ejecución desde un directorio o de código desconocido.
+* Se ha corregido el error por el que los espacios no funcionaban para `[webapp|functionapp] config ssl bind`.
+
+### <a name="bot-service"></a>Servicio BOT
+* Se ha agregado `bot prepare-deploy` para preparar la implementación de bots mediante `webapp`.
+* Se ha cambiado `bot create --kind registration` para que muestre la contraseña si no se proporciona una.
+* [CAMBIO IMPORTANTE] Se ha cambiado `--endpoint` en `bot create --kind registration` a que sea una cadena vacía de forma predeterminada en lugar de que sea obligatorio.
+* Se ha agregado `SCM_DO_BUILD_DURING_DEPLOYMENT` a la configuración de la aplicación de la plantilla de ARM para la versión 4 de bots de aplicación web.
+
+### <a name="cdn"></a>CDN
+* Se agregó compatibilidad para `--no-wait` a `cdn endpoint [create|update|start|stop|delete|load|purge]`.  
+* [CAMBIO IMPORTANTE] Se ha cambiado el comportamiento de almacenamiento de cadenas de consulta en caché predeterminado de `cdn endpoint create`. El valor predeterminado ya no es "IgnoreQueryString". Ahora lo establece el servicio
+
+### <a name="cosmosdb"></a>Cosmosdb
+* Se ha agregado compatibilidad con `--enable-multiple-write-locations` al actualizar la cuenta.
+* Se ha agregado el subgrupo `network-rule` con los comandos `add`, `remove` y `list` para administrar las reglas de la red virtual de una cuenta de Cosmos DB.
+
+### <a name="interactive"></a>Interactive
+* Se ha corregido la incompatibilidad con la extensión interactiva instalada mediante azdev.
+
+### <a name="monitor"></a>Supervisión
+* Se ha cambiado para permitir el valor de dimensión `*` para `monitor metrics alert [create|update]`.
+
+### <a name="network"></a>Red
+* Se ha agregado el grupo de comandos `rewrite-rule` a `application-gateway`.
+
+### <a name="profile"></a>Perfil
+* Se ha agregado a `login` compatibilidad de la cuenta en el nivel de inquilino para la identidad de servicio administrada.
+
+### <a name="postgres"></a>Postgres 
+* Se han agregado los comandos postgresql `replica` y el comando `restart server`.
+* Se ha cambiado para obtener la ubicación predeterminada del grupo de recursos cuando no se proporciona para la creación de servidores y agregar validación para los días de retención.
+
+### <a name="resource"></a>Recurso
+* Se ha mejorado la salida de tabla de `deployment [create|list|show]`.
+* Se ha corregido el problema con `deployment [create|validate]` por el que no reconocía el tipo secureObject.
+
+### <a name="graph"></a>Grafo
+* Se agregó compatibilidad para `--end-date` a `ad [app|sp] credential reset`.
+* Se ha agregado compatibilidad para agregar permisos con `ad app permission add`.
+* Se ha corregido un error con `ad app permission list` cuando no había ningún permiso.
+* Se ha cambiado `ad sp delete` para omitir la eliminación de la asignación de roles si la cuenta actual no tiene ninguna suscripción.
+* Se ha cambiado `ad app create` para que `--identifier-uris` sea una lista vacía de forma predeterminada si no se proporciona.
+
+### <a name="storage"></a>storage
+* Se ha agregado `--snapshot` a `storage file download-batch` para descargar desde una instantánea de recurso compartido.
+* Se ha cambiado la barra de progreso `storage blob [download-batch|upload-batch]` para que sea menos detallada y que indique el blob actual.
+* Se ha corregido el problema con `storage account update` al actualizar los parámetros de cifrado.
+* Se ha corregido el problema por el que `storage blob show` producía un error al usar oauth (`--auth-mode=login`).
+
+### <a name="vm"></a>máquina virtual
+* Se agregó el comando `image update`.
+
 ## <a name="march-12-2019"></a>12 de marzo de 2019
 
 Versión 2.0.60
