@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ddee71f39500b63065a3f71d01b3bed1a7311a52
-ms.sourcegitcommit: 943598f8bf05ee058593ca0d72aec507aa26c242
+ms.openlocfilehash: 003576ba22cdc4fc64977b653d0fb6859cd38446
+ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56963466"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59429037"
 ---
 # <a name="get-started-with-azure-cli"></a>Introducción a la CLI de Azure
 
@@ -60,7 +60,7 @@ Los comandos de la CLI se organizan como _grupos_ de _comandos_. Cada grupo repr
 Para buscar comandos, utilice [az find](/cli/azure/reference-index#az-find). Por ejemplo, para buscar nombres de comando que contienen `secret`, use el siguiente comando:
 
 ```azurecli-interactive
-az find -q secret
+az find secret
 ```
 
 Use el argumento `--help` para obtener una lista completa de los comandos y los subgrupos de un grupo. Por ejemplo, para encontrar los comandos de la CLI para trabajar con grupos de seguridad de red (NSG):
@@ -98,15 +98,15 @@ También hay un [complemento de Visual Studio Code](https://marketplace.visualst
 Para ayudarle a comenzar con la CLI de Azure, pruebe con un tutorial exhaustivo sobre la configuración de máquinas virtuales y el uso de la potencia de la CLI para consultar los recursos de Azure.
 
 > [!div class="nextstepaction"]
-> [Tutorial de creación de máquinas virtuales con la CLI de Azure](azure-cli-vm-tutorial.yml)
+> [Creación de máquinas virtuales con la CLI de Azure](azure-cli-vm-tutorial.yml)
 
 También hay guías de inicio rápido para otros servicios populares.
 
 * [Creación de una cuenta de almacenamiento con la CLI de Azure](/azure/storage/common/storage-quickstart-create-storage-account-cli)
-* [Transferencia de objetos a y desde Azure Blob Storage mediante la CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)
+* [Transferencia de objetos hacia y desde Azure Blob Storage mediante la CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Creación de una sola instancia de Azure SQL Database con la CLI de Azure](/azure/sql-database/sql-database-get-started-cli)
 * [Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
-* [Create an Azure Database for PostgreSQL using the Azure CLI](/azure/postgresql/quickstart-create-server-database-azure-cli) (Creación de una base de datos Azure Database for PostgreSQL con la CLI de Azure)
+* [Crear una base de datos de Azure para PostgreSQL con la CLI de Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
 * [Creación de una aplicación web de Python en Azure](/azure/app-service/app-service-web-get-started-python)
 * [Ejecución de una imagen personalizada de Docker Hub en Azure Web Apps for Containers](/azure/app-service/containers/quickstart-custom-docker-image)
 
