@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 61be6c31e7251c8b374bf09072a9ecba9b914342
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 2f8ec8e82a61f11ee58fe8e509d6e5febc7d226f
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422058"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516222"
 ---
 # <a name="install-azure-cli-on-macos"></a>Instalación de la CLI de Azure en macOS
 
@@ -59,6 +59,20 @@ brew link --overwrite python3
 ### <a name="cli-version-1x-is-installed"></a>Versión de la CLI 1.x instalada
 
 Si se instaló una versión no actualizada, podría deberse a que la memoria caché de Homebrew estaba obsoleta. Siga las instrucciones de [actualización](#Update).
+
+### <a name="proxy-blocks-connection"></a>Conexión de bloques proxy
+
+No puede obtener recursos de Homebrew, a menos que lo haya configurado correctamente para usar el servidor proxy. Siga las [instrucciones de configuración del servidor proxy de Homebrew](https://docs.brew.sh/Manpage#using-homebrew-behind-a-proxy).
+
+> [!IMPORTANT]
+> Si está detrás de un servidor proxy, `HTTP_PROXY` y `HTTPS_PROXY` deben establecerse para conectarse a los servicios de Azure con la CLI.
+> Si no utiliza autenticación básica, se recomienda exportar estas variables en su archivo `.bashrc`.
+> Siga siempre las directivas de seguridad de su empresa y los requisitos del administrador del sistema.
+
+Para obtener los recursos Bottle de Homebrew, el servidor proxy debe permitir las conexiones HTTPS a las siguientes direcciones:
+
+* `https://formulae.brew.sh`
+* `https://homebrew.bintray.com`
 
 ## <a name="update"></a>Actualizar
 
