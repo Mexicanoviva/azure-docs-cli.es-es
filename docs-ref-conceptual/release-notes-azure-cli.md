@@ -4,19 +4,52 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/21/2019
+ms.date: 06/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
-ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
+ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
+ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197797"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750234"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="june-4-2019"></a>4 de junio de 2019
+
+Versión 2.0.66
+
+### <a name="core"></a>Núcleo
+* Se ha corregido el problema por el que los comandos generan un error si `--output yaml` se usa con `--query`.
+
+### <a name="acr"></a>ACR
+* Se ha agregado el grupo de comandos "acr pack" para crear tareas de compilación rápida mediante Buildpacks.
+
+### <a name="acs"></a>ACS
+* Se permite habilitar o deshabilitar el complemento kube-dashboard de AKS.
+* Se imprime un mensaje descriptivo cuando la suscripción no está en la lista de permitidos para usar Azure Red Hat OpenShift.
+
+### <a name="batch"></a>Batch
+* Se ha mejorado el control de errores cuando no se ha iniciado sesión en una cuenta \[ [9165](https://github.com/Azure/azure-cli/issues/9165)\]\[[8978](https://github.com/Azure/azure-cli/issues/8978)\].
+
+### <a name="iot"></a>IoT
+* Se ha agregado compatibilidad para la conmutación por error manual.
+
+### <a name="network"></a>Red
+* Se han agregado comandos `network application-gateway waf-policy` para admitir reglas personalizadas de WAF.
+* Se agregaron los argumentos `--waf-policy` y `--max-capacity` a `network application-gateway [create|update]` 
+
+### <a name="resource"></a>Recurso
+* Se ha mejorado el mensaje de error de `deployment create` cuando TTY no está disponible.
+
+### <a name="role"></a>Rol
+* Texto de ayuda actualizado.
+
+### <a name="compute"></a>Proceso
+* Se ha agregado compatibilidad a `vm create` para máquinas virtuales desde una imagen administrada con LUN de discos de datos que no comienzan en 0 o que omiten los números.
 
 ## <a name="may-21-2019"></a>21 de mayo de 2019
 
