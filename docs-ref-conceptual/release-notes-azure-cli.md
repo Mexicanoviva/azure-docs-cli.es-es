@@ -4,19 +4,104 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/05/2019
+ms.date: 06/18/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
-ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
+ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
+ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750234"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67194867"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="june-18-2019"></a>18 de junio de 2019
+
+Versión 2.0.67
+
+### <a name="core"></a>Núcleo
+
+Esta versión introduce una nueva etiqueta [Preview] para indicar con mayor claridad a los clientes si un grupo de comandos, un comando o un argumento está en versión preliminar. Antes esto se comunicaba en el texto de ayuda o se indicaba explícitamente en el número de versión del módulo de comandos.
+La CLI eliminará los números de versión de los paquetes individuales en el futuro. Si un comando está en versión preliminar, todos sus argumentos también lo están. Si un grupo de comandos está etiquetado como versión preliminar, se consideran que todos los comandos y argumentos también están en versión preliminar.
+
+Como resultado de este cambio, pueden parecer que varios grupos de comandos están "repentinamente" en versión preliminar con esta versión. Lo que realmente ha sucede es que la mayoría de los paquetes estaban en versión preliminar, pero se considera que están disponibles con carácter general con esta versión.
+
+### <a name="acr"></a>ACR
+* Se ha agregado el comando "acr check-health".
+* Mejor control de los errores para los tokens AAD y para recuperar los comandos externos.
+
+### <a name="acs"></a>ACS
+* Los comandos en desuso de ACS ya no se muestran en la vista de la ayuda.
+
+### <a name="ams"></a>AMS
+* [CAMBIO IMPORTANTE] Las cadenas de hora ISO 8601 se han cambiado para volver a archive-window-length y key-frame-interval-duration.
+
+### <a name="appservice"></a>AppService
+* Se ha agregado el enrutamiento basado en la ubicación para `webapp deleted list` y `webapp deleted restore`.
+* Se ha corregido el problema por el que no se podía hacer clic la dirección URL de destino registrada de la aplicación web ("Puede iniciar la aplicación en...") en Azure Cloud Shell.
+* Se ha corregido el problema por el que, al crear aplicaciones con algunas SKU, se producía un error de AlwaysOn.
+* Se ha agregado validación previa a `[appservice|webapp] create`.
+* Se ha corregido `[webapp|functionapp] traffic-routing` para usar el valor correcto de actionHostName.
+* Se ha agregado compatibilidad con ranuras a los comandos `functionapp`.
+
+### <a name="batch"></a>Batch
+* Se ha corregido la regresión de autenticación de AAD causada por una notificación demasiado agresiva de errores de autenticación de clave compartida.
+
+### <a name="batchai"></a>BatchAI
+* Los comandos de BatchAI han dejado de usarse y están ocultos.
+
+### <a name="botservice"></a>BotService
+* Se ha agregado un aviso de advertencia "compatibilidad descontinuada" o "modo de mantenimiento" a los comandos que admiten el SDK v3.
+
+### <a name="cosmosdb"></a>CosmosDB
+* [EN DESUSO] Se ha dejado de usar el comando `cosmosdb list-keys`.
+* Se ha agregado el comando `cosmosdb keys list`, que reemplaza a `cosmosdb list-keys`.
+* `cosmsodb create/update`: Se ha agregado el nuevo formato a --location para poder establecer la propiedad "isZoneRedundant". Formato antiguo en desuso.
+
+### <a name="eventgrid"></a>EventGrid
+* Se han agregado comandos `eventgrid domain` para las operaciones CRUD de dominios.
+* Se han agregado comandos `eventgrid domain topic` para las operaciones CRUD de temas de dominio.
+* Se ha agregado el argumento `--odata-query` a `eventgrid [topic|event-subscription] list` para filtrar los resultados mediante la sintaxis de OData.
+* `event-subscription create/update`: Se ha agregado servicebusqueue como nuevos valores para el parámetro `--endpoint-type`.
+* [CAMBIO IMPORTANTE] Se ha quitado la compatibilidad para `--included-event-types All` con `eventgrid event-subscription [create|update]`.
+
+### <a name="hdinsight"></a>HDInsight
+* Se ha agregado compatibilidad con el parámetro `--ssh-public-key` al comando `hdinsight create`.
+
+### <a name="iot"></a>IoT
+* Se ha agregado compatibilidad para volver a generar las claves de directiva de autorización.
+* Se ha agregado un SDK y compatibilidad con el servicio de aprovisionamiento de repositorio de DigitalTwin.
+
+### <a name="network"></a>Red
+* Se ha agregado compatibilidad de las zonas con puertas de enlace NAT.
+* Se ha agregado el comando `network list-service-tags`
+* Se ha corregido el problema con `dns zone import` por el que los usuarios no podían importar registros A con caracteres comodín.
+* Se ha corregido el problema con `watcher flow-log configure` por el que no se podía habilitar el registro de flujos en determinadas regiones.
+
+### <a name="resource"></a>Recurso
+* Se ha agregado el comando `az rest` para hacer llamadas de REST.
+* Se ha corregido el error al usar `policy assignment list` con un grupo de recursos o un nivel de suscripción `--scope`.
+
+### <a name="servicebus"></a>ServiceBus
+* Se ha corregido el error con `servicebus topic create --max-size` [n.º 9319](https://github.com/azure/azure-cli/issues/9319)
+
+### <a name="sql"></a>SQL
+* Se ha cambiado `--location` para que sea opcionalpara `sql [server|mi] create`; usa la ubicación del grupo de recursos si no se especifica.
+* Se ha corregido el error "No se puede iterar en el objeto NoneType" para `sql db list-editions --available`.
+
+### <a name="sqlvm"></a>SQLVm
+* [CAMBIO IMPORTANTE] Se ha cambiado `sql vm create` para requerir el parámetro `--license-type`.
+* Se ha cambiado para poder establecer el SKU de la imagen de SQL al crear o actualizar una máquina virtual de SQL.
+
+### <a name="storage"></a>Storage
+* Se ha corregido un problema con una clave de cuenta que falta para `storage container generate-sas`.
+* Se ha corregido un problema con `storage blob sync` en Linux.
+
+### <a name="vm"></a>máquina virtual
+* [VERSIÓN PRELIMINAR] Se han agregado los comandos `vm image template` para compilar imágenes de máquina virtual.
 
 ## <a name="june-4-2019"></a>4 de junio de 2019
 
