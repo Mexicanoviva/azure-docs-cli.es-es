@@ -4,17 +4,17 @@ description: Lista completa de las extensiones oficialmente admitidas por la CLI
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/24/2019
+ms.date: 06/30/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 62d20395eb1937680bf10262ca8bd40e00fd21df
-ms.sourcegitcommit: 5fe8c4e9fe2e86d929cfe11bfeab0ea8b2b72033
+ms.openlocfilehash: 63d50a46a81482e260307cdc44adfea6aa4499f1
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67389047"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527341"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensiones disponibles para la CLI de Azure
 
@@ -35,7 +35,7 @@ az extension list-available --output table
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Compatibilidad para administrar componentes de Application Insights y consultar las métricas, los eventos y los registros de esos componentes. | Sí |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.4 | Comandos adicionales para trabajar con el servicio Azure Batch |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.7.1 | Proporciona una capa de comandos en el plano de datos para Azure IoT Hub, IoT Edge e IoT Device Provisioning Service. |  |
-| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.43 | Módulo de comandos de AzureML de la herramienta de línea de comandos de Microsoft Azure |  |
+| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.45.1 | Módulo de comandos de AzureML de la herramienta de línea de comandos de Microsoft Azure |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.11.0 | Herramientas para administrar Azure DevOps. |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Administración de los recursos de Azure Firewall. | Sí |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Comandos adicionales para simplificar los flujos de trabajo de bases de datos de Azure. | Sí |
@@ -47,14 +47,14 @@ az extension list-available --output table
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.3 | Administración de circuitos ExpressRoute con características en versión preliminar. | Sí |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | Administre circuitos ExpressRoute del cliente mediante una conexión cruzada de ExpressRoute. |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | Consultas inteligentes para obtener información de la CLI. | Sí |
-| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.7 | Administración de redes de Front Door. | Sí |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.8 | Administración de redes de Front Door. | Sí |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Compatibilidad para copiar imágenes de máquina virtual administradas entre regiones |  |
 | [interactive](https://github.com/Azure/azure-cli) | 0.4.3 | Shell interactivo de la línea de comandos de Microsoft Azure | Sí |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Comandos de Azure Key Vault en versión preliminar. | Sí |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Compatibilidad con las funcionalidades de consulta de Azure Log Analytics. | Sí |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensión de la CLI de Azure para los grupos de administración |  |
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | Compatibilidad con la versión preliminar de administración de partners. |  |
-| [mesh](https://github.com/Azure/azure-cli-extensions) | 0.10.5 | Compatibilidad con Microsoft Azure Service Fabric Mesh (versión preliminar pública). | Sí |
+| [mesh](https://github.com/Azure/azure-cli-extensions) | 0.10.6 | Compatibilidad con Microsoft Azure Service Fabric Mesh (versión preliminar pública). | Sí |
 | [mixed-reality](https://github.com/Azure/azure-cli-extensions) | 0.0.1 | Extensión de la CLI de Azure de Mixed Reality. |  |
 | [netappfiles-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/netappfiles-preview) | 0.3.2 | Proporciona una versión preliminar de las nuevas características de Azure NetApp Files (ANF). | Sí |
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Comandos para administrar zonas DNS privadas. | Sí |
@@ -64,5 +64,5 @@ az extension list-available --output table
 | [suscripción](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Compatibilidad con la versión preliminar de la administración de suscripciones. |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | Administración de TAP de red virtual (VTAP). | Sí |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | Administración de redes WAN virtuales, concentradores, puertas de enlace de VPN y sitios de VPN. | Sí |
-| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.1.0 | Comandos de reparación automática para corregir las máquinas virtuales. |  |
+| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.1.1 | Comandos de reparación automática para corregir las máquinas virtuales. |  |
 | [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.19 | Comandos adicionales para Azure App Service. | Sí |

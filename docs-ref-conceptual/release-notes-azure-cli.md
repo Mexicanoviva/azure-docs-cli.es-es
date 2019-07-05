@@ -4,25 +4,102 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/18/2019
+ms.date: 07/02/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
-ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
+ms.openlocfilehash: 26757193628cff65603a04e440f9e2aa7bf5a248
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67194867"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527303"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="july-2-2019"></a>2 de julio de 2019
+
+Versión 2.0.68
+
+### <a name="core"></a>Core
+
+* Los módulos de comandos ahora se consolidan en un único paquete distribuible de Python. Esto reemplaza el uso directo de muchos paquetes `azure-cli-` en PyPI.
+  Esto reducirá el tamaño de la instalación y solo afecta a los usuarios que hayan instalado directamente mediante `pip`.
+
+### <a name="acr"></a>ACR
+
+* Se ha agregado compatibilidad para los desencadenadores de temporizador para las tareas.
+
+### <a name="appservice"></a>Appservice
+
+* Se ha cambiado `functionapp create` para habilitar Application Insights de manera predeterminada.
+* [CAMBIO IMPORTANTE] Se ha dejado de utilizar el comando `functionapp devops-build`.
+  *  Use el nuevo comando `az functionapp devops-pipeline` en su lugar.
+* Se ha agregado compatibilidad con el plan de aplicación de funciones Consumo para Linux a `functionapp deployment config-zip`.
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Se ha agregado compatibilidad para deshabilitar TTL.
+
+### <a name="dls"></a>DLS
+
+* Se ha actualizado la versión de ADLS (0.0.45).
+
+### <a name="feedback"></a>Comentarios
+
+* Al informar de un error de comando de extensión, `az feedback` ahora intenta abrir el explorador en la dirección URL del repositorio del proyecto de la extensión desde el índice.
+
+### <a name="hdinsight"></a>HDInsight
+
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre del grupo de comandos `oms` por `monitor`.
+* [CAMBIO IMPORTANTE] Ahora `--http-password/-p` es un parámetro necesario. 
+* Se han agregado completadores para los parámetros `--cluster-admin-account` y `cluster-users-group-dns`. 
+* Se ha cambiado el parámetro `cluster-users-group-dns` para que sea necesario cuando `—esp` está presente.
+* Se ha agregado un tiempo de espera para todos los autocompletadores de argumentos existentes.
+* Se ha agregado un tiempo de espera para transformar el nombre de recurso en un identificador de recurso.
+* Se han cambiado los autocompletadores para seleccionar recursos de cualquier grupo de recursos. Puede ser un grupo de recursos diferente a que se especifica con `-g`.
+* Se ha agregado compatibilidad con los parámetros `--sub-domain-suffix` y `--disable_gateway_auth` en el comando `hdinsight application create`.
+
+### <a name="managed-services"></a>Servicios administrados
+
+* Se ha introducido un módulo de comandos de servicios administrados en versión preliminar.
+
+### <a name="profile"></a>Perfil
+* Se ha suprimido el argumento `--subscription` del comando de cierre de sesión.
+
+### <a name="rbac"></a>RBAC
+
+* [CAMBIO IMPORTANTE] Se ha quitado el argumento `--password` de `create-for-rbac`.
+* Se ha agregado el parámetro `--assignee-principal-type` al comando `create` para evitar errores intermitentes causados por la latencia de replicación del servidor de grafos de AAD.
+* Se ha corregido un bloqueo en `ad signed-in-user` al enumerar los objetos que posee.
+* Se ha corregido el problema por el que `ad sp` no encontraba la aplicación correcta en una entidad de servicio.
+
+### <a name="rdbms"></a>RDBMS
+
+* Se ha agregado compatibilidad para la replicación a MariaDB.
+
+### <a name="sql"></a>SQL
+
+* Se han documentado los valores permitidos para `sql db create --sample-name`.
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado compatibilidad de los token de SAS para la delegación de usuarios con `--as-user` a `storage blob generate-sas`. 
+* Se ha agregado compatibilidad de los token de SAS para la delegación de usuarios con `--as-user` a `storage container generate-sas`. 
+
+### <a name="vm"></a>máquina virtual
+
+* Se ha corregido un error por el que `vmss create` devuelve un mensaje de error cuando se ejecuta con `--no-wait`.
+* Se ha quitado la validación del lado cliente para `vmss create --single-placement-group`. No genera ningún error si `--single-placement-group` está establecido en `true` y `--instance-count` es mayor que 100 o se especifican zonas de disponibilidad, y deja esta validación al servicio de proceso.
+* Se ha corregido el error por el que `[vm|vmss] extension image list` produce un error cuando se usa con `--latest`.
+
 
 ## <a name="june-18-2019"></a>18 de junio de 2019
 
 Versión 2.0.67
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 Esta versión introduce una nueva etiqueta [Preview] para indicar con mayor claridad a los clientes si un grupo de comandos, un comando o un argumento está en versión preliminar. Antes esto se comunicaba en el texto de ayuda o se indicaba explícitamente en el número de versión del módulo de comandos.
 La CLI eliminará los números de versión de los paquetes individuales en el futuro. Si un comando está en versión preliminar, todos sus argumentos también lo están. Si un grupo de comandos está etiquetado como versión preliminar, se consideran que todos los comandos y argumentos también están en versión preliminar.
@@ -107,7 +184,7 @@ Como resultado de este cambio, pueden parecer que varios grupos de comandos est�
 
 Versión 2.0.66
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se ha corregido el problema por el que los comandos generan un error si `--output yaml` se usa con `--query`.
 
 ### <a name="acr"></a>ACR
@@ -130,7 +207,7 @@ Versión 2.0.66
 ### <a name="resource"></a>Recurso
 * Se ha mejorado el mensaje de error de `deployment create` cuando TTY no está disponible.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * Texto de ayuda actualizado.
 
 ### <a name="compute"></a>Proceso
@@ -140,7 +217,7 @@ Versión 2.0.66
 
 Versión 2.0.65
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se han agregado mejores comentarios para los errores de autenticación.
 * Se ha corregido un problema por el que la CLI cargaba extensiones que no eran compatibles con su versión principal.
 * Se ha corregido un problema con el inicio cuando `clouds.config` estaba dañado.
@@ -249,7 +326,7 @@ Versión 2.0.64
 ### <a name="policy-insights"></a>Información de directiva
 * Se ha agregado compatibilidad a `--expand PolicyEvaluationDetails` para consultar detalles de evaluación de directivas en el recurso.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * [EN DESUSO] Se ha cambiado el argumento `create-for-rbac` hide '--password' y se dejará de dar soporte en mayo de 2019.
 
 ### <a name="service-bus"></a>Azure Service Bus
@@ -321,7 +398,7 @@ Versión 2.0.63
 
 ## <a name="april-9-2019"></a>9 de abril de 2019
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se ha corregido el problema por el que algunas extensiones mostraban una versión `Unknown` y no se podían actualizar.
 
 ### <a name="acr"></a>ACR
@@ -365,7 +442,7 @@ Versión 2.0.63
 ### <a name="resource"></a>Recurso
 * Se ha corregido el problema con `deployment create` y `group deployment create` por el que no funcionaba un archivo de parámetros con un conjunto de parámetros vacío
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * Se ha corregido `create-for-rbac` para que trate `--years` correctamente
 * [CAMBIO IMPORTANTE] Se ha cambiado `role assignment delete` para preguntar cuando se eliminan todas las asignaciones de la suscripción de forma incondicional
 
@@ -381,7 +458,7 @@ Versión 2.0.63
 ## <a name="march-26-2019"></a>26 de marzo de 2019
 
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se han corregido problemas con la incompatibilidad de la extensión de desarrollo.
 * El control de errores ahora dirige a los clientes a la página de problemas.
 
@@ -452,7 +529,7 @@ Versión 2.0.63
 
 Versión 2.0.60
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha corregido un error incorrecto en `cloud set` sobre la suscripción no encontrada.
 
@@ -502,7 +579,7 @@ Versión 2.0.60
 
 * Correcciones menores para obtener la ubicación predeterminada del grupo de recursos cuando no se proporciona para la creación de servidores y agregar validación para los días de retención.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha corregido `role definition update` para usar el identificador para resolver la definición correctamente.
 * Se ha cambiado `ad app credential reset` para eliminar la suposición de que la entidad de servicio de la aplicación siempre existe.
@@ -515,7 +592,7 @@ Versión 2.0.60
 
 Versión 2.0.59
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha corregido un problema por el que en algunos casos el uso de `--subscription NAME` generaba una excepción.
 
@@ -566,7 +643,7 @@ Versión 2.0.59
 * Se ha corregido el control de parámetros y reglas para `policy definition update`.
 * Se ha corregido un problema con `resource show/update/delete/tag/invoke-action` por el que los identificadores entre suscripciones no respectaban correctamente con el identificador de suscripción.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha agregado compatibilidad con roles de aplicación a `ad app [create|update]`
 
@@ -578,7 +655,7 @@ Versión 2.0.59
 
 Versión 2.0.58
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * `az --version` ahora muestra una notificación si tiene paquetes que se pueden actualizar.
 * Se ha corregido la regresión por la que `--ids` no podía usarse con la salida JSON.
@@ -642,7 +719,7 @@ Versión 2.0.58
 * [CAMBIO IMPORTANTE] El parámetro "tenant settings" de `redis create` no se acepta en con el formato clave[=valor].
 * [EN DESUSO] Se ha agregado el mensaje de advertencia de desuso del comando `redis import-method`.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * [CAMBIO IMPORTANTE] Se ha movido el comando `az identity` aquí desde los comandos `vm`.
 
 ### <a name="sql-vm"></a>VM con SQL
@@ -658,7 +735,7 @@ Versión 2.0.58
 
 Versión 2.0.57
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Corrección para el [problema 8399](https://github.com/Azure/azure-cli/issues/8399).
 
@@ -776,7 +853,7 @@ Versión 2.0.55
 * Se agregaron los argumentos `--custom-headers` y `--subnets` a `traffic-manager endpoint [create|update]`  
 * Se ha corregido el problema por el que se producía un error al suministrar `--vnets ""` a `ddos-protection update`.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * [EN DESUSO] Se ha dejado de usar el argumento `--password` para `create-for-rbac`. En su lugar, use contraseñas seguras generadas por la CLI.
 
 ### <a name="security"></a>Seguridad
@@ -807,7 +884,7 @@ Versión 2.0.54
 ### <a name="iotcentral"></a>IoTCentral
 * Se ha corregido la actualización de la llamada API del comando
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * [CAMBIO IMPORTANTE] Se ha cambiado `ad [app|sp] list` para que solo enumere los 100 primeros objetos de forma predeterminada.
 
 ### <a name="sql"></a>SQL
@@ -867,7 +944,7 @@ Versión 2.0.53
 ## <a name="december-4-2018"></a>4 de diciembre de 2018
 
 Versión 2.0.52
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se ha agregado compatibilidad para el aprovisionamiento de recursos entre inquilinos para entidades de servicio multiinquilino
 * Se ha corregido el error por el que los comandos con salida tsv no se analizaban correctamente
 
@@ -878,7 +955,7 @@ Versión 2.0.52
 ### <a name="network"></a>Red
 * Se ha agregado el argumento `--exclusion` a `application-gateway waf-config set` para admitir las exclusiones de WAF
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * Se ha agregado compatibilidad para identificadores personalizados para las credenciales de contraseña 
 
 ### <a name="vm"></a>máquina virtual
@@ -890,7 +967,7 @@ Versión 2.0.52
 ## <a name="november-20-2018"></a>20 de noviembre de 2018
 
 Versión 2.0.51
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se ha cambiado el inicio de sesión de MSI para no reutilizar el nombre de suscripción en la identidad.
 
 ### <a name="acr"></a>ACR
@@ -942,7 +1019,7 @@ Versión 2.0.51
 
 Versión 2.0.50
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se ha agregado compatibilidad para la autorización sn+issuer de la entidad de servicio
 
 ### <a name="acr"></a>ACR
@@ -1014,7 +1091,7 @@ Versión 2.0.50
 ### <a name="resource"></a>Recurso
 * Ha agregado compatibilidad con grupos de administración y suscripciones a los comandos `policy definition|set-definition`
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * Se ha agregado compatibilidad para la administración de permisos de API, usuario de inicio de sesión, contraseña de aplicación y administración de credenciales de certificados
 * Se ha cambiado `ad sp create-for-rbac` para aclarar la confusión entre el nombre para mostrar y el nombre de la entidad de servicio
 * Se ha agregado compatibilidad para conceder permisos a las aplicaciones AAD
@@ -1033,7 +1110,7 @@ Versión 2.0.50
 
 Versión 2.0.49
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se ha corregido el problema con `--ids` en el que `--subscription` tendría prioridad sobre la suscripción en `--ids`
 * Se han agregado advertencias explícitas cuando se ignoran los parámetros debido al uso de `--ids`
 
@@ -1104,7 +1181,7 @@ Versión 2.0.48
 
 Versión 2.0.47
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Ha mejorado el control de errores para los errores de "Solicitud incorrecta"
 
 ### <a name="acr"></a>ACR
@@ -1145,7 +1222,7 @@ Versión 2.0.47
 * Se ha corregido el problema con `network application-gateway create` que impedía la creación de puertas de enlace con las SKU `WAF_v2` o `Standard_v2`
 * Se ha agregado el argumento de comodidad `--service-endpoint-policy` a `network vnet subnet update`
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * Se ha agregado compatibilidad para enumerar los propietarios de aplicaciones de Azure AD a `ad app owner`
 * Se ha agregado compatibilidad para enumerar los propietarios de entidades de servicio de Azure AD a `ad sp owner`
 * Se ha modificado para asegurarse de que los comandos de creación y actualización de definiciones de rol aceptan varias configuraciones de permisos
@@ -1252,7 +1329,7 @@ Versión 2.0.46
 * Se ha corregido el error en `managedapp create --kind MarketPlace` que provocaba un bloqueo al crear instancias de un Marketplace administrado
 * Se han cambiado los comandos `feature` para que se limiten a los perfiles admitidos
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 * Se ha agregado compatibilidad para enumerar los miembros de un grupo de usuarios
 
 ### <a name="signalr"></a>SignalR
@@ -1270,7 +1347,7 @@ Versión 2.0.46
 
 Versión 2.0.45
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha corregido un problema al cargar el archivo de configuración vacío
 * Se ha agregado compatibilidad al perfil `2018-03-01-hybrid` de Azure Stack
@@ -1333,7 +1410,7 @@ Versión 2.0.45
 
 Versión 2.0.44
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha corregido una presentación numérica en la salida `table`
 * Se ha agregado el formato de salida de YAML
@@ -1436,7 +1513,7 @@ Versión 2.0.43
 * Se ha agregado `--rollback-on-error` a `group deployment create` para ejecutar una implementación correcta conocida en caso de error.
 * Se ha corregido el problema por el que `--parameters {}` con `group deployment create` generaba un error.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha agregado compatibilidad al perfil 2017-03-09-profile de Stack.
 * Se ha corregido el problema por el que los parámetros de actualización genéricos de `app update` no funcionaban correctamente.
@@ -1468,7 +1545,7 @@ Versión 2.0.43
 
 Versión 2.0.42
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado compatibilidad con el inicio de sesión desde explorador en la ventana de bash de WSL
 * Se ha agregado la marca `--force-string` a todos los comandos de actualización genéricos
@@ -1545,7 +1622,7 @@ Versión 2.0.41
 
 Versión 2.0.40
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado un nuevo flujo de código de autorización para el inicio de sesión interactivo
 
@@ -1618,7 +1695,7 @@ Versión 2.0.39
 
 Versión 2.0.38
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado compatibilidad global con `--subscription` a la mayoría de los comandos
 
@@ -1683,7 +1760,7 @@ Versión 2.0.38
 * [CAMBIO IMPORTANTE] Se han quitado las propiedades `size` y `tier` de `Catalog`.
 * Se ha agregado el parámetro `InstanceFlexibility` a `reservations reservation update`.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha mejorado el control de errores
 
@@ -1705,7 +1782,7 @@ Versión 2.0.38
 
 Versión 2.0.37
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha mejorado la telemetría interactiva
 
@@ -1737,7 +1814,7 @@ Versión 2.0.35
 
 Versión 2.0.34
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado compatibilidad para referencias a recursos entre inquilinos
 * Se ha mejorado la confiabilidad de la carga de datos de telemetría
@@ -1800,7 +1877,7 @@ Versión 2.0.34
 
 Versión 2.0.33
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado compatibilidad para expandir `@` en nombres de archivo
 
@@ -1871,7 +1948,7 @@ Versión 2.0.33
 
 Versión 2.0.32
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha corregido una excepción no controlada al recuperar los secretos de una cuenta de entidad de servicio con certificado
 * Se ha agregado compatibilidad limitada con argumentos posicionales
@@ -1969,7 +2046,7 @@ Versión 2.0.32
 * Entra en desuso `redis import-method` en favor de `redis import`
 * Se ha agregado compatibilidad con `--ids` en varios comandos
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * [CAMBIO IMPORTANTE] Se ha eliminado `ad sp reset-credentials` por desuso
 
@@ -2119,7 +2196,7 @@ Versión 2.0.31
 
 Versión 2.0.30
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Mostrar un mensaje para las extensiones marcadas como versión preliminar en la Ayuda
 
@@ -2202,7 +2279,7 @@ Versión 2.0.30
 
 * [CAMBIO IMPORTANTE]: Changed `provider operation [list|show]` to not require `--api-version`
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha agregado compatibilidad para configuraciones de acceso necesarias y clientes nativos a `az ad app create`
 * Se han cambiado los comandos `rbac` para que devuelvan menos de 1000 identificadores de resolución de objeto
@@ -2313,7 +2390,7 @@ Versión 2.0.29
 
 Versión 2.0.28
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha corregido el problema [5184](https://github.com/Azure/azure-cli/issues/5184): problema de instalación de Homebrew
 * Se ha agregado compatibilidad para la telemetría de la extensión con claves personalizadas
@@ -2352,7 +2429,7 @@ Versión 2.0.28
 
 * Se ha modificado `group deployment export` para mostrar una plantilla parcial y mensajes en caso de error
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha agregado `role assignment list-changelogs` para permitir la auditoría de los roles de la entidad de servicio
 
@@ -2373,7 +2450,7 @@ Versión 2.0.28
 
 Versión 2.0.27
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha cambiado la autenticación a clave en el inicio de sesión de MSI, tanto en el identificador de suscripción como en el nombre
 
@@ -2449,7 +2526,7 @@ Versión 2.0.27
 
 * Se ha agregado de nuevo `feature show`
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se agregó el argumento `--available-to-other-tenants` a `ad app update`
 
@@ -2474,7 +2551,7 @@ Versión 2.0.27
 
 Versión 2.0.26
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado compatibilidad con la recuperación de token sin formato en el contexto de MSI
 * Se ha eliminado la cadena de indicador de sondeo después de finalizar LRO en cmd.exe de Windows
@@ -2616,7 +2693,7 @@ Versión 2.0.25
 
 * Se ha agregado compatibilidad con el inicio de sesión con identidades asignadas por el usuario
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se ha agregado el argumento `--assignee-object-id` a `role assignment create` para omitir la consulta de Graph
 
@@ -2666,7 +2743,7 @@ Versión 2.0.22
 
 * Se quitaron los comandos `az component`. Use `az extension` en su lugar
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 * Se modificó el punto de conexión de autoridad de AAD `AZURE_US_GOV_CLOUD` de login.microsoftonline.com a login.microsoftonline.us
 * Se corrigió el problema por el que se podía enviar datos de telemetría continuamente
 
@@ -2702,7 +2779,7 @@ Versión 2.0.22
 
 * Se agregó el argumento `--include-response-body` a `resource show`
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Se agregó la presentación de las asignaciones predeterminadas de los administradores "clásicos" a `role assignment list`
 * Se agregó compatibilidad a `ad sp reset-credentials` para agregar las credenciales en lugar de sobrescribir
@@ -2828,7 +2905,7 @@ Versión 2.0.21
 
 Versión 2.0.20
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se actualizó `2017-03-09-profile` para que utilice la versión `2016-01-01` de la API `MGMT_STORAGE`
 
@@ -2869,7 +2946,7 @@ Versión 2.0.20
 
 Versión 2.0.19
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se ha agregado el control de las direcciones URL de la autoridad de ADFS con una barra oblicua final para Azure Stack
 
@@ -2987,7 +3064,7 @@ Versión 2.0.18
 
 Versión 2.0.17
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se habilitó el módulo de comandos para establecer su propio identificador de correlación en telemetría.
 * Se corrigió el problema de volcado de memoria JSON cuando la telemetría se establece en modo de diagnóstico.
@@ -3242,7 +3319,7 @@ storage (2.0.11)
 vm (2.0.11)
 ```
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Información de autenticación de SDK de salida para entidades de servicio con certificados.
 * Se corrigieron las excepciones de progreso de la implementación.
@@ -3428,7 +3505,7 @@ vm (2.0.11)
 * Se agregó comprobación de los parámetros para las plantillas de vínculo de plantilla (n.º 3629).
 * Se agregó compatibilidad para especificar los parámetros de implementación mediante la sintaxis `KEY=VALUE`.
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * Compatibilidad para la salida de `create-for-rbac` en formato de archivo de autenticación del SDK.
 * Se limpiaron las asignaciones de roles y aplicación de AAD al eliminar una entidad de servicio (n.º 3610).
@@ -3517,7 +3594,7 @@ storage (2.0.6)
 vm (2.0.6)
 ```
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * core: capturar excepciones producidas por un proveedor no registrado y registrarlo automáticamente
 * perf: persistir caché de tokens Adal en memoria hasta que se realice el procesamiento ([#2603](https://github.com/Azure/azure-cli/issues/2603))
@@ -3640,7 +3717,7 @@ vm (2.0.6)
 * [Compute] Corregir errores con la actualización de conjuntos de disponibilidad de VMSS y VM ([#2773](https://github.com/Azure/azure-cli/issues/2773))
 * Corregir la creación y eliminación de bloqueos si parent-resource-path es None ([#2742](https://github.com/Azure/azure-cli/issues/2742))
 
-### <a name="role"></a>Rol
+### <a name="role"></a>Role
 
 * create-for-rbac: garantizar que la fecha final de SP no excederá la fecha de expiración del certificado ([#2989](https://github.com/Azure/azure-cli/issues/2989))
 * RBAC: agregar compatibilidad total para "ad group" ([#2016](https://github.com/Azure/azure-cli/issues/2016))
@@ -3707,7 +3784,7 @@ storage (2.0.2)
 vm (2.0.2)
 ```
 
-### <a name="core"></a>Núcleo
+### <a name="core"></a>Core
 
 * Se agregan los módulos ACR, laboratorio, supervisión y búsqueda a la lista predeterminada
 * Inicio de sesión: omite el inquilino erróneo ([#2634](https://github.com/Azure/azure-cli/pull/2634))

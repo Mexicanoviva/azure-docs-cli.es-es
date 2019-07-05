@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7ead12b35cefd7cba9e06f7905c9267c569d98dd
-ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
+ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741724"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527324"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
 
@@ -35,21 +35,14 @@ Hay dos tipos de autenticación disponibles para las entidades de servicio: Aute
 
 ### <a name="password-based-authentication"></a>Autenticación basada en contraseña
 
-La autenticación basada en contraseña no tiene ningún parámetro de autenticación y se usa con una contraseña aleatoria que se crea automáticamente. Si desea usar la autenticación basada en contraseña, se recomienda este método.
+La autenticación basada en contraseña no tiene ningún parámetro de autenticación y se usa con una contraseña aleatoria que se crea automáticamente.
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName
   ```
 
-Para usar una contraseña proporcionada por el usuario, utilice el argumento `--password`. Al crear una contraseña, asegúrese de que seguir las [reglas y restricciones de contraseñas de Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). No use una contraseña débil ni reutilice las contraseñas.
-
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
-  ```
-
-  > [!IMPORTANT]
-  >
-  > Por motivos de seguridad, el argumento `--password` para la creación entidades de servicio dejará de utilizarse en una versión futura. Si desea usar la autenticación basada en contraseña, evite `--password` y deje que la CLI genere automáticamente una contraseña segura.
+> [!IMPORTANT]
+> A partir de la CLI de Azure 2.0.68, __ya no se admite__ el parámetro `--password` para crear una entidad de servicio con una contraseña definida por el usuario, para impedir el uso accidental de contraseñas no seguras.
 
 La salida para una entidad de servicio con autenticación por contraseña incluye la clave `password`. __No olvide__ copiar este valor porque no se puede recuperar. Si olvida la contraseña, [restablezca las credenciales de la entidad de servicio](#reset-credentials).
 
