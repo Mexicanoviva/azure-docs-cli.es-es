@@ -4,17 +4,17 @@ description: Lista completa de las extensiones oficialmente admitidas por la CLI
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/29/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: cc65cffdb77abcfca764aa474dd1089a4c80c0f1
-ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
+ms.openlocfilehash: 1c36df58acce7287da4644f8c51cbdc023ea7caa
+ms.sourcegitcommit: 61965f5d95d0dae3752ad6a0e5a93db27a623c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658969"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68830958"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensiones disponibles para la CLI de Azure
 
@@ -29,7 +29,7 @@ az extension list-available --output table
 | NOMBRE | Versión | Resumen | Vista previa |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Administración de las extensiones de supervisión mejorada de Azure para SAP. |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.5 | Proporciona una versión preliminar de las futuras características de AKS | Sí |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.6 | Proporciona una versión preliminar de las futuras características de AKS | Sí |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Compatibilidad con alias de comandos | Sí |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | Proporciona una versión preliminar de las futuras características de configuración de aplicaciones. | Sí |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Compatibilidad para administrar componentes de Application Insights y consultar las métricas, los eventos y los registros de esos componentes. | Sí |
