@@ -4,19 +4,98 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 673014c3fd86e20148fe5ffa9fa5160e490da0cb
-ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
+ms.openlocfilehash: d315046287a552e89112fa415e1219f9a97d4944
+ms.sourcegitcommit: b00555c528697c0a6419cf23380e48c8705026db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658935"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68974258"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="august-13-2019"></a>13 de agosto de 2019
+
+Versión 2.0.71
+
+### <a name="appservice"></a>AppService
+
+* Se ha corregido un problema por el que se producían errores con los comandos `webapp webjob continuous` en los espacios
+
+### <a name="botservice"></a>BotService
+
+* [CAMBIO IMPORTANTE] Se ha quitado la compatibilidad para crear bots con el SDK v3.
+
+### <a name="cognitiveservices"></a>CognitiveServices
+
+* Se agregaron los comandos `cognitiveservices account network-rule`.
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Se ha quitado la advertencia al actualizar varias ubicaciones de escritura.
+* Se han agregado comandos CRUD para recursos de CosmosDB SQL, MongoDB, Cassandra, Gremlin y Table, así como capacidad de proceso para los recursos.
+
+### <a name="hdinsight"></a>HDInsight
+
+Esta versión contiene un gran número de cambios importantes.
+
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de los parámetros de `hdinsight create`:
+  * Se cambió el nombre de `--storage-default-container` a `--storage-container`.
+  * Se cambió el nombre de `--storage-default-filesystem` a `--storage-filesystem`.
+* [CAMBIO IMPORTANTE] Se ha cambiado el argumento `--name` de `application create` para que represente el nombre de la aplicación en lugar del nombre del clúster.
+* Se ha agregado el argumento `--cluster-name` a `application create` para reemplazar la funcionalidad de `--name` antigua.
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de los parámetros de `application create`:
+  * Se cambió el nombre de `--application-type` a `--type`.
+  * Se cambió el nombre de `--marketplace-identifier` a `--marketplace-id`.
+  * Se cambió el nombre de `--https-endpoint-access-mode` a `--access-mode`.
+  * Se cambió el nombre de `--https-endpoint-destination-port` a `--destination-port`.
+* [CAMBIO IMPORTANTE] Se han quitado los parámetros de `application create`:
+  * `--https-endpoint-location`
+  * `--https-endpoint-public-port`
+  * `--ssh-endpoint-destination-port`
+  * `--ssh-endpoint-location`
+  * `--ssh-endpoint-public-port`
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `--target-instance-count` a `--workernode-count` para `hdinsight resize`.
+* [CAMBIO IMPORTANTE] Se han cambiado todos los comandos del grupo `hdinsight script-action` para que usen el parámetro `--name` como nombre de la acción de script.
+* Se ha agregado el argumento `--cluster-name` a todos los comandos `hdinsight script-action` para reemplazar la funcionalidad de `--name` antigua.
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `--script-execution-id` a `--execution-id` para todos los comandos `hdinsight script-action`.
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `hdinsight script-action show` a `hdinsight script-action show-execution-details`
+* [CAMBIO IMPORTANTE] Se han cambiado los parámetros a `hdinsight script-action execute --roles` para que estén separados por espacios en lugar de por comas.
+* [CAMBIO IMPORTANTE] Se ha eliminado el parámetro `--persisted` de `hdinsight script-action list`.
+* Se ha cambiado el parámetro `hdinsight create --cluster-configurations` para aceptar una ruta a un archivo JSON local o una cadena JSON.
+* Se ha agregado el comando `hdinsight script-action list-execution-history`
+* Se ha cambiado `hdinsight monitor enable --workspace` para aceptar un identificador o un nombre de área de trabajo de Log Analytics.
+* Se ha agregado el argumento `hdinsight monitor enable --primary-key`, que es necesario si se proporciona un identificador de área de trabajo como parámetro.
+* Se han agregado más ejemplos y se han actualizado las descripciones para los mensajes de ayuda.
+
+### <a name="interactive"></a>Interactive
+
+* Se ha corregido un error de carga.
+
+### <a name="kubernetes"></a>kubernetes
+
+* Se ha cambiado para usar `https` si el puerto del contenedor del panel usa `https`.
+
+### <a name="network"></a>Red
+
+* Se ha agregado el argumento `network dns record-set cname delete` a `--yes`.
+
+### <a name="profile"></a>Perfil
+
+* Se ha agregado el argumento `--resource-type` a `account get-access-token` para obtener los tokens de acceso a recursos.
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* Se han agregado todas las versiones del sistema operativo compatible para la creación de clústeres SF.
+* Se ha corregido el error de validación de certificado principal.
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado el comando `storage copy`
 
 ## <a name="july-30-2019"></a>30 de julio de 2019
 
