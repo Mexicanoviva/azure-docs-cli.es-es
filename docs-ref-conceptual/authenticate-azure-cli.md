@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 234c53f27ba365550e6502b8410aced57eb9ff4e
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: 3c25f648fe01f788521394af09350f9468aa8b46
+ms.sourcegitcommit: 4daaac4e3629e0467bf15c561f0f437158482e06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59724581"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68917677"
 ---
 # <a name="sign-in-with-azure-cli"></a>Inicio de sesión con la CLI de Azure 
 
 Hay varios tipos de autenticación para la CLI de Azure. La manera más fácil de empezar a trabajar es [Azure Cloud Shell](/azure/cloud-shell/overview), que inicia sesión automáticamente.
 De forma local, puede iniciar sesión interactivamente en el explorador con el comando [az login](/cli/azure/reference-index#az-login). Al escribir scripts, el enfoque recomendado es usar entidades de servicio. Para proteger la automatización, conceda los permisos adecuados necesarios a una entidad de servicio.
 
-La CLI no almacena ninguna de la información de inicio de sesión. En su lugar, Azure genera y almacena un [token de autenticación](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens). A partir de agosto de 2018, este token se revoca después de 90 días de inactividad, pero este valor lo puede cambiar Microsoft o el administrador de inquilinos. Una vez revocado el token, recibirá un mensaje desde la CLI indicando que debe volver a iniciar sesión.
+La CLI no almacena ninguna de la información de inicio de sesión. En su lugar, Azure genera y almacena un [token de autenticación](https://docs.microsoft.com/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens). A partir de agosto de 2018, este token se revoca después de 90 días de inactividad, pero este valor lo puede cambiar Microsoft o el administrador de inquilinos. Una vez revocado el token, recibirá un mensaje desde la CLI indicando que debe volver a iniciar sesión.
 
 Después de iniciar sesión, los comandos de la CLI se ejecutan en su suscripción predeterminada. Si tiene varias suscripciones, puede [cambiar la suscripción predeterminada](manage-azure-subscriptions-azure-cli.md).
 
@@ -104,4 +104,4 @@ En los recursos configurados para las identidades administradas para los recurso
 az login --identity
 ```
 
-Para más información acerca de las identidades administradas para los recursos de Azure, consulte [Configuración de identidades administradas para recursos de Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) y [Uso de identidades administradas para recursos de Azure para el inicio de sesión](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
+Para más información acerca de las identidades administradas para los recursos de Azure, consulte [Configuración de identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) y [Uso de identidades administradas para recursos de Azure para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
