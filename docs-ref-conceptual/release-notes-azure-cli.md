@@ -4,19 +4,71 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/13/2019
+ms.date: 08/27/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d315046287a552e89112fa415e1219f9a97d4944
-ms.sourcegitcommit: b00555c528697c0a6419cf23380e48c8705026db
+ms.openlocfilehash: 156ff2e6d011104ebbb1608ff33bad8ebb6396ed
+ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68974258"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047275"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="august-27-2019"></a>27 de agosto de 2019
+
+Versión 2.0.72
+
+### <a name="acr"></a>ACR
+
+* [CAMBIO IMPORTANTE] Se ha quitado la compatibilidad con la SKU `classic`
+
+### <a name="api-management"></a>API Management
+
+* [VERSIÓN PRELIMINAR] Se ha agregado el grupo de comandos `apim`
+
+### <a name="appservice"></a>AppService
+
+* Se ha corregido un problema con el comando `webapp webjob continuous start` al especificar una ranura
+* Se ha cambiado `webapp up` para detectar la carpeta `env` y quitarla del archivo usado para la implementación
+
+### <a name="keyvault"></a>Keyvault
+
+* Se ha corregido un error en `keyvault secret set` que hacía que se ignorara el argumento `--expires`
+
+### <a name="network"></a>Red
+
+* Se ha agregado compatibilidad para las direcciones IPv6 con argumentos `--private-ip-address-version`
+* Se han agregado nuevos comandos `network private-endpoint [create|update|list-types]` para la administración de un punto de conexión privado
+* Se ha agregado el grupo de comandos `network private-link-service`
+* Se agregaron los argumentos `--private-endpoint-network-policies` y `--private-link-service-network-policies` a `network vnet subnet update`
+
+### <a name="rbac"></a>RBAC
+
+* Se ha corregido el problema con `ad app update --homepage` por el cual la página principal no se actualizaba
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* Se ha agregado compatibilidad con los nombres de Key Vault que combinan mayúsculas y minúsculas
+* Se ha solucionado el problema que se producía al usar certificados en Key Vault
+* Se ha solucionado el problema con el uso de archivos de certificado de PFX
+* Se ha solucionado el problema con `sf cluster certificate add` que se producía cuando no se especificaba el grupo de recursos de Key Vault
+* Se ha corregido el problema con `sf cluster set` que no funcionaba
+
+### <a name="signalr"></a>SignalR
+
+* Se han agregado nuevos comandos:
+  * `signalr cors`: Administración de SignalR CORS
+  * `signalr restart`: Reinicio de una instancia de SignalR Service
+  * `signalr update`: Actualización de una instancia de SignalR Service
+* Se agregó el argumento `--service-mode` a `signalr create`
+
+### <a name="storage"></a>Storage
+
+* Se agregó el comando `storage account revoke-delegation-keys`.
 
 ## <a name="august-13-2019"></a>13 de agosto de 2019
 
