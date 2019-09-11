@@ -10,16 +10,20 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 003576ba22cdc4fc64977b653d0fb6859cd38446
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: c667f6fa00d8a03b6a451728ffcc1da3e446a741
+ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59429037"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878246"
 ---
 # <a name="get-started-with-azure-cli"></a>Introducción a la CLI de Azure
 
 Bienvenido a la CLI de Azure. La CLI es una herramienta diseñada para ayudarle a trabajar de forma rápida y eficaz con los servicios de Azure, con énfasis en la automatización. En este artículo se detallan las características de la CLI y vínculos a recursos que le ayudarán a ser productivo.
+
+> [!NOTE]
+>
+> En los scripts y en el sitio de documentación de Microsoft, los ejemplos de la CLI de Azure están escritos para el shell de `bash`. Los ejemplos de una línea funcionarán en cualquier plataforma. Los ejemplos más largos que incluyan continuaciones de línea (`\`) o asignación de variables deben modificarse para que funcionen en otros shells, incluido PowerShell.
 
 ## <a name="install-or-run-in-azure-cloud-shell"></a>Instalación o ejecución en Azure Cloud Shell
 
@@ -104,7 +108,7 @@ También hay guías de inicio rápido para otros servicios populares.
 
 * [Creación de una cuenta de almacenamiento con la CLI de Azure](/azure/storage/common/storage-quickstart-create-storage-account-cli)
 * [Transferencia de objetos a y desde Azure Blob Storage mediante la CLI](/azure/storage/blobs/storage-quickstart-blobs-cli)
-* [Creación de una sola instancia de Azure SQL Database con la CLI de Azure](/azure/sql-database/sql-database-get-started-cli)
+* [Creación de una base de datos de Azure SQL única con la CLI de Azure](/azure/sql-database/sql-database-get-started-cli)
 * [Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 * [Create an Azure Database for PostgreSQL using the Azure CLI](/azure/postgresql/quickstart-create-server-database-azure-cli) (Creación de una base de datos Azure Database for PostgreSQL con la CLI de Azure)
 * [Creación de una aplicación web de Python en Azure](/azure/app-service/app-service-web-get-started-python)
