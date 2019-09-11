@@ -1,5 +1,5 @@
-- name: Azure CLI
-  href: index.md
+- name: CLI de Azure
+  href: index.yml
 - name: Instalación
   items:
     - name: Instalación
@@ -25,7 +25,7 @@
     - name: Ejecución en Docker
       href: run-azure-cli-docker.md
       displayName: 'linux, unix, container, image'
-- name: Introducción
+- name: Primeros pasos
   href: get-started-with-azure-cli.md
   displayName: 'intro, introduction, sign in, signin, log in, login, find, interactive, feedback'
 - name: Cloud Shell
