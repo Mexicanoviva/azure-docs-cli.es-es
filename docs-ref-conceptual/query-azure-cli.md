@@ -4,17 +4,17 @@ description: Obtenga información acerca de cómo realizar consultas JMESPath co
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/12/2018
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e878c467f71423cc8c9caa1f8cfe270d0019c48b
-ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
+ms.openlocfilehash: 39f7c885a0971db9359926a6b2f80d0a763dc4fe
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67194845"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217435"
 ---
 # <a name="query-azure-cli-command-output"></a>Resultados de los comandos de consulta de la CLI de Azure
 
@@ -87,22 +87,6 @@ az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publi
 ]
 ```
 
-Para obtener más de una propiedad, coloque las expresiones entre corchetes `[ ]` (una __lista de selección múltiple__) como una lista separada por comas. Para obtener el nombre de la máquina virtual, el usuario administrador y la clave SSH de una sola vez, utilice el comando:
-
-```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
-```
-
-```json
-[
-  "TestVM",
-  "azureuser",
-  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
-]
-```
-
-Estos valores se muestran en la matriz de resultados en el orden en que se proporcionaron en la consulta. Dado que el resultado es una matriz, no hay claves asociadas a los resultados.
-
 ## <a name="get-a-single-value"></a>Obtener un solo valor
 
 Un caso común es si necesita obtener solo _un_ valor de un comando de la CLI, como un identificador de recurso de Azure, un nombre de recurso, un nombre de usuario o una contraseña. En ese caso, se suele querer también almacenar el valor en una variable de entorno local. Para obtener una sola propiedad, primero debe asegurarse de que está obteniendo solo una propiedad de la consulta. Modificamos el ejemplo anterior para obtener solo el nombre de usuario del administrador:
@@ -137,6 +121,24 @@ azureuser
 ```
 
 Para más información sobre el formato de salida de `tsv`, consulte [Formatos de salida: formato de salida TSV](format-output-azure-cli.md#tsv-output-format).
+
+## <a name="get-multiple-values"></a>Obtener varios valores
+
+Para obtener más de una propiedad, coloque las expresiones entre corchetes `[ ]` (una __lista de selección múltiple__) como una lista separada por comas. Para obtener el nombre de la máquina virtual, el usuario administrador y la clave SSH de una sola vez, utilice el comando:
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
+```
+
+```json
+[
+  "TestVM",
+  "azureuser",
+  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
+]
+```
+
+Estos valores se muestran en la matriz de resultados en el orden en que se proporcionaron en la consulta. Dado que el resultado es una matriz, no hay claves asociadas a los resultados.
 
 ## <a name="rename-properties-in-a-query"></a>Cambio del nombre de las propiedades en una consulta
 
