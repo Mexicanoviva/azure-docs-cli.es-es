@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 45374a29c45d8e9fa2d39aebf2d9bab556ef3b50
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527324"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163831"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
 
@@ -99,10 +99,10 @@ Para obtener una lista de las entidades de servicio de un inquilino, use [az ad 
 * `--show-mine` solicita solo las entidades de servicio creadas por el usuario que ha iniciado sesión.
 * `--filter` toma un filtro OData y filtra _en el lado del servidor_. Se recomienda este método frente al filtrado en el lado del cliente con el argumento `--query` de la CLI. Para más información acerca de los filtros OData, consulte la [sintaxis de expresiones OData para filtros](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-La información que se devuelve para los objetos de entidad de servicio es detallada. Para obtener solo la información necesaria para iniciar sesión, use la cadena de consulta `[].{"id":"appId", "tenant":"appOwnerTenantId"}`. Por ejemplo, para obtener la información de inicio de sesión de todas las entidades de servicio creadas por el usuario que haya iniciado la sesión actual:
+La información que se devuelve para los objetos de entidad de servicio es detallada. Para obtener solo la información necesaria para iniciar sesión, use la cadena de consulta `[].{id:appId, tenant:appOwnerTenantId}`. Por ejemplo, para obtener la información de inicio de sesión de todas las entidades de servicio creadas por el usuario que haya iniciado la sesión actual:
 
 ```azurecli-interactive
-az ad sp list --show-mine --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'
+az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
 ```
 
 > [!IMPORTANT]
