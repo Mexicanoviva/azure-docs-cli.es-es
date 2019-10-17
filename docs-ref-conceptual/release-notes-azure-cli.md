@@ -4,19 +4,78 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/05/2019
+ms.date: 10/15/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1f829ba3d9ecdb158e96512bde5bcf1565cc205c
-ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
+ms.openlocfilehash: 32137c5e6ef403461114b0e09970f93c9248c100
+ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217421"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324011"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="october-15-2019"></a>15 de octubre de 2019
+
+Versión 2.0.75
+
+### <a name="aks"></a>AKS
+
+* Se ha cambiado el valor predeterminado de `--load-balancer-sku` a `standard` si es compatible con la versión de Kubernetes.
+* Se ha cambiado el valor predeterminado de `--vm-set-type` a `virtualmachinescalesets` si es compatible con la versión de Kubernetes.
+
+### <a name="ams"></a>AMS
+
+* [CAMBIO IMPORTANTE] Se ha cambiado el nombre de `job start` a `job create`.
+* [CAMBIO IMPORTANTE] Se ha cambiado el parámetro `--ask` de `content-key-policy create` para que use una cadena hexadecimal de 32 caracteres en lugar de UTF8.
+
+### <a name="appservice"></a>AppService
+
+* Se han agregado comandos `webapp config access-restriction show|set|add|remove`.
+* Se ha agregado un mejor control de errores a `webapp up`.
+* Se ha agregado compatibilidad para la SKU `Isolated` a `appservice plan update`.
+
+### <a name="arm"></a>ARM
+
+* Se ha agregado el parámetro `--handle-extended-json-format` a `deployment create` para admitir varias líneas y comentarios en la plantilla JSON.
+
+### <a name="compute"></a>Proceso
+
+* Se ha agregado el parámetro `--enable-agent` a `vm create`
+* Se ha cambiado `vm create` para que use SKU de IP pública estándar automáticamente al usar zonas.
+* Se ha cambiado `vm create` para que cree automáticamente un nombre de equipo válido para una máquina virtual si no se proporciona ninguno.
+* Se ha agregado el parámetro `--computer-name-prefix` a `vmss create` para admitir el prefijo de nombre de equipo personalizado de las máquinas virtuales en el VMSS.
+* Agregue el parámetro `--workspace` a `vm create` para habilitar automáticamente el área de trabajo de Log Analytics.
+* Se ha actualizado la versión de API de galerías a 2019-07-01.
+
+### <a name="core"></a>Core
+
+* Se ha agregado la comprobación de la sintaxis del parámetro `--set` en el comando de actualización genérico.
+
+### <a name="iot"></a>IoT
+
+* Se ha corregido un problema por el que `iot hub show` producía un error con el mensaje "recurso no encontrado".
+
+### <a name="monitor"></a>Supervisión
+
+* Se ha agregado compatibilidad para CRUD a `monitor log-analytics workspace`.
+
+### <a name="network"></a>Red
+
+* Se ha agregado compatibilidad para la vinculación virtual entre inquilinos a `network private-dns link vnet [create|update]`.
+* [CAMBIO IMPORTANTE] Se ha cambiado `network vnet subnet list` para requerir los parámetros `--resource-group` y `--vnet-name`.
+
+### <a name="sql"></a>SQL
+
+* Se han agregado comandos a `sql mi ad-admin` que admiten la configuración de un administrador de AAD en instancias administradas.
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado el parámetro `--preserve-s2s-access-tier` a `storage copy` para conservar el nivel de acceso durante la copia de servicio a servicio.
+* Se ha agregado el parámetro `--enable-large-file-share` a `storage account [create|update]` para admitir recursos compartidos de archivos grandes para la cuenta de almacenamiento.
 
 ## <a name="september-24-2019"></a>24 de septiembre de 2019
 
@@ -479,7 +538,7 @@ Como resultado de este cambio, pueden parecer que varios grupos de comandos est�
 * Se ha corregido el problema con `dns zone import` por el que los usuarios no podían importar registros A con caracteres comodín.
 * Se ha corregido el problema con `watcher flow-log configure` por el que no se podía habilitar el registro de flujos en determinadas regiones.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Se ha agregado el comando `az rest` para hacer llamadas de REST.
 * Se ha corregido el error al usar `policy assignment list` con un grupo de recursos o un nivel de suscripción `--scope`.
 
@@ -525,7 +584,7 @@ Versión 2.0.66
 * Se han agregado comandos `network application-gateway waf-policy` para admitir reglas personalizadas de WAF.
 * Se agregaron los argumentos `--waf-policy` y `--max-capacity` a `network application-gateway [create|update]` 
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Se ha mejorado el mensaje de error de `deployment create` cuando TTY no está disponible.
 
 ### <a name="role"></a>Role
@@ -697,7 +756,7 @@ Versión 2.0.63
 ### <a name="network"></a>Red
 * Se ha agregado la delegación de servidor nombre automática a `dns zone create` en la zona primaria durante la creación de una zona secundaria.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * [EN DESUSO] Se han dejado de usar los argumentos `--link-id`, `--target-id` y `--filter-string` de `resource link`.
   * En su lugar, use los argumentos `--link`, `--target` y `--filter`.
 * Se ha corregido el problema por el que los comandos `resource link [create|update]` no funcionaban.
@@ -760,7 +819,7 @@ Versión 2.0.63
 ### <a name="privatedns"></a>PrivateDNS
 * Se ha agregado `network private-dns` para zonas DNS privadas
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Se ha corregido el problema con `deployment create` y `group deployment create` por el que no funcionaba un archivo de parámetros con un conjunto de parámetros vacío
 
 ### <a name="role"></a>Role
@@ -826,7 +885,7 @@ Versión 2.0.63
 * Se han agregado los comandos postgresql `replica` y el comando `restart server`.
 * Se ha cambiado para obtener la ubicación predeterminada del grupo de recursos cuando no se proporciona para la creación de servidores y agregar validación para los días de retención.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Se ha mejorado la salida de tabla de `deployment [create|list|show]`.
 * Se ha corregido el problema con `deployment [create|validate]` por el que no reconocía el tipo secureObject.
 
@@ -956,7 +1015,7 @@ Versión 2.0.59
 * Se agregó el argumento `--gateway-default-site` a `vnet-gateway [create|update]`
 * Se han agregado comandos `ipsec-policy` a `vnet-gateway`.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha corregido el problema con `deployment create` en el que el campo de tipo distinguía entre mayúsculas y minúsculas.
 * Se ha agregado compatibilidad para el archivo de parámetros basado en URI a `policy assignment create`.
@@ -1116,7 +1175,7 @@ Versión 2.0.56
 * Se ha corregido el problema con `express-route update` por el que se pasaba por el alto el argumento `--bandwidth`.
 * Se ha corregido el problema con `ddos-protection update` por el que la comprensión de conjuntos provocaba el seguimiento de la pila.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Se ha agregado compatibilidad para el archivo de parámetros URI a `group deployment create`.
 * Se ha agregado compatibilidad para identidades administradas a `policy assignment [create|list|show]`.
 
@@ -1252,7 +1311,7 @@ Versión 2.0.53
 * Se ha agregado compatibilidad para `--format` y `--log-version` a `watcher flow-log configure`
 * Se ha corregido un problema con `dns zone update` donde no funcionaba el uso de "" para borrar las redes virtuales de registro y resolución.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Se ha corregido el control del parámetro de ámbito para los grupos de administración en `policy assignment [create|list|delete|show|update]`. 
 * Se ha agregado un nuevo comando `resource wait`.
 
@@ -1409,7 +1468,7 @@ Versión 2.0.50
 ### <a name="rdbms"></a>RDBMS
 * Se han agregado los comandos de réplica de mysql
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 * Ha agregado compatibilidad con grupos de administración y suscripciones a los comandos `policy definition|set-definition`
 
 ### <a name="role"></a>Role
@@ -1714,7 +1773,7 @@ Versión 2.0.45
 
 * Se ha cambiado `network application-gateway ssl-policy predefined show` para salir con código 3 cuando falta un recurso
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha cambiado `provider operation show` para salir con código 3 cuando falta un recurso
 
@@ -1829,7 +1888,7 @@ Versión 2.0.43
 
 * Se ha agregado compatibilidad con dns al perfil 2017-03-09-profile de Azure Stack. 
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha agregado `--rollback-on-error` a `group deployment create` para ejecutar una implementación correcta conocida en caso de error.
 * Se ha corregido el problema por el que `--parameters {}` con `group deployment create` generaba un error.
@@ -1908,7 +1967,7 @@ Versión 2.0.42
 * El argumento `--ids` desuso `network vnet [subnet|peering] list` ha pasado a estar en desuso
 * Se ha agregado la marca `--include-default` para incluir las reglas de seguridad predeterminadas en la salida de `network nsg rule list`  
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha agregado compatibilidad de `--no-wait` con `group deployment delete`
 * Se ha agregado compatibilidad de `--no-wait` con `deployment delete`
@@ -1996,7 +2055,7 @@ Versión 2.0.40
 
 * Se agregaron los comandos `[postgres|myql] server vnet-rule`.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha agregado un nuevo grupo de operaciones `deployment`
 
@@ -2490,7 +2549,7 @@ Versión 2.0.31
 * Se agregó el comando `georestore`.
 * Se ha elimina la restricción de tamaño de almacenamiento del comando `create`
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se agregó compatibilidad para `--metadata` a `policy definition create`.
 * Se ha agregado compatibilidad para `--metadata`, `--set`, `--add`, `--remove` a `policy definition update`
@@ -2596,7 +2655,7 @@ Versión 2.0.30
 
 * Se ha agregado el modelo de negocio GA API versión 2017-12-01
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * [CAMBIO IMPORTANTE]: Changed `provider operation [list|show]` to not require `--api-version`
 
@@ -2746,7 +2805,7 @@ Versión 2.0.28
 
 * Se ha corregido el problema [5559](https://github.com/Azure/azure-cli/issues/5559): falta el cliente en `network vnet-gateway vpn-client generate`
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha modificado `group deployment export` para mostrar una plantilla parcial y mensajes en caso de error
 
@@ -2843,7 +2902,7 @@ Versión 2.0.27
 
 * Se ha habilitado `az login` en el modo interactivo
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha agregado de nuevo `feature show`
 
@@ -2918,7 +2977,7 @@ Versión 2.0.26
 
 * Se ha corregido `get-access-token` para funcionar en un máquina virtual con identidad
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha corregido un error en `deployment [create|validate]` por el que aparecía incorrectamente una advertencia cuando un campo "type" de la plantilla contenía valores en mayúsculas
 
@@ -3096,7 +3155,7 @@ Versión 2.0.22
 
 * Se agregó compatibilidad multidimensional al comando metrics
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se agregó el argumento `--include-response-body` a `resource show`
 
@@ -3196,7 +3255,7 @@ Versión 2.0.21
 
 * Versión preliminar inicial
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se agregó compatibilidad para los identificadores de recursos al parámetro `--resource` y bloqueos en el nivel de recurso
 
@@ -3253,7 +3312,7 @@ Versión 2.0.20
 
 * Se agregaron los comandos `action-group`.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se corrigió la incompatibilidad con la versión más reciente de la dependencia msrest en `group export`
 * Se corrigió `policy assignment create` para trabajar con definiciones de directivas integradas y definiciones de conjuntos de directivas
@@ -3295,7 +3354,7 @@ Versión 2.0.19
 * Se ha cambiado el argumento `--server` de `application-gateway address-pool create` para que sea opcional, lo cual permite los grupos de direcciones vacíos
 * Se ha actualizado `traffic-manager` para que sea compatible con las características más recientes
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se ha agregado a `group` compatibilidad con las opciones `--resource-group/-g` para el nombre de grupo de recurso
 * Se han agregado comandos para que `account lock` funcione con los bloqueos en el nivel de suscripción
@@ -3325,7 +3384,7 @@ Versión 2.0.19
 
 Versión 2.0.18
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se agregó compatibilidad para mostrar las definiciones de directivas integradas
 * Se agregó compatibilidad con el parámetro de modo para crear definiciones de directiva
@@ -3419,7 +3478,7 @@ Versión 2.0.17
 * Se agregó compatibilidad para SKU a `lb create`.
 * Se agregó compatibilidad para SKU a `public-ip create`.
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se permite pasar las definiciones de parámetro de directiva de recursos en `policy definition create` y `policy definition update`.
 * Se permite pasar valores de parámetro para `policy assignment create`.
@@ -3815,7 +3874,7 @@ vm (2.0.11)
 * Se corrigió la asignación de origen de documentos y se agregó la tarea CI para comprobar (n.º 3361).
 * Se corrigió la ayuda de MySQL y PostgreSQL (n.º 3369).
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Se mejoraron los mensajes de parámetros que faltan para `group deployment create`.
 * Se mejoró el análisis de la sintaxis `--parameters KEY=VALUE`.
@@ -4027,7 +4086,7 @@ vm (2.0.6)
 * Agregar comando de actualización que también agrega la capacidad de escalar Redis Cache
 * Se deja de usar el comando "update-settings"
 
-### <a name="resource"></a>Recurso
+### <a name="resource"></a>Resource
 
 * Agregar comandos de definición managedapp y managedapp ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * Compatibilidad de comandos de "operación de proveedores" ([#2908](https://github.com/Azure/azure-cli/issues/2908))
