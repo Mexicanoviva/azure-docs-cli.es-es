@@ -4,21 +4,21 @@ description: Cómo instalar la CLI de Azure con yum
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 11/26/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 270be4c41bdb3c913e41ef1b2bb0c7c0b393aa20
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: a33b5850abc40e91a1ffbeacd49d56169f67d282
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71144035"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543582"
 ---
 # <a name="install-azure-cli-with-yum"></a>Instalación de la CLI de Azure con yum
 
-Para distribuciones Linux con `yum`, como RHEL, Fedora o CentOS, hay un paquete de la CLI de Azure. Este paquete se ha probado con RHEL 7, Fedora 19 y versiones posteriores y CentOS 7.
+Para distribuciones Linux con `yum`, como RHEL, Fedora o CentOS, hay un paquete de la CLI de Azure. Este paquete se ha probado con RHEL 7.7, RHEL 8, Fedora 24 y versiones posteriores, CentOS 7 y CentOS 8.
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -78,6 +78,12 @@ Para obtener la clave de firma de Microsoft y obtener el paquete de nuestro repo
 * `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
+
+### <a name="install-on-rhel-76-or-other-systems-without-python-3"></a>Instalación en RHEL 7.6 u otros sistemas sin Python 3
+
+Si es posible, actualice el sistema a una versión con soporte técnico oficial para el paquete `python3`. En caso contrario, debe instalar primero un paquete de `python3`, ya sea una [compilación desde el código fuente](https://github.com/linux-on-ibm-z/docs/wiki/Building-Python-3.6.x) o una instalación mediante un [repositorio adicional](https://developers.redhat.com/blog/2018/08/13/install-python3-rhel/). Después, puede seguir las [instrucciones de instalación manual](install-azure-cli-linux.md).
+
+La opción menos recomendada es continuar con el uso de Python 2 y seguir las [instrucciones de instalación manual](install-azure-cli-linux.md), puesto que Python 2 termina su ciclo de vida el 1 de enero de 2020. Una versión futura de la CLI de Azure eliminará la compatibilidad con Python 2.7.
 
 ## <a name="update"></a>Actualizar
 

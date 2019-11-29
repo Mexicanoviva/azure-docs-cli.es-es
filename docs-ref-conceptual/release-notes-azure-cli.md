@@ -4,19 +4,130 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
-ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
+ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73536782"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543467"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="november-26-2019"></a>26 de noviembre de 2019
+
+Versión 2.0.77
+
+### <a name="acr"></a>ACR
+
+* El parámetro `--branch` de la tarea crear/actualizar de ACR ha quedado en desuso.
+
+### <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure
+
+* Se ha agregado la marca `--workspace-resource-id` para permitir la creación de un clúster de Red Hat OpenShift en Azure con supervisión.
+* Se ha agregado `monitor_profile` para crear un clúster de Red Hat OpenShift en Azure con supervisión.
+
+### <a name="aks"></a>AKS
+
+* Se ha agregado compatibilidad con la operación de rotación de certificados del clúster mediante "az aks rotate-certs".
+
+### <a name="appconfig"></a>AppConfig
+
+* Se ha agregado compatibilidad con el uso de ":" como separador de `as az appconfig kv import`.
+* Se ha corregido un problema para enumerar los valores de clave con varias etiquetas que incluyen la etiqueta nula. 
+* Se ha actualizado el SDK del plano de administración, azure-mgmt-appconfiguration, a la versión 0.3.0. 
+
+### <a name="appservice"></a>AppService
+
+* Se ha corregido el problema 11100: Error de atributo para az webapp up al crear el plan de servicio
+* az webapp up: cuando se fuerza la creación o implementación en un sitio para lenguajes admitidos, no se usan los valores predeterminados.
+* Se ha agregado compatibilidad para App Service Environment: az appservice ase show | list | list-addresses | list-plans | create | update | delete
+
+### <a name="backup"></a>Copia de seguridad
+
+* Se ha corregido el problema en los elementos asociados a listas de directivas de az backup. Se ha agregado el parámetro opcional BackupManagementType.
+
+### <a name="compute"></a>Proceso
+
+* Se ha actualizado la versión de la API de proceso, discos e instantáneas a la 2019-07-01.
+* vmss create: mejoras para --orchestration-mode
+* sig image-definition create: se ha agregado --os-state para poder especificar si las máquinas virtuales creadas con esta imagen están "Generalizadas" o "Especializadas".
+* sig image-definition create: se ha agregado --hyper-v-generation para poder especificar la generación del hipervisor.
+* sig image-version create: se ha agregado compatibilidad con --os-snapshot y --data-snapshots.
+* image create: se ha agregado --data-disk-caching para poder especificar la configuración de almacenamiento en caché de los discos de datos.
+* Actualización del SDK de Compute para Python a la versión 10.0.0
+* vm/vmss create: se ha agregado "Spot" a la propiedad de la enumeración "Priority".
+* [Cambio importante] Se ha cambiado el nombre del parámetro "--max-billing" a "--max-price" para máquinas virtuales y VMSS, para que sean coherentes con los cmdlets de Swagger y Powershell.
+* vm monitor log show: se ha agregado compatibilidad para la consulta del registro en el área de trabajo de Log Analytics vinculada.
+
+### <a name="iot"></a>IoT
+
+* Corrección 2531: se han agregado argumentos de utilidad para la actualización del concentrador.
+* Corrección 8323: se han agregado los parámetros que faltaban para crear el punto de conexión personalizado de almacenamiento.
+* Corrección del error de regresión: se han revertido los cambios que invalidan el punto de conexión de almacenamiento predeterminado.
+
+### <a name="key-vault"></a>Key Vault
+
+* Corrección 11121: ahora, con `az keyvault certificate list`, al pasar `--include-pending` no se requiere un valor `true` o `false`.
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* Se ha actualizado azure-mgmt-netapp a la versión 0.7.0, que incluye algunas propiedades de volumen adicionales asociadas a futuras operaciones de replicación.
+
+### <a name="network"></a>Red
+
+* application-gateway waf-config: en desuso
+* application-gateway waf-policy: se han agregado reglas administradas de subgrupo para administrar conjuntos de reglas administradas y reglas de exclusión.
+* application-gateway waf-policy: se ha agregado la configuración de directivas de subgrupo para administrar la configuración global de una directiva de WAF.
+* [Cambio importante] application-gateway waf-policy: se ha cambiado el nombre de la regla de subgrupo a regla personalizada.
+* application-gateway http-listener: se ha agregado --firewall-policy en la creación.
+* application-gateway url-path-map rule: se ha agregado --firewall-policy en la creación.
+
+### <a name="packaging"></a>Packaging
+
+* Se ha reescrito az wrapper en Python.
+* Se ha agregado compatibilidad para Python 3.8.
+* Se ha cambiado a Python 3 para el paquete RPM.
+
+### <a name="profile"></a>Perfil
+
+* Se ha corregido el error al ejecutar `az login -u {} -p {}` con una cuenta Microsoft.
+* Se ha corregido el error `SSLError` al ejecutar `az login` detrás de un servidor proxy con certificado raíz autofirmado.
+* Corrección 10578: `az login` se bloquea cuando se inicia más de una instancia al mismo tiempo en Windows o WSL.
+* Corrección 11059: `az login --allow-no-subscriptions` produce un error si hay suscripciones en el inquilino.
+* Corrección 11238: después de cambiar el nombre de una suscripción, al iniciar sesión con MSI aparecerá dos veces la misma suscripción.
+
+### <a name="rbac"></a>RBAC
+
+* Corrección 10996: corrección del error para `--force-change-password-next-login` en `az ad user update` cuando no se especifica `--password`.
+
+### <a name="redis"></a>Redis
+
+* Corrección 2902: se impedía establecer configuraciones de memoria al actualizar la memoria caché de la SKU Básica.
+
+### <a name="reservations"></a>Reservations
+
+* Actualización de la versión del SDK a la 0.6.0
+* Se ha agregado información de detalles del plan de facturación después de llamar a Get-Gatalogs.
+* Se ha agregado el nuevo comando `az reservations reservation-order calculate` para calcular el precio de una reserva.
+* Se ha agregado el nuevo comando `az reservations reservation-order purchase` para adquirir una nueva reserva.
+
+### <a name="rest"></a>Rest
+* Se ha cambiado `az rest` a Disponibilidad general.
+
+### <a name="sql"></a>SQL
+
+* Se ha actualizado azure-mgmt-sql a la versión 0.15.0.
+
+### <a name="storage"></a>Storage
+
+* storage account create: se ha agregado --enable-hierarchical-namespace para admitir la semántica del sistema de archivos en Blob Service.
+* Se ha eliminado la excepción no relacionada del mensaje de error.
+* Se han corregido problemas con el mensaje de error incorrecto: "No tiene los permisos necesarios para realizar esta operación" en bloqueos de las reglas de red o en un error de autenticación.
 
 ## <a name="november-4-2019"></a>4 de noviembre de 2019
 
@@ -101,10 +212,10 @@ Versión 2.0.76
 
 * `az network private-dns link vnet create/update`: Se ha agregado compatibilidad con la vinculación de redes virtuales entre inquilinos.
 * [CAMBIO IMPORTANTE] `az network vnet subnet list`: Se han cambiado `--resource-group` y `--vnet-name` para que ahora sean obligatorios.
-* `az network public-ip prefix create`: Se ha agregado compatibilidad para especificar la versión de la dirección IP (IPv4, IPv6) al crearla.
+* `az network public-ip prefix create`: se ha agregado compatibilidad para especificar la versión de la dirección IP (IPv4, IPv6) durante la creación.
 * Se ha aumentado la versión de Azure-MGMT-Network a 7.0.0 y la versión de API a 2019-09-01.
-* `az network vrouter`: Se ha agregado compatibilidad con un nuevo enrutador virtual de servicio y emparejamiento de enrutador virtual.
-* `az network express-route gateway connection`: Se ha agregado compatibilidad con `--internet-security`.
+* `az network vrouter`: se ha agregado compatibilidad con un nuevo enrutador virtual de servicio y el emparejamiento de enrutador virtual.
+* `az network express-route gateway connection`: Se ha agregado compatibilidad con `--internet-security`
 
 ### <a name="profile"></a>Perfil
 
@@ -260,8 +371,8 @@ Versión 2.0.74
 ### <a name="batch"></a>Batch
 
 * Se han agregado nuevas opciones de configuración de JSON a `--json-file` para `batch pool create`:
-  * Se ha agregado `MountConfigurations` para montajes del sistema de archivos (consulte https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body para obtener más información).
-  * Se ha agregado la propiedad `publicIPs` opcional en `NetworkConfiguration` para las direcciones IP públicas en grupos (consulte https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body para obtener más información).
+  * Se ha agregado `MountConfigurations` para montajes del sistema de archivos (consulte https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body para obtener más información).
+  * Se ha agregado la propiedad `publicIPs` opcional en `NetworkConfiguration` para las direcciones IP públicas en grupos (consulte https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body para obtener más información).
 * Se ha agregado compatibilidad para la galería de imágenes compartidas a `--image`.
 * [CAMBIO IMPORTANTE] Se ha cambiado el valor predeterminado de `--start-task-wait-for-success` en `batch pool create` a `true`.
 * [CAMBIO IMPORTANTE] Se ha cambiado el valor predeterminado de `Scope` en `AutoUserSpecification` para que siempre sea Pool (era `Task` en los nodos Windows, `Pool` en los nodos Linux).
