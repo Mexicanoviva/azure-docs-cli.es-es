@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 792a4bde1876bda620d31bccb7abcfc8e880332f
+ms.sourcegitcommit: 503cf343422ab8d2a587d2ccb795953b8ad66376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158487"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560001"
 ---
 # <a name="azure-cli-configuration"></a>Configuración de la CLI de Azure
 
@@ -35,10 +35,10 @@ Este comando toma un argumento, `--defaults`, que es una lista de pares `key=val
 
 La tabla siguiente contiene una lista de las claves de configuración disponibles.
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 |------|-------------|
 | group | El grupo de recursos predeterminado que se utilizará para todos los comandos. |
-| location | La ubicación predeterminada que se utilizará para todos los comandos. |
+| ubicación | La ubicación predeterminada que se utilizará para todos los comandos. |
 | web | El nombre de la aplicación predeterminada que se usará para los comandos `az webapp`. |
 | vm | El nombre de la máquina virtual predeterminada que se usará para los comandos `az vm`. |
 | vmss | Nombre del conjunto de escalado de máquinas virtuales (VMSS) predeterminado que se usará para los comandos `az vmss`. |
@@ -84,7 +84,7 @@ La tabla siguiente contiene todos los nombres de las secciones y de las opciones
 
 Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumento. En su lugar, se usa el valor predeterminado.
 
-| Sección | NOMBRE      | Type | DESCRIPCIÓN|
+| Sección | Nombre      | Tipo | Descripción|
 |---------|-----------|------|------------|
 | __core__ | output | string | El formato de salida predeterminado. Puede ser `json`, `jsonc`, `tsv` o `table`. |
 | | disable\_confirm\_prompt | boolean | Activa o desactiva los mensajes de confirmación. |
@@ -99,8 +99,9 @@ Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumen
 | | storage\_key | string | La clave de almacenamiento predeterminada que se usará para los comandos `az batchai`. |
 | __batch__ | account | string | El nombre de la cuenta de Azure Batch predeterminada que se usará para los comandos `az batch`. |
 | | access\_key | string | La clave de acceso predeterminada que se usará para los comandos `az batch`. Solo se usa con autorización `aad`. |
-| | punto de conexión | string | El punto de conexión predeterminado para los comandos `az batch`. |
+| | endpoint | string | El punto de conexión predeterminado para los comandos `az batch`. |
 | | auth\_mode | string | El modo de autorización que se usará para los comandos `az batch`. Puede ser `shared_key` o `aad`. |
+| __cloud__ | name | string | La nube predeterminada para todos los comandos `az`.  Los valores posibles son `AzureCloud` (predeterminado), `AzureChinaCloud`, `AzureUSGovernment` y `AzureGermanCloud`. Para cambiar de nube, puede usar el comando `az cloud set –name`.  Para obtener un ejemplo, consulte [Administración de nubes con la CLI de Azure](manage-clouds-azure-cli.md). |
 
 > [!NOTE]
 > Puede ver otros valores en el archivo de configuración, pero estos se administran directamente mediante comandos de la CLI, incluido `az configure`. Los que aparecen en la tabla anterior son los únicos valores que debe cambiar usted mismo.

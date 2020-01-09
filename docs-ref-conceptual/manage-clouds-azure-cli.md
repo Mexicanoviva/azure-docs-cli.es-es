@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 14f51e068c4d2b332b0de93406822e148d734701
-ms.sourcegitcommit: 032f35d553754fbac78b218259a8d6a697ac220e
+ms.openlocfilehash: f102414b9539c9f8ad7d088c2ddf802583c22721
+ms.sourcegitcommit: 503cf343422ab8d2a587d2ccb795953b8ad66376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56458695"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75559616"
 ---
 # <a name="select-clouds-with-the-azure-cli"></a>Selección de nubes con la CLI de Azure
 
@@ -74,7 +74,7 @@ az cloud show --name AzureChinaCloud --output json
 
 ## <a name="switch-the-active-cloud"></a>Cambio de la nube activa
 
-Para cambiar la nube actualmente activa, ejecute el comando [az cloud set](/cli/azure/cloud#az-cloud-set). Este comando toma un argumento necesario, el nombre de la nube.
+Para establecer la nube predeterminada mediante un archivo de configuración, consulte [Valores de configuración de la CLI y variables de entorno](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).  Para cambiar la nube activa, ejecute el comando [az cloud set](/cli/azure/cloud#az-cloud-set). Este comando toma un argumento necesario, el nombre de la nube.
 
 ```azurecli-interactive
 az cloud set --name AzureChinaCloud

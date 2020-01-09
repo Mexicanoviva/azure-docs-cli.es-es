@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 84946fc0562e396ef296cbe8dede5e6a65cd6614
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: 7e5897fe545527aa2708432e0ad0cf626584c785
+ms.sourcegitcommit: 0088160bdb1ea520724d3e1efe71a4a66f29753d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143961"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75216892"
 ---
 # <a name="install-azure-cli-with-zypper"></a>Instalación de la CLI de Azure con zypper
 
-Para las distribuciones de Linux con `zypper`, como openSUSE o SLES, hay un paquete disponible para la CLI de Azure. Este paquete se ha probado con openSUSE 42.2 y versiones posteriores, y SLES 12 SP 2 y versiones posteriores.
+Para las distribuciones de Linux con `zypper`, como openSUSE o SLES, hay un paquete disponible para la CLI de Azure. Este paquete se ha probado con openSUSE Leap 15.1 y SLES 15.
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
 [!INCLUDE [rpm-warning](includes/rpm-warning.md)]
 
-## <a name="install"></a>Instalación
+## <a name="install"></a>Instalar
 
 1. Instale `curl`:
 
@@ -56,11 +56,31 @@ Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use
 
 Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Estos son algunos problemas comunes que se han observado cuando se instala con `zypper`. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
 
-### <a name="proxy-blocks-connection"></a>Conexión de bloques proxy
+### <a name="install-on-sles-12-or-other-other-systems-without-python-36"></a>Instalación en SLES 12 u otros sistemas sin Python 3.6
+
+En SLES 12, el paquete predeterminado de python3 es 3.4 y no es compatible con la CLI de Azure. Puede compilar primero una versión superior de python3 a partir del código fuente. Después, puede descargar el paquete de la CLI de Azure e instalarlo sin dependencias.
+```bash
+$ sudo zypper install -y gcc gcc-c++ make ncurses patch wget tar zlib-devel zlib
+# Download Python source code
+$ PYTHON_VERSION="3.6.9"
+$ PYTHON_SRC_DIR=$(mktemp -d)
+$ wget -qO- https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz | tar -xz -C "$PYTHON_SRC_DIR"
+# Build Python
+$ $PYTHON_SRC_DIR/*/configure --with-ssl
+$ make
+$ sudo make install
+#Download azure-cli package 
+$ AZ_VERSION=$(zypper --no-refresh info azure-cli |grep Version | awk -F': ' '{print $2}' | awk '{$1=$1;print}')
+$ wget https://packages.microsoft.com/yumrepos/azure-cli/azure-cli-$AZ_VERSION.x86_64.rpm
+#Install without dependency
+$ sudo rpm -ivh --nodeps azure-cli-$AZ_VERSION.x86_64.rpm
+```
+
+### <a name="proxy-blocks-connection"></a>El servidor proxy bloquea la conexión
 
 [!INCLUDE[configure-proxy](includes/configure-proxy.md)]
 
