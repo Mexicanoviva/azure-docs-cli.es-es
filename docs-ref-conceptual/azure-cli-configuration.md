@@ -2,20 +2,20 @@
 title: Opciones de configuración de la CLI de Azure
 description: Cómo configurar la CLI de Azure
 keywords: CLI de Azure, configuración, valores, Azure
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 792a4bde1876bda620d31bccb7abcfc8e880332f
-ms.sourcegitcommit: 503cf343422ab8d2a587d2ccb795953b8ad66376
+ms.openlocfilehash: ffdcbda500bc148e661ee4422b76ec51ff4603eb
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560001"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913683"
 ---
 # <a name="azure-cli-configuration"></a>Configuración de la CLI de Azure
 

@@ -2,20 +2,20 @@
 title: Extensiones de la CLI de Azure
 description: Uso de extensiones con la CLI de Azure
 keywords: CLI de Azure, extensiones
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4f203f94e9b26e1219bfe69ec0ddd73228d30b64
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: a8591d6dff297027d0f78ec3865e00a17ba61c52
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158875"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913631"
 ---
 # <a name="use-extensions-with-azure-cli"></a>Uso de extensiones con la CLI de Azure 
 
@@ -94,8 +94,8 @@ La documentación y el control de versiones de una extensión mostrarán si se e
 
 ### <a name="can-extensions-depend-upon-each-other"></a>¿Las extensiones pueden depender entre sí?
 
- No. Como la CLI no garantiza un orden de carga, puede que las dependencias no se cumplan. La retirada de una extensión no afectará a las demás.
+No. Como la CLI no garantiza un orden de carga, puede que las dependencias no se cumplan. La retirada de una extensión no afectará a las demás.
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>¿Las extensiones se actualizan junto con la CLI?
 
- No. Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualizar extensiones](#update-extensions).
+No. Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualizar extensiones](#update-extensions).
