@@ -4,19 +4,33 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/07/2020
+ms.date: 01/13/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
-ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
+ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75694281"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913720"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="january-13-2020"></a>13 de enero de 2020
+
+Versión 2.0.80
+
+### <a name="compute"></a>Proceso
+
+* disk update: Se han agregado --disk-encryption-set y --encryption-type.
+* snapshot create/update: Se han agregado --disk-encryption-set y --encryption-type.
+
+### <a name="storage"></a>Storage
+
+* Se ha actualizado la versión de azure-mgmt-storage a la 7.1.0.
+* `az storage account create`: Se han agregado `--encryption-key-type-for-table` y `--encryption-key-type-for-queue` para admitir el servicio de cifrado de tablas y colas.
 
 ## <a name="january-07-2020"></a>7 de enero de 2020
 
@@ -53,6 +67,11 @@ Versión 2.0.79
 * Se ha corregido el error de `vm create` en el perfil de Azure Stack.
 * vm monitor metrics tail/list-definitions: compatibilidad con métricas de consultas y definiciones de lista para una máquina virtual.
 * Se ha agregado la nueva acción del comando reapply para az vm.
+
+### <a name="hdinsight"></a>HDInsight
+
+* Compatibilidad con la creación de un clúster de Kafka con Kafka Rest Proxy.
+* Se ha actualizado azure-mgmt-hdinsight a la versión 1.3.0.
 
 ### <a name="misc"></a>Varios:
 
