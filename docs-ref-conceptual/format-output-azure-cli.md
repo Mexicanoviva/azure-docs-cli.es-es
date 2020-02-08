@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7bc31ba89234dbdb7b939f3a09886f31184ac65f
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: adb488081076715eb080d1972bba18d285402e95
+ms.sourcegitcommit: a233bb75e27a5c8772c173f195e74d12381b7a64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913550"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890463"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Formatos de salida para los comandos de la CLI de Azure
 
@@ -27,6 +27,7 @@ La CLI de Azure usa JSON como formato de salida predeterminado, pero ofrece otro
 `yaml`   | YAML, una alternativa a JSON legible por máquina.
 `table`  | Tabla ASCII con claves como encabezados de columna.
 `tsv`    | Valores separados por tabulaciones, sin claves
+`none`   | No hay resultados que no sean errores y advertencias
 
 ## <a name="json-output-format"></a>Formato de salida JSON
 
@@ -177,7 +178,7 @@ az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
 
 El ejemplo siguiente muestra cómo se puede canalizar la salida `tsv` a otros comandos en Bash. Se utiliza la consulta para filtrar la salida y forzar el orden, `grep` selecciona los elementos que tienen el texto "RGD" y el comando `cut` selecciona el cuarto campo para mostrar el nombre de la máquina virtual en la salida.
 
-```bash
+```azurecli-interactive
 az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 

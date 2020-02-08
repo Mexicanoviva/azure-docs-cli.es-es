@@ -1,73 +1,58 @@
-- name: CLI de Azure
+- name: Azure CLI
   href: index.yml
-- name: Instalación
+- name: Información general
   items:
-    - name: Instalación
+    - name: ¿Qué es la CLI de Azure?
+      href: what-is-azure-cli.md
+      displayName: 'overview, intro, introduction'
+    - name: Introducción
+      href: get-started-with-azure-cli.md
+      displayName: 'intro, introduction, sign in, signin, log in, login, find, interactive, feedback'
+    - name: Notas de la versión
+      href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Control de versiones de la CLI
+      href: cli-versioning-identifiers.md
+      displayName: 'version, classic, 2.0, 1.0, xplat'
+- name: Instalación y ejecución
+  items:
+    - name: Instalar
       href: install-azure-cli.md
-    - name: macOS
-      href: install-azure-cli-macos.md
-      displayName: 'install, macos, brew, homebrew, osx, os x, mac'
-    - name: Windows
-      href: install-azure-cli-windows.md
-      displayName: 'install, powershell, cmd, command prompt'
-    - name: Linux con apt
-      href: install-azure-cli-apt.md
-      displayName: 'ubuntu, debian, mint, linux, install, wsl'
-    - name: Linux con yum
-      href: install-azure-cli-yum.md
-      displayName: 'rhel, redhat, red hat, fedora, linux, install, wsl'
-    - name: Linux con zypper
-      href: install-azure-cli-zypper.md
-      displayName: 'opensuse, suse, sles, leap, tumbleweed, linux, install, wsl'
-    - name: Script de instalación de Linux
-      href: install-azure-cli-linux.md
-      displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
-    - name: Ejecución en Docker
+      items:
+        - name: 'Instalación: Windows'
+          href: install-azure-cli-windows.md
+          displayName: 'install, powershell, cmd, command prompt'
+        - name: 'Instalación: macOS'
+          href: install-azure-cli-macos.md
+          displayName: 'install, macos, brew, homebrew, osx, os x, mac'
+        - name: 'Instalación: Linux con apt'
+          href: install-azure-cli-apt.md
+          displayName: 'ubuntu, debian, mint, linux, install, wsl'
+        - name: 'Instalación: Linux con yum'
+          href: install-azure-cli-yum.md
+          displayName: 'rhel, redhat, red hat, fedora, linux, install, wsl'
+        - name: 'Instalación: Linux con zypper'
+          href: install-azure-cli-zypper.md
+          displayName: 'opensuse, suse, sles, leap, tumbleweed, linux, install, wsl'
+        - name: 'Instalación: script de instalación de Linux'
+          href: install-azure-cli-linux.md
+          displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
+    - name: 'Ejecución: Docker'
       href: run-azure-cli-docker.md
       displayName: 'linux, unix, container, image'
-- name: Primeros pasos
-  href: get-started-with-azure-cli.md
-  displayName: 'intro, introduction, sign in, signin, log in, login, find, interactive, feedback'
-- name: Cloud Shell
-  href: /azure/cloud-shell/overview
-- name: Iniciar sesión
-  items:
-    - name: Métodos de autenticación
+    - name: 'Ejecución: Azure Cloud Shell'
+      href: /azure/cloud-shell/quickstart
+      displayName: 'bash, Powershell'
+    - name: Iniciar sesión
       href: authenticate-azure-cli.md
       displayName: 'sign in, signin, log in, login, credentials, msi, managed identity, tenant, subscription, region, certificate, service principal, authenticate'
+- name: Tutoriales
+  items:
     - name: Creación de una entidad de servicio
       href: create-an-azure-service-principal-azure-cli.md
       displayName: 'automation, application, web app, script, certificate, sign in, signin, log in, login, devops, dev ops, itpro, it pro, role, aad, authentication, authenticate'
-- name: Modo interactivo
-  href: interactive-azure-cli.md
-- name: Plantillas de implementación
-  items:
-    - name: Uso de plantillas de implementación
-      href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Exportación de plantillas de implementación
-      href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: Implementación con plantillas privadas
-      href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-- name: Administrar suscripciones
-  href: manage-azure-subscriptions-azure-cli.md
-  displayName: 'tenant, user, sign in, signin, log in, login, authenticate, authentication, accounts'
-- name: Trabajo con varias nubes
-  href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  displayName: 'region, china, germany, government, governance, stack'
-- name: Formatos de salida
-  href: format-output-azure-cli.md
-  displayName: 'table, yaml, json, jsonc, tsv, ascii, configure, default'
-- name: Consultar
-  href: query-azure-cli.md
-  displayName: 'filter, search, format, output, variable, scripting, array, dictionary, map, object, json, jsonc, jmespath'
-- name: Valores de configuración
-  href: azure-cli-Configuration.md
-  displayName: 'configure, defaults, environment, variables'
-- name: Tutoriales
-  items:
     - name: Creación de máquinas virtuales
       href: azure-cli-vm-tutorial.yml
-- name: Scripts de ejemplo
+- name: Ejemplos
   items:
     - name: Máquinas virtuales con Linux
       href: /azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
@@ -91,16 +76,38 @@
       displayName: 'database, nosql, mongodb, couchdb'
     - name: Batch
       href: /azure/batch/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-- name: Extensiones
+- name: Guías paso a paso
   items:
-    - name: Información general
-      href: azure-cli-extensions-overview.md
-    - name: Extensiones disponibles
-      href: azure-cli-extensions-list.md
-    - name: Extensión alias
-      href: azure-cli-extension-alias.md
-- name: Notas de la versión
-  href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-- name: Control de versiones de la CLI
-  href: cli-versioning-identifiers.md
-  displayName: 'version, classic, 2.0, 1.0, xplat'
+    - name: Resultados de la consulta
+      href: query-azure-cli.md
+      displayName: 'filter, search, format, output, variable, scripting, array, dictionary, map, object, json, jsonc, jmespath  '
+    - name: Formato de salida
+      href: format-output-azure-cli.md
+      displayName: 'table, yaml, json, jsonc, tsv, ascii, configure, default'
+    - name: Definición de configuración
+      href: azure-cli-Configuration.md
+      displayName: 'configure, defaults, environment, variables'
+    - name: Administrar suscripciones
+      href: manage-azure-subscriptions-azure-cli.md
+      displayName: 'tenant, user, sign in, signin, log in, login, authenticate, authentication, accounts'
+    - name: Trabajo en modo interactivo
+      href: interactive-azure-cli.md
+    - name: Trabajo con varias nubes
+      href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+      displayName: 'region, china, germany, government, governance, stack'
+    - name: Implementación con plantillas
+      items:
+        - name: Uso de plantillas de implementación
+          href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+        - name: Exportación de plantillas de implementación
+          href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: Trabajo con extensiones
+      items:
+        - name: Información general
+          href: azure-cli-extensions-overview.md
+        - name: Extensiones disponibles
+          href: azure-cli-extensions-list.md
+        - name: Extensión alias
+          href: azure-cli-extension-alias.md
+        - name: Implementación con plantillas privadas
+          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json

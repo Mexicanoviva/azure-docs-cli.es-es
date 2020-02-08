@@ -4,19 +4,137 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: eafd18344ac4c1c0124ff53864a45510070b6fe7
+ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913720"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013291"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="february-04-2020"></a>4 de febrero de 2020
+
+Versión 2.0.81
+
+### <a name="acs"></a>ACS
+
+* Se ha agregado compatibilidad para establecer los puertos asignados de salida y los tiempos de espera de inactividad en el equilibrador de carga estándar.
+* Actualización a la versión de API 2019-11-01
+
+### <a name="acr"></a>ACR
+
+* [CAMBIO IMPORTANTE]  `az acr delete` mostrará un aviso.
+* [CAMBIO IMPORTANTE] "az acr task delete" mostrará un aviso.
+* Se ha agregado un nuevo grupo de comandos "az acr taskrun show/list/delete" para la administración de la ejecución de tareas.
+
+### <a name="aks"></a>AKS
+
+* Cada clúster obtiene una entidad de servicio independiente para mejorar el aislamiento.
+
+### <a name="appconfig"></a>AppConfig
+
+* Se ha agregado compatibilidad con la importación y exportación de referencias al almacén de claves hacia y desde appservice.
+* Se ha agregado compatibilidad con la importación y exportación de todas las etiquetas de appconfig a appconfig.
+* Ahora se validan los nombres de clave y de característica antes de establecerlos e importarlos.
+* Se ha expuesto la modificación de la SKU para el almacén de configuración.
+* Se ha agregado el grupo de comandos para identidades administradas.
+
+### <a name="appservice"></a>AppService
+
+* Azure Stack: exposición de los comandos del perfil 2019-03-01-hybrid.
+* functionapp: se ha incorporado la capacidad de crear aplicaciones de función de Java en Linux.
+
+### <a name="arm"></a>ARM
+
+* Corrección del problema 10246: `az resource tag` se bloquea cuando el parámetro `--ids` pasado es un identificador de grupo de recursos.
+* Corrección del problema 11658: el comando `az group export` no admite los parámetros `--query` y `--output`.
+* Corrección del problema 10279: el código de salida de `az group deployment validate` es 0 cuando se produce un error en la comprobación.
+* Corrección del problema 9916: se ha mejorado el mensaje de error del conflicto entre la etiqueta y otras condiciones de filtro del comando `az resource list`.
+* Se ha agregado un nuevo parámetro `--managed-by` para admitir la adición de información de managedBy para el comando `az group create`.
+
+### <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure
+
+* Se ha agregado el subgrupo `monitor` para administrar la supervisión de Log Analytics en el clúster de Azure Red Hat OpensShift.
+
+### <a name="botservice"></a>BotService
+
+* Corrección del problema 11697: `az bot create` no es idempotente.
+* Se han cambiado las pruebas de corrección del nombre para que se ejecuten solo en modo activo.
+
+### <a name="cdn"></a>CDN
+
+* Se ha incorporado compatibilidad con la característica rulesEngine.
+* Se ha agregado un nuevo grupo de comandos "cdn endpoint rule" para administrar reglas.
+* Se ha actualizado la versión de azure-mgmt-cdn a la 4.0.0 para usar la versión de API 2019-04-15.
+
+### <a name="deployment-manager"></a>Administrador de implementaciones
+
+* Se ha agregado la operación de lista para todos los recursos.
+* Se ha mejorado el recurso de paso para el nuevo tipo de paso.
+* Se ha actualizado el paquete azure-mgmt-deploymentmanager para usar la versión 0.2.0.
+
+### <a name="iot"></a>IoT
+
+* Los comandos "IoT hub Job" han quedado en desuso.
+
+### <a name="iot-central"></a>IoT Central
+
+* Se ha agregado compatibilidad con la creación y actualización de aplicaciones con el nuevo nombre de SKU ST0, ST1, ST2.
+
+### <a name="key-vault"></a>Key Vault
+
+* Se ha agregado un nuevo comando `az keyvault key download` para descargar claves.
+
+### <a name="misc"></a>Varios
+
+* Corrección 6371: se ha agregado compatibilidad con la finalización de nombres de archivo y variables de entorno en Bash.
+
+### <a name="network"></a>Red
+
+* Fix #2092: az network dns record-set add/remove. Se ha agregado una advertencia cuando no se encuentra el conjunto de registros. En el futuro, se admitirá un argumento adicional para confirmar esta creación automática.
+
+### <a name="policy"></a>Directiva
+
+* Se ha agregado un nuevo comando `az policy metadata` para recuperar recursos de metadatos de directivas enriquecidos.
+* `az policy remediation create`: especifica si se debe volver a evaluar la compatibilidad antes de la corrección con el parámetro `--resource-discovery-mode`.
+
+### <a name="profile"></a>Perfil
+
+* `az account get-access-token`: se ha agregado el parámetro `--tenant` para adquirir el token para el inquilino directamente, sin necesidad de especificar una suscripción.
+
+### <a name="rbac"></a>RBAC
+
+* [CAMBIO IMPORTANTE] Corrección 11883: `az role assignment create`: si el ámbito está vacío se mostrará un aviso.
+
+### <a name="security"></a>Seguridad
+
+* Se han agregado los nuevos comandos `az atp show` y `az atp update` para ver y administrar la configuración de protección contra amenazas avanzada para las cuentas de almacenamiento.
+
+### <a name="sql"></a>SQL
+
+* `sql dw create`: los parámetros `--zone-redundant` y `--read-replica-count` han quedado en desuso. Estos parámetros no se aplican a DataWarehouse.
+* [CAMBIO IMPORTANTE] `az sql db create`: Se han quitado "WideWorldImportersStd" y "WideWorldImportersFull" como valores permitidos documentados de "az sql db create --sample-name". Estas bases de datos de ejemplo siempre provocarán un error en la creación.
+* Se han agregado los nuevos comandos `sql db classification show/list/update/delete` y `sql db classification recommendation list/enable/disable` para administrar las clasificaciones de confidencialidad de las bases de datos SQL.
+* `az sql db audit-policy`: corrección para acciones y grupos de auditoría vacíos.
+
+### <a name="storage"></a>Storage
+
+* Se ha agregado un nuevo grupo de comandos `az storage share-rm` para usar el proveedor de recursos Microsoft.Storage para las operaciones de administración de recursos compartidos de archivos de Azure.
+* Corrección del problema 11415: error de permisos para `az storage blob update`.
+* Se ha integrado Azcopy 10.3.3 y se ha agregado compatibilidad con Win32.
+* `az storage copy`: se han agregado los parámetros `--include-path`, `--include-pattern`, `--exclude-path` y `--exclude-pattern`.
+* `az storage remove`: se han cambiado los parámetros `--inlcude` y `--exclude` por los parámetros `--include-path`, `--include-pattern`, `--exclude-path` y `--exclude-pattern`.
+* `az storage sync`: se han agregado los parámetros `--include-pattern`, `--exclude-path` y `--exclude-pattern`.
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* Se han agregado nuevos comandos para administrar aplicaciones y servicios.
 
 ## <a name="january-13-2020"></a>13 de enero de 2020
 

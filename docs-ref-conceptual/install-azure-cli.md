@@ -2,24 +2,26 @@
 title: Instalación de la CLI de Azure
 description: Referencia de la instalación de la CLI de Azure
 keywords: CLI de Azure, instalación de la CLI de Azure
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 02/12/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: cacaa77845708f318b3743024d7f87e658368069
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: a4cdc3d745b673d88fa9b9554775b781af3b4048
+ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421905"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013203"
 ---
 # <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
 
-La CLI de Azure es una herramienta de la línea de comandos que proporciona una nueva experiencia para administrar los recursos de Azure. La CLI está diseñada para facilitar el uso de scripts, con datos de consulta, compatibilidad con operaciones de larga y mucho más. Pruébela hoy y descubra todo lo que ofrece la CLI.
+La CLI de Azure se puede instalar en entornos Windows, macOS y Linux.  También se puede ejecutar en un contenedor de Docker y Azure Cloud Shell.
+
+## <a name="install"></a>Instalar
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -31,6 +33,11 @@ La CLI de Azure es una herramienta de la línea de comandos que proporciona una 
   * [Instalación con zypper en openSUSE o SLE](install-azure-cli-zypper.md)
   * [Instalación desde un script](install-azure-cli-linux.md)
 * [Ejecución en un contenedor de Docker](run-azure-cli-docker.md)
+* [Ejecución en Azure Cloud Shell](/azure/cloud-shell/quickstart)
 
 > [!NOTE]
 > Si usa el modelo de implementación clásico de Azure, [instale la CLI clásica de Azure](install-classic-cli.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte las principales características en [¿Qué es la CLI de Azure?](what-is-azure-cli.md)
