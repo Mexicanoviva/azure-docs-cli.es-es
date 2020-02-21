@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a8591d6dff297027d0f78ec3865e00a17ba61c52
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: 41a1ab194c2915c3d6e5c3447eaab96054ef13a5
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913631"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453708"
 ---
 # <a name="use-extensions-with-azure-cli"></a>Uso de extensiones con la CLI de Azure 
 
@@ -99,3 +99,6 @@ No. Como la CLI no garantiza un orden de carga, puede que las dependencias no se
 ### <a name="are-extensions-updated-along-with-the-cli"></a>¿Las extensiones se actualizan junto con la CLI?
 
 No. Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualizar extensiones](#update-extensions).
+
+### <a name="how-to-develop-our-own-extension"></a>¿Cómo podemos desarrollar nuestra propia extensión?
+Para obtener más ayuda, consulte el repositorio oficial. [Azure/azure-cli-extensions](https://github.com/Azure/azure-cli/tree/master/doc/extensions)

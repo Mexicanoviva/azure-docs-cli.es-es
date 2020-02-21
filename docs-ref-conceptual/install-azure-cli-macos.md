@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 790c63a60a5d23863b48227dcc99462bbf950d80
-ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
+ms.openlocfilehash: 9a5026634691f49d960f383c90e139754c862cb4
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163850"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453759"
 ---
 # <a name="install-azure-cli-on-macos"></a>Instalación de la CLI de Azure en macOS
 
@@ -44,9 +44,13 @@ Después, ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use
 
 Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si se produce un problema al instalar la CLI a través de Homebrew, aquí se muestran algunos errores comunes. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
+
+### <a name="completion-is-not-working"></a>La conclusión no funciona
+
+La fórmula Homebrew de la CLI de Azure instala un archivo de conclusión llamado `az` en el directorio de conclusiones administradas por Homebrew (la ubicación predeterminada es `/usr/local/etc/bash_completion.d/`). Para habilitar la conclusión, siga las instrucciones de Homebrew [aquí](https://docs.brew.sh/Shell-Completion).
 
 ### <a name="unable-to-find-python-or-installed-packages"></a>No se puede encontrar Python o los paquetes instalados
 
@@ -61,7 +65,7 @@ brew link --overwrite python3
 
 Si se instaló una versión no actualizada, podría deberse a que la memoria caché de Homebrew estaba obsoleta. Siga las instrucciones de [actualización](#update).
 
-### <a name="proxy-blocks-connection"></a>Conexión de bloques proxy
+### <a name="proxy-blocks-connection"></a>El servidor proxy bloquea la conexión
 
 No puede obtener recursos de Homebrew, a menos que lo haya configurado correctamente para usar el servidor proxy. Siga las [instrucciones de configuración del servidor proxy de Homebrew](https://docs.brew.sh/Manpage#using-homebrew-behind-a-proxy).
 
