@@ -1,104 +1,102 @@
 ---
 title: Extensiones de la CLI de Azure
 description: Uso de extensiones con la CLI de Azure
-keywords: CLI de Azure, extensiones
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 41a1ab194c2915c3d6e5c3447eaab96054ef13a5
-ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
+ms.openlocfilehash: 73488fc464ed052f22f071f6373fb6b8f682b778
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453708"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779999"
 ---
-# <a name="use-extensions-with-azure-cli"></a><span data-ttu-id="8c412-104">Uso de extensiones con la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="8c412-104">Use extensions with Azure CLI</span></span> 
+# <a name="use-extensions-with-azure-cli"></a><span data-ttu-id="1a511-103">Uso de extensiones con la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="1a511-103">Use extensions with Azure CLI</span></span> 
 
-<span data-ttu-id="8c412-105">La CLI de Azure ofrece la posibilidad de cargar extensiones.</span><span class="sxs-lookup"><span data-stu-id="8c412-105">The Azure CLI offers the capability to load extensions.</span></span> <span data-ttu-id="8c412-106">Las extensiones son archivos wheel de Python que no se distribuyen como parte de la CLI, pero se ejecutan como comandos de la CLI.</span><span class="sxs-lookup"><span data-stu-id="8c412-106">Extensions are Python wheels that aren't shipped as part of the CLI but run as CLI commands.</span></span>
-<span data-ttu-id="8c412-107">Con las extensiones, obtendrá acceso a comandos experimentales y en versión preliminar, además de poder escribir sus propias interfaces de la CLI.</span><span class="sxs-lookup"><span data-stu-id="8c412-107">With extensions, you gain access to experimental and pre-release commands along with the ability to write your own CLI interfaces.</span></span> <span data-ttu-id="8c412-108">En este artículo se explica cómo administrar las extensiones y se da respuesta a preguntas comunes sobre su uso.</span><span class="sxs-lookup"><span data-stu-id="8c412-108">This article covers how to manage extensions and answers common questions about their use.</span></span>
+<span data-ttu-id="1a511-104">La CLI de Azure ofrece la posibilidad de cargar extensiones.</span><span class="sxs-lookup"><span data-stu-id="1a511-104">The Azure CLI offers the capability to load extensions.</span></span> <span data-ttu-id="1a511-105">Las extensiones son archivos wheel de Python que no se distribuyen como parte de la CLI, pero se ejecutan como comandos de la CLI.</span><span class="sxs-lookup"><span data-stu-id="1a511-105">Extensions are Python wheels that aren't shipped as part of the CLI but run as CLI commands.</span></span>
+<span data-ttu-id="1a511-106">Con las extensiones, obtendrá acceso a comandos experimentales y en versión preliminar, además de poder escribir sus propias interfaces de la CLI.</span><span class="sxs-lookup"><span data-stu-id="1a511-106">With extensions, you gain access to experimental and pre-release commands along with the ability to write your own CLI interfaces.</span></span> <span data-ttu-id="1a511-107">En este artículo se explica cómo administrar las extensiones y se da respuesta a preguntas comunes sobre su uso.</span><span class="sxs-lookup"><span data-stu-id="1a511-107">This article covers how to manage extensions and answers common questions about their use.</span></span>
 
-## <a name="find-extensions"></a><span data-ttu-id="8c412-109">Buscar extensiones</span><span class="sxs-lookup"><span data-stu-id="8c412-109">Find extensions</span></span>
+## <a name="find-extensions"></a><span data-ttu-id="1a511-108">Buscar extensiones</span><span class="sxs-lookup"><span data-stu-id="1a511-108">Find extensions</span></span>
 
-<span data-ttu-id="8c412-110">Para ver las extensiones que Microsoft proporciona y mantiene, use el comando [az extension list-available](/cli/azure/extension#az-extension-list-available).</span><span class="sxs-lookup"><span data-stu-id="8c412-110">To see the extensions provided and maintained by Microsoft, use the [az extension list-available](/cli/azure/extension#az-extension-list-available) command.</span></span>
+<span data-ttu-id="1a511-109">Para ver las extensiones que Microsoft proporciona y mantiene, use el comando [az extension list-available](/cli/azure/extension#az-extension-list-available).</span><span class="sxs-lookup"><span data-stu-id="1a511-109">To see the extensions provided and maintained by Microsoft, use the [az extension list-available](/cli/azure/extension#az-extension-list-available) command.</span></span>
 
 ```azurecli-interactive
 az extension list-available --output table
 ```
 
-<span data-ttu-id="8c412-111">También hospedamos una [lista de las extensiones](azure-cli-extensions-list.md) en el sitio de documentación.</span><span class="sxs-lookup"><span data-stu-id="8c412-111">We also host a [list of extensions](azure-cli-extensions-list.md) on the documentation site.</span></span>
+<span data-ttu-id="1a511-110">También hospedamos una [lista de las extensiones](azure-cli-extensions-list.md) en el sitio de documentación.</span><span class="sxs-lookup"><span data-stu-id="1a511-110">We also host a [list of extensions](azure-cli-extensions-list.md) on the documentation site.</span></span>
 
-## <a name="install-extensions"></a><span data-ttu-id="8c412-112">Instalar extensiones</span><span class="sxs-lookup"><span data-stu-id="8c412-112">Install extensions</span></span>
+## <a name="install-extensions"></a><span data-ttu-id="1a511-111">Instalar extensiones</span><span class="sxs-lookup"><span data-stu-id="1a511-111">Install extensions</span></span>
 
-<span data-ttu-id="8c412-113">Una vez que haya encontrado una extensión para instalar, use [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add) para obtenerla.</span><span class="sxs-lookup"><span data-stu-id="8c412-113">Once you have found an extension to install, use [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add) to get it.</span></span> <span data-ttu-id="8c412-114">Si la extensión aparece enumerada en `az extension list-available`, puede instalarla por nombre.</span><span class="sxs-lookup"><span data-stu-id="8c412-114">If the extension is listed in `az extension list-available`, you can install the extension by name.</span></span>
+<span data-ttu-id="1a511-112">Una vez que haya encontrado una extensión para instalar, use [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add) para obtenerla.</span><span class="sxs-lookup"><span data-stu-id="1a511-112">Once you have found an extension to install, use [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add) to get it.</span></span> <span data-ttu-id="1a511-113">Si la extensión aparece enumerada en `az extension list-available`, puede instalarla por nombre.</span><span class="sxs-lookup"><span data-stu-id="1a511-113">If the extension is listed in `az extension list-available`, you can install the extension by name.</span></span>
 
 ```azurecli-interactive
 az extension add --name <extension-name>
 ```
 
-<span data-ttu-id="8c412-115">Si la extensión es de un recurso externo o dispone de un vínculo directo a ella, proporcione la dirección URL de origen o la ruta de acceso local.</span><span class="sxs-lookup"><span data-stu-id="8c412-115">If the extension is from an external resource or you have a direct link to it, provide the source URL or local path.</span></span> <span data-ttu-id="8c412-116">La extensión _debe_ ser un archivo wheel de Python compilado.</span><span class="sxs-lookup"><span data-stu-id="8c412-116">The extension _must_ be a compiled Python wheel file.</span></span>
+<span data-ttu-id="1a511-114">Si la extensión es de un recurso externo o dispone de un vínculo directo a ella, proporcione la dirección URL de origen o la ruta de acceso local.</span><span class="sxs-lookup"><span data-stu-id="1a511-114">If the extension is from an external resource or you have a direct link to it, provide the source URL or local path.</span></span> <span data-ttu-id="1a511-115">La extensión _debe_ ser un archivo wheel de Python compilado.</span><span class="sxs-lookup"><span data-stu-id="1a511-115">The extension _must_ be a compiled Python wheel file.</span></span>
 
 ```azurecli-interactive
 az extension add --source <URL-or-path>
 ```
 
-<span data-ttu-id="8c412-117">Cuando se instala una extensión, se encuentra en el valor de la variable `$AZURE_EXTENSION_DIR` del shell.</span><span class="sxs-lookup"><span data-stu-id="8c412-117">Once an extension is installed, it's found under the value of the `$AZURE_EXTENSION_DIR` shell variable.</span></span> <span data-ttu-id="8c412-118">Si esta variable no está establecida, el valor predeterminado es `$HOME/.azure/cliextensions` en Linux y macOS y `%USERPROFILE%\.azure\cliextensions` en Windows.</span><span class="sxs-lookup"><span data-stu-id="8c412-118">If this variable is unset, by default the value is `$HOME/.azure/cliextensions` on Linux and macOS, and `%USERPROFILE%\.azure\cliextensions` on Windows.</span></span>
+<span data-ttu-id="1a511-116">Cuando se instala una extensión, se encuentra en el valor de la variable `$AZURE_EXTENSION_DIR` del shell.</span><span class="sxs-lookup"><span data-stu-id="1a511-116">Once an extension is installed, it's found under the value of the `$AZURE_EXTENSION_DIR` shell variable.</span></span> <span data-ttu-id="1a511-117">Si esta variable no está establecida, el valor predeterminado es `$HOME/.azure/cliextensions` en Linux y macOS y `%USERPROFILE%\.azure\cliextensions` en Windows.</span><span class="sxs-lookup"><span data-stu-id="1a511-117">If this variable is unset, by default the value is `$HOME/.azure/cliextensions` on Linux and macOS, and `%USERPROFILE%\.azure\cliextensions` on Windows.</span></span>
 
-## <a name="update-extensions"></a><span data-ttu-id="8c412-119">Actualizar extensiones</span><span class="sxs-lookup"><span data-stu-id="8c412-119">Update extensions</span></span>
+## <a name="update-extensions"></a><span data-ttu-id="1a511-118">Actualizar extensiones</span><span class="sxs-lookup"><span data-stu-id="1a511-118">Update extensions</span></span>
 
-<span data-ttu-id="8c412-120">Si se instaló una extensión por nombre, actualícela con [az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update).</span><span class="sxs-lookup"><span data-stu-id="8c412-120">If an extension was installed by name, update it using [az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update).</span></span>
+<span data-ttu-id="1a511-119">Si se instaló una extensión por nombre, actualícela con [az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update).</span><span class="sxs-lookup"><span data-stu-id="1a511-119">If an extension was installed by name, update it using [az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update).</span></span>
 
 ```azurecli-interactive
 az extension update --name <extension-name>
 ```
 
-<span data-ttu-id="8c412-121">En caso contrario, una extensión se puede actualizar desde el origen siguiendo las instrucciones de [Instalar extensiones](#install-extensions).</span><span class="sxs-lookup"><span data-stu-id="8c412-121">Otherwise, an extension can be updated from source by following the [Install extensions](#install-extensions) instructions.</span></span>
+<span data-ttu-id="1a511-120">En caso contrario, una extensión se puede actualizar desde el origen siguiendo las instrucciones de [Instalar extensiones](#install-extensions).</span><span class="sxs-lookup"><span data-stu-id="1a511-120">Otherwise, an extension can be updated from source by following the [Install extensions](#install-extensions) instructions.</span></span>
 
-<span data-ttu-id="8c412-122">Si un nombre de extensión no se puede resolver mediante la CLI, desinstálela e intente volver a instalarla.</span><span class="sxs-lookup"><span data-stu-id="8c412-122">If an extension name can't be resolved by the CLI, uninstall it and attempt to reinstall.</span></span> <span data-ttu-id="8c412-123">La extensión también podría haberse vuelto parte de la CLI de base.</span><span class="sxs-lookup"><span data-stu-id="8c412-123">The extension could also have become part of the base CLI.</span></span>
-<span data-ttu-id="8c412-124">Intente actualizar la CLI, tal y como se describe en [Instalación de la CLI de Azure](install-azure-cli.md) y compruebe si se agregaron los comandos de la extensión.</span><span class="sxs-lookup"><span data-stu-id="8c412-124">Try updating the CLI as described in [Install the Azure CLI](install-azure-cli.md) and see if the extension's commands were added.</span></span>
+<span data-ttu-id="1a511-121">Si un nombre de extensión no se puede resolver mediante la CLI, desinstálela e intente volver a instalarla.</span><span class="sxs-lookup"><span data-stu-id="1a511-121">If an extension name can't be resolved by the CLI, uninstall it and attempt to reinstall.</span></span> <span data-ttu-id="1a511-122">La extensión también podría haberse vuelto parte de la CLI de base.</span><span class="sxs-lookup"><span data-stu-id="1a511-122">The extension could also have become part of the base CLI.</span></span>
+<span data-ttu-id="1a511-123">Intente actualizar la CLI, tal y como se describe en [Instalación de la CLI de Azure](install-azure-cli.md) y compruebe si se agregaron los comandos de la extensión.</span><span class="sxs-lookup"><span data-stu-id="1a511-123">Try updating the CLI as described in [Install the Azure CLI](install-azure-cli.md) and see if the extension's commands were added.</span></span>
 
-## <a name="uninstall-extensions"></a><span data-ttu-id="8c412-125">Desinstalar extensiones</span><span class="sxs-lookup"><span data-stu-id="8c412-125">Uninstall extensions</span></span>
+## <a name="uninstall-extensions"></a><span data-ttu-id="1a511-124">Desinstalar extensiones</span><span class="sxs-lookup"><span data-stu-id="1a511-124">Uninstall extensions</span></span>
 
-<span data-ttu-id="8c412-126">Si ya no necesita una extensión, quítela con [az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove).</span><span class="sxs-lookup"><span data-stu-id="8c412-126">If you no longer need an extension, remove it with [az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove).</span></span>
+<span data-ttu-id="1a511-125">Si ya no necesita una extensión, quítela con [az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove).</span><span class="sxs-lookup"><span data-stu-id="1a511-125">If you no longer need an extension, remove it with [az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove).</span></span>
 
 ```azurecli-interactive
 az extension remove --name <extension-name>
 ```
 
-<span data-ttu-id="8c412-127">También puede eliminar una extensión de forma manual mediante su eliminación de la ubicación donde se instaló.</span><span class="sxs-lookup"><span data-stu-id="8c412-127">You can also remove an extension manually by deleting it from the location where it was installed.</span></span> <span data-ttu-id="8c412-128">La variable `$AZURE_EXTENSION_DIR` del shell define donde están instalados los módulos.</span><span class="sxs-lookup"><span data-stu-id="8c412-128">The `$AZURE_EXTENSION_DIR` shell variable defines where modules are installed.</span></span>
-<span data-ttu-id="8c412-129">Si esta variable no está establecida, el valor predeterminado es `$HOME/.azure/cliextensions` en Linux y macOS y `%USERPROFILE%\.azure\cliextensions` en Windows.</span><span class="sxs-lookup"><span data-stu-id="8c412-129">If this variable is unset, by default the value is `$HOME/.azure/cliextensions` on Linux and macOS, and `%USERPROFILE%\.azure\cliextensions` on Windows.</span></span>
+<span data-ttu-id="1a511-126">También puede eliminar una extensión de forma manual mediante su eliminación de la ubicación donde se instaló.</span><span class="sxs-lookup"><span data-stu-id="1a511-126">You can also remove an extension manually by deleting it from the location where it was installed.</span></span> <span data-ttu-id="1a511-127">La variable `$AZURE_EXTENSION_DIR` del shell define donde están instalados los módulos.</span><span class="sxs-lookup"><span data-stu-id="1a511-127">The `$AZURE_EXTENSION_DIR` shell variable defines where modules are installed.</span></span>
+<span data-ttu-id="1a511-128">Si esta variable no está establecida, el valor predeterminado es `$HOME/.azure/cliextensions` en Linux y macOS y `%USERPROFILE%\.azure\cliextensions` en Windows.</span><span class="sxs-lookup"><span data-stu-id="1a511-128">If this variable is unset, by default the value is `$HOME/.azure/cliextensions` on Linux and macOS, and `%USERPROFILE%\.azure\cliextensions` on Windows.</span></span>
 
 ```bash
 rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 ```
 
-## <a name="faq"></a><span data-ttu-id="8c412-130">Preguntas más frecuentes</span><span class="sxs-lookup"><span data-stu-id="8c412-130">FAQ</span></span>
+## <a name="faq"></a><span data-ttu-id="1a511-129">Preguntas más frecuentes</span><span class="sxs-lookup"><span data-stu-id="1a511-129">FAQ</span></span>
 
-<span data-ttu-id="8c412-131">A continuación encontrará respuestas a otras preguntas comunes acerca de las extensiones de la CLI.</span><span class="sxs-lookup"><span data-stu-id="8c412-131">Here are some answers to other common questions about CLI extensions.</span></span>
+<span data-ttu-id="1a511-130">A continuación encontrará respuestas a otras preguntas comunes acerca de las extensiones de la CLI.</span><span class="sxs-lookup"><span data-stu-id="1a511-130">Here are some answers to other common questions about CLI extensions.</span></span>
 
-### <a name="what-file-formats-are-allowed-for-installation"></a><span data-ttu-id="8c412-132">¿Qué formatos de archivo se permiten para la instalación?</span><span class="sxs-lookup"><span data-stu-id="8c412-132">What file formats are allowed for installation?</span></span>
+### <a name="what-file-formats-are-allowed-for-installation"></a><span data-ttu-id="1a511-131">¿Qué formatos de archivo se permiten para la instalación?</span><span class="sxs-lookup"><span data-stu-id="1a511-131">What file formats are allowed for installation?</span></span>
 
-<span data-ttu-id="8c412-133">Actualmente, solo pueden instalarse archivos wheel de Python compilados como extensiones.</span><span class="sxs-lookup"><span data-stu-id="8c412-133">Currently, only compiled Python wheels can be installed as extensions.</span></span>
+<span data-ttu-id="1a511-132">Actualmente, solo pueden instalarse archivos wheel de Python compilados como extensiones.</span><span class="sxs-lookup"><span data-stu-id="1a511-132">Currently, only compiled Python wheels can be installed as extensions.</span></span>
 
-### <a name="can-extensions-replace-existing-commands"></a><span data-ttu-id="8c412-134">¿Pueden reemplazar las extensiones a comandos existentes?</span><span class="sxs-lookup"><span data-stu-id="8c412-134">Can extensions replace existing commands?</span></span>
+### <a name="can-extensions-replace-existing-commands"></a><span data-ttu-id="1a511-133">¿Pueden reemplazar las extensiones a comandos existentes?</span><span class="sxs-lookup"><span data-stu-id="1a511-133">Can extensions replace existing commands?</span></span>
 
-<span data-ttu-id="8c412-135">Sí.</span><span class="sxs-lookup"><span data-stu-id="8c412-135">Yes.</span></span> <span data-ttu-id="8c412-136">Las extensiones pueden reemplazar comandos existentes pero, antes de ejecutar un comando que se ha reemplazado, la CLI emitirá una advertencia.</span><span class="sxs-lookup"><span data-stu-id="8c412-136">Extensions may replace existing commands, but before running a command that has been replaced the CLI will issue a warning.</span></span>
+<span data-ttu-id="1a511-134">Sí.</span><span class="sxs-lookup"><span data-stu-id="1a511-134">Yes.</span></span> <span data-ttu-id="1a511-135">Las extensiones pueden reemplazar comandos existentes pero, antes de ejecutar un comando que se ha reemplazado, la CLI emitirá una advertencia.</span><span class="sxs-lookup"><span data-stu-id="1a511-135">Extensions may replace existing commands, but before running a command that has been replaced the CLI will issue a warning.</span></span>
 
-### <a name="how-can-i-tell-if-an-extension-is-in-pre-release"></a><span data-ttu-id="8c412-137">¿Cómo se puede saber si una extensión está en versión preliminar?</span><span class="sxs-lookup"><span data-stu-id="8c412-137">How can I tell if an extension is in pre-release?</span></span>
+### <a name="how-can-i-tell-if-an-extension-is-in-pre-release"></a><span data-ttu-id="1a511-136">¿Cómo se puede saber si una extensión está en versión preliminar?</span><span class="sxs-lookup"><span data-stu-id="1a511-136">How can I tell if an extension is in pre-release?</span></span>
 
-<span data-ttu-id="8c412-138">La documentación y el control de versiones de una extensión mostrarán si se encuentra en versión preliminar.</span><span class="sxs-lookup"><span data-stu-id="8c412-138">An extension's documentation and versioning will show if it's in pre-release.</span></span> <span data-ttu-id="8c412-139">Microsoft publica periódicamente comandos en versión preliminar como extensiones de la CLI, con la opción de trasladarlos más adelante al producto de CLI principal.</span><span class="sxs-lookup"><span data-stu-id="8c412-139">Microsoft often releases preview commands as CLI extensions, with the option of moving them into the main CLI product later.</span></span> <span data-ttu-id="8c412-140">Cuando se retiran comandos de las extensiones, se debe desinstalar la extensión anterior.</span><span class="sxs-lookup"><span data-stu-id="8c412-140">When commands are moved out of extensions, the old extension should be uninstalled.</span></span> 
+<span data-ttu-id="1a511-137">La documentación y el control de versiones de una extensión mostrarán si se encuentra en versión preliminar.</span><span class="sxs-lookup"><span data-stu-id="1a511-137">An extension's documentation and versioning will show if it's in pre-release.</span></span> <span data-ttu-id="1a511-138">Microsoft publica periódicamente comandos en versión preliminar como extensiones de la CLI, con la opción de trasladarlos más adelante al producto de CLI principal.</span><span class="sxs-lookup"><span data-stu-id="1a511-138">Microsoft often releases preview commands as CLI extensions, with the option of moving them into the main CLI product later.</span></span> <span data-ttu-id="1a511-139">Cuando se retiran comandos de las extensiones, se debe desinstalar la extensión anterior.</span><span class="sxs-lookup"><span data-stu-id="1a511-139">When commands are moved out of extensions, the old extension should be uninstalled.</span></span> 
 
-### <a name="can-extensions-depend-upon-each-other"></a><span data-ttu-id="8c412-141">¿Las extensiones pueden depender entre sí?</span><span class="sxs-lookup"><span data-stu-id="8c412-141">Can extensions depend upon each other?</span></span>
+### <a name="can-extensions-depend-upon-each-other"></a><span data-ttu-id="1a511-140">¿Las extensiones pueden depender entre sí?</span><span class="sxs-lookup"><span data-stu-id="1a511-140">Can extensions depend upon each other?</span></span>
 
-<span data-ttu-id="8c412-142">No.</span><span class="sxs-lookup"><span data-stu-id="8c412-142">No.</span></span> <span data-ttu-id="8c412-143">Como la CLI no garantiza un orden de carga, puede que las dependencias no se cumplan.</span><span class="sxs-lookup"><span data-stu-id="8c412-143">Since the CLI doesn't guarantee a load order, dependencies might not be satisfied.</span></span> <span data-ttu-id="8c412-144">La retirada de una extensión no afectará a las demás.</span><span class="sxs-lookup"><span data-stu-id="8c412-144">Removing an extension won't affect any others.</span></span>
+<span data-ttu-id="1a511-141">No.</span><span class="sxs-lookup"><span data-stu-id="1a511-141">No.</span></span> <span data-ttu-id="1a511-142">Como la CLI no garantiza un orden de carga, puede que las dependencias no se cumplan.</span><span class="sxs-lookup"><span data-stu-id="1a511-142">Since the CLI doesn't guarantee a load order, dependencies might not be satisfied.</span></span> <span data-ttu-id="1a511-143">La retirada de una extensión no afectará a las demás.</span><span class="sxs-lookup"><span data-stu-id="1a511-143">Removing an extension won't affect any others.</span></span>
 
-### <a name="are-extensions-updated-along-with-the-cli"></a><span data-ttu-id="8c412-145">¿Las extensiones se actualizan junto con la CLI?</span><span class="sxs-lookup"><span data-stu-id="8c412-145">Are extensions updated along with the CLI?</span></span>
+### <a name="are-extensions-updated-along-with-the-cli"></a><span data-ttu-id="1a511-144">¿Las extensiones se actualizan junto con la CLI?</span><span class="sxs-lookup"><span data-stu-id="1a511-144">Are extensions updated along with the CLI?</span></span>
 
-<span data-ttu-id="8c412-146">No.</span><span class="sxs-lookup"><span data-stu-id="8c412-146">No.</span></span> <span data-ttu-id="8c412-147">Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualizar extensiones](#update-extensions).</span><span class="sxs-lookup"><span data-stu-id="8c412-147">Extensions must be updated separately, as described in [Update extensions](#update-extensions).</span></span>
+<span data-ttu-id="1a511-145">No.</span><span class="sxs-lookup"><span data-stu-id="1a511-145">No.</span></span> <span data-ttu-id="1a511-146">Las extensiones deben actualizarse por separado, tal y como se describe en la sección [Actualizar extensiones](#update-extensions).</span><span class="sxs-lookup"><span data-stu-id="1a511-146">Extensions must be updated separately, as described in [Update extensions](#update-extensions).</span></span>
 
-### <a name="how-to-develop-our-own-extension"></a><span data-ttu-id="8c412-148">¿Cómo podemos desarrollar nuestra propia extensión?</span><span class="sxs-lookup"><span data-stu-id="8c412-148">How to develop our own extension?</span></span>
-<span data-ttu-id="8c412-149">Para obtener más ayuda, consulte el repositorio oficial.</span><span class="sxs-lookup"><span data-stu-id="8c412-149">Please refer to the official repository for more help.</span></span> [<span data-ttu-id="8c412-150">Azure/azure-cli-extensions</span><span class="sxs-lookup"><span data-stu-id="8c412-150">Azure/azure-cli-extensions</span></span>](https://github.com/Azure/azure-cli/tree/master/doc/extensions)
+### <a name="how-to-develop-our-own-extension"></a><span data-ttu-id="1a511-147">¿Cómo podemos desarrollar nuestra propia extensión?</span><span class="sxs-lookup"><span data-stu-id="1a511-147">How to develop our own extension?</span></span>
+<span data-ttu-id="1a511-148">Para obtener más ayuda, consulte el repositorio oficial.</span><span class="sxs-lookup"><span data-stu-id="1a511-148">Please refer to the official repository for more help.</span></span> [<span data-ttu-id="1a511-149">Azure/azure-cli-extensions</span><span class="sxs-lookup"><span data-stu-id="1a511-149">Azure/azure-cli-extensions</span></span>](https://github.com/Azure/azure-cli/tree/master/doc/extensions)
