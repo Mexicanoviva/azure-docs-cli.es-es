@@ -1,20 +1,19 @@
 ---
 title: Instalación de la CLI de Azure en Linux con apt
 description: Instalación de la CLI de Azure con el administrador de paquetes apt
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 782d88bc2487c24bd0574b6a106f109368191f6b
-ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
+ms.openlocfilehash: c84d5093f670b397a3035dc0f08edc22fa990ff4
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324034"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780135"
 ---
 # <a name="install-azure-cli-with-apt"></a>Instalación de la CLI de Azure con apt
 
@@ -29,7 +28,7 @@ Si está ejecutando una distribución que viene con `apt`, como Ubuntu o Debian,
 >
 > El paquete para la CLI de Azure instala su propio intérprete de Python y no utiliza el sistema Python.
 
-## <a name="install"></a>Instalación
+## <a name="install"></a>Instalar
 
 Ofrecemos dos formas de instalar la CLI de Azure con las distribuciones compatibles con `apt`: Como un script integral que ejecuta automáticamente los comandos de instalación, y con instrucciones que puede seguir paso a paso por su cuenta.
 
@@ -85,7 +84,7 @@ Ejecute la CLI de Azure con el comando `az`. Para iniciar sesión, use el comand
 
 Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Estos son algunos problemas comunes que se han observado cuando se instala con `apt`. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
 
@@ -99,7 +98,7 @@ A veces hace falta un tiempo desde el lanzamiento de una distribución para que 
 
 Para ello, establezca el valor de `AZ_REPO` manualmente al [agregar el repositorio](#set-release). Para las distribuciones de Ubuntu, use el repositorio `bionic` y, para las distribuciones de Debian, use `stretch`. Las distribuciones lanzadas antes de Ubuntu Trusty y Debian Wheezy no se admiten.
 
-### <a name="proxy-blocks-connection"></a>Conexión de bloques proxy
+### <a name="proxy-blocks-connection"></a>El servidor proxy bloquea la conexión
 
 [!INCLUDE[configure-proxy](includes/configure-proxy.md)]
 

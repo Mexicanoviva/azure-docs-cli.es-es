@@ -1,20 +1,19 @@
 ---
 title: Instalación de la CLI clásica de Azure
 description: Instalación de la CLI clásica de Azure para Mac, Linux y Windows con el objetivo de comenzar a utilizar los servicios de Azure
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 06/11/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 65bf8cdc4ee5d74a778d29cd96e51bad5dc6b22e
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 0cc1d7811223bf6f473c2c4516d0919306aa74c7
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158929"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779489"
 ---
 # <a name="install-the-azure-classic-cli"></a>Instalación de la CLI clásica de Azure
 

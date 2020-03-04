@@ -1,20 +1,19 @@
 ---
 title: Modo interactivo de la CLI de Azure
 description: Use la CLI de Azure en modo interactivo.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: 7b3ee1e284e7f771c661bb65bf8b8ab53dafd77f
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59429020"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779523"
 ---
 # <a name="azure-cli-interactive-mode"></a>Modo interactivo de la CLI de Azure
 

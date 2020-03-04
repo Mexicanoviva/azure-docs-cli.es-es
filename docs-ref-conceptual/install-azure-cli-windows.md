@@ -1,20 +1,19 @@
 ---
 title: Instalación de la CLI de Azure para Windows
 description: Cómo instalar la CLI de Azure en Windows
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 05/01/2019
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6c972ba69344f9e8bcd14a96a90e9dadb6cd8132
-ms.sourcegitcommit: 61965f5d95d0dae3752ad6a0e5a93db27a623c28
+ms.openlocfilehash: f88e9d6650354ace9d9e03a33a6bbb2642069bbd
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830963"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779574"
 ---
 # <a name="install-azure-cli-on-windows"></a>Instalación de la CLI de Azure en Windows
 
@@ -45,11 +44,11 @@ Ya puede ejecutar la CLI de Azure con el comando `az` desde el símbolo del sist
 
 Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Estos son algunos problemas comunes que se han observado cuando se instala con Windows. Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).
 
-### <a name="proxy-blocks-connection"></a>Conexión de bloques proxy
+### <a name="proxy-blocks-connection"></a>El servidor proxy bloquea la conexión
 
 Si no puede descargar al instalador MSI porque el proxy está bloqueando la conexión, asegúrese de que el servidor proxy esté configurado correctamente. En Windows 10, esta configuración se administra en el panel `Settings > Network & Internet > Proxy`. Póngase en contacto con el administrador del sistema para más información sobre la configuración necesaria, o si su máquina se puede administrar mediante configuración o si requiere configuración avanzada.
 
@@ -72,12 +71,12 @@ Para obtener el MSI, el servidor proxy debe permitir las conexiones HTTPS a las 
 
 La CLI de Azure se desinstala desde la lista "Aplicaciones y características" de Windows. Para desinstalar:
 
-| Plataforma | Instrucciones |
+| Plataforma | Instructions |
 |---|---|
 | Windows 10 | Inicio > Configuración > Aplicaciones |
 | Windows 8<br/>Windows 7 | Inicio > Panel de Control > Programas > Desinstalar un programa |
 
-En esta pantalla, escriba __CLI de Azure__ en la barra de búsqueda de programas. El programa para desinstalar aparece como __Microsoft CLI 2.0 para Azure__. Seleccione esta aplicación y haga clic en el botón `Uninstall`.
+En esta pantalla, escriba __CLI de Azure__ en la barra de búsqueda de programas. El programa para desinstalar aparece como __Microsoft CLI 2.0 para Azure__. Seleccione esta aplicación y, después, haga clic en el botón `Uninstall`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
