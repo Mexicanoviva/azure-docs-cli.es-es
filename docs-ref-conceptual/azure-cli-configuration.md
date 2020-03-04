@@ -1,21 +1,19 @@
 ---
 title: Opciones de configuración de la CLI de Azure
 description: Cómo configurar la CLI de Azure
-keywords: CLI de Azure, configuración, valores, Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.date: 06/11/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ffdcbda500bc148e661ee4422b76ec51ff4603eb
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: ff5f9f5a5add52bc05009a42aeb00855eb2703fa
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913683"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779659"
 ---
 # <a name="azure-cli-configuration"></a>Configuración de la CLI de Azure
 
@@ -88,7 +86,7 @@ Al proporcionar un valor predeterminado, ningún comando necesita ya ese argumen
 |---------|-----------|------|------------|
 | __core__ | output | string | El formato de salida predeterminado. Puede ser `json`, `jsonc`, `tsv` o `table`. |
 | | disable\_confirm\_prompt | boolean | Activa o desactiva los mensajes de confirmación. |
-| | collect\_telemetry | boolean | Permite que Microsoft recopile datos anónimos sobre el uso de la CLI. Para obtener información de privacidad, consulte los [Términos de uso de la CLI de Azure](http://aka.ms/AzureCliLegal). |
+| | collect\_telemetry | boolean | Permite que Microsoft recopile datos anónimos sobre el uso de la CLI. Para obtener información de privacidad, consulte los [Términos de uso de la CLI de Azure](https://aka.ms/AzureCliLegal). |
 | __logging__ | enable\_log\_file | boolean | Activar o desactivar el registro. |
 | | log\_dir | string | El directorio en el que se escribe el registro. De manera predeterminada, este valor es `${AZURE_CONFIG_DIR}/logs`. |
 | __storage__ | connection\_string | string | La cadena de conexión predeterminada que se usará para los comandos `az storage`. |
