@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: overview
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 95463c0c72aaf03386ee6755997652217ff68711
-ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
+ms.openlocfilehash: 6aeb296c635d3efa35af08af227f165c7bd8f7d2
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013535"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779812"
 ---
 # <a name="what-is-azure-cli"></a>Qué es la CLI de Azure
 
@@ -27,6 +27,7 @@ Las funcionalidades de la CLI de Azure facilitan el trabajo con distintos lengua
 
 - También se puede ejecutar en Docker y Azure Cloud Shell.
 - Ofrece la flexibilidad de la línea de comandos para administrar una solución de Azure.
+
 - Admite operaciones de ejecución prolongada.
 - Puede usar una suscripción para todos los comandos o variar las suscripciones para cada comando.
 - Permite consultar los resultados de la línea de comandos en la salida de la consulta con el formato que elija.

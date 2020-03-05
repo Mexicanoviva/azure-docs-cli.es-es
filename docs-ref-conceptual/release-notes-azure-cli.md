@@ -6,15 +6,14 @@ ms.author: dbradish
 manager: barbkess
 ms.date: 02/18/2020
 ms.topic: article
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6c07b93752df2dab6ca0b210675a48b5c7b85c1c
-ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
+ms.openlocfilehash: 49bb108372225146be8ffc6bb38cf793da8cdb74
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453484"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779948"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
 
@@ -592,8 +591,8 @@ Versión 2.0.76
 * `gremlin graph create`: Se agregó `--conflict-resolution-policy`.
 * `gremlin graph create/update`: Se ha actualizado el esquema predeterminado `--idx`.
 * Se ha corregido el error tipográfico en el mensaje de ayuda
-* base de datos: Se ha agregado la información de desuso.
-* colección: Se ha agregado la información de desuso.
+* base de datos: Se ha agregado información sobre el desuso.
+* colección: Se ha agregado información sobre el desuso.
 
 ### <a name="iot"></a>IoT
 
@@ -4497,7 +4496,7 @@ vm (2.0.11)
 ### <a name="rdbms"></a>RDBMS
 
 * Compatibilidad para enumerar los servidores de una suscripción (n.º 3417).
-* Se corrigió el problema por el que `%s` no se procesaba porque falta `% server_type` (n.º 3393).
+* Se ha corregido el problema por el que `%s` no se procesaba porque faltaba `% server_type` (n.º 3393).
 * Se corrigió la asignación de origen de documentos y se agregó la tarea CI para comprobar (n.º 3361).
 * Se corrigió la ayuda de MySQL y PostgreSQL (n.º 3369).
 

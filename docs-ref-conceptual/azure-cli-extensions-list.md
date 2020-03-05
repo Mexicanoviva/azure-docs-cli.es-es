@@ -1,20 +1,19 @@
 ---
 title: Extensiones disponibles para la CLI de Azure
 description: Lista completa de las extensiones oficialmente admitidas por la CLI de Azure.
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 02/17/2020
+author: haroldrandom
+ms.author: jianzen
+manager: yonzhan,yungezz
+ms.date: 02/27/2020
 ms.topic: article
-ms.prod: azure
-ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: bac834704f4e965d44a8790f5a4fa59254357373
-ms.sourcegitcommit: aff84ab984e2d129927888e6b854ed7a5ccaaf59
+ms.service: azure-cli
+ms.devlang: azurecli
+ms.openlocfilehash: df3ebb4bae4d4e159e8218c3a67bb75e024ff60b
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77520778"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779608"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Extensiones disponibles para la CLI de Azure
 
@@ -29,10 +28,11 @@ az extension list-available --output table
 | Nombre | Versión | Resumen | Vista previa |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Administración de las extensiones de supervisión mejorada de Azure para SAP. |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.29 | Proporciona una versión preliminar de las futuras características de AKS | Sí |
+| [ai-examples](https://github.com/Azure/azure-cli-extensions/tree/master/src/ai-examples) | 0.1.0 | Se han agregado ejemplos con tecnología de inteligencia artificial al contenido de la ayuda. | Sí |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.33 | Proporciona una versión preliminar de las futuras características de AKS | Sí |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | Compatibilidad con alias de comandos | Sí |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | Proporciona una versión preliminar de las futuras características de configuración de aplicaciones. | Sí |
-| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.3 | Compatibilidad para administrar componentes de Application Insights y consultar las métricas, los eventos y los registros de esos componentes. | Sí |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.4 | Compatibilidad para administrar componentes de Application Insights y consultar las métricas, los eventos y los registros de esos componentes. | Sí |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Comandos adicionales para trabajar con el servicio Azure Batch |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.9 | Extensión de Azure IoT para la CLI de Azure. |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.85 | Módulo de comandos de AzureML de la herramienta de línea de comandos de Microsoft Azure |  |
@@ -41,7 +41,7 @@ az extension list-available --output table
 | [connectedmachine](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Extensión Connectedmachine de las herramienta de línea de comandos de Microsoft Azure | Sí |
 | [connection-monitor-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/connection-monitor-preview) | 0.1.0 | Extensión de supervisión de la línea de comandos de Microsoft Azure Command-Line V2 | Sí |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Comandos adicionales para simplificar los flujos de trabajo de bases de datos de Azure. | Sí |
-| [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.4 | Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. |  |
+| [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.5 | Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. |  |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces proporciona a los equipos una experiencia de desarrollo en Kubernetes iterativa y rápida. | Sí |
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.9.0 | Compatibilidad con nuevos escenarios de Database Migration Service. | Sí |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.4.4 | Módulo de comandos de EventGrid para la herramienta de línea de comandos de Microsoft Azure. | Sí |
@@ -66,8 +66,8 @@ az extension list-available --output table
 | [peering](https://github.com/Azure/azure-cli-extensions) | 0.1.0rc1 | Extensión Peering de la herramienta de línea de comandos de Microsoft Azure | Sí |
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Comandos para administrar zonas DNS privadas. | Sí |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 1.0.0 | Se admite la consulta de recursos de Azure con Resource Graph. |  |
-| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.5 | Comandos adicionales para trabajar con instancias de SAP Hana en Azure. |  |
-| [spring-cloud](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | Extensión spring-cloud de la herramienta de línea de comandos de Microsoft Azure | Sí |
+| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.9 | Comandos adicionales para trabajar con instancias de SAP Hana en Azure. |  |
+| [spring-cloud](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Extensión spring-cloud de la herramienta de línea de comandos de Microsoft Azure | Sí |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.10 | Proporciona una versión preliminar de las características de almacenamiento futuras. | Sí |
 | [suscripción](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Compatibilidad con la versión preliminar de la administración de suscripciones. |  |
 | [support](https://github.com/azure/azure-cli-extensions/tree/master/src/support) | 0.1.0 | Extensión de soporte de las herramientas de línea de comandos de Microsoft Azure | Sí |
