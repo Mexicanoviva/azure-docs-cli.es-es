@@ -8,60 +8,61 @@ ms.date: 09/09/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 40312c2b6a741d3373d335b6db4797126ee2f3b3
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: d07fe2e807bd6e1fac6d0e9f883bcc8092be46bb
+ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779557"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037987"
 ---
-# <a name="install-azure-cli-with-zypper"></a><span data-ttu-id="f6820-103">Instalación de la CLI de Azure con zypper</span><span class="sxs-lookup"><span data-stu-id="f6820-103">Install Azure CLI with zypper</span></span>
+# <a name="install-azure-cli-with-zypper"></a><span data-ttu-id="b264d-103">Instalación de la CLI de Azure con zypper</span><span class="sxs-lookup"><span data-stu-id="b264d-103">Install Azure CLI with zypper</span></span>
 
-<span data-ttu-id="f6820-104">Para las distribuciones de Linux con `zypper`, como openSUSE o SLES, hay un paquete disponible para la CLI de Azure.</span><span class="sxs-lookup"><span data-stu-id="f6820-104">For Linux distributions with `zypper`, such as openSUSE or SLES, there's a package available for the Azure CLI.</span></span> <span data-ttu-id="f6820-105">Este paquete se ha probado con openSUSE Leap 15.1 y SLES 15.</span><span class="sxs-lookup"><span data-stu-id="f6820-105">This package has been tested with openSUSE Leap 15.1, and SLES 15.</span></span>
+<span data-ttu-id="b264d-104">Para las distribuciones de Linux con `zypper`, como openSUSE o SLES, hay un paquete disponible para la CLI de Azure.</span><span class="sxs-lookup"><span data-stu-id="b264d-104">For Linux distributions with `zypper`, such as openSUSE or SLES, there's a package available for the Azure CLI.</span></span> <span data-ttu-id="b264d-105">Este paquete se ha probado con openSUSE Leap 15.1 y SLES 15.</span><span class="sxs-lookup"><span data-stu-id="b264d-105">This package has been tested with openSUSE Leap 15.1, and SLES 15.</span></span>
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
 [!INCLUDE [rpm-warning](includes/rpm-warning.md)]
 
-## <a name="install"></a><span data-ttu-id="f6820-106">Instalar</span><span class="sxs-lookup"><span data-stu-id="f6820-106">Install</span></span>
+## <a name="install"></a><span data-ttu-id="b264d-106">Instalar</span><span class="sxs-lookup"><span data-stu-id="b264d-106">Install</span></span>
 
-1. <span data-ttu-id="f6820-107">Instale `curl`:</span><span class="sxs-lookup"><span data-stu-id="f6820-107">Install `curl`:</span></span>
+1. <span data-ttu-id="b264d-107">Instale `curl`:</span><span class="sxs-lookup"><span data-stu-id="b264d-107">Install `curl`:</span></span>
 
    ```bash
    sudo zypper install -y curl
    ```
 
-2. <span data-ttu-id="f6820-108">Importe la clave del repositorio de Microsoft:</span><span class="sxs-lookup"><span data-stu-id="f6820-108">Import the Microsoft repository key:</span></span>
+2. <span data-ttu-id="b264d-108">Importe la clave del repositorio de Microsoft:</span><span class="sxs-lookup"><span data-stu-id="b264d-108">Import the Microsoft repository key:</span></span>
 
    ```bash
    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
    ```
 
-3. <span data-ttu-id="f6820-109">Cree la información del repositorio `azure-cli` local:</span><span class="sxs-lookup"><span data-stu-id="f6820-109">Create local `azure-cli` repository information:</span></span>
+3. <span data-ttu-id="b264d-109">Cree la información del repositorio `azure-cli` local:</span><span class="sxs-lookup"><span data-stu-id="b264d-109">Create local `azure-cli` repository information:</span></span>
 
    ```bash
    sudo zypper addrepo --name 'Azure CLI' --check https://packages.microsoft.com/yumrepos/azure-cli azure-cli
    ```
 
-4. <span data-ttu-id="f6820-110">Actualice el índice del paquete `zypper` e instálelo:</span><span class="sxs-lookup"><span data-stu-id="f6820-110">Update the `zypper` package index and install:</span></span>
+4. <span data-ttu-id="b264d-110">Actualice el índice del paquete `zypper` e instálelo:</span><span class="sxs-lookup"><span data-stu-id="b264d-110">Update the `zypper` package index and install:</span></span>
 
    ```bash
-   sudo zypper install --from azure-cli -y azure-cli
+   sudo zypper install --from azure-cli azure-cli
    ```
+   <span data-ttu-id="b264d-111">Especifique 2 para continuar con la instalación y omitir algunas de sus dependencias.</span><span class="sxs-lookup"><span data-stu-id="b264d-111">Input 2 to continue install by ignoring some of its dependencies.</span></span>
 
-<span data-ttu-id="f6820-111">Después, ejecute la CLI de Azure con el comando `az`.</span><span class="sxs-lookup"><span data-stu-id="f6820-111">You can then run the Azure CLI with the `az` command.</span></span> <span data-ttu-id="f6820-112">Para iniciar sesión, use el comando [az login](/cli/azure/reference-index#az-login).</span><span class="sxs-lookup"><span data-stu-id="f6820-112">To sign in, use [az login](/cli/azure/reference-index#az-login) command.</span></span>
+<span data-ttu-id="b264d-112">Después, ejecute la CLI de Azure con el comando `az`.</span><span class="sxs-lookup"><span data-stu-id="b264d-112">You can then run the Azure CLI with the `az` command.</span></span> <span data-ttu-id="b264d-113">Para iniciar sesión, use el comando [az login](/cli/azure/reference-index#az-login).</span><span class="sxs-lookup"><span data-stu-id="b264d-113">To sign in, use [az login](/cli/azure/reference-index#az-login) command.</span></span>
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-<span data-ttu-id="f6820-113">Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="f6820-113">To learn more about different authentication methods, see [Sign in with Azure CLI](authenticate-azure-cli.md).</span></span>
+<span data-ttu-id="b264d-114">Para más información acerca de los diferentes métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](authenticate-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="b264d-114">To learn more about different authentication methods, see [Sign in with Azure CLI](authenticate-azure-cli.md).</span></span>
 
-## <a name="troubleshooting"></a><span data-ttu-id="f6820-114">Solución de problemas</span><span class="sxs-lookup"><span data-stu-id="f6820-114">Troubleshooting</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="b264d-115">Solución de problemas</span><span class="sxs-lookup"><span data-stu-id="b264d-115">Troubleshooting</span></span>
 
-<span data-ttu-id="f6820-115">Estos son algunos problemas comunes que se han observado cuando se instala con `zypper`.</span><span class="sxs-lookup"><span data-stu-id="f6820-115">Here are some common problems seen when installing with `zypper`.</span></span> <span data-ttu-id="f6820-116">Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="f6820-116">If you experience a problem not covered here, [file an issue on github](https://github.com/Azure/azure-cli/issues).</span></span>
+<span data-ttu-id="b264d-116">Estos son algunos problemas comunes que se han observado cuando se instala con `zypper`.</span><span class="sxs-lookup"><span data-stu-id="b264d-116">Here are some common problems seen when installing with `zypper`.</span></span> <span data-ttu-id="b264d-117">Si tiene algún problema que no se trata aquí, [abra una incidencia en GitHub](https://github.com/Azure/azure-cli/issues).</span><span class="sxs-lookup"><span data-stu-id="b264d-117">If you experience a problem not covered here, [file an issue on github](https://github.com/Azure/azure-cli/issues).</span></span>
 
-### <a name="install-on-sles-12-or-other-systems-without-python-36"></a><span data-ttu-id="f6820-117">Instalación en SLES 12 u otros sistemas sin Python 3.6</span><span class="sxs-lookup"><span data-stu-id="f6820-117">Install on SLES 12 or other systems without Python 3.6</span></span>
+### <a name="install-on-sles-12-or-other-systems-without-python-36"></a><span data-ttu-id="b264d-118">Instalación en SLES 12 u otros sistemas sin Python 3.6</span><span class="sxs-lookup"><span data-stu-id="b264d-118">Install on SLES 12 or other systems without Python 3.6</span></span>
 
-<span data-ttu-id="f6820-118">En SLES 12, el paquete predeterminado de python3 es 3.4 y no es compatible con la CLI de Azure.</span><span class="sxs-lookup"><span data-stu-id="f6820-118">On SLES 12, the defualt python3 package is 3.4 and not supported by Azure CLI.</span></span> <span data-ttu-id="f6820-119">Puede compilar primero una versión superior de python3 a partir del código fuente.</span><span class="sxs-lookup"><span data-stu-id="f6820-119">You can first build a higher version python3 from source.</span></span> <span data-ttu-id="f6820-120">Después, puede descargar el paquete de la CLI de Azure e instalarlo sin dependencias.</span><span class="sxs-lookup"><span data-stu-id="f6820-120">Then you can download the Azure CLI package and install it without dependency.</span></span>
+<span data-ttu-id="b264d-119">En SLES 12, el paquete predeterminado de python3 es 3.4 y no es compatible con la CLI de Azure.</span><span class="sxs-lookup"><span data-stu-id="b264d-119">On SLES 12, the defualt python3 package is 3.4 and not supported by Azure CLI.</span></span> <span data-ttu-id="b264d-120">Puede compilar primero una versión superior de python3 a partir del código fuente.</span><span class="sxs-lookup"><span data-stu-id="b264d-120">You can first build a higher version python3 from source.</span></span> <span data-ttu-id="b264d-121">Después, puede descargar el paquete de la CLI de Azure e instalarlo sin dependencias.</span><span class="sxs-lookup"><span data-stu-id="b264d-121">Then you can download the Azure CLI package and install it without dependency.</span></span>
 ```bash
 $ sudo zypper install -y gcc gcc-c++ make ncurses patch wget tar zlib-devel zlib openssl-devel
 # Download Python source code
@@ -79,56 +80,56 @@ $ wget https://packages.microsoft.com/yumrepos/azure-cli/azure-cli-$AZ_VERSION.x
 $ sudo rpm -ivh --nodeps azure-cli-$AZ_VERSION.x86_64.rpm
 ```
 
-### <a name="proxy-blocks-connection"></a><span data-ttu-id="f6820-121">El servidor proxy bloquea la conexión</span><span class="sxs-lookup"><span data-stu-id="f6820-121">Proxy blocks connection</span></span>
+### <a name="proxy-blocks-connection"></a><span data-ttu-id="b264d-122">El servidor proxy bloquea la conexión</span><span class="sxs-lookup"><span data-stu-id="b264d-122">Proxy blocks connection</span></span>
 
 [!INCLUDE[configure-proxy](includes/configure-proxy.md)]
 
-<span data-ttu-id="f6820-122">También puede configurar explícitamente `zypper` (mediante `yast2`) para usar este servidor proxy en todo momento.</span><span class="sxs-lookup"><span data-stu-id="f6820-122">You may also want to explicitly configure `zypper` (via `yast2`) to use this proxy at all times.</span></span> <span data-ttu-id="f6820-123">Para ello, ejecute el comando `yast2 proxy` como superusuario y rellene la información del formulario.</span><span class="sxs-lookup"><span data-stu-id="f6820-123">To do so, run the `yast2 proxy` command as superuser, and fill in the information presented in the form.</span></span> <span data-ttu-id="f6820-124">Si tiene un administrador de ventanas disponible en el sistema, también puede usar el panel `Network Services > Proxy` en `YaST Control Center`.</span><span class="sxs-lookup"><span data-stu-id="f6820-124">If you have a window manager available on your system, you can also use the `Network Services > Proxy` pane in the `YaST Control Center`.</span></span>
+<span data-ttu-id="b264d-123">También puede configurar explícitamente `zypper` (mediante `yast2`) para usar este servidor proxy en todo momento.</span><span class="sxs-lookup"><span data-stu-id="b264d-123">You may also want to explicitly configure `zypper` (via `yast2`) to use this proxy at all times.</span></span> <span data-ttu-id="b264d-124">Para ello, ejecute el comando `yast2 proxy` como superusuario y rellene la información del formulario.</span><span class="sxs-lookup"><span data-stu-id="b264d-124">To do so, run the `yast2 proxy` command as superuser, and fill in the information presented in the form.</span></span> <span data-ttu-id="b264d-125">Si tiene un administrador de ventanas disponible en el sistema, también puede usar el panel `Network Services > Proxy` en `YaST Control Center`.</span><span class="sxs-lookup"><span data-stu-id="b264d-125">If you have a window manager available on your system, you can also use the `Network Services > Proxy` pane in the `YaST Control Center`.</span></span>
 
-<span data-ttu-id="f6820-125">Para ver la configuración avanzada o más información, consulte la [documentación de la configuración del servidor proxy de OpenSUSE](https://www.suse.com/documentation/slms1/book_slms/data/sec_wy_config_updates_proxy.html).</span><span class="sxs-lookup"><span data-stu-id="f6820-125">For advanced configuration or more information, see the [OpenSUSE Proxy configuration documentation](https://www.suse.com/documentation/slms1/book_slms/data/sec_wy_config_updates_proxy.html)</span></span>
+<span data-ttu-id="b264d-126">Para ver la configuración avanzada o más información, consulte la [documentación de la configuración del servidor proxy de OpenSUSE](https://www.suse.com/documentation/slms1/book_slms/data/sec_wy_config_updates_proxy.html).</span><span class="sxs-lookup"><span data-stu-id="b264d-126">For advanced configuration or more information, see the [OpenSUSE Proxy configuration documentation](https://www.suse.com/documentation/slms1/book_slms/data/sec_wy_config_updates_proxy.html)</span></span>
 
-<span data-ttu-id="f6820-126">Para obtener la clave de firma de Microsoft y obtener el paquete de nuestro repositorio, el servidor proxy debe permitir las conexiones HTTPS a las siguientes direcciones:</span><span class="sxs-lookup"><span data-stu-id="f6820-126">In order to get the Microsoft signing key and get the package from our repository, your proxy needs to allow HTTPS connections to the following addresses:</span></span>
+<span data-ttu-id="b264d-127">Para obtener la clave de firma de Microsoft y obtener el paquete de nuestro repositorio, el servidor proxy debe permitir las conexiones HTTPS a las siguientes direcciones:</span><span class="sxs-lookup"><span data-stu-id="b264d-127">In order to get the Microsoft signing key and get the package from our repository, your proxy needs to allow HTTPS connections to the following addresses:</span></span>
 
 * `https://packages.microsoft.com`
 * `https://download.opensuse.org`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
-## <a name="update"></a><span data-ttu-id="f6820-127">Actualizar</span><span class="sxs-lookup"><span data-stu-id="f6820-127">Update</span></span>
+## <a name="update"></a><span data-ttu-id="b264d-128">Actualizar</span><span class="sxs-lookup"><span data-stu-id="b264d-128">Update</span></span>
 
-<span data-ttu-id="f6820-128">Puede actualizar el paquete con el comando `zypper update`.</span><span class="sxs-lookup"><span data-stu-id="f6820-128">You can update the package with the `zypper update` command.</span></span>
+<span data-ttu-id="b264d-129">Puede actualizar el paquete con el comando `zypper update`.</span><span class="sxs-lookup"><span data-stu-id="b264d-129">You can update the package with the `zypper update` command.</span></span>
 
 ```bash
 sudo zypper refresh
 sudo zypper update azure-cli
 ```
 
-## <a name="uninstall"></a><span data-ttu-id="f6820-129">Desinstalación</span><span class="sxs-lookup"><span data-stu-id="f6820-129">Uninstall</span></span>
+## <a name="uninstall"></a><span data-ttu-id="b264d-130">Desinstalación</span><span class="sxs-lookup"><span data-stu-id="b264d-130">Uninstall</span></span>
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-1. <span data-ttu-id="f6820-130">Elimine el paquete de su equipo.</span><span class="sxs-lookup"><span data-stu-id="f6820-130">Remove the package from your system.</span></span>
+1. <span data-ttu-id="b264d-131">Elimine el paquete de su equipo.</span><span class="sxs-lookup"><span data-stu-id="b264d-131">Remove the package from your system.</span></span>
 
     ```bash
     sudo zypper remove -y azure-cli
     ```
 
-2. <span data-ttu-id="f6820-131">Si no tiene previsto volver a instalar la CLI, elimine la información del repositorio.</span><span class="sxs-lookup"><span data-stu-id="f6820-131">If you don't plan to reinstall the CLI, remove the repository information.</span></span>
+2. <span data-ttu-id="b264d-132">Si no tiene previsto volver a instalar la CLI, elimine la información del repositorio.</span><span class="sxs-lookup"><span data-stu-id="b264d-132">If you don't plan to reinstall the CLI, remove the repository information.</span></span>
 
    ```bash
    sudo zypper removerepo azure-cli
    ```
 
-3. <span data-ttu-id="f6820-132">Si no usa otros paquetes de Microsoft, quite la clave de firma de Microsoft.</span><span class="sxs-lookup"><span data-stu-id="f6820-132">If you don't use other Microsoft packages, remove the Microsoft signing key.</span></span>
+3. <span data-ttu-id="b264d-133">Si no usa otros paquetes de Microsoft, quite la clave de firma de Microsoft.</span><span class="sxs-lookup"><span data-stu-id="b264d-133">If you don't use other Microsoft packages, remove the Microsoft signing key.</span></span>
 
    ```bash
    MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
    sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
    ```
 
-## <a name="next-steps"></a><span data-ttu-id="f6820-133">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="f6820-133">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b264d-134">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="b264d-134">Next Steps</span></span>
 
-<span data-ttu-id="f6820-134">Ahora que ha instalado la CLI de Azure, dé un breve paseo por sus características y comandos más comunes.</span><span class="sxs-lookup"><span data-stu-id="f6820-134">Now that you've installed the Azure CLI, take a short tour of its features and common commands.</span></span>
+<span data-ttu-id="b264d-135">Ahora que ha instalado la CLI de Azure, dé un breve paseo por sus características y comandos más comunes.</span><span class="sxs-lookup"><span data-stu-id="b264d-135">Now that you've installed the Azure CLI, take a short tour of its features and common commands.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="f6820-135">Introducción a la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="f6820-135">Get started with the Azure CLI</span></span>](get-started-with-azure-cli.md)
+> [<span data-ttu-id="b264d-136">Introducción a la CLI de Azure</span><span class="sxs-lookup"><span data-stu-id="b264d-136">Get started with the Azure CLI</span></span>](get-started-with-azure-cli.md)
