@@ -1,23 +1,20 @@
 ### YamlMime:Landing
-title: Interfaz de la línea de comandos (CLI) de Azure
-summary: >
-  La interfaz de la línea de comandos (CLI) de Azure es la experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure.
-
-  El CLI de Azure es una herramienta fácil de aprender y de usar y, al mismo tiempo, eficaz, lo que hace que sea perfecta para personalizar la automatización del uso de los recursos de Azure.
+title: Documentación de la interfaz de la línea de comandos (CLI) de Azure
+summary: "La interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de comandos que se usa para crear y administrar recursos de Azure.  \nLa CLI de Azure está disponible en los servicios de Azure y está diseñada para ayudarle a trabajar rápidamente con Azure, con especial atención a la automatización.\n"
 metadata:
   title: Introducción a la CLI de Azure
   description: Instrucciones para instalar el CLI de Azure y empezar a trabajar con ella.
   ms.topic: landing-page
   ms.collection: collection
-  author: sptramer
-  ms.author: sttramer
+  author: dbradish-microsoft
+  ms.author: dbradish
   ms.date: 09/09/2019
-  ms.openlocfilehash: e42601468fe40d346ca91d6a95b6f37d377863d0
-  ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+  ms.openlocfilehash: 804cf4efdcf88674f67f0d5e2afd2619ba1b892a
+  ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70886142"
+  ms.lasthandoff: 03/21/2020
+  ms.locfileid: "79990097"
 landingContent:
 - title: Instalación de la CLI de Azure
   linkLists:
@@ -47,6 +44,10 @@ landingContent:
     links:
     - text: Introducción a la CLI de Azure
       url: get-started-with-azure-cli.md
+    - text: Servicios que puede administrar la CLI de Azure
+      url: azure-services-the-azure-cli-can-manage.md
+    - text: Artículos populares en los que se usa la CLI de Azure
+      url: popular-articles-using-the-azure-cli.md
   - linkListType: how-to-guide
     links:
     - text: Métodos de inicio de sesión
@@ -95,7 +96,7 @@ landingContent:
       url: /cli/azure/reference-index
     - text: Formatos de salida
       url: format-output-azure-cli.md
-    - text: Valores de configuración
+    - text: Parámetros de configuración
       url: azure-cli-configuration.md
     - text: Notas de la versión
       url: release-notes-azure-cli.md
