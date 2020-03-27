@@ -8,16 +8,16 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: bef8ef96ffefd6214bc924d7378971348d528304
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: bc9b86db6fb9c5b3731550df9dda96debcbfba9f
+ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779642"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79990115"
 ---
 # <a name="get-started-with-azure-cli"></a>Introducción a la CLI de Azure
 
-Bienvenido a la CLI de Azure.  En este artículo se presenta la CLI y se proporcionan vínculos para que pueda empezar a trabajar con ella.
+Bienvenido a la CLI de Azure.  En este artículo se presenta la CLI y se facilita ayuda sobre la realización de tareas comunes.
 
 > [!NOTE]
 >
@@ -122,3 +122,9 @@ Le agradecemos sus comentarios sobre la CLI para ayudarnos a mejorar y resolver 
 ```azurecli-interactive
 az feedback
 ```
+
+## <a name="see-also"></a>Consulte también
+
+* [Servicios que se pueden administrar con la CLI de Azure](azure-services-the-azure-cli-can-manage.md)
+* [Lista de referencia de comandos completa para la CLI de Azure](/cli/azure/reference-index)
+* [Artículos populares sobre el uso de la CLI de Azure](popular-articles-using-the-azure-cli.md)
