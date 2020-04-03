@@ -4,18 +4,143 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 03/10/2020
+ms.date: 03/31/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ff3a1da2343b96bfd78b20742c2c15707932f3d7
-ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
+ms.openlocfilehash: aed043bcb900937a405fd71dafe24016fa0972d7
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037955"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417825"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="march-31-2020"></a>31 de marzo de 2020
+
+Versión 2.3.0
+
+### <a name="acr"></a>ACR
+
+* "az acr task update": excepción de puntero nulo
+* `az acr import`: Se ha modificado la ayuda y el mensaje de error para aclarar el uso de --source y --registry.
+* Se ha agregado un validador para el argumento "registry_name".
+* `az acr login`: se ha quitado la marca de versión preliminar en "--expose-token".
+* [CAMBIO IMPORTANTE]: se ha quitado el parámetro de bifurcación "az acr task create/update".
+* "az acr task update": el cliente ahora puede actualizar el contexto, el token GIT y los desencadenadores individualmente.
+* "az acr agentpool": nueva característica.
+
+### <a name="aks"></a>AKS
+
+* Se ha corregido apiServerAccessProfile al actualizar --api-server-authorized-ip-ranges.
+* Actualización de aks: se invalidan las direcciones IP de salida con valores de entrada al actualizar.
+* No se crea un SPN para clústeres de MSI y se admite la conexión de ACR a los clústeres de MSI.
+
+### <a name="ams"></a>AMS
+
+* Corrección 12469: se produce un error al agregar content-key-policy de Fairplay debido a problemas con el parámetro "ask".
+
+### <a name="appconfig"></a>AppConfig
+
+* Se ha agregado --skip-keyvault para la exportación de kv.
+
+### <a name="appservice"></a>AppService
+
+* Corrección 12509: se ha quitado la etiqueta a az webapp up de forma predeterminada.
+* az functionapp create: Se ha actualizado el menú de ayuda --runtime-version y se ha agrgado una advertencia cuando el usuario especifica --runtime-version para dotnet.
+* az functionapp create: Se ha actualizado la manera en que se establecía javaVersion para las aplicaciones de funciones de Windows.
+
+### <a name="arm"></a>ARM
+
+* az deployment create/validate: se usa --handle-extended-json-format de forma predeterminada.
+* az lock create: se han agregado ejemplos de cómo crear recursos secundarios en la documentación de ayuda.
+* az deployment {group/mg/sub/tenant} list: admite el filtro provisioningState.
+* az deployment: se ha corregido el error de análisis del comentario en el último argumento.
+
+### <a name="backup"></a>Copia de seguridad
+
+* Se han agregado varias funcionalidades de restauración de archivos.
+* Se ha agregado compatibilidad para la copia de seguridad de discos de sistema operativo únicamente.
+* Se ha agregado el parámetro restore-as-unmanaged-disk para especificar una restauración no administrada.
+
+### <a name="compute"></a>Proceso
+
+* az vm create: se ha agregado la opción NONE de --nsg-rule.
+* az vmss create/update: se ha quitado la etiqueta de versión preliminar de vmss automatic repairs.
+* az vm update: se ha agregado compatibilidad con --workspace.
+* Se ha corregido un error en el código de inicialización de VirtualMachineScaleSetExtension.
+* Se ha actualizado VMAccessAgent a la versión 2.4.
+* az vmss set-orchestration-service-state: se ha agregado compatibilidad para establecer el estado del servicio de orquestación de vmss.
+* Se ha actualizado la API de disco a la versión 2019-11-01.
+* az disk create: add --disk-iops-read-only, --disk-mbps-read-only, --max-shares, --image-reference, --image-reference-lun, --gallery-image-reference, --gallery-image-reference-lun
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Se ha corregido la opción --type que faltaba para redireccionamientos en desuso.
+
+### <a name="docker"></a>Docker
+
+* Se ha actualizado a Alpine 3.11 y Python 3.6.10.
+
+### <a name="extension"></a>Extensión
+
+* Se permite cargar extensiones en la ruta de acceso del sistema mediante paquetes.
+
+### <a name="hdinsight"></a>HDInsight
+
+* (az hdinsight create:) Se permite que los clientes especifiquen la versión de TLS mínima admitida mediante el parámetro `--minimal-tls-version`. Los valores permitidos son 1.0, 1.1, 1.2.
+
+### <a name="iot"></a>IoT
+
+* Se ha agregado codeowner.
+* az iot hub create: se ha cambiado la SKU predeterminada de F1 a S1.
+* iot hub: se ha agregado compatibilidad con IotHub en el perfil de 2019-03-01-hybrid.
+
+### <a name="iotcentral"></a>IoTCentral
+
+* Se han actualizado los detalles del error, se ha actualizado la plantilla de aplicación predeterminada y el mensaje.
+
+### <a name="keyvault"></a>KeyVault
+
+* Se ha agregado compatibilidad con la copia de seguridad y restauración de certificados.
+* keyvault create/update: Se ha agregado compatibilidad con --retention-days.
+* Ya no se muestran los secretos o las claves administradas mientras se enumeran.
+* az keyvault create: se ha agregado compatibilidad con `--network-acls`, `--network-acls-ips` y `--network-acls-vnets` para especificar las reglas de red al crear el almacén.
+
+### <a name="lock"></a>Lock
+
+* az lock delete fix bug: az lock delete no funciona en Microsoft.DocumentDB.
+
+### <a name="monitor"></a>Supervisión
+
+* az monitor clone: se ha agregado compatibilidad con la clonación de reglas de métricas de un recurso a otro.
+* Corrección IcM179210086: no se puede crear una alerta de métrica personalizada para su métrica de Application Insights.
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* az volume create: se permite a los volúmenes de protección de datos agregar operaciones de replicación: aprobar, suspender, reanudar, estado, quitar.
+
+### <a name="network"></a>Red
+
+* az network application-gateway waf-policy managed-rule rule-set add: se ha agregado compatibilidad con Microsoft_BotManagerRuleSet.
+* network watcher flow-log show: se ha corregido información incorrecta en desuso.
+* compatibilidad con nombres de host en el agente de escucha de Application Gateway.
+* az network nat gateway: se ha agregado compatibilidad para crear recursos vacíos sin IP pública o prefijo de IP pública.
+* Se ha agregado compatibilidad con la generación puertas de enlace de VPN.
+* Se ha agregado compatibilidad para `--if-none-match` en `az network dns record-set {} add-record`.
+
+### <a name="packaging"></a>Packaging
+
+* Se ha retirado la compatibilidad con Python 3.5.
+
+### <a name="profile"></a>Perfil
+
+* az login: se muestra la advertencia de error de MFA.
+
+### <a name="rdbms"></a>RDBMS
+
+* Se han agregado comandos de administración de claves de cifrado de datos del servidor para PostgreSQL y MySQL.
 
 ## <a name="march-10-2020"></a>10 de marzo de 2020
 

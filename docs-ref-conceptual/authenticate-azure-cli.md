@@ -8,12 +8,12 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 2027741c4fac1ffaeaf6099e18b9729df2e84beb
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: 9c01c0e42edc0c4199349e0bc5d454d7cd3ddc71
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77780033"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417933"
 ---
 # <a name="sign-in-with-azure-cli"></a>Inicio de sesión con la CLI de Azure 
 
@@ -57,13 +57,17 @@ az login -u <username> -p <password>
 
 ## <a name="sign-in-with-a-service-principal"></a>Inicio de sesión con una entidad de servicio
 
-Las entidades de servicio son cuentas no asociadas a un usuario concreto, las cuales pueden tener permisos asignados mediante roles predefinidos. La autenticación con una entidad de servicio es la mejor manera de escribir scripts o programas seguros, lo que le permite aplicar las restricciones de permisos y la información de credenciales estáticas almacenadas de modo local. Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli.md).
+Las entidades de servicio son cuentas no asociadas a un usuario concreto, las cuales pueden tener permisos asignados mediante roles predefinidos. La autenticación con una entidad de servicio es la mejor manera de escribir scripts o programas seguros, lo que le permite aplicar las restricciones de permisos y la información de credenciales estáticas almacenadas de modo local. Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli.md).
 
 Para iniciar sesión con una entidad de servicio, necesita:
 
 * La dirección URL o el nombre asociado a la entidad de servicio.
 * La contraseña de la entidad de servicio o el certificado X509 utilizado para crear la entidad de servicio con el formato PEM.
 * El inquilino asociado con la entidad de servicio, como un dominio de `.onmicrosoft.com` o un identificador de objeto de Azure.
+
+> [!NOTE]
+> Se debe anexar un valor de **CERTIFICATE** a **PRIVATE KEY** en un archivo PEM.  Para ver un ejemplo del formato de archivo PEM, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal). 
+>
 
 > [!IMPORTANT]
 >

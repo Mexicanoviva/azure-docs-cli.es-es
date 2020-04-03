@@ -8,14 +8,14 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1bde944f1c443ef1a8d5aa918575fa09e6bb4714
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: c18adbee84fd3e5c73367b07bbd0b03ac61008cd
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779625"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417870"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
+# <a name="create-an-azure-service-principal-with-the-azure-cli"></a>Creación de una entidad de servicio de Azure con la CLI de Azure
 
 Las herramientas automatizadas que usan los servicios de Azure deberán tener siempre permisos restringidos. En lugar de que las aplicaciones inicien sesión como un usuario con privilegios totales, Azure ofrece las entidades de servicio.
 
@@ -25,7 +25,7 @@ En este artículo se muestra los pasos para crear una entidad de servicio, obten
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Al crear una entidad de servicio, elija el tipo de autenticación de inicio de sesión que usa. 
+Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Al crear una entidad de servicio, elija el tipo de autenticación de inicio de sesión que usa.
 
 > [!NOTE]
 >
@@ -53,6 +53,9 @@ Anote sus valores, aunque se pueden recuperar en cualquier momento con [az ad sp
 
 Para la autenticación basada en certificado, use el argumento `--cert`. Este argumento requiere que tenga un certificado. Asegúrese de que todas las herramientas que usan esta entidad de servicio tienen acceso a la clave privada del certificado. Los certificados deben estar en formato ASCII, como PEM, CER o DER. Pase el certificado como una cadena o use el formato `@path` para cargar el certificado desde un archivo.
 
+> [!NOTE]
+> Cuando se usa un archivo PEM, se debe anexar un valor de **CERTIFICATE** a **PRIVATE KEY** en el archivo.
+
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --cert "-----BEGIN CERTIFICATE-----
 ...
@@ -74,6 +77,35 @@ Para crear un certificado _autofirmado_ para la autenticación, use el argumento
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --create-cert
 ```
+
+Salida de la consola:
+
+```
+Creating a role assignment under the scope of "/subscriptions/myId"
+Please copy C:\myPath\myNewFile.pem to a safe place.
+When you run 'az login', provide the file path in the --password argument
+{
+  "appId": "myAppId",
+  "displayName": "myDisplayName",
+  "fileWithCertAndPrivateKey": "C:\\myPath\\myNewFile.pem",
+  "name": "http://myName",
+  "password": null,
+  "tenant": "myTenantId"
+}
+```
+
+Contenido del nuevo archivo PEM:
+```
+-----BEGIN PRIVATE KEY-----
+myPrivateKeyValue
+-----END PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+myCertificateValue
+-----END CERTIFICATE-----
+```
+
+> [!NOTE]
+> El comando `az ad sp create-for-rbac --create-cert` crea la entidad de servicio y un archivo PEM. El archivo PEM contiene los valores de **PRIVATE KEY** y **CERTIFICATE** con el formato correcto.
 
 Se puede agregar el argumento `--keyvault` para almacenar el certificado en Azure Key Vault. Cuando se usa `--keyvault`, el argumento `--cert` también es __necesario__.
 
@@ -149,7 +181,7 @@ Para iniciar sesión con una entidad de servicio con una contraseña:
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-Para iniciar sesión con un certificado, debe estar disponible localmente en un archivo PEM o DER, en formato ASCII.
+Para iniciar sesión con un certificado, debe estar disponible localmente en un archivo PEM o DER, en formato ASCII. Cuando se usa un archivo PEM, se deben anexar los valores de **CERTIFICATE** y **PRIVATE KEY** en el archivo.
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password /path/to/cert
