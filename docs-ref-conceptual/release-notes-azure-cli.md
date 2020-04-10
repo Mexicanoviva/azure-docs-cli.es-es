@@ -4,18 +4,30 @@ description: Obtenga información acerca de las actualizaciones más recientes d
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: aed043bcb900937a405fd71dafe24016fa0972d7
-ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
+ms.openlocfilehash: cca6f42f29467126553c6e8a332907b1ad1ebc74
+ms.sourcegitcommit: 712c8ca6457552b6b7a8866c1370a6ec51d07f2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80417825"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80525257"
 ---
 # <a name="azure-cli-release-notes"></a>Notas de la versión de la CLI de Azure
+
+## <a name="april-01-2020"></a>1 de abril de 2020
+
+Versión 2.3.1
+
+### <a name="acr"></a>ACR
+
+* Se ha corregido la versión incorrecta de azure-mgmt-containerregistry para Linux.
+
+### <a name="profile"></a>Perfil
+
+* az login: Se ha corregido el error de inicio de sesión con perfiles de nube distintos de `latest`.
 
 ## <a name="march-31-2020"></a>31 de marzo de 2020
 
@@ -5138,4 +5150,3 @@ Puede notificar los problemas con las versiones preliminares nocturnas de las si
 - Informe de los problemas en la [lista de problemas de GitHub](https://github.com/azure/azure-cli/issues/)
 - Póngase en contacto con el equipo del producto en [azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)
 - Envíe sus comentarios desde la línea de comandos con el comando `az feedback`
-
